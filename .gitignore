@@ -1,3 +1,15 @@
+<<<<<<< HEAD
 *.sqlite3
 *.pyc
 __pycache__
+=======
+core.Microsoft*
+core.mongo*
+core.python*
+env.py
+__pycache__/
+*.py[cod]
+node_modules/
+.github/
+cloudinary_python.txt
+>>>>>>> c03e42c578ff94c2046e8fb38ee65e19a2f8bc90
