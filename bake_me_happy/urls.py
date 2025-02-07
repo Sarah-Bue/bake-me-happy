@@ -23,4 +23,7 @@ urlpatterns = [
 
     # Auth
     path('accounts/', include('allauth.urls')),
+
+    # Home
+    path('', include('home.urls')),
 ]
