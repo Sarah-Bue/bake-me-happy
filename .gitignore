@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 *.sqlite3
 *.pyc
 __pycache__
-=======
 core.Microsoft*
 core.mongo*
 core.python*
@@ -12,4 +10,3 @@ __pycache__/
 node_modules/
 .github/
 cloudinary_python.txt
->>>>>>> c03e42c578ff94c2046e8fb38ee65e19a2f8bc90
