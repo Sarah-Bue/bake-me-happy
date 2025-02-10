@@ -8,6 +8,7 @@ class Category(models.Model):
     customer-friendly display name.
     """
 
+    # Meta class to set plural name in admin interface
     class Meta:
         verbose_name_plural = 'Categories'
 

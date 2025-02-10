@@ -8,7 +8,7 @@
                 "german_name": "Klassische Brötchen",
                 "description": "Enter description here",
                 "price": 12.99,
-                "image": "media/placeholder.png",
+                "image": "placeholder.png",
                 "category": 1,
                 "occasion": 1,
                 "rating": 4.9
@@ -24,7 +24,7 @@
                 "german_name": "Kürbiskernbrot",
                 "description": "Enter description here",
                 "price": 5.99,
-                "image":"media/placeholder.png",
+                "image":"placeholder.png",
                 "category": 1,
                 "occasion": 2,
                 "rating": 4.1
@@ -40,7 +40,7 @@
                 "german_name": "Christstollen",
                 "description": "Enter description here",
                 "price": 49.99,
-                "image": "media/placeholder.png",
+                "image": "placeholder.png",
                 "category": 1,
                 "occasion": 3,
                 "rating": 4.9
@@ -56,7 +56,7 @@
                 "german_name": "Osterkranz",
                 "description": "Enter description here",
                 "price": 19.99,
-                "image": "media/placeholder.png",
+                "image": "placeholder.png",
                 "category": 1,
                 "occasion": 4,
                 "rating": 4.7
@@ -72,7 +72,7 @@
                 "german_name": "Hochzeitsbrot",
                 "description": "Enter description here",
                 "price": 24.99,
-                "image": "media/placeholder.png",
+                "image": "placeholder.png",
                 "category": 1,
                 "occasion": 6,
                 "rating": 4.6
@@ -88,7 +88,7 @@
                 "german_name": "Marmorkuchen",
                 "description": "Enter description here",
                 "price": 14.99,
-                "image": "media/placeholder.png",
+                "image": "placeholder.png",
                 "category": 2,
                 "occasion": 1,
                 "rating": 4.5
@@ -104,7 +104,7 @@
             "german_name": "Bienenstich",
             "description": "Enter description here",
             "price": 29.99,
-            "image": "media/placeholder.png",
+            "image": "placeholder.png",
             "category": 2,
             "occasion": 2,
             "rating": 4.4
