@@ -1,0 +1,55 @@
+[
+   {
+      "model":"products.occasion",
+      "pk":1,
+      "fields":{
+         "name":"everyday",
+         "friendly_name":"Day to Day"
+      }
+   },
+
+   {
+      "model":"products.occasion",
+      "pk":2,
+      "fields":{
+         "name":"seasonal",
+         "friendly_name":"Seasonal"
+      }
+   },
+
+    {
+       "model":"products.occasion",
+       "pk":3,
+       "fields":{
+          "name":"christmas",
+          "friendly_name":"Christmas"
+       }
+    },
+    
+    {
+       "model":"products.occasion",
+       "pk":4,
+       "fields":{
+          "name":"easter",
+          "friendly_name":"Easter"
+       }
+    },
+
+    {
+       "model":"products.occasion",
+       "pk":5,
+       "fields":{
+          "name":"birthdays",
+          "friendly_name":"Birthdays"
+       }
+    },
+
+    {
+       "model":"products.occasion",
+       "pk":6,
+       "fields":{
+          "name":"weddings",
+          "friendly_name":"Weddings"
+       }
+    }
+ ]

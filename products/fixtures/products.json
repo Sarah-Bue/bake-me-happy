@@ -1,0 +1,113 @@
+[
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+                "sku": "123456",
+                "name": "White Bread Rolls",
+                "german_name": "Klassische Brötchen",
+                "description": "Enter description here",
+                "price": 12.99,
+                "image": "media/placeholder.png",
+                "category": 1,
+                "occasion": 1,
+                "rating": 4.9
+            }
+    },
+
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+                "sku": "234567",
+                "name": "Pumpkin Seed Bread",
+                "german_name": "Kürbiskernbrot",
+                "description": "Enter description here",
+                "price": 5.99,
+                "image":"media/placeholder.png",
+                "category": 1,
+                "occasion": 2,
+                "rating": 4.1
+            }
+    },
+
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+                "sku": "345678",
+                "name": "Christmas Stollen",
+                "german_name": "Christstollen",
+                "description": "Enter description here",
+                "price": 49.99,
+                "image": "media/placeholder.png",
+                "category": 1,
+                "occasion": 3,
+                "rating": 4.9
+            }
+    },
+
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+                "sku": "456789",
+                "name": "Easter Wreath",
+                "german_name": "Osterkranz",
+                "description": "Enter description here",
+                "price": 19.99,
+                "image": "media/placeholder.png",
+                "category": 1,
+                "occasion": 4,
+                "rating": 4.7
+            }
+    },
+
+    {
+        "model": "products.product",
+        "pk": 5,
+        "fields": {
+                "sku": "567890",
+                "name": "Wedding Bread",
+                "german_name": "Hochzeitsbrot",
+                "description": "Enter description here",
+                "price": 24.99,
+                "image": "media/placeholder.png",
+                "category": 1,
+                "occasion": 6,
+                "rating": 4.6
+            }
+    },
+
+    {
+        "model": "products.product",
+        "pk": 6,
+        "fields": {
+                "sku": "678901",
+                "name": "Marble Cake",
+                "german_name": "Marmorkuchen",
+                "description": "Enter description here",
+                "price": 14.99,
+                "image": "media/placeholder.png",
+                "category": 2,
+                "occasion": 1,
+                "rating": 4.5
+            }
+    },
+
+    {
+        "model": "products.product",
+        "pk": 7,
+        "fields": {
+            "sku": "789012",
+            "name": "Bee Sting Cake",
+            "german_name": "Bienenstich",
+            "description": "Enter description here",
+            "price": 29.99,
+            "image": "media/placeholder.png",
+            "category": 2,
+            "occasion": 2,
+            "rating": 4.4
+        }
+    }
+]

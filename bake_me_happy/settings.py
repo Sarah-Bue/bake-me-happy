@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # bake_me_happy
     'home',
+    'products',
 ]
 
 MIDDLEWARE = [
