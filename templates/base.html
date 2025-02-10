@@ -54,6 +54,7 @@
   <body>
     
     <!-- Main Navigation -->
+    <!-- The main navigation has been adapted from Startbootstrap - Shop Homepage -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="{% url 'home' %}">Bake Me Happy</a>
@@ -69,7 +70,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">All Products</a></li>
+                            <li><a class="dropdown-item" href=" {% url 'products' %}">All Products</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="#!">By Category</a></li>
                             <li><a class="dropdown-item" href="#!">By Occasion</a></li>
@@ -78,7 +79,8 @@
                     </li>
                 </ul>
 
-                <!-- Basket-->
+                <!-- Basket -->
+                <!-- The Basket has been adapted from Code Institute's "Boutique Ado" project -->
                 <li class="list-inline-item">
                     <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
                     <div class="d-flex align-items-center">

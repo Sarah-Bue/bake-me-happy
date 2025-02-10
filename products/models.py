@@ -12,12 +12,15 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
+    # Fields
     name = models.CharField(max_length=100)
     friendly_name = models.CharField(max_length=100, null=True, blank=True)
 
+    # String method to return name
     def __str__(self):
         return self.name
 
+    # String method to return friendly name
     def get_friendly_name(self):
         return self.friendly_name
 
@@ -30,12 +33,15 @@ class Occasion(models.Model):
     and an optional customer-friendly display name.
     """
 
+    # Fields
     name = models.CharField(max_length=100)
     friendly_name = models.CharField(max_length=100, null=True, blank=True)
 
+    # String method to return name
     def __str__(self):
         return self.name
     
+    # String method to return friendly name
     def get_friendly_name(self):
         return self.friendly_name
 
@@ -62,5 +68,6 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
+    # String method to return name
     def __str__(self):
         return self.name

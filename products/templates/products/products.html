@@ -5,9 +5,11 @@
 {% block content %}
 
     <!-- Products -->
+    <!-- The product view has been adapted from Startbootstrap - Shop Homepage -->
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <!-- Product Cards, created using a for loop -->
                 {% for product in products %}
                     <div class="col mb-5">
                         <div class="card h-100">
@@ -17,9 +19,9 @@
                             {% endif %}
                             <!-- Product Image or Placeholder -->
                             {% if product.image_url %}
-                                <img class="card-img-top" src="#" alt="{{ product.name }}" />
+                                <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}" />
                             {% else %}
-                                <img class="card-img-top" src="#" alt="{{ product.name }}" />
+                                <img class="card-img-top" src="{{ MEDIA_URL }}placeholder.png" alt="{{ product.name }}" />
                             {% endif %}
                             <!-- Product Details -->
                             <div class="card-body p-4">
@@ -42,6 +44,30 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Horizontal rule between rows, depending on screen size -->
+                    <!-- The horizontal rule has been adapted from Code Institute's "Boutique Ado" project -->
+                    {% if forloop.counter|divisibleby:1 %}
+                        <div class="col-12 d-sm-none mb-5">
+                            <hr>
+                        </div>
+                    {% endif %}                        
+                    {% if forloop.counter|divisibleby:2 %}
+                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                            <hr>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:3 %}
+                        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                            <hr>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:4 %}
+                        <div class="col-12 d-none d-xl-block mb-5">
+                            <hr>
+                        </div>
+                    {% endif %}
+
                 {% endfor %}
             </div>
         </div>

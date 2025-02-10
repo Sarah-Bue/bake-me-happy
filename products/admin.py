@@ -6,6 +6,8 @@ class ProductAdmin(admin.ModelAdmin):
     """
     Admin model for managing products.
     """
+
+    # Fields to display in the admin interface
     list_display = (
         'name',
         'german_name',
@@ -17,6 +19,7 @@ class ProductAdmin(admin.ModelAdmin):
         'image',
     )
 
+    # Fields to use for filtering
     ordering = ('name',)
 
 
@@ -24,11 +27,14 @@ class CategoryAdmin(admin.ModelAdmin):
     """
     Admin model for managing categories.
     """
+
+    # Fields to display in the admin interface
     list_display = (
         'friendly_name',
         'name',
     )
 
+    # Fields to use for filtering
     ordering = ('name',)
 
 
@@ -36,11 +42,14 @@ class OccasionAdmin(admin.ModelAdmin):
     """
     Admin model for managing occasions.
     """
+
+    # Fields to display in the admin interface
     list_display = (
         'friendly_name',
         'name',
     )
 
+    # Fields to use for filtering
     ordering = ('name',)
 
 

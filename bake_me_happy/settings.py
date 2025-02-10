@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +42,8 @@ INSTALLED_APPS = [
     'products',
 ]
 
+# Middleware framework for request/response processing
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -53,8 +54,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# URL configuration
+
 ROOT_URLCONF = 'bake_me_happy.urls'
 
+# Template configuration
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -72,6 +76,8 @@ TEMPLATES = [
         },
     },
 ]
+
+# WSGI application for production servers
 
 WSGI_APPLICATION = 'bake_me_happy.wsgi.application'
 
