@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
 from django.db.models import Q
-from  .models import Product
+from  .models import Product, Category
 
 
 def all_products(request):
@@ -13,9 +13,23 @@ def all_products(request):
         # Get all products
     products = Product.objects.all()
     query = None
+    categories = None
 
     # Search Handling
     if request.GET:
+
+        # Category Handling
+        if 'category' in request.GET:
+            # Get the category from the request
+            categories = request.GET['category'].split(',')
+            # Filter products by category
+            products = products.filter(category__name__in=categories)
+            # Get category names for display
+            categories = Category.objects.filter(name__in=categories)
+
+
+
+        # Keyword Search Handling
         if 'q' in request.GET:
             # Get the query from the request
             query = request.GET['q']
@@ -40,6 +54,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'current_categories': categories,
         'MEDIA_URL': settings.MEDIA_URL
     }
 
