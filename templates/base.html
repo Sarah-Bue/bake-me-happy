@@ -69,9 +69,10 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href=" {% url 'products' %}">All Products</a></li>
                             <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#!">By Category</a></li>
-                            <li><a class="dropdown-item" href="#!">By Occasion</a></li>
-                            <li><a class="dropdown-item" href="#!">By Rating</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc" >By Price</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=occasion&direction=asc">By Occasion</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
                         </ul>
                     </li>
                     <!-- Individual Links -->
