@@ -46,8 +46,14 @@
                                 <!-- Product Actions -->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="d-flex justify-content-center">
-                                        <a class="btn btn-outline-dark mt-auto me-2" href="#">Add to Basket</a>
-                                        <a class="btn btn-outline-dark mt-auto" href="#">Add to Favorites</a>
+                                        <a class="btn btn-outline-dark mt-auto me-2" href="#" aria-label="Add {{ product.name }} to shopping basket">
+                                            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+                                            <span class="visually-hidden">Add to Basket</span>
+                                        </a>
+                                        <a class="btn btn-outline-dark mt-auto" href="#" aria-label="Add {{ product.name }} to favorites">
+                                            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                            <span class="visually-hidden">Add to Favorites</span>
+                                        </a>                                    
                                     </div>
                                 </div>
                             </div>

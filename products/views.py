@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
+from django.contrib import messages
+from django.db.models import Q
 from  .models import Product
 
 
@@ -8,12 +10,36 @@ def all_products(request):
     A view to show all products, including sorting and search queries
     """
 
-    # Get all products
+        # Get all products
     products = Product.objects.all()
+    query = None
+
+    # Search Handling
+    if request.GET:
+        if 'q' in request.GET:
+            # Get the query from the request
+            query = request.GET['q']
+            # If query is empty, return error message
+            if not query:
+                messages.error(request, "Please enter a search criteria.")
+                # Redirect to products page
+                return redirect(reverse('products'))
+
+            # If query is not empty, search for products with matching:
+            # - English name OR
+            # - German name OR
+            # - Description
+            queries = (
+                Q(name__icontains=query) |
+                Q(german_name__icontains=query) |
+                Q(description__icontains=query)
+            )
+            products = products.filter(queries)
 
     # Context to pass to the template
     context = {
         'products': products,
+        'search_term': query,
         'MEDIA_URL': settings.MEDIA_URL
     }
 
