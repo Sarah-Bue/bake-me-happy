@@ -15,7 +15,7 @@
                             <img class="card-img-top img-fluid w-75" src="{{ product.image.url }}" alt="Detailed product image of {{ product.name }}">
                         </a>
                     {% else %}
-                        <a href="{{ MEDIA_URL }}placeholder.png" target="_blank" aria-label="View full size placeholder image for {{ product.name }}">
+                        <a href="{{ MEDIA_URL }}placeholder.png" target="_blank" aria-label="No image available for {{ product.name }}">
                             <img class="card-img-top img-fluid w-75" src="{{ MEDIA_URL }}placeholder.png" alt="Placeholder image for {{ product.name }}">
                         </a>
                     {% endif %}
