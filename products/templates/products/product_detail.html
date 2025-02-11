@@ -11,12 +11,12 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
                     {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid w-75" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <a href="{{ product.image.url }}" target="_blank" aria-label="View full size image of {{ product.name }}">
+                            <img class="card-img-top img-fluid w-75" src="{{ product.image.url }}" alt="Detailed product image of {{ product.name }}">
                         </a>
                     {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid w-75" src="{{ MEDIA_URL }}placeholder.png" alt="{{ product.name }}">
+                        <a href="{{ MEDIA_URL }}placeholder.png" target="_blank" aria-label="View full size placeholder image for {{ product.name }}">
+                            <img class="card-img-top img-fluid w-75" src="{{ MEDIA_URL }}placeholder.png" alt="Placeholder image for {{ product.name }}">
                         </a>
                     {% endif %}
                 </div>

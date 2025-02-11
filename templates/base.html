@@ -82,7 +82,7 @@
                 <!-- Basket -->
                 <!-- The Basket has been adapted from Code Institute's "Boutique Ado" project -->
                 <li class="list-inline-item">
-                    <a class="{% if grand_total %}text-info fw-bold{% else %}text-dark{% endif %} nav-link" href="#">
+                    <a class="{% if grand_total %}text-info fw-bold{% else %}text-dark{% endif %} nav-link" href="#" aria-label="Shopping basket">
                     <div class="d-flex align-items-center">
                         <i class="fa-solid fa-basket-shopping me-2"></i>
                         <span class="my-0">
@@ -142,9 +142,9 @@
                 </ul>
 
                 <!-- Search Bar-->
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search products">
+                    <button class="btn btn-outline-success" type="submit" aria-label="Submit search">Search</button>
                 </form>
             </div>
         </div>
@@ -168,19 +168,19 @@
                     <h5 class="text-uppercase mb-4">Useful Links</h5>
                     <ul class="list-unstyled mb-4">
                         <li>
-                        <a href="#!" class="text-white">About Us</a>
+                            <a href="#!" class="text-white">About Us</a>
                         </li>
                         <li>
                             <a href="#!" class="text-white">Contact Us</a>
-                            </li>
-                        <li>
-                        <a href="#!" class="text-white">FAQ</a>
                         </li>
                         <li>
-                        <a href="#!" class="text-white">Allergen Information</a>
+                            <a href="#!" class="text-white">FAQ</a>
                         </li>
                         <li>
-                        <a href="#!" class="text-white">Privacy Policy</a>
+                            <a href="#!" class="text-white">Allergen Information</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Privacy Policy</a>
                         </li>
                     </ul>
                 </div>
@@ -205,13 +205,13 @@
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5 class="text-uppercase mb-4">Follow Us</h5>
                     <div class="d-flex justify-content-between">
-                        <a href="https://facebook.com" class="text-white me-4" target="_blank">
+                        <a href="https://facebook.com" class="text-white me-4" target="_blank" rel="noopener" aria-label="Visit us on Facebook (opens in a new tab)">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://instagram.com" class="text-white me-4" target="_blank">
+                        <a href="https://instagram.com" class="text-white me-4" target="_blank" rel="noopener" aria-label="Visit us on Instagram (opens in a new tab)">
                             <i class="fa-brands fa-square-instagram"></i>
                         </a>
-                        <a href="https://twitter.com" class="text-white me-4" target="_blank">
+                        <a href="https://twitter.com" class="text-white me-4" target="_blank" rel="noopener" aria-label="Visit us on Twitter (opens in a new tab)">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
@@ -224,7 +224,7 @@
                         <input type="email" id="newsletter-signup" class="form-control" placeholder="Email address" aria-label="Subscribe to newsletter">
                         <label for="newsletter-signup" class="text-black">Email address</label>
                     </div>
-                    <button type="submit" class="btn btn-outline-light w-100">Subscribe</button>
+                    <button type="submit" class="btn btn-outline-light w-100" aria-label="Subscribe to newsletter">Subscribe</button>
                 </div>
             </div>
         </div>
