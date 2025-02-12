@@ -37,11 +37,16 @@
                                         <div class="text-center">
                                             <h5 class="fw-bolder">{{ product.name }}</h5>
                                             <div class="d-flex justify-content-center small text-warning mb-2">
-                                                {% for i in "12345" %}
-                                                <div class="bi-star-fill"></div>
-                                                {% endfor %}
-                                            </div>
-                                            € {{ product.price }}
+                                                {% if product.rating %}
+                                                    <div class="rating" aria-label="Product rating: {{ product.rating|floatformat:1 }} out of 5 stars">
+                                                        <small class="text-muted"><i class="fas fa-star me-1" aria-hidden="true"></i>{{ product.rating|floatformat:1 }} / 5</small>
+                                                    </div>
+                                                {% else %}
+                                                    <div class="rating" aria-label="This product has not been rated yet">
+                                                        <small class="text-muted">No Rating</small>
+                                                    </div>                    
+                                                {% endif %}                                            </div>                                           
+                                            <p class="lead mb-0 text-center" aria-label="Price: {{ product.price }} euros">€ {{ product.price }}</p>
                                         </div>
                                     </div>
 
