@@ -39,8 +39,13 @@ def all_products(request):
                 sortkey = 'occasion__name'
             elif sortkey == 'rating':
                 # Sort by rating
-                sortkey = '-rating' if direction == 'desc' else 'rating'
-                products = products.order_by(F('rating').desc(nulls_last=True))
+                # sortkey = '-rating' if direction == 'desc' else 'rating'
+                # products = products.order_by(F('rating').desc(nulls_last=True))
+
+                if direction == 'desc':
+                    products = products.order_by(F('rating').desc(nulls_last=True))
+                else:
+                    products = products.order_by(F('rating').asc(nulls_last=True))
             
             # Apply sort direction
             if 'direction' in request.GET:
