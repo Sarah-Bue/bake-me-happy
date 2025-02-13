@@ -37,7 +37,31 @@
         // Validate input on manual entry
         $('.qty_input').on('input', function() {
             var itemId = $(this).data('item_id');
+            var value = $(this).val();
+            
+            // Remove non-numeric characters
+            value = value.replace(/[^0-9]/g, '');
+            $(this).val(value);
+            
+            if (value === '') {
+                $(this).val(1);
+            }
+            
             handleEnableDisable(itemId);
+        });
+
+        // Validate before form submission
+        $('form').submit(function(e) {
+            var qtyInput = $(this).find('.qty_input');
+            if (qtyInput.length) {
+                var value = qtyInput.val();
+                
+                if (!value || isNaN(value)) {
+                    e.preventDefault();
+                    qtyInput.val(1);
+                    handleEnableDisable(qtyInput.data('item_id'));
+                }
+            }
         });
 
     // Increment quantity

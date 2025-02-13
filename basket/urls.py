@@ -10,4 +10,7 @@ urlpatterns = [
 
     # Update Basket
     path('update/<item_id>/', views.update_basket, name='update_basket'),
+
+    # Remove from Basket
+    path('remove/<item_id>/', views.remove_from_basket, name='remove_from_basket'),
 ]

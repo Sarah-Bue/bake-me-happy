@@ -52,3 +52,25 @@ def update_basket(request, item_id):
 
     # Redirect to the basket page
     return redirect('view_basket')
+
+
+def remove_from_basket(request, item_id):
+    """
+    A view to remove the specified product from the shopping basket.
+    """
+    
+    try:
+        # Get the basket data from the session
+        basket = request.session.get('basket', {})
+
+        # Remove the item from the basket
+        basket.pop(item_id)
+
+        # Update the session basket data
+        request.session['basket'] = basket
+
+        return redirect('view_basket')
+
+    # Error Handling
+    except Exception as e:
+        return redirect('view_basket')
