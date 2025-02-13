@@ -92,7 +92,7 @@
                 <!-- Basket -->
                 <!-- The Basket has been adapted from Code Institute's "Boutique Ado" project -->
                 <li class="list-inline-item">
-                    <a class="{% if grand_total %}text-info fw-bold{% else %}text-dark{% endif %} nav-link" href="#" aria-label="Shopping basket">
+                    <a class="{% if grand_total %}text-info fw-bold{% else %}text-dark{% endif %} nav-link" href="{% url 'view_basket' %}" aria-label="Shopping basket">
                     <div class="d-flex align-items-center">
                         <i class="fa-solid fa-basket-shopping me-2"></i>
                         <span class="my-0">

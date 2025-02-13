@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # bake_me_happy
     'home',
     'products',
+    'basket',
 ]
 
 # Middleware framework for request/response processing
