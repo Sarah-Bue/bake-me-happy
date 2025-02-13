@@ -62,9 +62,49 @@
 
                 <!-- Product Actions -->
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="d-flex justify-content-center">
-                        <a class="btn btn-outline-dark mt-auto me-2" href="#">Add to Basket</a>
-                        <a class="btn btn-outline-dark mt-auto" href="#">Add to Favorites</a>
+                    <div class="d-flex flex-column align-items-start">
+                        <!-- Add to Basket Form -->
+                        <form class="needs-validation w-100" action="{% url 'add_to_basket' product.id %}" method="POST" novalidate>
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="id_qty_{{ product.id }}" class="form-label fw-bold">Quantity:</label>
+                                    <div class="input-group has-validation" style="max-width: 150px;">
+                                        <button class="btn btn-outline-secondary" type="button" id="decrease_qty_{{ product.id }}" aria-label="Decrease quantity">
+                                            <i class="fas fa-minus" aria-hidden="true"></i>
+                                        </button>
+                                        <input 
+                                            class="form-control text-center qty_input" 
+                                            type="number" 
+                                            name="quantity" 
+                                            value="1" 
+                                            min="1" 
+                                            max="5" 
+                                            data-item_id="{{ product.id }}" 
+                                            id="id_qty_{{ product.id }}"
+                                            aria-label="Product quantity"
+                                            required
+                                        >
+                                        <button class="btn btn-outline-secondary" type="button" id="increase_qty_{{ product.id }}" aria-label="Increase quantity">
+                                            <i class="fas fa-plus" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="invalid-feedback" id="qty_message_{{ product.id }}" style="display: none;">
+                                            Please contact us for orders over 5 items.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-2">
+                                    <a href="{% url 'products' %}" class="btn btn-outline-dark me-2" aria-label="Return to products page">                                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
+                                    </a>
+                                    <button type="submit" class="btn btn-dark" aria-label="Add {{ product.name }} to your basket">
+                                        <i class="fas fa-shopping-basket me-2" aria-hidden="true"></i>Add to Basket
+                                    </button>
+                                    <button type="button" class="btn btn-outline-dark" aria-label="Add {{ product.name }} to favorites">
+                                        <i class="fas fa-heart me-2" aria-hidden="true"></i>Add to Favorites
+                                    </button>
+                                </div>
+                        </form>
                     </div>
                 </div>
 
@@ -73,4 +113,10 @@
             
         </div>
     </div>
+{% endblock %}
+
+<!-- Postload JS Block -->
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

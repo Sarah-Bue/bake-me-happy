@@ -29,8 +29,7 @@
 
                     <!-- Sorting -->
                     <div class="sort-select-wrapper ms-auto" style="width: 200px;">
-                        <select id="sort-selector" aria-label="Sort products by" class="form-select form-select-sm border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                        <select id="sort-selector" aria-label="Sort products by" class="form-select form-select-sm border border-{% if current_sorting != 'None_None' %}primary{% else %}dark{% endif %}">                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                             <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                             <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
@@ -88,10 +87,16 @@
                                     <!-- Product Actions -->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                         <div class="d-flex justify-content-center">
-                                            <a class="btn btn-outline-dark mt-auto me-2" href="#" aria-label="Add {{ product.name }} to shopping basket">
-                                                <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
-                                                <span class="visually-hidden">Add to Basket</span>
-                                            </a>
+                                            <!-- Add to Basket Form -->
+                                            <form class="d-inline" action="{% url 'add_to_basket' product.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="quantity" value="1">
+                                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                                <button type="submit" class="btn btn-outline-dark mt-auto me-2" aria-label="Add {{ product.name }} to shopping basket">
+                                                    <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+                                                    <span class="visually-hidden">Add to Basket</span>
+                                                </button>
+                                            </form>
                                             <a class="btn btn-outline-dark mt-auto" href="#" aria-label="Add {{ product.name }} to favorites">
                                                 <i class="fa-regular fa-heart" aria-hidden="true"></i>
                                                 <span class="visually-hidden">Add to Favorites</span>

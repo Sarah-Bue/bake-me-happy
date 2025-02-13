@@ -1,0 +1,66 @@
+<!-- This script has been adaptd from Code Institute's "Boutique Ado" project -->
+
+<script type="text/javascript">
+    // Disable +/- buttons outside 1-5 range and validate input    
+    function handleEnableDisable(itemId) {
+        var currentValue = parseInt($(`#id_qty_${itemId}`).val());
+        var minusDisabled = currentValue < 2;
+        var plusDisabled = currentValue > 4;
+        $(`#decrease_qty_${itemId}`).prop('disabled', minusDisabled);
+        $(`#increase_qty_${itemId}`).prop('disabled', plusDisabled);
+
+        // Validate input range
+        if (currentValue > 5) {
+            $(`#id_qty_${itemId}`).val(5);
+            $(`#qty_message_${itemId}`).show();
+        } else if (currentValue < 1) {
+            $(`#id_qty_${itemId}`).val(1);
+            $(`#qty_message_${itemId}`).hide();
+        } else {
+            $(`#qty_message_${itemId}`).hide();
+        }
+    }
+
+    // Ensure proper enabling/disabling of all inputs on page load
+    var allQtyInputs = $('.qty_input');
+    for(var i = 0; i < allQtyInputs.length; i++){
+        var itemId = $(allQtyInputs[i]).data('item_id');
+        handleEnableDisable(itemId);
+    }
+
+    // Check enable/disable every time the input is changed
+    $('.qty_input').change(function() {
+            var itemId = $(this).data('item_id');
+            handleEnableDisable(itemId);
+        });
+
+        // Validate input on manual entry
+        $('.qty_input').on('input', function() {
+            var itemId = $(this).data('item_id');
+            handleEnableDisable(itemId);
+        });
+
+    // Increment quantity
+    $('[id^="increase_qty_"]').click(function(e) {
+       e.preventDefault();
+       var itemId = $(this).attr('id').split('increase_qty_')[1];
+       var qtyInput = $(`#id_qty_${itemId}`);
+       var currentValue = parseInt(qtyInput.val());
+       if (currentValue < 5) {
+           qtyInput.val(currentValue + 1);
+           handleEnableDisable(itemId);
+       }
+    });
+
+    // Decrement quantity
+    $('[id^="decrease_qty_"]').click(function(e) {
+       e.preventDefault();
+       var itemId = $(this).attr('id').split('decrease_qty_')[1];
+       var qtyInput = $(`#id_qty_${itemId}`);
+       var currentValue = parseInt(qtyInput.val());
+       if (currentValue > 1) {
+           qtyInput.val(currentValue - 1);
+           handleEnableDisable(itemId);
+       }
+    });
+</script>

@@ -1,59 +1,145 @@
+
 {% extends "base.html" %}
 {% load static %}
 
-<!-- Content Block -->
 {% block content %}
-
-    <div class="container">
+    <div class="container py-5">
         <div class="row">
             <div class="col">
-                <h2 class="text-center mt-4 mb-4">Shopping Basket</h2>
-                <hr>
+                <h1 class="text-center mb-4">Shopping Basket</h1>
+                <hr class="mb-4">
             </div>
         </div>
 
         <div class="row">
             <div class="col">
-                <!-- If basket is not empty -->
                 {% if basket_items %}
+                    <!-- The basket view has been adapted from Code Institute's "Boutique Ado" project -->
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" role="table" aria-label="Shopping basket contents">
                             <thead>
+                                <!-- Table Headings -->
                                 <tr>
                                     <th scope="col">Product</th>
+                                    <th scope="col">Details</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Qty</th>
+                                    <th scope="col">Quantity</th>
                                     <th scope="col">Subtotal</th>
+                                    <th scope="col"><span class="visually-hidden">Actions</span></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for item in basket_items %}
                                     <tr>
-                                        <td>{{ item.product.name }}</td>
-                                        <td>€{{ item.product.price }}</td>
-                                        <td>{{ item.quantity }}</td>
-                                        <td>€{{ item.subtotal }}</td>
+                                        <!-- Product Image or Placeholder -->
+                                        <td class="p-3 w-25">
+                                            {% if item.product.image %}
+                                                <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                            {% else %}
+                                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}placeholder.png" alt="No image available">
+                                            {% endif %}
+                                        </td>
+
+                                        <!-- Product Details -->
+                                        <td class="py-3">
+                                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                        </td>
+
+                                        <!-- Product Price -->
+                                        <td class="py-3">
+                                            <p class="my-0" aria-label="Price: {{ item.product.price }} euros">€ {{ item.product.price }}</p>
+                                        </td>
+
+                                        <!-- Quantity Form -->
+                                        <td class="py-3 w-25">
+                                            <form class="form update-form" method="POST" action="{% url 'update_basket' item.item_id %}" aria-label="Update quantity form">
+                                                {% csrf_token %}
+                                                <div class="input-group input-group-sm">
+                                                    <button class="btn btn-outline-secondary" type="button" 
+                                                            aria-label="Decrease quantity of {{ item.product.name }}"
+                                                            data-item-id="{{ item.item_id }}"
+                                                            id="decrease_qty_{{ item.item_id }}">
+                                                        <i class="fas fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input type="number" class="form-control text-center qty_input"
+                                                        name="quantity" value="{{ item.quantity }}" min="1" max="5"
+                                                        data-item_id="{{ item.item_id }}"
+                                                        aria-label="Product quantity"
+                                                        id="id_qty_{{ item.item_id }}">
+                                                    <button class="btn btn-outline-secondary" type="button"
+                                                            aria-label="Increase quantity of {{ item.product.name }}"
+                                                            data-item-id="{{ item.item_id }}"
+                                                            id="increase_qty_{{ item.item_id }}">
+                                                        <i class="fas fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <div class="invalid-feedback" id="qty_message_{{ product.id }}" style="display: none;">
+                                                        Please contact us for orders over 5 items.
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <!-- Subtotal -->
+                                        <td class="py-3">
+                                            <p class="my-0" aria-label="Subtotal: {{ item.product.price }} euros">€ {{ item.product.price }}</p>
+                                        </td>
+                                        <!-- Remove Item -->
+                                        <td class="py-3">
+                                            <button class="btn btn-sm btn-outline-danger remove-item" 
+                                                    data-item-id="{{ item.product.id }}"
+                                                    aria-label="Remove {{ item.product.name }} from basket">
+                                                <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                 {% endfor %}
+
+                                <!-- Basket Summary -->
+                                <tr>
+                                    <td colspan="6" class="pt-5 text-end">
+                                        <h6 class="mb-2">Basket Total: <span aria-label="Basket total: {{ total|floatformat:2 }} euros">€ {{ total|floatformat:2 }}</span></h6>
+                                        <h6 class="mb-2">Delivery: <span aria-label="Delivery cost: {{ delivery|floatformat:2 }} euros">€ {{ delivery|floatformat:2 }}</span></h6>
+                                        <h4 class="mt-4"><strong>Grand Total: <span aria-label="Grand total: {{ grand_total|floatformat:2 }} euros">€ {{ grand_total|floatformat:2 }}</span></strong></h4>
+                                        {% if free_delivery_delta > 0 %}
+                                            <p class="mb-1 text-danger">
+                                                Add <strong>€ {{ free_delivery_delta }}</strong> more to get free delivery!
+                                            </p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+
+                                <!-- Action Buttons -->
+                                <tr>
+                                    <td colspan="6" class="text-end pt-3 pb-4">
+                                        <a href="{% url 'products' %}" class="btn btn-outline-dark me-2">
+                                            <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Continue Shopping
+                                        </a>
+                                        <a href="#" class="btn btn-dark">
+                                            Secure Checkout<i class="fas fa-lock ms-2" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 {% else %}
-                
-                <!-- If basket is empty -->
-                <div class="row">
-                    <div class="col text-center" role="alert" aria-live="polite">
-                        <p class="lead">Your basket is empty.</p>
-                        <a href="{% url 'products' %}" class="btn btn-outline-dark mt-3">
-                            Continue Shopping
-                        </a>
+
+                    <!-- Empty Basket Message -->
+                    <div class="row">
+                        <div class="col text-center" role="alert" aria-live="polite">
+                            <p class="lead mb-4">Your basket is empty</p>
+                            <a href="{% url 'products' %}" class="btn btn-outline-dark">
+                                <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Continue Shopping
+                            </a>
+                        </div>
                     </div>
-                </div>
-                
-                    
                 {% endif %}
             </div>
         </div>
     </div>
-    
+{% endblock %}
+
+<!-- Postload JS Block -->
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

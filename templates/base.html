@@ -66,7 +66,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <!-- Individual Links -->
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
 
@@ -92,12 +92,12 @@
                 <!-- Basket -->
                 <!-- The Basket has been adapted from Code Institute's "Boutique Ado" project -->
                 <li class="list-inline-item">
-                    <a class="{% if grand_total %}text-info fw-bold{% else %}text-dark{% endif %} nav-link" href="{% url 'view_basket' %}" aria-label="Shopping basket">
+                    <a class="{% if grand_total %} text-dark fw-bold {% else %}text-dark{% endif %} nav-link" href="{% url 'view_basket' %}" aria-label="Shopping basket">
                     <div class="d-flex align-items-center">
                         <i class="fa-solid fa-basket-shopping me-2"></i>
                         <span class="my-0">
                         {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
+                            € {{ grand_total|floatformat:2 }}
                         {% else %}
                             € 0.00
                         {% endif %}
