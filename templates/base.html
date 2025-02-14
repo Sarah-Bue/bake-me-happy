@@ -163,7 +163,22 @@
 
     <!-- Messages -->
     {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+            {% for message in messages %}
+                <!-- Toasts based on Django's toast levels-->
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+        {% endfor %}
+        </div>
     {% endif %}
 
     <!-- Content Block -->
@@ -248,6 +263,16 @@
       
     <!-- Optional Postload JS -->
     {% block postloadjs %}
+        <!-- Toast JS -->
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                var toastList = toastElList.map(function(toastEl) {
+                    return new bootstrap.Toast(toastEl)
+                });
+                toastList.forEach(toast => toast.show());
+            });
+        </script>
     {% endblock %}
 
   </body>

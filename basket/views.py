@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
+
+from products.models import Product
 
 
 def view_basket(request):
@@ -28,6 +31,10 @@ def add_to_basket(request, item_id):
     # Update the session basket data
     request.session['basket'] = basket
 
+    # Get product info for the message
+    product = Product.objects.get(pk=item_id)
+    messages.success(request, f'{product.name} has been added to your basket')
+
     # Redirect to the basket page
     return redirect(redirect_url)
 
@@ -50,6 +57,10 @@ def update_basket(request, item_id):
     # Update the session basket data
     request.session['basket'] = basket
 
+    # Get product info for the message
+    product = Product.objects.get(pk=item_id)
+    messages.success(request, f'Updated {product.name} quantity to {quantity}')
+
     # Redirect to the basket page
     return redirect('view_basket')
 
@@ -69,6 +80,11 @@ def remove_from_basket(request, item_id):
         # Update the session basket data
         request.session['basket'] = basket
 
+        # Get product info for the message
+        product = Product.objects.get(pk=item_id)
+        messages.success(request, f'{product.name} has been removed from your basket')
+
+        # Redirect to the basket page
         return redirect('view_basket')
 
     # Error Handling

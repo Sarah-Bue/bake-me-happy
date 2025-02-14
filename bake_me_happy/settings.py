@@ -79,6 +79,12 @@ TEMPLATES = [
     },
 ]
 
+
+# Message Storage
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+
 # WSGI application for production servers
 
 WSGI_APPLICATION = 'bake_me_happy.wsgi.application'
@@ -147,3 +153,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
+

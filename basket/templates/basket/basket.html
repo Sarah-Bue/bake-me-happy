@@ -53,7 +53,7 @@
 
                                         <!-- Quantity Form -->
                                         <td class="py-3 w-25">
-                                            <form class="form update-form" method="POST" action="{% url 'update_basket' item.item_id %}" aria-label="Update quantity form">
+                                            <form class="form update-form" id="update-form-{{ item.item_id }}" method="POST" action="{% url 'update_basket' item.item_id %}" aria-label="Update quantity form">
                                                 {% csrf_token %}
                                                 <div class="d-flex flex-column gap-2">
                                                     <div class="input-group input-group-sm">
