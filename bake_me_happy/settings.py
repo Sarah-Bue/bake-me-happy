@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'basket',
+    'checkout',
 ]
 
 # Middleware framework for request/response processing
