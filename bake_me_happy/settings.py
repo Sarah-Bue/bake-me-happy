@@ -42,7 +42,15 @@ INSTALLED_APPS = [
     'products',
     'basket',
     'checkout',
+    # Third-party
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
+
+# Crispy Forms Configuration
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Middleware framework for request/response processing
 
@@ -61,6 +69,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'bake_me_happy.urls'
 
 # Template configuration
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -74,8 +83,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'basket.contexts.basket_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

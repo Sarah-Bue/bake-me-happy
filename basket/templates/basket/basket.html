@@ -115,6 +115,17 @@
                                                 Add <strong>€ {{ free_delivery_delta }}</strong> more to get free delivery!
                                             </p>
                                         {% endif %}
+
+                                        <hr>
+                                        <!-- Checkout Buttons -->
+                                        <div class="d-flex justify-content-end gap-2 mt-3">
+                                            <a href="{% url 'products' %}" class="btn btn-outline-dark" aria-label="Continue shopping">
+                                                <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
+                                            </a>
+                                            <a href="{% url 'checkout' %}" class="btn btn-dark" aria-label="Proceed to secure checkout">
+                                                <i class="fas fa-lock me-2" aria-hidden="true"></i>Secure Checkout
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

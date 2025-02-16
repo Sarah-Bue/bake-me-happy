@@ -18,6 +18,7 @@ urlpatterns = [
     path('basket/', include('basket.urls')),
 
     # Checkout
+    path('checkout/', include('checkout.urls')),
   
 # Enable serving of media files during development
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
