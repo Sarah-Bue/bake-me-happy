@@ -43,6 +43,8 @@
             <script src="{% static 'js/base.js' %}"></script>
             <!-- Font Awesome -->
             <script src="https://kit.fontawesome.com/a77617d661.js" crossorigin="anonymous"></script>
+            <!-- Stripe -->
+            <script src="https://js.stripe.com/v3/"></script>
         {% endblock %}
 
         <!-- Optional Extra JS Block -->
@@ -261,7 +263,7 @@
         </div>
   </footer>
       
-    <!-- Optional Postload JS -->
+    <!-- Postload JS -->
     {% block postloadjs %}
         <!-- Toast JS -->
         <script type="text/javascript">
