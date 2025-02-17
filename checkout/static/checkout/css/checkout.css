@@ -44,3 +44,14 @@
     border-color: #212529;
     box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.15);
 }
+
+/* Loading Overlay */
+#loading-overlay {
+    backdrop-filter: blur(2px);
+    z-index: 9999;
+}
+
+#loading-overlay .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}

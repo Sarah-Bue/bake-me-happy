@@ -55,6 +55,12 @@ card.addEventListener('change', function (event) {
     }
 });
 
+// Add loading overlay toggle function
+function toggleLoadingOverlay() {
+    const overlay = document.getElementById('loading-overlay');
+    overlay.classList.toggle('d-none');
+}
+
 // Handle form submit
 var form = document.getElementById('payment-form');
 
@@ -64,6 +70,8 @@ form.addEventListener('submit', function(ev) {
     // Disable card element and submit button to prevent multiple submissions
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
+    // Display loading overlay  
+    toggleLoadingOverlay();
     // Confirm payment
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -82,10 +90,14 @@ form.addEventListener('submit', function(ev) {
             // Re-enable card element and submit button
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
+            // Hide loading overlay
+            toggleLoadingOverlay();
         // Payment success    
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
+                // Hide loading overlay
+                toggleLoadingOverlay();
             }
         }
     });

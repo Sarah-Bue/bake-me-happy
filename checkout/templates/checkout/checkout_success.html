@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container px-4 px-lg-5 py-5">
+        <!-- Header -->
+        <div class="row">
+            <div class="col text-center">
+                <h1>Thank You for Your Order!</h1>
+                <hr class="mb-4" role="presentation">
+                <p>Your order information is below. A confirmation email will be sent to <span class="screen-reader-text">your email address:</span> {{ order.email }}.</p>
+            </div>
+        </div>
+
+        <!-- Order Overview -->
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                <!-- Order Information -->
+                <div class="card mb-4" role="region" aria-labelledby="order-info-heading">
+                    <div class="card-header">
+                        <h2 id="order-info-heading" class="h5 mb-0">Order Info</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 fw-bold" id="order-number-label">Order Number</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0" aria-labelledby="order-number-label">{{ order.order_number }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 fw-bold" id="order-date-label">Order Date</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0" aria-labelledby="order-date-label">{{ order.date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Details -->
+                <div class="card mb-4" role="region" aria-labelledby="order-details-heading">
+                    <div class="card-header">
+                        <h2 id="order-details-heading" class="h5 mb-0">Order Details</h2>
+                    </div>
+                    <div class="card-body">
+                        {% for item in order.lineitems.all %}
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <p class="mb-0">{{ item.product.name }} x{{ item.quantity }}</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-md-end">
+                                <p class="mb-0" aria-label="Price: {{ item.lineitem_total }} euros">€{{ item.lineitem_total }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Delivery Information -->
+                <div class="card mb-4" role="region" aria-labelledby="delivery-heading">
+                    <div class="card-header">
+                        <h2 id="delivery-heading" class="h5 mb-0">Delivering To</h2>
+                    </div>
+                    <div class="card-body">
+                        <address aria-label="Delivery address">
+                            <p class="mb-0">{{ order.full_name }}</p>
+                            <p class="mb-0">{{ order.street_address1 }}</p>
+                            {% if order.street_address2 %}
+                                <p class="mb-0">{{ order.street_address2 }}</p>
+                            {% endif %}
+                            <p class="mb-0">{{ order.town_or_city }}</p>
+                            {% if order.county %}
+                                <p class="mb-0">{{ order.county }}</p>
+                            {% endif %}
+                            {% if order.postcode %}
+                                <p class="mb-0">{{ order.postcode }}</p>
+                            {% endif %}
+                            <p class="mb-0">{{ order.country }}</p>
+                            <p class="mb-0">{{ order.phone_number }}</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charges -->
+            <div class="col-12 col-lg-5">
+                <div class="card" role="region" aria-labelledby="order-summary-heading">
+                    <div class="card-header">
+                        <h2 id="order-summary-heading" class="h5 mb-0">Order Summary</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <p class="mb-0" id="order-total-label">Order Total</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-md-end">
+                                <p class="mb-0" aria-labelledby="order-total-label">€{{ order.order_total }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <p class="mb-0" id="delivery-cost-label">Delivery</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-md-end">
+                                <p class="mb-0" aria-labelledby="delivery-cost-label">€{{ order.delivery_cost }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <p class="mb-0 fw-bold" id="grand-total-label">Grand Total</p>
+                            </div>
+                            <div class="col-12 col-md-4 text-md-end">
+                                <p class="mb-0 fw-bold" aria-labelledby="grand-total-label">€{{ order.grand_total }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Store Button -->
+        <div class="row">
+            <div class="col-12 text-center mt-4">
+                <a href="{% url 'products' %}" class="btn btn-dark" role="button">
+                    <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Store
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

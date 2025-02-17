@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container py-5">
+    <div class="container px-4 px-lg-5 py-5">
         <!-- Header -->
         <div class="row">
             <div class="col">
@@ -136,6 +136,16 @@
                     </p>
                 </form>
             </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="position-fixed top-0 start-0 w-100 h-100 d-none bg-dark bg-opacity-75" role="alert" aria-live="polite">
+        <div class="position-absolute top-50 start-50 translate-middle text-center">
+            <div class="spinner-border text-light mb-3" role="status">
+                <span class="visually-hidden">Processing payment...</span>
+            </div>
+            <h2 class="text-light h5">Processing your payment...</h2>
         </div>
     </div>
 {% endblock %}
