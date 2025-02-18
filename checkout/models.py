@@ -37,13 +37,17 @@ class Order(models.Model):
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
+    # Stripe Payment
+    original_basket = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+
     def _generate_order_number(self):
         """
         Generate a random, unique order number.
         Returns a 10-character string: 'BMH' prefix + 7 random characters
         """
         random_string = uuid.uuid4().hex[:7].upper()
-        return f'BMH{random_string}'
+        return f'BMH-{random_string}'
         #  return uuid.uuid4().hex.upper()
 
     def update_total(self):

@@ -116,7 +116,10 @@
                         <div id="card-element" class="mb-3">
                             <!-- TBA -->
                         </div>
+                        <!-- Stripe Errors -->
                         <div id="card-errors" class="text-danger mb-3" role="alert"></div>
+                        <!-- Pass client secret to view to get payment intent id --> 
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
 
                     <!-- Action Buttons -->
