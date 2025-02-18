@@ -49,7 +49,7 @@
                         {% for item in order.lineitems.all %}
                         <div class="row">
                             <div class="col-12 col-md-8">
-                                <p class="mb-0">{{ item.product.name }} x{{ item.quantity }}</p>
+                                <p class="mb-0">{{ item.quantity }} x {{ item.product.name }} </p>
                             </div>
                             <div class="col-12 col-md-4 text-md-end">
                                 <p class="mb-0" aria-label="Price: {{ item.lineitem_total }} euros">€{{ item.lineitem_total }}</p>

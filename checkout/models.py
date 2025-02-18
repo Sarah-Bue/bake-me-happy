@@ -39,10 +39,12 @@ class Order(models.Model):
 
     def _generate_order_number(self):
         """
-        Generate a random, unique order number using UUID.
+        Generate a random, unique order number.
+        Returns a 10-character string: 'BMH' prefix + 7 random characters
         """
-
-        return uuid.uuid4().hex.upper()
+        random_string = uuid.uuid4().hex[:7].upper()
+        return f'BMH{random_string}'
+        #  return uuid.uuid4().hex.upper()
 
     def update_total(self):
         """
