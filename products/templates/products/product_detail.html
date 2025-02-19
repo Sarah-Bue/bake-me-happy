@@ -69,8 +69,8 @@
                             <div class="row g-3">
                                 <div class="col-12">
                                     <label for="id_qty_{{ product.id }}" class="form-label fw-bold">Quantity:</label>
-                                    <div class="input-group has-validation" style="max-width: 150px;">
-                                        <button class="btn btn-outline-secondary" type="button" id="decrease_qty_{{ product.id }}" aria-label="Decrease quantity">
+                                    <div class="input-group has-validation" style="max-width: 150px;" role="group" aria-label="Product quantity adjustment">
+                                        <button class="btn btn-outline-secondary border" type="button" id="decrease_qty_{{ product.id }}" aria-label="Decrease quantity">
                                             <i class="fas fa-minus" aria-hidden="true"></i>
                                         </button>
                                         <input 
@@ -85,7 +85,7 @@
                                             aria-label="Product quantity"
                                             required
                                         >
-                                        <button class="btn btn-outline-secondary" type="button" id="increase_qty_{{ product.id }}" aria-label="Increase quantity">
+                                        <button class="btn btn-outline-secondary border" type="button" id="increase_qty_{{ product.id }}" aria-label="Increase quantity">
                                             <i class="fas fa-plus" aria-hidden="true"></i>
                                         </button>
                                         <div class="invalid-feedback" id="qty_message_{{ product.id }}" style="display: none;">

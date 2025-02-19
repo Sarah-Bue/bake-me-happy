@@ -3,7 +3,7 @@
 .StripeElement,
 .stripe-style-input {
     box-sizing: border-box;
-    height: 40px;
+    height: 43px;
     padding: 10px 12px;
     border: 1px solid #dee2e6;
     border-radius: 4px;
@@ -43,6 +43,16 @@
 #payment-form .form-control:focus {
     border-color: #212529;
     box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.15);
+}
+
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #6c757d !important;
 }
 
 /* Loading Overlay */

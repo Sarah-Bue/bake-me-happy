@@ -76,12 +76,12 @@
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="mb-4">
-                        <legend class="h6">Details</legend>
+                        <legend class="h6" aria-label="Personal details section">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <fieldset class="mb-4">
-                        <legend class="h6">Delivery</legend>
+                        <legend class="h6" aria-label="Delivery details section">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -95,7 +95,7 @@
                         {% if user.is_authenticated %}
                             <div class="form-check mt-2">
                                 <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
-                                <label class="form-check-label" for="id-save-info">
+                                <label class="form-check-label text-body-secondary" for="id-save-info">
                                     Save delivery information to my profile
                                 </label>
                             </div>
@@ -114,7 +114,7 @@
                     <fieldset class="mb-4">
                         <legend class="h6">Payment</legend>
                         <div id="card-element" class="mb-3">
-                            <!-- TBA -->
+                            <!-- Stripe Card Elements go here -->
                         </div>
                         <!-- Stripe Errors -->
                         <div id="card-errors" class="text-danger mb-3" role="alert"></div>
