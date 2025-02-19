@@ -119,11 +119,11 @@
                                     <li><hr class="dropdown-divider" /></li>
                                 {% endif %}
                                 <li><a class="dropdown-item" href="#!">My Profile</a></li>
-                                <li><a class="dropdown-item" href="#!">Logout</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}" aria-label="Log out of your account">Logout</a></li>
                             {% else %}
-                                <li><a class="dropdown-item" href="#!">Register</a></li>
-                                <li><a class="dropdown-item" href="#!">Login</a></li>
-                            {% endif %}
+                                    <li><a class="dropdown-item" href="{% url 'account_signup' %}" aria-label="Register for a new account">Register</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'account_login' %}" aria-label="Log in to your account">Login</a></li>
+                            {% endif %}            
                         </ul>
                     </li>
                 </ul>

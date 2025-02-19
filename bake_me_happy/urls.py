@@ -19,6 +19,9 @@ urlpatterns = [
 
     # Checkout
     path('checkout/', include('checkout.urls')),
+
+    # Accounts
+    path('accounts/', include('allauth.urls')),
   
 # Enable serving of media files during development
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
