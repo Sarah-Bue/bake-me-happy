@@ -123,10 +123,16 @@
 
         <!-- Back to Store Button -->
         <div class="row">
-            <div class="col-12 text-center mt-4">
-                <a href="{% url 'products' %}" class="btn btn-dark" role="button">
-                    <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Store
-                </a>
+            <div class="col-12 text-end mt-4">
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn btn-dark" role="button">
+                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Profile
+                    </a>
+                {% else %}
+                    <a href="{% url 'products' %}" class="btn btn-dark" role="button">
+                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Store
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>
