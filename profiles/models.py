@@ -14,6 +14,10 @@ class UserProfile(models.Model):
     # One profile per user, delete profile if user is deleted
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+    # User information
+    default_full_name = models.CharField(max_length=50, null=True, blank=True)
+    default_email = models.EmailField(max_length=254, null=True, blank=True)
+
     # Optional default delivery information
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
