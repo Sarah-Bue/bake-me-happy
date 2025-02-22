@@ -37,6 +37,7 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
+        print("Sending confirmation email...")
 
     def handle_event(self, event):
         """

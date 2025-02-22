@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
+from django.contrib.auth.decorators import login_required
+
 
 def profile(request):
     """
@@ -27,6 +29,27 @@ def profile(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_profile(request):
+    """
+    Delete the user's profile and account.
+    """
+
+    if request.method == 'POST':
+        user = request.user
+        # Logout the user before deletion
+        from django.contrib.auth import logout
+        logout(request)
+        # Delete the user which will cascade to profile
+        user.delete()
+        messages.success(request, 'Your profile has been deleted successfully.')
+        return redirect('home')
+    
+    # If GET request, show confirmation template
+    template = 'profiles/delete_confirmation.html'
+    return render(request, template)
 
 
 def order_history(request, order_number):

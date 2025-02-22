@@ -11,14 +11,27 @@
             <h1 class="text-center display-6">My Profile</h1>
             <hr class="my-4">
 
-            <!-- Editable Profile Information -->
+            <!-- Action Buttons -->
             <div class="col-12 col-md-6">
                 <p class="lead mb-3 fw-bold">Personal Details</p>
-                <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="mt-3">
+                <!-- Update Profile -->
+                <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="mt-3" aria-label="Update profile form">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="col-12 text-end">
-                        <button class="btn btn-dark">Update Information</button>
+                        <button class="btn btn-dark" aria-label="Update profile information">
+                            <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Update Profile
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Delete Profile -->
+                <form action="{% url 'delete_profile' %}" method="POST" class="mt-3" aria-label="Delete profile form" onsubmit="return confirm('Are you sure you want to delete your profile? This action cannot be undone.');">
+                    {% csrf_token %}
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-danger" aria-label="Delete profile permanently">
+                            <i class="fa-solid fa-trash-can" aria-hidden="true"></i> Delete Profile
+                        </button>                   
                     </div>
                 </form>
             </div>
