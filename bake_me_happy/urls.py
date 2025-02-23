@@ -25,6 +25,9 @@ urlpatterns = [
 
     # Profiles
     path('profile/', include('profiles.urls')),
+
+    # Favorites
+    path('favorites/', include('favorites.urls')),
   
 # Enable serving of media files during development
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
