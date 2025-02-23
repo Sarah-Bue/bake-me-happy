@@ -31,7 +31,7 @@
                         <span class="mx-3 text-muted" aria-hidden="true">|</span>
 
                         <!-- Delete Product Link (redirects to products page) -->
-                        <a class="text-dark text-decoration-none lead product-management-link" href="{% url 'products' %}" aria-label="Delete an existing product">
+                        <a class="text-dark text-decoration-none lead product-management-link" href="{% url 'products' %}" aria-label="Delete an existing product" onclick="return confirm('Are you sure you want to delete this product? This action cannot be undone.');">
                             <i class="fa-solid fa-trash-can me-2" aria-hidden="true"></i>Delete a Product
                         </a>
                     </div>

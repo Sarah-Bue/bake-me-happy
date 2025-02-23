@@ -1,12 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Extra CSS Block -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 <!-- Content Block -->
 {% block content %}
 
-    <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
+            <!-- Admin Actions -->
+            <div class="d-flex justify-content-center align-items-center mt-4">
+                {% if request.user.is_superuser %}
+                    <!-- Edit Product -->
+                    <a class="text-dark text-decoration-none product-management-link" href="{% url 'edit_product' product.id %}" aria-label="Edit this product">
+                        <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i>Edit Product
+                    </a>
+                    <span class="mx-3 text-muted" aria-hidden="true">|</span>
+
+                    <!-- Delete Product -->
+                    <a class="text-dark text-decoration-none product-management-link" href="{% url 'delete_product' product.id %}" aria-label="Delete this product" onclick="return confirm('Are you sure you want to delete this product? This action cannot be undone.');">
+                        <i class="fa-solid fa-trash-can me-2" aria-hidden="true"></i>Delete Product
+                    </a>
+                {% endif %}
+            </div>
+
             <!-- Product Image or Placeholder -->
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
