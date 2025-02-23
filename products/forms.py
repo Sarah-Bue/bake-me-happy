@@ -1,6 +1,7 @@
 from django import forms
 from .models import Product, Category, Occasion
 from django_summernote.widgets import SummernoteWidget
+from .widgets import CustomClearableFileInput
 
 
 class ProductForm(forms.ModelForm):
@@ -13,6 +14,7 @@ class ProductForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'description': SummernoteWidget(),
+            'image': CustomClearableFileInput(),
         }
 
 
@@ -25,4 +27,4 @@ class ProductForm(forms.ModelForm):
         self.fields['occasion'].choices = [(o.id, o.get_friendly_name()) for o in occasions]
 
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border rounded-0'
+            field.widget.attrs['class'] = 'border rounded-2'

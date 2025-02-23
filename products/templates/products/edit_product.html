@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Extra CSS Block -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 <!-- Content Block -->
 {% block content %}
 
     <div class="container px-4 px-lg-5 py-5">
         <div class="row mb-4">
             <div class="col text-center">
-                <h1 class="display-6">Product Management</h1>
+                <h1 class="display-6">Edit a Product</h1>
                 <hr class="mb-4">
-                <p class="lead">Edit a Product</p>
             </div>
         </div>
 

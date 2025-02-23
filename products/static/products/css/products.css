@@ -51,7 +51,7 @@
 /* Custom file input styling */
 .custom-file-input {
     height: 43px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .custom-file-input:focus ~ .custom-file-label {
@@ -73,3 +73,4 @@ textarea.form-control {
     height: auto;
     min-height: 100px;
 }
+
