@@ -107,8 +107,14 @@
 
                                     <!-- Toggle Favorites Button -->
                                     <a href="{% url 'toggle_favorites' product.id %}" class="btn btn-outline-dark favorite-btn" data-product-id="{{ product.id }}" aria-label="{% if product in user.favorite_set.all %}Remove{% else %}Add{% endif %} {{ product.name }} {% if product in user.favorite_set.all %}from{% else %}to{% endif %} favorites">
-                                        <i class="{% if product in user.favorite_set.all %}fas{% else %}far{% endif %} fa-heart me-2" aria-hidden="true"></i>
-                                        <span>{% if product in user.favorite_set.all %}Remove from{% else %}Add to{% endif %} Favorites</span>
+                                        <i class="{% if is_favorite %}fas{% else %}far{% endif %} fa-heart me-2" aria-hidden="true"></i>                                       
+                                        <span>    
+                                            {% if is_favorite %}
+                                                Remove from Favorites
+                                            {% else %}
+                                                Add to Favorites
+                                            {% endif %}
+                                        </span>
                                     </a>
                                 </div>
                         </form>
@@ -122,8 +128,6 @@
 <!-- Postload JS Block -->
 {% block postloadjs %}
 {{ block.super }}
-<!-- Favorites JS -->
-<script src="{% static 'favorites/js/favorites.js' %}"></script>
 <!-- Quantity Input JS -->
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

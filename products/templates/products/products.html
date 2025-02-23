@@ -49,12 +49,7 @@
                         <!-- Product Cards, created using a for loop -->
                         {% for product in products %}
                             <div class="col mb-5">
-                                <div class="card h-100">
-                                    <!-- Sale Badge (if available) -->
-                                    {% if product.on_sale %}
-                                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                                    {% endif %}
-
+                                <div class="card h-100" role="article" aria-label="Product: {{ product.name }}">
                                     <!-- Product Image or Placeholder -->
                                     {% if product.image %}
                                         <a href="{% url 'product_detail' product.id %}" aria-label="View details for {{ product.name }}">
@@ -100,7 +95,7 @@
 
                                             <!-- Toggle Favorites Button -->
                                             <a href="{% url 'toggle_favorites' product.id %}" class="btn btn-outline-dark favorite-btn" data-product-id="{{ product.id }}" aria-label="{% if product in user.favorite_set.all %}Remove{% else %}Add{% endif %} {{ product.name }} {% if product in user.favorite_set.all %}from{% else %}to{% endif %} favorites">
-                                                <i class="{% if product in user.favorite_set.all %}fas{% else %}far{% endif %} fa-heart" aria-hidden="true"></i>
+                                                <i class="{% if product.id in favorite_products %}fas{% else %}far{% endif %} fa-heart" aria-hidden="true"></i>                                      
                                             </a>                                 
                                         </div>
                                     </div>
@@ -168,9 +163,6 @@
 <!-- The postload JS has been adapted from Code Institute's "Boutique Ado" project -->
 {% block postloadjs %}
     {{ block.super }}
-    <!-- Favorites JS -->
-    <script src="{% static 'favorites/js/favorites.js' %}"></script>
-
     <!-- Back to Top Button -->
     <script type="text/javascript">
         document.getElementById('btn-back-to-top').addEventListener('click', function() {

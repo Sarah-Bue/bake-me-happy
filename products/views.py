@@ -4,13 +4,14 @@ from django.contrib import messages
 from django.db.models import Q, F
 from django.db.models.functions import Lower
 from .models import Product, Category, Occasion
+from favorites.models import Favorite
 
 def all_products(request):
     """
     A view to show all products, including sorting and search queries.
     """
     
-    # Get all products initially
+    # Get all products
     products = Product.objects.all()
     
     # Initialize variables
@@ -74,7 +75,7 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, "Pleae enter search criteria and try again.")
                 return redirect(reverse('products'))
             
             # Search across name, German name, and description
@@ -88,6 +89,11 @@ def all_products(request):
     # Create current sorting string for context
     current_sorting = f'{sort}_{direction}' if sort and direction else ''
 
+    # Get favorite product IDs for authenticated user
+    favorite_products = []
+    if request.user.is_authenticated:
+        favorite_products = Favorite.objects.filter(user=request.user).values_list('product_id', flat=True)
+
     # Prepare template context
     context = {
         'products': products,
@@ -95,6 +101,7 @@ def all_products(request):
         'current_categories': categories,
         'current_occasions': occasions,
         'current_sorting': current_sorting,
+        'favorite_products': favorite_products,
     }
 
     # Render products page
@@ -111,11 +118,16 @@ def product_detail(request, product_id):
     """
     product = get_object_or_404(Product, pk=product_id)
 
+    # Check if product is in user's favorites
+    is_favorite = False
+    if request.user.is_authenticated:
+        is_favorite = Favorite.objects.filter(user=request.user, product=product).exists()
+
     context = {
         'product': product,
+        'is_favorite': is_favorite,
     }
 
-    # Render product detail page
     return render(
         request,
         'products/product_detail.html',
