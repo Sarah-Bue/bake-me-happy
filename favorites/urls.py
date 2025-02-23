@@ -2,5 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.view_favorites, name='view_favorites'),
+    # View Favorites
+    path('', views.view_favorites, name='favorites'),
+
+    # Toggle Favorites
+    path('toggle/<int:product_id>/', views.toggle_favorites, name='toggle_favorites'),
 ]

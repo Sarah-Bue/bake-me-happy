@@ -87,7 +87,7 @@
                                     <!-- Product Actions -->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                         <div class="d-flex justify-content-center">
-                                            <!-- Add to Basket Form -->
+                                            <!-- Add to Basket Button -->
                                             <form class="d-inline" action="{% url 'add_to_basket' product.id %}" method="POST">
                                                 {% csrf_token %}
                                                 <input type="hidden" name="quantity" value="1">
@@ -97,10 +97,11 @@
                                                     <span class="visually-hidden">Add to Basket</span>
                                                 </button>
                                             </form>
-                                            <a class="btn btn-outline-dark mt-auto" href="#" aria-label="Add {{ product.name }} to favorites">
-                                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
-                                                <span class="visually-hidden">Add to Favorites</span>
-                                            </a>                                    
+
+                                            <!-- Toggle Favorites Button -->
+                                            <a href="{% url 'toggle_favorites' product.id %}" class="btn btn-outline-dark favorite-btn" data-product-id="{{ product.id }}" aria-label="{% if product in user.favorite_set.all %}Remove{% else %}Add{% endif %} {{ product.name }} {% if product in user.favorite_set.all %}from{% else %}to{% endif %} favorites">
+                                                <i class="{% if product in user.favorite_set.all %}fas{% else %}far{% endif %} fa-heart" aria-hidden="true"></i>
+                                            </a>                                 
                                         </div>
                                     </div>
                                 </div>
@@ -167,6 +168,10 @@
 <!-- The postload JS has been adapted from Code Institute's "Boutique Ado" project -->
 {% block postloadjs %}
     {{ block.super }}
+    <!-- Favorites JS -->
+    <script src="{% static 'favorites/js/favorites.js' %}"></script>
+
+    <!-- Back to Top Button -->
     <script type="text/javascript">
         document.getElementById('btn-back-to-top').addEventListener('click', function() {
             window.scrollTo({
@@ -176,6 +181,7 @@
         });
     </script>
     
+    <!-- Sorting Dropdown -->
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);
