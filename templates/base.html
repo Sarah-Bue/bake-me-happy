@@ -119,6 +119,7 @@
                                     <li><hr class="dropdown-divider" /></li>
                                 {% endif %}
                                 <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'favorites' %}">My Favorites</a></li>
                                 <li><a class="dropdown-item" href="{% url 'account_logout' %}" aria-label="Log out of your account">Logout</a></li>
                             {% else %}
                                     <li><a class="dropdown-item" href="{% url 'account_signup' %}" aria-label="Register for a new account">Register</a></li>

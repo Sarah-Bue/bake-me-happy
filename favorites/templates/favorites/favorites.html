@@ -9,6 +9,14 @@
     <div class="container px-4 px-lg-5 py-5">
         <div class="row">
             <h1 class="text-center display-6">My Favorites</h1>
+
+            <!-- Link to Profile -->
+            <div class="col-12 text-end">
+                <a href="{% url 'profile' %}" class="btn btn-outline-dark" aria-label="View profile">
+                    <i class="fa-solid fa-chevron-right me-2" aria-hidden="true"></i>View Profile
+                </a>
+            </div>
+
             <hr class="my-4">
 
             {% if favorites %}
