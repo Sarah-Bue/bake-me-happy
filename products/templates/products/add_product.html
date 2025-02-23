@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- Extra CSS Block -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+<!-- Content Block -->
+{% block content %}
+
+    <div class="container px-4 px-lg-5 py-5">
+        <div class="row mb-4">
+            <div class="col text-center">
+                <h1 class="display-6">Product Management</h1>
+                <hr class="mb-4">
+                <p class="lead">Add a New Product</p>
+            </div>
+        </div>
+
+        <!-- Add Product Form -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card border border-white-subtle bg-body-tertiary rounded-3 shadow">
+                    <div class="card-body">
+                        <form method="POST" action="{% url 'add_product' %}" class="form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+
+                            <!-- Action Buttons-->
+                            <div class="text-end mt-4">
+                                <!-- Cancel Button -->
+                                <a class="btn btn-outline-dark" href="{% url 'products' %}">
+                                    <span class="me-2"><i class="fas fa-times"></i></span>Cancel
+                                </a>
+                                <!-- Add Product Button -->
+                                <button class="btn btn-dark" type="submit">
+                                    <span class="me-2"><i class="fas fa-plus"></i></span>Add Product
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+    
+{% endblock %}

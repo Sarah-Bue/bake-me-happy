@@ -5,6 +5,8 @@ from django.db.models import Q, F
 from django.db.models.functions import Lower
 from .models import Product, Category, Occasion
 from favorites.models import Favorite
+from .forms import ProductForm
+from django.contrib.auth.decorators import login_required
 
 def all_products(request):
     """
@@ -113,6 +115,7 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
+
     """
     Display individual product details.
     """
@@ -133,3 +136,18 @@ def product_detail(request, product_id):
         'products/product_detail.html',
         context
     )
+
+
+@login_required
+def add_product(request):
+    """
+    Add a product to the store
+    """
+    form = ProductForm()
+        
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
