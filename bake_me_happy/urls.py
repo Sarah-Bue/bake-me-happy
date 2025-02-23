@@ -28,6 +28,9 @@ urlpatterns = [
 
     # Favorites
     path('favorites/', include('favorites.urls')),
+    
+    # Summernote
+    path('summernote/', include('django_summernote.urls')),
   
 # Enable serving of media files during development
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

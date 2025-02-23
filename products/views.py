@@ -225,3 +225,21 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted.')
     return redirect(reverse('products'))
+
+
+def product_management(request):
+    """
+    Display a list of all products in the store.
+    """
+
+    # Check if user is superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+  
+    # Render product management page
+    template = 'products/product_management.html'
+
+    # Return rendered page
+    return render(request, template)

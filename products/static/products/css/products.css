@@ -1,0 +1,75 @@
+/* Product Management Styles */
+
+.product-management-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.product-management-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #212529;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.product-management-link:hover {
+    color: #212529 !important;
+}
+
+.product-management-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* Form styling */
+.form-control {
+    box-sizing: border-box;
+    height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: white;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus,
+.form-control:active {
+    border-color: #212529;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.15);
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+}
+
+/* Custom file input styling */
+.custom-file-input {
+    height: 43px;
+    border-radius: 8px;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+    border-color: #212529;
+    box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.15);
+}
+
+/* Select fields */
+select.form-control {
+    color: #000000;
+}
+
+select.form-control option:first-child {
+    color: #6c757d;
+}
+
+/* Text area fields */
+textarea.form-control {
+    height: auto;
+    min-height: 100px;
+}

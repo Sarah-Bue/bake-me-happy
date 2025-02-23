@@ -16,4 +16,7 @@ urlpatterns = [
 
     # Delete Product
     path('delete/<int:product_id>/', views.delete_product, name='delete_product'),
+
+    # Product Management
+    path('management/', views.product_management, name='product_management'),
 ]

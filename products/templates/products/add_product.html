@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Extra CSS Block -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 <!-- Content Block -->
 {% block content %}
 

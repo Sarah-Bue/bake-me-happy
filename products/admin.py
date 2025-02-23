@@ -1,8 +1,9 @@
 from django.contrib import admin
 from .models import Product, Category, Occasion
+from django_summernote.admin import SummernoteModelAdmin
 
 
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(SummernoteModelAdmin):
     """
     Admin model for managing products.
     """
@@ -18,6 +19,9 @@ class ProductAdmin(admin.ModelAdmin):
         'rating',
         'image',
     )
+
+    # Summernote configuration for the 'description' field
+    summernote_fields = ('description',)
 
     # Fields to use for filtering
     ordering = ('name',)
