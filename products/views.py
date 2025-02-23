@@ -227,6 +227,7 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
+@login_required
 def product_management(request):
     """
     Display a list of all products in the store.

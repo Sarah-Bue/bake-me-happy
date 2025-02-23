@@ -5,7 +5,7 @@ from .forms import UserProfileForm
 from checkout.models import Order
 from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def profile(request):
     """
     A view to return the profile page, prepopulated user information, and order history. 
@@ -55,6 +55,7 @@ def delete_profile(request):
     return render(request, template)
 
 
+@login_required
 def order_history(request, order_number):
     """
     A view to return the order history page, displaying the order details.
