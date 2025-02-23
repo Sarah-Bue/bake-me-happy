@@ -22,20 +22,26 @@ def add_to_basket(request, item_id):
     redirect_url = request.POST.get('redirect_url') or request.META.get('HTTP_REFERER', '/products/')
     basket = request.session.get('basket', {})
 
-    # Add or update the item in the basket
-    if item_id in list(basket.keys()):
-        basket[item_id] += quantity
-    else:
-        basket[item_id] = quantity
-
-    # Update the session basket data
-    request.session['basket'] = basket
-
     # Get product info for the message
     product = Product.objects.get(pk=item_id)
-    messages.success(request, f'{product.name} has been added to your basket')
 
-    # Redirect to the basket page
+    # Check if item is already in basket
+    if item_id in list(basket.keys()):
+        # Inform user item is already in basket
+        messages.info(
+            request, 
+            f'{product.name} is already in your basket. '
+            'You can adjust the quantity in the basket.'
+        )
+    else:
+        # Add new item to basket
+        basket[item_id] = quantity
+        # Update the session basket data
+        request.session['basket'] = basket
+        # Success message for new item
+        messages.success(request, f'{product.name} has been added to your basket')
+
+    # Redirect back to previous page
     return redirect(redirect_url)
 
 
