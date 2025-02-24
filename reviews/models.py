@@ -30,5 +30,5 @@ class Review(models.Model):
 
     # String method to return review information    
     def __str__(self):
-        return f'Review for {self.product.name} by {self.user.username}'
+        return f'Review for {self.product.name} by {self.author.username}'
 
