@@ -116,11 +116,12 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
+    """
+    Display individual product details and reviews.
+    """
 
-    """
-    Display individual product details.
-    """
     product = get_object_or_404(Product, pk=product_id)
+    reviews = product.reviews.all().order_by('-date_added')
 
     # Check if product is in user's favorites
     is_favorite = False
@@ -130,6 +131,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'is_favorite': is_favorite,
+        'reviews': reviews,
     }
 
     return render(
