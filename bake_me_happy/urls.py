@@ -31,6 +31,9 @@ urlpatterns = [
     
     # Summernote
     path('summernote/', include('django_summernote.urls')),
+
+    # Reviews
+    path('reviews/', include('reviews.urls')),
   
 # Enable serving of media files during development
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
