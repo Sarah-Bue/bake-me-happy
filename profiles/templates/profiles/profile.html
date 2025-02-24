@@ -10,11 +10,15 @@
         <div class="row">
             <h1 class="text-center display-6">My Profile</h1>
 
-            <!-- Link to Favorites -->
             <div class="col-12 text-end">
-                <a href="{% url 'favorites' %}" class="btn btn-outline-dark" aria-label="View favorites">
-                    <i class="fa-solid fa-chevron-right me-2" aria-hidden="true"></i>View Favorites
-                </a>
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="{% url 'favorites' %}" class="btn btn-outline-dark" aria-label="View favorites">
+                        <i class="fa-solid fa-chevron-right me-2" aria-hidden="true"></i>View Favorites
+                    </a>
+                    <a href="{% url 'reviews' %}" class="btn btn-outline-dark" aria-label="View reviews">
+                        <i class="fa-solid fa-chevron-right me-2" aria-hidden="true"></i>View Reviews
+                    </a>
+                </div>
             </div>
 
             <hr class="my-4">

@@ -88,8 +88,8 @@ def edit_review(request, review_id):
         if form.is_valid():
 
             # Save review and update product rating
-            form.save()
-            update_product_rating(product)
+            review = form.save()
+            update_product_rating(review.product)
 
             # Successs message
             messages.success(request, 'Successfully updated your review.')

@@ -11,7 +11,7 @@ class ReviewForm(forms.ModelForm):
     
     class Meta:
         model = Review
-        fields = ['rating', 'review_comment']
+        fields = ['title', 'rating', 'review_comment']
         widgets = {
             'review_comment': SummernoteWidget(),
             'rating': forms.NumberInput(attrs={
