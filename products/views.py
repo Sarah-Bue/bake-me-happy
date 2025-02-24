@@ -8,6 +8,7 @@ from favorites.models import Favorite
 from .forms import ProductForm
 from django.contrib.auth.decorators import login_required
 
+
 def all_products(request):
     """
     A view to show all products, including sorting and search queries.

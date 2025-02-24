@@ -9,6 +9,7 @@
             <div class="col text-center">
                 <h1 class="display-6">Add a Product Review</h1>
                 <hr class="mb-4">
+                <h5 class="text-muted">{{ product.name }}</h5>
             </div>
         </div>
 
@@ -17,7 +18,7 @@
             <div class="col-12 col-lg-8">
                 <div class="card border border-white-subtle bg-body-tertiary rounded-3 shadow">
                     <div class="card-body">
-                        <form method="POST" action="{% url 'add_review' %}" class="form" enctype="multipart/form-data">
+                        <form method="POST" action="{% url 'add_review' product.id %}" class="form" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form | crispy }}
 
