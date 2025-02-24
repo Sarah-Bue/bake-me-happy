@@ -106,5 +106,15 @@ def delete_review(request, review_id):
     """
     A view to delete a review.
     """
-    
-    return render(request, 'reviews/delete_review.html')
+
+    review = get_object_or_404(Review, pk=review_id)
+
+    # Verify the review belongs to the user
+    if request.user!= review.author:
+        messages.error(request, 'Sorry, you can only delete your own reviews.')
+        return redirect(reverse('reviews'))
+
+
+    review.delete()
+    messages.success(request, 'Your review has been deleted.')
+    return redirect(reverse('reviews'))

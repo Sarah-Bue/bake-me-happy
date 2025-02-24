@@ -10,4 +10,7 @@ urlpatterns = [
 
     # Edit Review
     path('edit_review/<int:review_id>/', views.edit_review, name='edit_review'),
+
+    # Delete Review
+    path('delete_review/<int:review_id>/', views.delete_review, name='delete_review'),
 ]
