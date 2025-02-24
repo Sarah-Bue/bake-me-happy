@@ -45,8 +45,12 @@ def add_review(request, product_id):
             review = form.save(commit=False)
             review.author = request.user
             review.product = product
+
+            # Save review and update product rating
             review.save()
-            form.save()
+            update_product_rating(product)
+
+            # Success message
             messages.success(request, 'Your product review has been submitted.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -82,10 +86,16 @@ def edit_review(request, review_id):
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
+
+            # Save review and update product rating
             form.save()
+            update_product_rating(product)
+
+            # Successs message
             messages.success(request, 'Successfully updated your review.')
             return redirect(reverse('product_detail', args=[review.product.id]))
         else:
+            # Error handling for invalid form
             messages.error(request, 'Failed to update review. Please ensure the form is valid.')
     else:
         form = ReviewForm(instance=review)
@@ -113,8 +123,29 @@ def delete_review(request, review_id):
     if request.user!= review.author:
         messages.error(request, 'Sorry, you can only delete your own reviews.')
         return redirect(reverse('reviews'))
-
-
+    
+    # Delete review and update product rating
     review.delete()
+    update_product_rating(review.product)
+
+    # Success message
     messages.success(request, 'Your review has been deleted.')
     return redirect(reverse('reviews'))
+
+
+def update_product_rating(product):
+    """
+    Update product rating based on all reviews.
+    """
+    reviews = Review.objects.filter(product=product)
+
+    # No reviews, set rating to None
+    if not reviews.exists():
+        product.rating = None
+    
+    # Calculate average rating
+    else:
+        avg_rating = sum(review.rating for review in reviews) / reviews.count()
+        product.rating = round(avg_rating, 1)
+
+    product.save()
