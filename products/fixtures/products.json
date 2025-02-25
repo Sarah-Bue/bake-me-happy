@@ -1,113 +1,533 @@
 [
     {
-        "model": "products.product",
-        "pk": 1,
-        "fields": {
-                "sku": "123456",
-                "name": "White Bread Rolls",
-                "german_name": "Klassische Brötchen",
-                "description": "Enter description here",
-                "price": 12.99,
-                "image": "placeholder.png",
-                "category": 1,
-                "occasion": 1,
-                "rating": 4.9
-            }
+       "model":"products.product",
+       "pk":1,
+       "fields":{
+          "sku":"123456",
+          "name":"White Bread Rolls",
+          "german_name":"Klassische Brötchen",
+          "description":"Classic white bread rolls, perfect to start your day. Ideal for breakfast or as a side for dinner. Fresh and crispy, baked according to traditional recipe. **Allergens: Gluten, may contain traces of milk and eggs.**",
+          "price":2.50,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":1,
+          "rating":4.5
+       }
     },
-
     {
-        "model": "products.product",
-        "pk": 2,
-        "fields": {
-                "sku": "234567",
-                "name": "Pumpkin Seed Bread",
-                "german_name": "Kürbiskernbrot",
-                "description": "Enter description here",
-                "price": 5.99,
-                "image":"placeholder.png",
-                "category": 1,
-                "occasion": 2,
-                "rating": 4.1
-            }
+       "model":"products.product",
+       "pk":2,
+       "fields":{
+          "sku":"123457",
+          "name":"Cheese Bread Rolls",
+          "german_name":"Käsebrötchen",
+          "description":"Savory cheese bread rolls, refined with spicy cheese. A treat at any time of day, whether warm or cold. Perfect for cheese lovers. **Allergens: Gluten, Milk, Eggs.**",
+          "price":2.80,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":1
+       }
     },
-
     {
-        "model": "products.product",
-        "pk": 3,
-        "fields": {
-                "sku": "345678",
-                "name": "Christmas Stollen",
-                "german_name": "Christstollen",
-                "description": "Enter description here",
-                "price": 49.99,
-                "image": "placeholder.png",
-                "category": 1,
-                "occasion": 3,
-                "rating": 4.9
-            }
+       "model":"products.product",
+       "pk":3,
+       "fields":{
+          "sku":"123458",
+          "name":"Raisin Bread Rolls",
+          "german_name":"Rosinenbrötchen",
+          "description":"Sweet raisin bread rolls, a classic for young and old. With juicy raisins and a light sweetness. Ideal for coffee or tea. **Allergens: Gluten, may contain traces of milk.**",
+          "price":2.60,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":1,
+          "rating":4.2
+       }
     },
-
     {
-        "model": "products.product",
-        "pk": 4,
-        "fields": {
-                "sku": "456789",
-                "name": "Easter Wreath",
-                "german_name": "Osterkranz",
-                "description": "Enter description here",
-                "price": 19.99,
-                "image": "placeholder.png",
-                "category": 1,
-                "occasion": 4,
-                "rating": 4.7
-            }
+       "model":"products.product",
+       "pk":4,
+       "fields":{
+          "sku":"123459",
+          "name":"Schwarzbrot (Rye Bread)",
+          "german_name":"Schwarzbrot",
+          "description":"Hearty rye bread, full-bodied in flavor and rich in fiber. Goes perfectly with savory toppings and soups. **Allergens: Gluten.**",
+          "price":3.50,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":1,
+          "rating":4.9
+       }
     },
-
     {
-        "model": "products.product",
-        "pk": 5,
-        "fields": {
-                "sku": "567890",
-                "name": "Wedding Bread",
-                "german_name": "Hochzeitsbrot",
-                "description": "Enter description here",
-                "price": 24.99,
-                "image": "placeholder.png",
-                "category": 1,
-                "occasion": 6,
-                "rating": 4.6
-            }
+       "model":"products.product",
+       "pk":5,
+       "fields":{
+          "sku":"123460",
+          "name":"White Bread",
+          "german_name":"Weißbrot",
+          "description":"Airy white bread, mild in flavor and versatile. Whether for breakfast, lunch or dinner, white bread is always a good choice. **Allergens: Gluten.**",
+          "price":3.20,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":1
+       }
     },
-
     {
-        "model": "products.product",
-        "pk": 6,
-        "fields": {
-                "sku": "678901",
-                "name": "Marble Cake",
-                "german_name": "Marmorkuchen",
-                "description": "Enter description here",
-                "price": 14.99,
-                "image": "placeholder.png",
-                "category": 2,
-                "occasion": 1,
-                "rating": 4.5
-            }
+       "model":"products.product",
+       "pk":6,
+       "fields":{
+          "sku":"123461",
+          "name":"Bauernbrot (Farmhouse Bread)",
+          "german_name":"Bauernbrot",
+          "description":"Rustic farmhouse bread, with a strong crust and juicy crumb. A bread like from the countryside, ideal for a hearty snack. **Allergens: Gluten, may contain traces of nuts.**",
+          "price":3.80,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":1,
+          "rating":4.6
+       }
     },
-
     {
-        "model": "products.product",
-        "pk": 7,
-        "fields": {
-            "sku": "789012",
-            "name": "Bee Sting Cake",
-            "german_name": "Bienenstich",
-            "description": "Enter description here",
-            "price": 29.99,
-            "image": "placeholder.png",
-            "category": 2,
-            "occasion": 2,
-            "rating": 4.4
-        }
+       "model":"products.product",
+       "pk":7,
+       "fields":{
+          "sku":"123462",
+          "name":"World Champion Bread Rolls",
+          "german_name":"Weltmeister Brötchen",
+          "description":"World Champion bread rolls, crispy, delicious, simply unbeatable! A roll for true connoisseurs, baked according to a secret recipe. **Allergens: Gluten, Milk.**",
+          "price":2.90,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":1,
+          "rating":5.0
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":8,
+       "fields":{
+          "sku":"123463",
+          "name":"Pumpkin Seed Bread",
+          "german_name":"Kürbiskernbrot",
+          "description":"Pumpkin seed bread, nutty and aromatic, refined with roasted pumpkin seeds. A healthy and tasty bread for every occasion. **Allergens: Gluten, Pumpkin Seeds.**",
+          "price":4.20,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":2
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":9,
+       "fields":{
+          "sku":"123464",
+          "name":"Pretzels",
+          "german_name":"Bretzeln",
+          "description":"Fresh pretzels, the Bavarian classic. Whether pure, with butter or cheese, pretzels are always a treat. Lye pastry at its finest. **Allergens: Gluten.**",
+          "price":1.80,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":2,
+          "rating":4.7
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":10,
+       "fields":{
+          "sku":"123465",
+          "name":"Quince Bread",
+          "german_name":"Quittenbrot",
+          "description":"Quince bread, fruity and sweet, a specialty for the autumn season. Goes perfectly with cheese or simply enjoy pure. **May contain traces of nuts. Gluten-free option available on request.**",
+          "price":5.50,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":2,
+          "rating":4.3
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":11,
+       "fields":{
+          "sku":"123466",
+          "name":"Christstollen (Christmas Stollen)",
+          "german_name":"Christstollen",
+          "description":"Juicy Christstollen, filled with raisins, almonds and candied lemon peel. A traditional Christmas pastry that should not be missing on any holiday table. **Allergens: Gluten, Nuts, Milk.**",
+          "price":12.99,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":3,
+          "rating":4.8
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":12,
+       "fields":{
+          "sku":"123467",
+          "name":"Hutzelbrot (Fruit Bread)",
+          "german_name":"Hutzelbrot",
+          "description":"Hutzelbrot, a hearty fruit bread with dried pears, plums and nuts. A hearty-sweet treat, especially in the cold season. **Allergens: Gluten, Nuts.**",
+          "price":6.80,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":3
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":13,
+       "fields":{
+          "sku":"123468",
+          "name":"Easter Wreath",
+          "german_name":"Osterkranz",
+          "description":"Festive Easter wreath, a sweet yeast wreath, traditionally baked for Easter and decorated with pearl sugar and almonds. **Allergens: Gluten, Nuts, Eggs, Milk.**",
+          "price":8.50,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":4,
+          "rating":4.9
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":14,
+       "fields":{
+          "sku":"123469",
+          "name":"Easter Bread",
+          "german_name":"Osterbrot",
+          "description":"Loose Easter bread, a juicy yeast bread that simply belongs to Easter. With fine lemon note and raisins. **Allergens: Gluten, Eggs, Milk.**",
+          "price":7.90,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":4,
+          "rating":4.5
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":15,
+       "fields":{
+          "sku":"123470",
+          "name":"Wedding Bread",
+          "german_name":"Hochzeitsbrot",
+          "description":"Noble wedding bread, a special bread for a special occasion. Festively decorated and of the best quality, for the bridal couple and their guests. **Allergens: Gluten, may contain traces of nuts and milk.**",
+          "price":9.50,
+          "image":"noimage.png",
+          "category":1,
+          "occasion":6,
+          "rating":5.0
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":16,
+       "fields":{
+          "sku":"123471",
+          "name":"Marble Cake",
+          "german_name":"Marmorkuchen",
+          "description":"Classic marble cake, juicy and loose, with the typical marble pattern. A cake for every occasion, whether for a birthday or just because. **Allergens: Gluten, Eggs, Milk.**",
+          "price":4.50,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":1
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":17,
+       "fields":{
+          "sku":"123472",
+          "name":"Streusel Cake (Crumb Cake)",
+          "german_name":"Streuselkuchen",
+          "description":"Crispy streusel cake, with juicy yeast dough and delicious butter streusel. A sheet cake classic that always tastes good. **Allergens: Gluten, Milk.**",
+          "price":5.20,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":1,
+          "rating":4.4
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":18,
+       "fields":{
+          "sku":"123473",
+          "name":"Black Forest Cherry Cake",
+          "german_name":"Schwarzwälder Kirsch Torte",
+          "description":"Tempting Black Forest cherry cake, with juicy cherries, cream and chocolate. The queen of cakes, a treat for all senses. **Allergens: Gluten, Milk, Eggs, may contain traces of nuts.**",
+          "price":24.99,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":1,
+          "rating":4.9
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":19,
+       "fields":{
+          "sku":"123474",
+          "name":"Danube Wave Cake",
+          "german_name":"Donauwelle",
+          "description":"Popular Danube wave cake, a sheet cake with cherries, chocolate glaze and a creamy buttercream. A classic that is well received at every cake buffet. **Allergens: Gluten, Milk, Eggs.**",
+          "price":6.50,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":1,
+          "rating":4.7
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":20,
+       "fields":{
+          "sku":"123475",
+          "name":"Bee Sting Cake",
+          "german_name":"Bienenstich",
+          "description":"Creamy bee sting cake, a yeast cake with almonds, honey and a creamy vanilla filling. A German classic that is simply irresistible. **Allergens: Gluten, Nuts, Milk, Eggs.**",
+          "price":5.80,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":2
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":21,
+       "fields":{
+          "sku":"123476",
+          "name":"Strawberry Cream Cake",
+          "german_name":"Erdbeer Sahne Torte",
+          "description":"Light strawberry cream cake, with fresh strawberries and fluffy cream. The perfect cake for summer, fruity and refreshing. **Allergens: Gluten, Milk, Eggs.**",
+          "price":22.50,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":2,
+          "rating":4.8
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":22,
+       "fields":{
+          "sku":"123477",
+          "name":"Plum Cake",
+          "german_name":"Pflaumenkuchen",
+          "description":"Juicy plum cake, a sheet cake with fresh plums and crispy streusel. An autumnal delight that tastes good warm and cold. **Allergens: Gluten, Milk.**",
+          "price":5.00,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":2,
+          "rating":4.1
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":23,
+       "fields":{
+          "sku":"123478",
+          "name":"Baumkuchen (Tree Cake)",
+          "german_name":"Baumkuchen",
+          "description":"Noble Baumkuchen, a layer cake that is elaborately handmade. A special pastry for festive occasions. **Allergens: Gluten, Eggs, Milk, Nuts.**",
+          "price":29.99,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":3,
+          "rating":4.9
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":24,
+       "fields":{
+          "sku":"123479",
+          "name":"Linzer Torte",
+          "german_name":"Linzer Torte",
+          "description":"Aromatic Linzer torte, with hazelnuts and redcurrant jam. An Austrian specialty that is particularly popular at coffee time. **Allergens: Gluten, Nuts, Eggs, Milk.**",
+          "price":18.00,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":3
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":25,
+       "fields":{
+          "sku":"123480",
+          "name":"Easter Lamb Cake",
+          "german_name":"Osterlamm",
+          "description":"Lovingly designed Easter lamb cake, a sponge cake in lamb shape that brings joy at Easter. A sweet eye-catcher on the Easter table. **Allergens: Gluten, Eggs, Milk.**",
+          "price":9.00,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":4,
+          "rating":4.6
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":26,
+       "fields":{
+          "sku":"123481",
+          "name":"Carrot Cake",
+          "german_name":"Rüblikuchen",
+          "description":"Juicy carrot cake, with carrots, nuts and a cream cheese frosting. A classic that tastes good not only at Easter. **Allergens: Gluten, Nuts, Eggs, Milk.**",
+          "price":5.50,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":4,
+          "rating":4.7
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":27,
+       "fields":{
+          "sku":"123482",
+          "name":"Birthday Cake",
+          "german_name":"Geburtstagskuchen",
+          "description":"Individual birthday cake, designed according to your wishes. Make a birthday an unforgettable experience with a personal cake. **Allergens: Gluten, Eggs, Milk. Please specify any further allergies when ordering.**",
+          "price":25.00,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":5,
+          "rating":5.0
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":28,
+       "fields":{
+          "sku":"123483",
+          "name":"Birthday Cupcakes",
+          "german_name":"Geburtstags Cupcakes",
+          "description":"Imaginative birthday cupcakes, small cakes that bring great joy. Decorated with colorful sprinkles and toppings, ideal for any birthday party. **Allergens: Gluten, Eggs, Milk.**",
+          "price":3.50,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":5,
+          "rating":4.8
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":29,
+       "fields":{
+          "sku":"123484",
+          "name":"Wedding Cake",
+          "german_name":"Hochzeitstorte",
+          "description":"Dreamlike wedding cake, multi-tiered and elegant, the highlight of every wedding celebration. Created according to your ideas, for the most beautiful day in life. **Allergens: Gluten, Eggs, Milk. Please specify any further allergies when ordering.**",
+          "price":150.00,
+          "image":"noimage.png",
+          "category":2,
+          "occasion":6,
+          "rating":5.0
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":30,
+       "fields":{
+          "sku":"123485",
+          "name":"Berliner (Doughnut)",
+          "german_name":"Berliner",
+          "description":"Classic Berliners, filled with fruity jam and dusted with powdered sugar. A sweet treat, not only for carnival season. **Allergens: Gluten, Eggs, may contain traces of milk.**",
+          "price":2.20,
+          "image":"noimage.png",
+          "category":3,
+          "occasion":1,
+          "rating":4.3
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":31,
+       "fields":{
+          "sku":"123486",
+          "name":"Pudding Pocket",
+          "german_name":"Puddingtasche",
+          "description":"Puff pastry pudding pocket, filled with creamy vanilla pudding and crispy puff pastry. A sweet snack for in between. **Allergens: Gluten, Milk, Eggs.**",
+          "price":2.50,
+          "image":"noimage.png",
+          "category":3,
+          "occasion":1
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":32,
+       "fields":{
+          "sku":"123487",
+          "name":"Spritzgebäck (Butter Cookies)",
+          "german_name":"Spritzgebäck",
+          "description":"Delicate Spritzgebäck, crispy and buttery, in various shapes. A popular pastry that is especially popular during Christmas time. **Allergens: Gluten, Milk, Eggs.**",
+          "price":4.00,
+          "image":"noimage.png",
+          "category":3,
+          "occasion":1,
+          "rating":4.0
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":33,
+       "fields":{
+          "sku":"123488",
+          "name":"Nut Corners",
+          "german_name":"Nussecken",
+          "description":"Crispy nut corners, with hazelnuts and apricot jam. A sweet classic that is perfect with coffee. **Allergens: Gluten, Nuts, may contain traces of milk.**",
+          "price":3.80,
+          "image":"noimage.png",
+          "category":3,
+          "occasion":1,
+          "rating":4.5
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":34,
+       "fields":{
+          "sku":"123489",
+          "name":"Weckmann (St. Martin's Day Man)",
+          "german_name":"Weckmann",
+          "description":"Funny Weckmann, a yeast dough man, traditionally baked for St. Martin's Day. A sweet custom for young and old. **Allergens: Gluten, Eggs, Milk.**",
+          "price":3.00,
+          "image":"noimage.png",
+          "category":3,
+          "occasion":2,
+          "rating":4.9
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":35,
+       "fields":{
+          "sku":"123490",
+          "name":"Christmas Cookies",
+          "german_name":"Weihnachtsplätzchen",
+          "description":"Diverse Christmas cookies, a colorful mixture of different varieties. Homemade and lovingly decorated, for a festive Advent season. **Allergens: Gluten, Eggs, Milk, Nuts depending on variety.**",
+          "price":8.00,
+          "image":"noimage.png",
+          "category":3,
+          "occasion":3
+       }
+    },
+    {
+       "model":"products.product",
+       "pk":36,
+       "fields":{
+          "sku":"123491",
+          "name":"Gingerbread",
+          "german_name":"Lebkuchen",
+          "description":"Spicy gingerbread, with honey and Christmas spices. A traditional Christmas pastry that melts in your mouth. **Allergens: Gluten, may contain traces of nuts and milk.**",
+          "price":4.50,
+          "image":"noimage.png",
+          "category":3,
+          "occasion":3,
+          "rating":4.6
+       }
     }
-]
+ ]
