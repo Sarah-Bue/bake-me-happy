@@ -1,8 +1,11 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+
+from django.shortcuts import redirect
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 from .forms import NewsletterForm
 from .models import Subscriber
-from django.contrib import messages
 
 def newsletter_signup(request):
     """
@@ -10,31 +13,44 @@ def newsletter_signup(request):
     """
     
     if request.method == 'POST':
-        # Initialize form with POST data
         form = NewsletterForm(request.POST)        
         if form.is_valid():
-            # Create instance but don't save yet
             instance = form.save(commit=False)
             
             # Check for duplicate email addresses
             if Subscriber.objects.filter(email=instance.email).exists():
-                return JsonResponse({
-                    'success': False, 
-                    'message': f"{instance.email} already exists in our database."
-                })
+                messages.error(request, f"{instance.email} already exists in our database." [0])
+                return redirect(request.META.get('HTTP_REFERER', 'home'))
             
             # Save the new subscriber
             instance.save()
-            return JsonResponse({
-                'success': True,
-                'message': f"{instance.email} has been added to our newsletter"
-            })
+
+            # Send confirmation email
+            cust_email = instance.email
+            subject = render_to_string(
+                'newsletter/confirmation_emails/confirmation_email_subject.txt'
+            )
+            body = render_to_string(
+                'newsletter/confirmation_emails/confirmation_email_body.txt',
+                {'email': cust_email}
+            )
+            
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [cust_email]
+            )
+
+            # Success message
+            messages.success(request, f"{instance.email} has been successfully added to our newsletter. Check your email for confirmation.")
+            return redirect(request.META.get('HTTP_REFERER', 'home'))
             
         # Return form validation errors
-        return JsonResponse({
-            'success': False, 
-            'errors': form.errors
-        })
+        for error in list(form.errors.values())[0]:
+            messages.error(request, error)
+        return redirect(request.META.get('HTTP_REFERER', 'home'))
         
     # Return error for non-POST requests
-    return JsonResponse({'success': False})
+    messages.error(request, "Invalid request method")
+    return redirect('home')

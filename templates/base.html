@@ -249,18 +249,19 @@
                 <!-- Newsletter Sign Up-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5 class="text-uppercase mb-4">Sign up to our newsletter</h5>
-                    <div class="form-floating mb-4">
-                        <input type="email" id="newsletter-signup" class="form-control" placeholder="Email address" aria-label="Subscribe to newsletter">
-                        <label for="newsletter-signup" class="text-black">Email address</label>
-                    </div>
-                    <button type="submit" class="btn btn-outline-light w-100" aria-label="Subscribe to newsletter">Subscribe</button>
+                    <form id="newsletter-signup-form" method="POST" action="{% url 'newsletter' %}">
+                        {{ newsletter_signup_form }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-light w-150 mt-4" aria-label="Subscribe to newsletter">Subscribe</button>
+                    </form>
+                    <div id="newsletter-message" class="mt-2"></div>
                 </div>
             </div>
-        </div>
 
-        <!-- Copyright -->
-        <div class="text-center p-3 border-top border-white">
-        © 2025 Copyright
+            <!-- Copyright -->
+            <div class="text-center p-3 border-top border-white">
+                © 2025 Copyright
+            </div>
         </div>
   </footer>
       
