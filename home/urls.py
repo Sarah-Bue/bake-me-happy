@@ -7,4 +7,8 @@ urlpatterns = [
 
     # Store Management Page
     path('store_management/', views.store_management, name='store_management'),
+
+    # Manage Orders
+    path('manage-orders/', views.manage_orders, name='manage_orders'),
+
 ]

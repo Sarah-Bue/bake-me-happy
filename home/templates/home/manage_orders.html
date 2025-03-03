@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container px-4 px-lg-5 py-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-6 text-center">Manage Orders</h1>
+                <hr>
+                
+                <!-- Back to dashboard link -->
+                <div class="mb-4">
+                    <a href="{% url 'store_management' %}" class="btn btn-outline-dark">
+                        <i class="fas fa-chevron-left"></i> Back to Dashboard
+                    </a>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Order Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if orders %}
+                                {% for order in orders %}
+                                    <tr>
+                                        <td>{{ order.order_number }}</td>
+                                        <td>{{ order.date|date:"d M Y" }}</td>
+                                        <td>{{ order.full_name }}</td>
+                                        <td>€ {{ order.grand_total }}</td>
+                                        <td>Order received</td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="5" class="text-center">No orders found.</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
