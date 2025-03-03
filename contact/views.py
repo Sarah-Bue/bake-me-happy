@@ -1,9 +1,53 @@
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
+from .forms import ContactForm
 
 
 def contact(request):
     """
-    A view to return the contact us page.
+    View to handle the contact form submissions.
     """
-
-    return render(request, 'contact/contact.html')
+    
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact_message = form.save()
+            
+            # Send email notification
+            sender_name = contact_message.name
+            sender_email = contact_message.email
+            subject = contact_message.subject
+            message = contact_message.message
+            
+            # Get admin email
+            recipient = settings.DEFAULT_FROM_EMAIL
+            
+            # Send email to admin
+            body = f"Name: {sender_name}\nEmail: {sender_email}\n\nMessage:\n{message}"
+            send_mail(
+                f"Contact Form: {subject}",
+                body,
+                sender_email,
+                [recipient],
+                fail_silently=False,
+            )
+            
+            messages.success(request, 'Thank you for your message! We will respond as soon as possible.')
+            return redirect('contact')
+        else:
+            messages.error(request, 'There was an error with your form. Please check and try again.')
+    else:
+        form = ContactForm()
+    
+    # Prepare context for the template
+    context = {
+        'form': form,
+        'title': 'Contact Us',
+    }
+    
+    # Render the contact page
+    return render(request, 'contact/contact.html', context)

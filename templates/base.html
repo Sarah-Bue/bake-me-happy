@@ -200,7 +200,7 @@
                             <a href="#!" class="text-white text-decoration-none">About Us</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white text-decoration-none">Contact Us</a>
+                            <a href="{% url 'contact' %}" class="text-white text-decoration-none">Contact Us</a>
                         </li>
                         <li>
                             <a href="#!" class="text-white text-decoration-none">FAQ</a>
@@ -218,14 +218,23 @@
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5 class="text-uppercase mb-4">Get in Touch</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-3">
-                            <i class="fas fa-home"></i><span class="ms-2">Cork, Ireland</span>
+                        <li class="mb-2">
+                            <i class="fas fa-home me-2" aria-hidden="true"></i>
+                            <span><a href="https://www.google.com/maps/place/Cork,+Ireland" target="_blank" rel="noopener noreferrer" class="text-reset text-decoration-none" aria-label="Our location in Cork, Ireland - opens Google Maps in a new tab">
+                                Cork, Ireland
+                            </a></span>
                         </li>
-                        <li class="mb-3">
-                            <i class="fas fa-envelope"></i><span class="ms-2">bakemehappy.email@gmail.com</span>
+                        <li class="mb-2">
+                            <i class="fas fa-envelope me-2" aria-hidden="true"></i>
+                            <span><a href="mailto:bakemehappy.email@gmail.com" class="text-reset text-decoration-none" aria-label="Email us at bakemehappy.email@gmail.com">
+                                bakemehappy.email@gmail.com
+                            </a></span>
                         </li>
-                        <li class="mb-3">
-                            <i class="fas fa-phone"></i><span class="ms-2">+ (353) 83 123 45 67</span>
+                        <li class="mb-2">
+                            <i class="fas fa-phone me-2" aria-hidden="true"></i>
+                            <span><a href="tel:+35383123456" class="text-reset text-decoration-none" aria-label="Call us at plus 353 83 123 45 67">
+                                + (353) 83 123 45 67
+                            </a></span>
                         </li>
                     </ul>
                 </div>
