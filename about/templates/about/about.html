@@ -9,95 +9,73 @@
 
 <!-- Content Block -->
 {% block content %}
-<div class="container px-4 px-lg-5 py-5">
+    <div class="container px-4 px-lg-5 py-5">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center">About Us</h1>
+                <hr>
+            </div>
+        </div>
 
-    <!-- About Section -->
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <h1 class="display-6 text-center mb-4">{{ about.title }}</h1>
-            <hr class="mb-4">
-            <div class="about-content mb-5">
-                {{ about.content|safe }}
+        <!-- About Section -->
+        <div class="row">
+            <div class="col-12 position-relative">
+                <h2 class="text-center mb-4">{{ about.title }}</h2>
+                <div class="about-content mb-5 text-center">
+                    {{ about.content|safe }}
+                </div>
+
+                <!-- Action Button (admin only) -->
+                {% if request.user.is_superuser %}
+                <div class="position-absolute bottom-0 end-0 mb-4 me-4">
+                    <a class="text-dark text-decoration-none about-link" href="{% url 'products' %}" aria-label="Edit about content">
+                        <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i>Edit Content
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Baker profiles section -->
+        {% if bakers %}
+            <div class="row">
+                <hr class="w-50 mx-auto mb-5">
+                <div class="col-12">
+                    <h2 class="text-center mb-4">Meet Our Bakers</h2>
+                </div>
             </div>
             
-            <!-- Action Button (admin only) -->
-            {% if request.user.is_superuser %}
-            <div class="d-flex justify-content-center align-items-center mt-4">
-                <a class="text-dark text-decoration-none about-link" href="{% url 'products' %}" aria-label="Edit about content">
-                    <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i>Edit Content
-                </a>
-            </div>
-            {% endif %}
-        </div>
-    </div>
+            <!-- Baker Cards -->
+            <div class="row">
+                {% for baker in bakers %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="baker-profile">
+                        <div class="baker-image-container">
+                            {% if baker.photo %}
+                                <img src="{{ baker.photo.url }}" class="baker-image" alt="{{ baker.name }}">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}noimage.png" class="baker-image" alt="{{ baker.name }} - no image available">
+                            {% endif %}
+                        </div>
+                        <div class="text-center mt-4">
+                            <h3 class="baker-name">{{ baker.name }}</h3>
+                            <p class="baker-title">{{ baker.title }}</p>
+                            <div class="baker-bio">{{ baker.bio|safe }}</div>
+                        </div>
 
-    <!-- Meet the Team Section -->
-    <div class="row mt-5">
-        <div class="col-12">
-            <h2 class="display-6 text-center mb-5">Meet Our Bakers</h2>
-        </div>
-        
-        <!-- Lena -->
-        <div class="col-12 col-md-4 mb-4">
-            <div class="baker-profile text-center">
-                <div class="baker-image-container mb-3">
-                    {% if lena.image %}
-                        <img src="{{ lena.image.url }}" alt="Lena - Head Baker" class="baker-image">
-                    {% else %}
-                        <img src="{{ MEDIA_URL }}noimage.png" alt="Lena - no image available" class="baker-image">
-                    {% endif %}
+                        <!-- Edit Button (admin only) -->
+                        {% if request.user.is_superuser %}
+                        <div class="position-absolute bottom-0 end-0 mb-2 me-2">
+                            <a class="text-dark text-decoration-none baker-edit-link" href="#" aria-label="Edit {{ baker.name }}'s profile">
+                                <i class="fa-solid fa-pen-to-square me-1" aria-hidden="true"></i>Edit
+                            </a>
+                        </div>
+                        {% endif %}
+
+                    </div>
                 </div>
-                <h3 class="baker-name">Lena</h3>
-                <p class="baker-title">Head Baker & Keeper of Family Recipes</p>
-                <p class="baker-bio">
-                    Lena grew up in a small village near the Black Forest, where baking bread was a weekly family ritual. 
-                    After moving to Ireland, she missed the comforting smells of fresh pretzels, sourdough, and her grandmother's 
-                    famous Bienenstich cake. Determined to bring those flavors back to life, Lena now spends her days elbow-deep 
-                    in flour, recreating those memories — and sharing them with you.
-                </p>
+                {% endfor %}
             </div>
-        </div>
-        
-        <!-- Max -->
-        <div class="col-12 col-md-4 mb-4">
-            <div class="baker-profile text-center">
-                <div class="baker-image-container mb-3">
-                    {% if max.image %}
-                        <img src="{{ max.image.url }}" alt="Max - Pastry Perfectionist" class="baker-image">
-                    {% else %}
-                        <img src="{{ MEDIA_URL }}noimage.png" alt="Max - no image available" class="baker-image">
-                    {% endif %}
-                </div>
-                <h3 class="baker-name">Max</h3>
-                <p class="baker-title">Pastry Perfectionist & Cake Artist</p>
-                <p class="baker-bio">
-                    Max inherited a serious sweet tooth and a love for precision from his pastry-chef father. 
-                    Whether it's layering delicate cream cakes or perfecting the shine on a batch of traditional 
-                    German butter cookies, Max is all about the details. His goal? Every cake not only tastes 
-                    incredible but looks like a little piece of edible art.
-                </p>
-            </div>
-        </div>
-        
-        <!-- Sophie -->
-        <div class="col-12 col-md-4 mb-4">
-            <div class="baker-profile text-center">
-                <div class="baker-image-container mb-3">
-                    {% if sophie.image %}
-                        <img src="{{ sophie.image.url }}" alt="Sophie - Roll Queen" class="baker-image">
-                    {% else %}
-                        <img src="{{ MEDIA_URL }}noimage.png" alt="Sophie - no image available" class="baker-image">
-                    {% endif %}
-                </div>
-                <h3 class="baker-name">Sophie</h3>
-                <p class="baker-title">Roll Queen & Sourdough Whisperer</p>
-                <p class="baker-bio">
-                    Sophie's heart belongs to bread. From soft dinner rolls to hearty rye loaves, she loves 
-                    experimenting with different flours, fermentation times, and techniques. She believes every 
-                    great meal starts with a great piece of bread — and she's made it her mission to deliver just that.
-                </p>
-            </div>
-        </div>
+        {% endif %}
     </div>
-</div>
 {% endblock %}

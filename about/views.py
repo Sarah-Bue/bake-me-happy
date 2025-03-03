@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import About
+from .models import About, Baker
 
 
 def about(request):
@@ -15,9 +15,12 @@ def about(request):
             title="About Us",
             content="Welcome to Bake Me Happy!"
         )
+
+    bakers = Baker.objects.all()
     
     context = {
         'about': about,
+        'bakers': bakers,
         'on_about_page': True,
     }
     

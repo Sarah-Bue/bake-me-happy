@@ -1,4 +1,3 @@
-
 from django.db import models
 
 
@@ -18,3 +17,21 @@ class About(models.Model):
     class Meta:
         verbose_name = "About"
         verbose_name_plural = "About"
+
+
+class Baker(models.Model):
+    """
+    Model for storing information about each baker.
+    """
+
+    name = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
+    bio = models.TextField()
+    image = models.ImageField(null=True, blank=True, upload_to='bakers/')
+    order = models.PositiveIntegerField(default=0, help_text="Order in which baker appears on the page")
+    
+    class Meta:
+        ordering = ['order', 'name']
+    
+    def __str__(self):
+        return self.name
