@@ -1,0 +1,59 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+<!-- Extra CSS Block -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'about/css/about.css' %}">
+{% endblock %}
+
+<!-- Extra JS Block -->
+{% block extra_js %}
+    {{ form.media }}
+{% endblock %}
+
+<!-- Content Block -->
+{% block content %}
+    <div class="container px-4 px-lg-5 py-5">
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1">
+                <h1 class="display-6 text-center">Edit Baker Profile</h1>
+                <h2 class="text-center mb-4">{{ baker.name }}</h2>
+                <hr>
+                
+                <form method="POST" action="{% url 'edit_baker' baker.id %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="row">
+                        <!-- Current Image Display -->
+                        {% if baker.image %}
+                        <div class="col-12 col-md-4 mb-4 text-center">
+                            <div class="baker-image-container mx-auto mb-3">
+                                <img src="{{ baker.image.url }}" alt="{{ baker.name }}" class="baker-image">
+                            </div>
+                            <p>Current Image</p>
+                        </div>
+                        <div class="col-12 col-md-8">
+                        {% else %}
+                        <div class="col-12">
+                        {% endif %}
+                            {{ form|crispy }}
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="text-end mt-4">
+                        <!-- Cancel -->
+                        <a class="btn btn-outline-dark" href="{% url 'about' %}">
+                            <span class="me-2"><i class="fas fa-times"></i></span>Cancel
+                        </a>
+                        <!-- Save Changes -->
+                        <button type="submit" class="btn btn-dark">
+                            <span class="me-2"><i class="fa-solid fa-pen-to-square"></i></span>Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
