@@ -41,6 +41,9 @@ urlpatterns = [
 
     # Contact
     path('contact/', include('contact.urls')),
+
+    # About
+    path('about/', include('about.urls')),
   
 # Enable serving of media files during development
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

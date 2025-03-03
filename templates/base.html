@@ -68,7 +68,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <!-- Individual Links -->
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
 
@@ -197,7 +197,7 @@
                     <h5 class="text-uppercase mb-4">Useful Links</h5>
                     <ul class="list-unstyled mb-4">
                         <li>
-                            <a href="#!" class="text-white text-decoration-none">About Us</a>
+                            <a href="{% url 'about' %}" class="text-white text-decoration-none">About Us</a>
                         </li>
                         <li>
                             <a href="{% url 'contact' %}" class="text-white text-decoration-none">Contact Us</a>
