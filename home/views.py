@@ -5,6 +5,7 @@ from checkout.models import Order
 from products.models import Product
 from newsletter.models import Subscriber
 from reviews.models import Review
+from contact.models import Contact
 
 def index(request):
     """
@@ -31,12 +32,14 @@ def store_management(request):
     subscriber_count = Subscriber.objects.count()
     review_count = Review.objects.count()
     orders_count = Order.objects.count()
+    contact_count = Contact.objects.count()
 
     context = {
         'product_count': product_count,
         'subscriber_count': subscriber_count,
         'review_count': review_count,
         'orders_count': orders_count,
+        'contact_count': contact_count,
     }
 
     return render(request, 'home/store_management.html', context)
@@ -104,3 +107,24 @@ def manage_reviews(request):
     }
     
     return render(request, 'home/manage_reviews.html', context)
+
+
+@login_required
+def manage_contacts(request):
+    """
+    A view to manage contact messages.
+    """
+
+    # Check if user is superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can access this page.')
+        return redirect('home')
+
+    # Get all contacts ordered by date (newest first)
+    contacts = Contact.objects.all().order_by('-date_sent')
+
+    context = {
+        'contacts': contacts,
+    }
+
+    return render(request, 'home/manage_contacts.html', context)

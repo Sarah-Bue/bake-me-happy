@@ -45,6 +45,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card text-center h-100 border-dark">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ contact_count }}</h3>
+                            <p class="card-text">Contacts</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Dashboard Actions -->
@@ -87,10 +95,11 @@
                             <h4 class="my-0">Customers</h4>
                         </div>
                         <div class="card-body">
-                            <p>Manage newsletter subscribers and customer orders.</p>
+                            <p>Manage newsletter subscribers, customer contacts, and orders.</p>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item"><a href="{% url 'manage_subscribers' %}">Manage Subscribers</a></li>
                                 <li class="list-group-item"><a href="{% url 'manage_orders' %}">Manage Orders</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_contacts' %}">Manage Contacts</a></li>
                             </ul>
                         </div>
                     </div>

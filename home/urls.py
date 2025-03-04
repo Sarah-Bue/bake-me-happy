@@ -16,4 +16,7 @@ urlpatterns = [
 
     # Manage Reviews
     path('manage-reviews/', views.manage_reviews, name='manage_reviews'),
+
+    # Manage Contacts
+    path('manage-contacts/', views.manage_contacts, name='manage_contacts'),
 ]
