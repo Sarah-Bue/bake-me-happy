@@ -1,0 +1,71 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container px-4 px-lg-5 py-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-6 text-center">Manage Reviews</h1>
+                <hr>
+
+                <!-- Back to Dashboard link -->
+                <div class="mb-4">
+                    <a href="{% url 'store_management' %}" class="btn btn-outline-dark">
+                        <i class="fas fa-chevron-left"></i> Back to Dashboard
+                    </a>
+                </div>
+
+                <!-- Reviews Table -->
+                {% if reviews %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="bg-dark text-white">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Product</th>
+                                    <th>Customer</th>
+                                    <th>Rating</th>
+                                    <th>Title</th>
+                                    <th>Comment Preview</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for review in reviews %}
+                                    <tr>
+                                        <td>{{ review.date_added|date:"M d, Y" }}</td>
+                                        <td>
+                                            <a href="{% url 'product_detail' review.product.id %}" class="text-decoration-none text-dark">
+                                                {{ review.product.name|truncatechars:30 }}
+                                            </a>
+                                        </td>
+                                        <td>{{ review.author.username }}</td>
+                                        <td>
+                                            {% if review.rating %}
+                                                <span><i class="fas fa-star text-warning me-1"></i>{{ review.rating }}/5</span>
+                                            {% else %}
+                                                <span class="text-muted">No rating</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ review.title|default:"No title"|truncatechars:20 }}</td>
+                                        <td>{{ review.review_comment|striptags|truncatechars:50|default:"No comment" }}</td>
+                                        <td>
+                                            <a class="btn btn-sm text-danger" href="{% url 'delete_review' review.id %}" 
+                                            onclick="return confirm('Are you sure you want to delete this review?');">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="lead mb-5 text-center">No reviews found.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -76,12 +76,15 @@ def edit_review(request, review_id):
     A view to edit a review.
     """
 
+    # Get the HTTP_REFERER to redirect user back after completion
+    redirect_url = request.META.get('HTTP_REFERER', 'reviews')
+
     review = get_object_or_404(Review, pk=review_id)
 
     # Verify the review belongs to the user
-    if request.user!= review.author:
+    if request.user != review.author and not request.user.is_superuser:
         messages.error(request, 'Sorry, you can only edit your own reviews.')
-        return redirect(reverse('reviews'))
+        return redirect(redirect_url)
 
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
@@ -93,7 +96,7 @@ def edit_review(request, review_id):
 
             # Successs message
             messages.success(request, 'Successfully updated your review.')
-            return redirect(reverse('product_detail', args=[review.product.id]))
+            redirect(redirect_url)
         else:
             # Error handling for invalid form
             messages.error(request, 'Failed to update review. Please ensure the form is valid.')
@@ -106,6 +109,7 @@ def edit_review(request, review_id):
         'form': form,
         'review': review,
         'product': review.product,
+        'redirect_url': redirect_url,
     }
 
     return render(request, template, context)
@@ -117,20 +121,24 @@ def delete_review(request, review_id):
     A view to delete a review.
     """
 
+    # Get the HTTP_REFERER to redirect user back after completion
+    redirect_url = request.META.get('HTTP_REFERER', 'reviews')
+
     review = get_object_or_404(Review, pk=review_id)
 
     # Verify the review belongs to the user
     if request.user!= review.author:
         messages.error(request, 'Sorry, you can only delete your own reviews.')
-        return redirect(reverse('reviews'))
+        redirect(redirect_url)
     
     # Delete review and update product rating
+    product = review.product
     review.delete()
     update_product_rating(review.product)
 
     # Success message
-    messages.success(request, 'Your review has been deleted.')
-    return redirect(reverse('reviews'))
+    messages.success(request, 'The review has been deleted.')
+    return redirect(redirect_url)
 
 
 def update_product_rating(product):
@@ -143,9 +151,13 @@ def update_product_rating(product):
     if not reviews.exists():
         product.rating = None
     
-    # Calculate average rating
+    # Calculate average rating from reviews that have ratings
     else:
-        avg_rating = sum(review.rating for review in reviews) / reviews.count()
-        product.rating = round(avg_rating, 1)
+        reviews_with_ratings = [review.rating for review in reviews if review.rating is not None]
+        if reviews_with_ratings:
+            avg_rating = sum(reviews_with_ratings) / len(reviews_with_ratings)
+            product.rating = round(avg_rating, 1)
+        else:
+            product.rating = None
 
     product.save()

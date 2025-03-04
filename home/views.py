@@ -66,7 +66,7 @@ def manage_orders(request):
 @login_required
 def manage_subscribers(request):
     """
-    A view to manage newsletter subscribers
+    A view to manage newsletter subscribers.
     """
     
     # Check if user is superuser
@@ -83,3 +83,24 @@ def manage_subscribers(request):
     }
     
     return render(request, 'home/manage_subscribers.html', context)
+
+
+@login_required
+def manage_reviews(request):
+    """
+    A view to manage product reviews.
+    """
+    
+    # Check if user is superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can access this page.')
+        return redirect('home')
+    
+    # Get all reviews ordered by date (newest first)
+    reviews = Review.objects.all().order_by('-date_added')
+    
+    context = {
+        'reviews': reviews,
+    }
+    
+    return render(request, 'home/manage_reviews.html', context)
