@@ -11,4 +11,6 @@ urlpatterns = [
     # Manage Orders
     path('manage-orders/', views.manage_orders, name='manage_orders'),
 
+    # Manage Subscribers
+    path('manage-subscribers/', views.manage_subscribers, name='manage_subscribers'),
 ]
