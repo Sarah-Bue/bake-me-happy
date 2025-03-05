@@ -21,6 +21,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -29,6 +30,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -37,6 +39,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -45,11 +48,21 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
                             <h3 class="card-title">{{ contact_count }}</h3>
                             <p class="card-text">Contacts</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-3 mb-4">
+                    <div class="card text-center h-100 border-dark">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ baker_count }}</h3>
+                            <p class="card-text">Bakers</p>
                         </div>
                     </div>
                 </div>
@@ -115,7 +128,7 @@
                             <p>Update website content including About page and baker profiles.</p>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item"><a href="{% url 'edit_about' %}">Manage About Content</a></li>
-                                <li class="list-group-item"><a href="#">Manage Baker Profiles</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_bakers' %}">Manage Baker Profiles</a></li>
                                 <li class="list-group-item"><a href="#">Manage FAQ Contents</a></li>
                                 <li class="list-group-item"><a href="#">Manage Privacy Policy</a></li>
                                 <li class="list-group-item"><a href="#">Manage Allergen Information</a></li>

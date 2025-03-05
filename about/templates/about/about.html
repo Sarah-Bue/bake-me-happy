@@ -23,19 +23,9 @@
                 <div class="about-content mb-5 text-center">
                     {{ about.content|safe }}
                 </div>
-
-                <!-- Action Button (admin only) -->
-                {% if request.user.is_superuser %}
-                <div class="position-absolute bottom-0 end-0 mb-4 me-4">
-                    <a class="text-dark text-decoration-none about-link" href="{% url 'edit_about' %}" aria-label="Edit about content">
-                        <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i>Edit Content
-                    </a>
-                </div>
-                {% endif %}
-            </div>
         </div>
 
-        <!-- Baker profiles section -->
+        <!-- Baker Profiles section -->
         {% if bakers %}
             <div class="row">
                 <hr class="w-50 mx-auto mb-5">
@@ -61,16 +51,6 @@
                             <p class="baker-title">{{ baker.title }}</p>
                             <div class="baker-bio">{{ baker.bio|safe }}</div>
                         </div>
-
-                        <!-- Edit Button (admin only) -->
-                        {% if request.user.is_superuser %}
-                        <div class="position-absolute bottom-0 end-0 mb-2 me-2">
-                            <a class="text-dark text-decoration-none baker-edit-link" href="{% url 'edit_baker' baker.id %}" aria-label="Edit {{ baker.name }}'s profile">
-                                <i class="fa-solid fa-pen-to-square me-1" aria-hidden="true"></i>Edit Profile
-                            </a>
-                        </div>
-                        {% endif %}
-
                     </div>
                 </div>
                 {% endfor %}

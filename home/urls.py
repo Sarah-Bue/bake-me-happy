@@ -19,4 +19,7 @@ urlpatterns = [
 
     # Manage Contacts
     path('manage-contacts/', views.manage_contacts, name='manage_contacts'),
+
+    # Manage Bakers
+    path('manage-bakers/', views.manage_bakers, name='manage_bakers'),
 ]
