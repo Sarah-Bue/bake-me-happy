@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Extraa CSS -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 <!-- Content Block -->
 {% block content %}
-
     <div class="container px-4 px-lg-5 py-5">
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
@@ -13,6 +17,8 @@
 
             <!-- Dashboard Summary -->
             <div class="row mb-5">
+
+                <!-- Product Count -->
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -22,6 +28,7 @@
                     </div>
                 </div>
 
+                <!-- Subscriber Count -->
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -31,6 +38,7 @@
                     </div>
                 </div>
 
+                <!-- Review Count -->
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -40,6 +48,7 @@
                     </div>
                 </div>
 
+                <!-- Order Count -->
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -49,6 +58,7 @@
                     </div>
                 </div>
 
+                <!-- Contact Count -->
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -58,6 +68,7 @@
                     </div>
                 </div>
             
+                <!-- Baker Count -->
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
                         <div class="card-body">
@@ -79,8 +90,8 @@
                         <div class="card-body">
                             <p>Manage product inventory, categories, and occasions.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="{% url 'add_product' %}">Add New Product</a></li>
-                                <li class="list-group-item"><a href="#">Manage Products</a></li>
+                                <li class="list-group-item"><a href="{% url 'add_product' %}" class="store-management-link">Add New Product</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_products' %}" class="store-management-link">Manage Products</a></li>
                             </ul>
                         </div>
                     </div>
@@ -95,7 +106,7 @@
                         <div class="card-body">
                             <p>Manage product reviews and ratings.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="{% url 'manage_reviews' %}">Manage Reviews</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_reviews' %}" class="store-management-link">Manage Reviews</a></li>
                             </ul>
                         </div>
                     </div>
@@ -110,9 +121,9 @@
                         <div class="card-body">
                             <p>Manage newsletter subscribers, customer contacts, and orders.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="{% url 'manage_subscribers' %}">Manage Subscribers</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_orders' %}">Manage Orders</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_contacts' %}">Manage Contacts</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_subscribers' %}" class="store-management-link">Manage Subscribers</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_orders' %}" class="store-management-link">Manage Orders</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_contacts' %}" class="store-management-link">Manage Contacts</a></li>
                             </ul>
                         </div>
                     </div>
@@ -125,13 +136,13 @@
                             <h4 class="my-0">Content</h4>
                         </div>
                         <div class="card-body">
-                            <p>Update website content including About page and baker profiles.</p>
+                            <p>Update website content including About content. allergen information, and privacy policy.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="{% url 'edit_about' %}">Manage About Content</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_bakers' %}">Manage Baker Profiles</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_faq' %}">Manage FAQ Contents</a></li>
-                                <li class="list-group-item"><a href="{% url 'edit_privacy_policy' %}">Manage Privacy Policy</a></li>
-                                <li class="list-group-item"><a href="{% url 'edit_allergen_info' %}">Manage Allergen Information</a></li>
+                                <li class="list-group-item"><a href="{% url 'edit_about' %}" class="store-management-link">Manage About Content</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_bakers' %}" class="store-management-link">Manage Baker Profiles</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_faq' %}" class="store-management-link">Manage FAQ Contents</a></li>
+                                <li class="list-group-item"><a href="{% url 'edit_privacy_policy' %}" class="store-management-link">Manage Privacy Policy</a></li>
+                                <li class="list-group-item"><a href="{% url 'edit_allergen_info' %}" class="store-management-link">Manage Allergen Information</a></li>
                             </ul>
                         </div>
                     </div>

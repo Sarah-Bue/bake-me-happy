@@ -25,4 +25,7 @@ urlpatterns = [
 
     # Manage FAQ
     path('manage-faq/', views.manage_faq, name='manage_faq'),
+
+    # Manage Products
+    path('manage-products/', views.manage_products, name='manage_products'),
 ]

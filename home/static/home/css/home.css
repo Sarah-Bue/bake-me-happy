@@ -1,0 +1,11 @@
+/* Store Management Link Styles */
+.store-management-link {
+    color: #212529 !important;
+    text-decoration: none !important;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.store-management-link:hover {
+    text-decoration: underline !important;
+}

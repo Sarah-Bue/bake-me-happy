@@ -172,3 +172,25 @@ def manage_faq(request):
     }
 
     return render(request, 'home/manage_faq.html', context)
+
+
+@login_required
+def manage_products(request):
+    """
+    A view to manage all products.
+    """
+    
+    # Check if user is superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can access this page.')
+        return redirect('home')
+
+    # Get all products ordered by name
+    from products.models import Product
+    products = Product.objects.all().order_by('name')
+
+    context = {
+        'products': products,
+    }
+
+    return render(request, 'home/manage_products.html', context)

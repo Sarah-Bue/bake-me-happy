@@ -1,0 +1,146 @@
+
+[
+    {
+      "model": "about.faq",
+      "pk": 1,
+      "fields": {
+        "question": "Where do you deliver?",
+        "answer": "We currently deliver across Ireland — from Dublin to Donegal and everywhere in between. Whether you're in a big city or a cozy village, we'll get your baked goodies to you.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 1
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 2,
+      "fields": {
+        "question": "How long does delivery take?",
+        "answer": "We bake everything fresh to order, so delivery typically takes 2-4 days from the time you place your order. If you need something quicker, just get in touch and we'll do our best to help.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 2
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 3,
+      "fields": {
+        "question": "Do you offer local pickup?",
+        "answer": "Yes! If you're nearby, you can choose local pickup at checkout, and we'll let you know when your order is ready to collect.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 3
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 4,
+      "fields": {
+        "question": "Are your products made fresh to order?",
+        "answer": "Always! Everything we sell is baked fresh by our family team, just for you.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 4
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 5,
+      "fields": {
+        "question": "Do you bake everything yourselves?",
+        "answer": "Yes, everything is made by us — a small family of German expats — using traditional recipes and lots of love.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 5
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 6,
+      "fields": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept credit cards, debit cards, and PayPal for online orders. For local pickups, we also accept cash.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 6
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 7,
+      "fields": {
+        "question": "Do you offer gluten-free, vegan, or allergy-friendly options?",
+        "answer": "Right now, we focus on traditional German recipes, which often contain wheat, dairy, eggs, and nuts. If you have specific dietary needs, feel free to contact us and we'll see if we can help.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 7
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 8,
+      "fields": {
+        "question": "How should I store my baked goods?",
+        "answer": "Breads are best stored in a bread box or paper bag to keep the crust crisp. Rolls and cakes do well in airtight containers. For longer storage, you can freeze breads — just slice them first for easy toasting!",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 8
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 9,
+      "fields": {
+        "question": "Can I place a custom order for a special occasion?",
+        "answer": "Absolutely! Whether it's a birthday, wedding, or corporate event, we love creating custom cakes and treats. Just contact us to chat about what you need. if you have already placed an order that requires customization, we'll reach out with a separate email after your order confirmation.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 9
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 10,
+      "fields": {
+        "question": "Do you offer gift boxes or gift wrapping?",
+        "answer": "Yes! We can beautifully package your order if it's a gift. Just respond to your order confirmation email with your gift message and we'll take care of the rest.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 10
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 11,
+      "fields": {
+        "question": "What's the best way to reheat bread or rolls?",
+        "answer": "A few minutes in a preheated oven (around 180°C) will bring your bread and rolls back to life. Cakes are best enjoyed as they are — maybe just add a coffee!",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 11
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 12,
+      "fields": {
+        "question": "Do you use any artificial preservatives?",
+        "answer": "Nope! We keep it simple — real ingredients, no preservatives. That's why everything tastes fresh and homemade.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 12
+      }
+    },
+
+    {
+      "model": "about.faq",
+      "pk": 13,
+      "fields": {
+        "question": "Can I order in bulk for events or corporate gifts?",
+        "answer": "Yes! We love baking for big gatherings. Just contact us to arrange bulk orders or corporate gift boxes.",
+        "updated_on": "2023-06-01T12:00:00Z",
+        "order": 13
+      }
+    }
+  ]
+  
