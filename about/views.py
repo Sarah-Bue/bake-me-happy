@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import About, Baker
-from .forms import AboutForm, BakerForm
+from .models import About, Baker, PrivacyPolicy
+from .forms import AboutForm, BakerForm, PrivacyPolicyForm
 
 def about(request):
     """
@@ -88,7 +88,7 @@ def edit_baker(request, baker_id):
         else:
             messages.error(request, 'Failed to update baker profile. Please ensure the form is valid.')
     else:
-        # Populate form with product data & display info message
+        # Preopulate form & display info message
         form = BakerForm(instance=baker)
         messages.info(request, f'You are editing {baker.name}.')
 
@@ -143,6 +143,68 @@ def add_baker(request):
     template = 'about/add_baker.html'
     context = {
         'form': form,
+    }
+    
+    return render(request, template, context)
+
+
+
+def privacy_policy(request):
+    """
+    View to render the Privacy Policy page.
+    """
+    
+    policy = PrivacyPolicy.objects.first()
+    
+    # Create placeholder if polkicy unavailable
+    if not policy:
+        policy = PrivacyPolicy.objects.create(
+            title="Privacy Policy",
+            content="Our Privacy Policy will be available soon."
+        )
+    
+    context = {
+        'policy': policy,
+    }
+    
+    return render(request, 'about/privacy_policy.html', context)
+
+
+@login_required
+def edit_privacy_policy(request):
+    """
+    View to edit the Privacy Policy content.
+    """
+    
+    # Only superusers can edit privacy policy content
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect('privacy_policy')
+    
+    policy = PrivacyPolicy.objects.first()
+    if not policy:
+        policy = PrivacyPolicy.objects.create(
+            title="Privacy Policy",
+            content="Our Privacy Policy will be available soon."
+        )
+    
+    if request.method == 'POST':
+        form = PrivacyPolicyForm(request.POST, instance=policy)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Privacy Policy updated successfully')
+            return redirect('store_management')
+        else:
+            messages.error(request, 'Failed to update the privacy policy. Please ensure the form is valid.')
+    else:
+        # Prepopulate form & display info message
+        form = PrivacyPolicyForm(instance=policy)
+        messages.info(request, f'You are editing the privacy policy.')
+    
+    template = 'about/edit_privacy_policy.html'
+    context = {
+        'form': form,
+        'policy': policy,
     }
     
     return render(request, template, context)

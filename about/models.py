@@ -3,7 +3,7 @@ from django.db import models
 
 class About(models.Model):
     """
-    Model for the About page content.
+    Model for storing the About section content.
     """
 
     title = models.CharField(max_length=200)
@@ -21,7 +21,7 @@ class About(models.Model):
 
 class Baker(models.Model):
     """
-    Model for storing information about each baker.
+    Model for storing baker profile information.
     """
 
     name = models.CharField(max_length=100)
@@ -35,3 +35,20 @@ class Baker(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class PrivacyPolicy(models.Model):
+    """
+    Model for storing the Privacy Policy content.
+    """
+
+    title = models.CharField(max_length=200, default="Privacy Policy")
+    content = models.TextField()
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Privacy Policy"
+        verbose_name_plural = "Privacy Policy"

@@ -1,12 +1,12 @@
 
 from django import forms
 from django_summernote.widgets import SummernoteWidget
-from .models import About, Baker
+from .models import About, Baker, PrivacyPolicy
 
 
 class AboutForm(forms.ModelForm):
     """
-    Form for editing the About page content with Summernote editor.
+    Form for editing About section content with Summernote editor.
     """
     
     class Meta:
@@ -35,3 +35,17 @@ class BakerForm(forms.ModelForm):
         # Add classes for styling
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
+
+
+class PrivacyPolicyForm(forms.ModelForm):
+    """
+    Form for editing Privacy Policy content with Summernote editor.
+    """
+
+    class Meta:
+        model = PrivacyPolicy
+        fields = ['title', 'content']
+        widgets = {
+            'content': SummernoteWidget(),
+        }
+

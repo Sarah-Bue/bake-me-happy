@@ -5,7 +5,7 @@ urlpatterns = [
     # About page
     path('', views.about, name='about'),
 
-    # Edit About page
+    # Edit About section
     path('edit/', views.edit_about, name='edit_about'),
 
     # Edit Baker profile
@@ -16,4 +16,10 @@ urlpatterns = [
 
     # Add Baker profile
     path('add_baker/', views.add_baker, name='add_baker'),
+
+    # Privacy Policy
+    path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
+
+    # Edit Privacy Policy page
+    path('privacy-policy/edit/', views.edit_privacy_policy, name='edit_privacy_policy'),
 ]
