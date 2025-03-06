@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import About, Baker, PrivacyPolicy
-from .forms import AboutForm, BakerForm, PrivacyPolicyForm
+from .models import About, Baker, PrivacyPolicy, AllergenInfo
+from .forms import AboutForm, BakerForm, PrivacyPolicyForm, AllergenInfoForm
 
 def about(request):
     """
@@ -148,7 +148,6 @@ def add_baker(request):
     return render(request, template, context)
 
 
-
 def privacy_policy(request):
     """
     View to render the Privacy Policy page.
@@ -205,6 +204,67 @@ def edit_privacy_policy(request):
     context = {
         'form': form,
         'policy': policy,
+    }
+    
+    return render(request, template, context)
+
+
+def allergen_info(request):
+    """
+    View to render the Allergen Information page.
+    """
+    
+    allergen_info = AllergenInfo.objects.first()
+    
+    # Create default allergen info if none exists
+    if not allergen_info:
+        allergen_info = AllergenInfo.objects.create(
+            title="Allergen Information",
+            content="Our Allergen Information will be available soon."
+        )
+    
+    context = {
+        'allergen_info': allergen_info,
+    }
+    
+    return render(request, 'about/allergen_info.html', context)
+
+
+@login_required
+def edit_allergen_info(request):
+    """
+    View to edit the Allergen Information content.
+    """
+    
+    # Only superusers can edit allergen information
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect('allergen_info')
+    
+    allergen_info = AllergenInfo.objects.first()
+    if not allergen_info:
+        allergen_info = AllergenInfo.objects.create(
+            title="Allergen Information",
+            content="Our Allergen Information will be available soon."
+        )
+    
+    if request.method == 'POST':
+        form = AllergenInfoForm(request.POST, instance=allergen_info)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Allergen Information updated successfully')
+            return redirect('store_management')
+        else:
+            messages.error(request, 'Failed to update the allergen information. Please ensure the form is valid.')
+    else:
+        # Prepopulate form & display info message
+        form = AllergenInfoForm(instance=allergen_info)
+        messages.info(request, f'You are editing the allergen information.')
+    
+    template = 'about/edit_allergen_info.html'
+    context = {
+        'form': form,
+        'allergen_info': allergen_info,
     }
     
     return render(request, template, context)

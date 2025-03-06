@@ -22,4 +22,10 @@ urlpatterns = [
 
     # Edit Privacy Policy page
     path('privacy-policy/edit/', views.edit_privacy_policy, name='edit_privacy_policy'),
+
+    # Allergen Info
+    path('allergen_info/', views.allergen_info, name='allergen_info'),
+
+    # Edit Allergen Info page
+    path('allergen_info/edit/', views.edit_allergen_info, name='edit_allergen_info'),
 ]

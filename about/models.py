@@ -52,3 +52,20 @@ class PrivacyPolicy(models.Model):
     class Meta:
         verbose_name = "Privacy Policy"
         verbose_name_plural = "Privacy Policy"
+
+
+class AllergenInfo(models.Model):
+    """
+    Model for storing allergen information content.
+    """
+    
+    title = models.CharField(max_length=200, default="Allergen Information")
+    content = models.TextField()
+    updated_on = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = "Allergen Information"
+        verbose_name_plural = "Allergen Information"

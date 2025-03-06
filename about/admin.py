@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import About, Baker, PrivacyPolicy
+from .models import About, Baker, PrivacyPolicy, AllergenInfo
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -32,7 +32,17 @@ class PrivacyPolicyAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 
-# Register the About model with the custom AboutAdmin class
+class AllergenInfoAdmin(SummernoteModelAdmin):
+    """
+    Admin interface for managing Allergen Information content.
+    """
+
+    list_display = ('title', 'updated_on')
+    summernote_fields = ('content',)
+
+
+# Register models with the admin interface
 admin.site.register(About, AboutAdmin)
 admin.site.register(Baker, BakerAdmin)
 admin.site.register(PrivacyPolicy, PrivacyPolicyAdmin)
+admin.site.register(AllergenInfo, AllergenInfoAdmin)

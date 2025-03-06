@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- Extra CSS Block -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'about/css/about.css' %}" />
+{% endblock %}
+
+<!-- Content Block -->
+{% block content %}
+    <div class="container px-4 px-lg-5 py-5">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center">{{ allergen_info.title }}</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 mb-5">
+                <div class="content-container p-3">
+                    {{ allergen_info.content|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
