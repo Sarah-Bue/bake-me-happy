@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- Extra CSS Block -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'about/css/about.css' %}" />
+{% endblock %}
+
+<!-- Content Block -->
+{% block content %}
+    <div class="container px-4 px-lg-5 py-5">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center">Frequently Asked Questions</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 mb-5">
+                {% if faqs %}
+                    <div class="accordion" id="faq-accordion">
+                        {% for faq in faqs %}
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="heading-{{ faq.id }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#collapse-{{ faq.id }}" aria-expanded="false" 
+                                            aria-controls="collapse-{{ faq.id }}">
+                                        {{ faq.question }}
+                                    </button>
+                                </h2>
+                                <div id="collapse-{{ faq.id }}" class="accordion-collapse collapse" 
+                                     aria-labelledby="heading-{{ faq.id }}" data-bs-parent="#faq-accordion">
+                                    <div class="accordion-body">
+                                        {{ faq.answer|safe }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                {% else %}
+                    <!-- No FAQs Available Message -->
+                    <div class="col text-center" role="alert" aria-live="polite">
+                        <p class="lead mb-4">No FAQs available at this time.</p>
+                        <a href="{% url 'home' %}" class="btn btn-outline-dark">
+                            <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Return Home
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

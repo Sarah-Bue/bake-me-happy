@@ -6,7 +6,7 @@ from products.models import Product
 from newsletter.models import Subscriber
 from reviews.models import Review
 from contact.models import Contact
-from about.models import Baker
+from about.models import Baker, FAQ
 
 def index(request):
     """
@@ -152,3 +152,23 @@ def manage_bakers(request):
     }
 
     return render(request, 'home/manage_bakers.html', context)
+
+
+@login_required
+def manage_faq(request):
+    """
+    A view to manage frequently asked questions.
+    """
+    # Check if user is superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can access this page.')
+        return redirect('home')
+
+    # Get all FAQ ordered by their display order
+    faq = FAQ.objects.all().order_by('order')
+
+    context = {
+        'faq': faq,
+    }
+
+    return render(request, 'home/manage_faq.html', context)

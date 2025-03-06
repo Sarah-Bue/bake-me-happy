@@ -22,4 +22,7 @@ urlpatterns = [
 
     # Manage Bakers
     path('manage-bakers/', views.manage_bakers, name='manage_bakers'),
+
+    # Manage FAQ
+    path('manage-faq/', views.manage_faq, name='manage_faq'),
 ]

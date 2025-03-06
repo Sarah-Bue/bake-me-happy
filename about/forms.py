@@ -1,7 +1,7 @@
 
 from django import forms
 from django_summernote.widgets import SummernoteWidget
-from .models import About, Baker, PrivacyPolicy, AllergenInfo
+from .models import About, Baker, PrivacyPolicy, AllergenInfo, FAQ
 
 
 class AboutForm(forms.ModelForm):
@@ -59,4 +59,17 @@ class AllergenInfoForm(forms.ModelForm):
         fields = ['title', 'content']
         widgets = {
             'content': SummernoteWidget(),
+        }
+
+
+class FAQForm(forms.ModelForm):
+    """
+    Form for editing FAQ entries.
+    """
+
+    class Meta:
+        model = FAQ
+        fields = ['question', 'answer', 'order']
+        widgets = {
+            'answer': SummernoteWidget(),
         }

@@ -69,3 +69,22 @@ class AllergenInfo(models.Model):
     class Meta:
         verbose_name = "Allergen Information"
         verbose_name_plural = "Allergen Information"
+
+
+class FAQ(models.Model):
+    """
+    Model for storing FAQ questions and answers.
+    """
+    
+    question = models.CharField(max_length=500, default="Your question here")
+    answer = models.TextField()
+    updated_on = models.DateTimeField(auto_now=True)
+    order = models.PositiveIntegerField(default=0, help_text="Order in which FAQ appears on the page")
+    
+    def __str__(self):
+        return self.question
+    
+    class Meta:
+        verbose_name = "FAQ"
+        verbose_name_plural = "FAQ"
+        ordering = ['order']

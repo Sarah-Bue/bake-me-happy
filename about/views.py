@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import About, Baker, PrivacyPolicy, AllergenInfo
-from .forms import AboutForm, BakerForm, PrivacyPolicyForm, AllergenInfoForm
+from .models import About, Baker, PrivacyPolicy, AllergenInfo, FAQ
+from .forms import AboutForm, BakerForm, PrivacyPolicyForm, AllergenInfoForm, FAQForm
 
 def about(request):
     """
@@ -268,3 +268,95 @@ def edit_allergen_info(request):
     }
     
     return render(request, template, context)
+
+
+def faq(request):
+    """
+    View to display FAQs.
+    """
+    
+    faqs = FAQ.objects.all()
+    
+    context = {
+        'faqs': faqs,
+    }
+    
+    return render(request, 'about/faq.html', context)
+
+
+@login_required
+def add_faq(request):
+    """
+    View to add a FAQ.
+    """
+    
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+        
+    if request.method == 'POST':
+        form = FAQForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added FAQ!')
+            return redirect(reverse('manage_faq'))
+        else:
+            messages.error(request, 'Failed to add FAQ. Please ensure the form is valid.')
+    else:
+        form = FAQForm()
+        
+    template = 'about/add_faq.html'
+    context = {
+        'form': form,
+        'is_add': True,
+    }
+    
+    return render(request, template, context)
+
+
+@login_required
+def edit_faq(request, faq_id):
+    """
+    View to edit a FAQ.
+    """
+    
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+        
+    faq = get_object_or_404(FAQ, pk=faq_id)
+    if request.method == 'POST':
+        form = FAQForm(request.POST, instance=faq)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated FAQ!')
+            return redirect(reverse('manage_faq'))
+        else:
+            messages.error(request, 'Failed to update FAQ. Please ensure the form is valid.')
+    else:
+        form = FAQForm(instance=faq)
+        
+    template = 'about/edit_faq.html'
+    context = {
+        'form': form,
+        'faq': faq,
+        'is_add': False,
+    }
+    
+    return render(request, template, context)
+
+
+@login_required
+def delete_faq(request, faq_id):
+    """
+    View to delete a FAQ.
+    """
+    
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+        
+    faq = get_object_or_404(FAQ, pk=faq_id)
+    faq.delete()
+    messages.success(request, 'FAQ deleted!')
+    return redirect(reverse('manage_faq'))

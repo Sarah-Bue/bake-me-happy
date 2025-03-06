@@ -17,15 +17,27 @@ urlpatterns = [
     # Add Baker profile
     path('add_baker/', views.add_baker, name='add_baker'),
 
-    # Privacy Policy
+    # Privacy Policy page
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
 
     # Edit Privacy Policy page
     path('privacy-policy/edit/', views.edit_privacy_policy, name='edit_privacy_policy'),
 
-    # Allergen Info
+    # Allergen Info page
     path('allergen_info/', views.allergen_info, name='allergen_info'),
 
     # Edit Allergen Info page
     path('allergen_info/edit/', views.edit_allergen_info, name='edit_allergen_info'),
+
+    # FAQ page
+    path('faq/', views.faq, name='faq'),
+
+    # Edit FAQ
+    path('faq/edit/<int:faq_id>', views.edit_faq, name='edit_faq'),
+
+    # Add FAQ
+    path('faq/add/', views.add_faq, name='add_faq'),
+
+    # Delete FAQ
+    path('faq/delete/<int:faq_id>/', views.delete_faq, name='delete_faq'),
 ]
