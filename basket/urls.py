@@ -12,5 +12,9 @@ urlpatterns = [
     path('update/<item_id>/', views.update_basket, name='update_basket'),
 
     # Remove from Basket
-    path('remove/<item_id>/', views.remove_from_basket, name='remove_from_basket'),
+    path('remove/<item_id>/',
+         views.remove_from_basket, name='remove_from_basket'),
+
+    # Clear Basket
+    path('clear/', views.clear_basket, name='clear_basket'),
 ]

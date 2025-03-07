@@ -13,13 +13,16 @@ def view_basket(request):
 
 
 def add_to_basket(request, item_id):
-    """ 
+    """
     A view to add a quantity of the specified product to the shopping basket.
     """
 
     # Get the quantity added to the basket
     quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url') or request.META.get('HTTP_REFERER', '/products/')
+
+    # Get redirect URL from form or HTTP referer, fallback to products page
+    redirect_url = (request.POST.get('redirect_url') or
+                    request.META.get('HTTP_REFERER', '/products/'))
     basket = request.session.get('basket', {})
 
     # Get product info for the message
@@ -29,7 +32,7 @@ def add_to_basket(request, item_id):
     if item_id in list(basket.keys()):
         # Inform user item is already in basket
         messages.info(
-            request, 
+            request,
             f'{product.name} is already in your basket. '
             'You can adjust the quantity in the basket.'
         )
@@ -39,7 +42,8 @@ def add_to_basket(request, item_id):
         # Update the session basket data
         request.session['basket'] = basket
         # Success message for new item
-        messages.success(request, f'{product.name} has been added to your basket')
+        messages.success(request,
+                         f'{product.name} has been added to your basket')
 
     # Redirect back to previous page
     return redirect(redirect_url)
@@ -75,7 +79,7 @@ def remove_from_basket(request, item_id):
     """
     A view to remove the specified product from the shopping basket.
     """
-    
+
     try:
         # Get the basket data from the session
         basket = request.session.get('basket', {})
@@ -88,7 +92,8 @@ def remove_from_basket(request, item_id):
 
         # Get product info for the message
         product = Product.objects.get(pk=item_id)
-        messages.success(request, f'{product.name} has been removed from your basket')
+        messages.success(request,
+                         f'{product.name} has been removed from your basket')
 
         # Redirect to the basket page
         return redirect('view_basket')
@@ -96,3 +101,20 @@ def remove_from_basket(request, item_id):
     # Error Handling
     except Exception as e:
         return redirect('view_basket')
+
+
+def clear_basket(request):
+    """
+    A view to remove all items from the shopping basket.
+    """
+
+    try:
+        # Clear the basket session data
+        request.session['basket'] = {}
+        messages.success(request, 'Your basket has been cleared')
+
+    # Error Handling
+    except Exception as e:
+        messages.error(request, f'Error clearing basket: {e}')
+
+    return redirect('view_basket')

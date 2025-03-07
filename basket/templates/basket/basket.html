@@ -18,8 +18,8 @@
                     <!-- The basket view has been adapted from Code Institute's "Boutique Ado" project -->
                     <div class="table-responsive">
                         <table class="table" role="table" aria-label="Shopping basket contents">
+                            <!-- Table Headings -->
                             <thead>
-                                <!-- Table Headings -->
                                 <tr>
                                     <th scope="col">Product</th>
                                     <th scope="col">Details</th>
@@ -29,6 +29,7 @@
                                     <th scope="col"><span class="visually-hidden">Actions</span></th>
                                 </tr>
                             </thead>
+                            <!-- Table Body -->
                             <tbody>
                                 {% for item in basket_items %}
                                     <tr>
@@ -41,7 +42,7 @@
                                             {% endif %}
                                         </td>
 
-                                        <!-- Product Details -->
+                                        <!-- Product Name -->
                                         <td class="py-3">
                                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         </td>
@@ -75,7 +76,8 @@
                                                             <i class="fas fa-plus" aria-hidden="true"></i>
                                                         </button>
                                                     </div>
-                                                    <div class="invalid-feedback" id="qty_message_{{ product.id }}" style="display: none;">
+                                                    <!-- Error message for quantity input -->
+                                                    <div class="invalid-feedback" id="qty_message_{{ item.item_id }}" style="display: none;">
                                                         Please contact us for orders over 5 items.
                                                     </div>
                                                 </div>
@@ -100,6 +102,7 @@
                                                         aria-label="Remove {{ item.product.name }} from basket">
                                                     <i class="fas fa-trash-alt" aria-hidden="true"></i>
                                                 </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -119,9 +122,15 @@
                                         <hr>
                                         <!-- Checkout Buttons -->
                                         <div class="d-flex justify-content-end gap-2 mt-3">
+                                            <!-- Keep Shopping-->
                                             <a href="{% url 'products' %}" class="btn btn-outline-dark" aria-label="Continue shopping">
                                                 <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
                                             </a>
+                                            <!-- Clear Basket -->
+                                            <a href="{% url 'clear_basket' %}" class="btn btn-outline-danger" id="clear-basket-btn" aria-label="Clear basket">
+                                                <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Clear Basket
+                                            </a>
+                                            <!-- Secure Checkout -->
                                             <a href="{% url 'checkout' %}" class="btn btn-dark" aria-label="Proceed to secure checkout">
                                                 <i class="fas fa-lock me-2" aria-hidden="true"></i>Secure Checkout
                                             </a>
@@ -136,7 +145,7 @@
                     <!-- Empty Basket Message -->
                     <div class="row">
                         <div class="col text-center" role="alert" aria-live="polite">
-                            <p class="lead mb-4">Your basket is empty</p>
+                            <p class="lead mb-4">Your basket is empty.</p>
                             <a href="{% url 'products' %}" class="btn btn-outline-dark">
                                 <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Continue Shopping
                             </a>

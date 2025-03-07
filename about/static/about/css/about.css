@@ -22,7 +22,7 @@
 }
 
 .about-link:hover::after {
-    transform: scaleX(1);
+    transform: scale(1, 1);
 }
 
 
