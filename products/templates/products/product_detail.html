@@ -82,32 +82,21 @@
                         <form class="needs-validation w-100" action="{% url 'add_to_basket' product.id %}" method="POST" novalidate>
                             {% csrf_token %}
                             <div class="row g-3">
+                                <!-- Quantity Dropdown -->
                                 <div class="col-12">
                                     <label for="id_qty_{{ product.id }}" class="form-label fw-bold">Quantity:</label>
-                                    <!-- Quantity Input Buttons -->
                                     <div class="input-group has-validation" style="max-width: 150px;" role="group" aria-label="Product quantity adjustment">
-                                        <button class="btn btn-outline-secondary border" type="button" id="decrease_qty_{{ product.id }}" aria-label="Decrease quantity">
-                                            <i class="fas fa-minus" aria-hidden="true"></i>
-                                        </button>
-                                        <input 
-                                            class="form-control text-center qty_input" 
-                                            type="number" 
-                                            name="quantity" 
-                                            value="1" 
-                                            min="1" 
-                                            max="5" 
-                                            data-item_id="{{ product.id }}" 
-                                            id="id_qty_{{ product.id }}"
-                                            aria-label="Product quantity"
-                                            required
-                                        >
-                                        <button class="btn btn-outline-secondary border" type="button" id="increase_qty_{{ product.id }}" aria-label="Increase quantity">
-                                            <i class="fas fa-plus" aria-hidden="true"></i>
-                                        </button>
-                                        <div class="invalid-feedback" id="qty_message_{{ product.id }}" style="display: none;">
-                                            Please contact us for orders over 5 items.
-                                        </div>
+                                        <select class="form-select qty_input" id="id_qty_{{ product.id }}" name="quantity" data-item_id="{{ product.id }}" required>                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
                                     </div>
+                                    <!-- Error message for quantity input -->
+                                    <div class="invalid-feedback" id="qty_message_{{ product.id }}" style="display: none;">
+                                        Please contact us for orders over 5 items.
+                                    </div>                                   
                                 </div>
 
                                 <!-- Action Buttons -->
@@ -115,6 +104,7 @@
                                     <a href="{% url 'products' %}" class="btn btn-outline-dark me-2" aria-label="Return to products page">                                        
                                         <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
                                     </a>
+
                                     <!-- Add to Basket Button -->
                                     <button type="submit" class="btn btn-dark" aria-label="Add {{ product.name }} to your basket">
                                         <i class="fas fa-shopping-basket me-2" aria-hidden="true"></i>Add to Basket
@@ -221,7 +211,7 @@
 
 <!-- Postload JS Block -->
 {% block postloadjs %}
-{{ block.super }}
-<!-- Quantity Input JS -->
-{% include 'products/includes/quantity_input_script.html' %}
+    {{ block.super }}
+    <!-- Quantity Input JS -->
+    {% include 'includes/quantity_dropdown_script.html' %}
 {% endblock %}

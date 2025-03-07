@@ -57,7 +57,7 @@
                                             <p class="my-0" aria-label="Price: {{ item.product.price }} euros">€ {{ item.product.price }}</p>
                                         </td>
 
-                                        <!-- Quantity Form -->
+                                        <!-- Quantity Dropdown -->
                                         <td class="py-3 w-25">
                                             <form class="form update-form" id="update-form-{{ item.item_id }}" method="POST" action="{% url 'update_basket' item.item_id %}" aria-label="Update quantity form">
                                                 {% csrf_token %}
@@ -151,16 +151,17 @@
 
 <!-- Postload JS Block -->
 {% block postloadjs %}
-{{ block.super }}
-{% include 'basket/includes/quantity_dropdown_script.html' %}
+    {{ block.super }}
+    <!-- Quantity Input JS -->
+    {% include 'includes/quantity_dropdown_script.html' %}
 
-<script>
-    // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        var itemId = $(this).data('item-id');
-        var url = `/basket/remove/${itemId}/`;
-        window.location.href = url;
-    });
-</script>
+    <script>
+        // Remove item and reload on click
+        $('.remove-item').click(function(e) {
+            var itemId = $(this).data('item-id');
+            var url = `/basket/remove/${itemId}/`;
+            window.location.href = url;
+        });
+    </script>
 
 {% endblock %}

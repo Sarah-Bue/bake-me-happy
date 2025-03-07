@@ -10,19 +10,13 @@
     }
 
     // Check for all quantity inputs on page load
-    var allQtyInputs = $('.qty_input');
+    var allQtyInputs = $('.form-select');
     for(var i = 0; i < allQtyInputs.length; i++){
         var itemId = $(allQtyInputs[i]).data('item_id');
         handleQtyMessage(itemId);
     }
 
-    // Show/hide message when dropdown selection changes
-    $('.qty_input').change(function() {
-        var itemId = $(this).data('item_id');
-        handleQtyMessage(itemId);
-    });
-
-    // Add this to your existing quantity dropdown script
+    // Show/hide error message when dropdown selection changes
     $('.form-select').change(function() {
         var selectedValue = $(this).val();
         var itemId = $(this).data('item_id');
