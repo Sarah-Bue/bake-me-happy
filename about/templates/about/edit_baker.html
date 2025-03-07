@@ -23,12 +23,8 @@
             </div>
         </header>
 
-        <!-- Back to Dashboard link -->
-        <div class="mb-4">
-            <a href="{% url 'store_management' %}" class="btn btn-outline-dark" aria-label="Return to dashboard">
-                <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Dashboard
-            </a>
-        </div>
+        <!-- Back to Dashboard Button -->
+        {% include 'about/includes/back_to_dashboard_button.html' %}
 
         <!-- Form, rendered by crispy forms -->
         <section class="row justify-content-center" aria-labelledby="edit-baker-profile-title">
@@ -40,16 +36,7 @@
                             {{ form | crispy }}
 
                             <!-- Action Buttons-->
-                            <div class="text-end mt-4">
-                                <!-- Cancel -->
-                                <a class="btn btn-outline-dark" href="{% url 'store_management' %}" aria-label="Cancel and return to store management">
-                                    <span class="me-2" aria-hidden="true"><i class="fas fa-times"></i></span>Cancel
-                                </a>
-                                <!-- Save -->
-                                <button class="btn btn-dark" type="submit" aria-label="Confirm and save changes">
-                                    <span class="me-2" aria-hidden="true"><i class="fa-solid fa-pen-to-square"></i></span>Save Changes
-                                </button>
-                            </div>
+                            {% include 'about/includes/action_buttons.html' %}
                         </form>
                     </div>
                 </div>
