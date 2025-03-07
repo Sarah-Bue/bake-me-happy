@@ -3,17 +3,21 @@
 {% load static %}
 {% load basket_tools %}
 
+<!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center mb-4">Shopping Basket</h1>
-                <hr class="mb-4">
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col">
+        <!-- Header -->
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="about-basket">Shopping Basket</h1>
+                <hr aria-hidden="true">
+            </div>
+        </header>
+
+        <!-- Basket Contents Section -->
+        <section class="row" aria-labelledby="basket-section-title">
+            <div class="col-12 position-relative">
                 {% if basket_items %}
                     <!-- The basket view has been adapted from Code Institute's "Boutique Ado" project -->
                     <div class="table-responsive">
@@ -29,6 +33,7 @@
                                     <th scope="col"><span class="visually-hidden">Actions</span></th>
                                 </tr>
                             </thead>
+
                             <!-- Table Body -->
                             <tbody>
                                 {% for item in basket_items %}
@@ -56,30 +61,18 @@
                                         <td class="py-3 w-25">
                                             <form class="form update-form" id="update-form-{{ item.item_id }}" method="POST" action="{% url 'update_basket' item.item_id %}" aria-label="Update quantity form">
                                                 {% csrf_token %}
-                                                <div class="d-flex flex-column gap-2">
-                                                    <div class="input-group input-group-sm">
-                                                        <button class="btn btn-outline-secondary" type="button" 
-                                                                aria-label="Decrease quantity of {{ item.product.name }}"
-                                                                data-item-id="{{ item.item_id }}"
-                                                                id="decrease_qty_{{ item.item_id }}">
-                                                            <i class="fas fa-minus" aria-hidden="true"></i>
-                                                        </button>
-                                                        <input type="number" class="form-control text-center qty_input"
-                                                            name="quantity" value="{{ item.quantity }}" min="1" max="5"
-                                                            data-item_id="{{ item.item_id }}"
-                                                            aria-label="Product quantity"
-                                                            id="id_qty_{{ item.item_id }}">
-                                                        <button class="btn btn-outline-secondary" type="button"
-                                                                aria-label="Increase quantity of {{ item.product.name }}"
-                                                                data-item-id="{{ item.item_id }}"
-                                                                id="increase_qty_{{ item.item_id }}">
-                                                            <i class="fas fa-plus" aria-hidden="true"></i>
-                                                        </button>
-                                                    </div>
-                                                    <!-- Error message for quantity input -->
-                                                    <div class="invalid-feedback" id="qty_message_{{ item.item_id }}" style="display: none;">
-                                                        Please contact us for orders over 5 items.
-                                                    </div>
+                                                <div class="form-group">
+                                                    <select class="form-select form-select-sm" id="qty_select_{{item.item_id}}" name="quantity" data-item_id="{{item.item_id}}">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </div>
+                                                <!-- Error message for quantity input -->
+                                                <div class="invalid-feedback" id="qty_message_{{ item.item_id }}" style="display: none;">
+                                                    Please contact us for orders over 5 items.
                                                 </div>
                                             </form>
                                         </td>
@@ -118,27 +111,26 @@
                                                 Add <strong>€ {{ free_delivery_delta }}</strong> more to get free delivery!
                                             </p>
                                         {% endif %}
-
-                                        <hr>
-                                        <!-- Checkout Buttons -->
-                                        <div class="d-flex justify-content-end gap-2 mt-3">
-                                            <!-- Keep Shopping-->
-                                            <a href="{% url 'products' %}" class="btn btn-outline-dark" aria-label="Continue shopping">
-                                                <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
-                                            </a>
-                                            <!-- Clear Basket -->
-                                            <a href="{% url 'clear_basket' %}" class="btn btn-outline-danger" id="clear-basket-btn" aria-label="Clear basket">
-                                                <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Clear Basket
-                                            </a>
-                                            <!-- Secure Checkout -->
-                                            <a href="{% url 'checkout' %}" class="btn btn-dark" aria-label="Proceed to secure checkout">
-                                                <i class="fas fa-lock me-2" aria-hidden="true"></i>Secure Checkout
-                                            </a>
-                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+
+                    <!-- Checkout Buttons -->
+                    <div class="d-flex justify-content-end gap-2 mt-3">
+                        <!-- Keep Shopping-->
+                        <a href="{% url 'products' %}" class="btn btn-outline-dark" aria-label="Continue shopping">
+                            <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
+                        </a>
+                        <!-- Clear Basket -->
+                        <a href="{% url 'clear_basket' %}" class="btn btn-outline-danger" id="clear-basket-btn" aria-label="Clear basket">
+                            <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Clear Basket
+                        </a>
+                        <!-- Secure Checkout -->
+                        <a href="{% url 'checkout' %}" class="btn btn-dark" aria-label="Proceed to secure checkout">
+                            <i class="fas fa-lock me-2" aria-hidden="true"></i>Secure Checkout
+                        </a>
                     </div>
                     
                 {% else %}
@@ -153,14 +145,14 @@
                     </div>
                 {% endif %}
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}
 
 <!-- Postload JS Block -->
 {% block postloadjs %}
 {{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
+{% include 'basket/includes/quantity_dropdown_script.html' %}
 
 <script>
     // Remove item and reload on click
