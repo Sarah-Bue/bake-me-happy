@@ -56,6 +56,9 @@
   </head>
 
   <body>
+
+    <!-- Skip to content link for screen readers-->
+    <a href="#main-content" class="visually-hidden visually-hidden-focusable bg-dark text-white p-3 position-absolute">Skip to main content</a>
     
     <!-- Main Navigation -->
     <!-- The main navigation has been adapted from Startbootstrap - Shop Homepage -->
@@ -93,23 +96,25 @@
 
                 <!-- Basket -->
                 <!-- The Basket has been adapted from Code Institute's "Boutique Ado" project -->
-                <li class="list-inline-item">
-                    <a class="{% if grand_total %} text-dark fw-bold {% else %}text-dark{% endif %} nav-link" href="{% url 'view_basket' %}" aria-label="Shopping basket">
-                    <div class="d-flex align-items-center">
-                        <i class="fa-solid fa-basket-shopping me-2"></i>
-                        <span class="my-0">
-                        {% if grand_total %}
-                            € {{ grand_total|floatformat:2 }}
-                        {% else %}
-                            € 0.00
-                        {% endif %}
-                        </span>
-                    </div>
-                    </a>
-                </li>
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1">
+                    <li class="nav-item">
+                        <a class="{% if grand_total %} text-dark fw-bold {% else %}text-dark{% endif %} nav-link" href="{% url 'view_basket' %}" aria-label="Shopping basket with {% if grand_total %}items totaling € {{ grand_total|floatformat:2 }}{% else %}no items{% endif %}">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-basket-shopping me-2" aria-hidden="true"></i>
+                            <span class="my-0">
+                            {% if grand_total %}
+                                € {{ grand_total|floatformat:2 }}
+                            {% else %}
+                                € 0.00
+                            {% endif %}
+                            </span>
+                        </div>
+                        </a>
+                    </li>
+                </ul>
 
                 <!-- Account Dropddown -->
-                <ul class="navbar-nav mb-2 mb-lg-0 ms-3">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -144,7 +149,7 @@
     </header>
 
     <!-- Product Navigation -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" role="navigation" aria-label="Product categories navigation">
         <div class="container px-4 px-lg-5">
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -157,8 +162,9 @@
 
                 <!-- Search Bar-->
                 <form class="d-flex" role="search" method="GET" action="{% url 'products' %}">
-                    <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search products">
-                    <button class="btn btn-outline-dark" type="submit" aria-label="Submit search">Search</button>
+                    <label for="product-search" class="visually-hidden">Search products</label>
+                    <input id="product-search" class="form-control me-2" name="q" type="search" placeholder="Search products">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -185,11 +191,13 @@
     {% endif %}
 
     <!-- Content Block -->
-    {% block content %}
-    {% endblock %}
+    <main id="main-content" role="main">
+        {% block content %}
+        {% endblock %}
+    </main>
 
     <!-- Footer-->
-    <footer class="text-center text-lg-start text-white border border-white mt-xl-5 pt-4 bg-dark">
+    <footer class="text-center text-lg-start text-white border border-white mt-xl-5 pt-4 bg-dark" role="contentinfo">
         <div class="container p-4">
             <!-- Useful Links-->
             <div class="row">
@@ -259,10 +267,12 @@
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5 class="text-uppercase mb-4">Sign up to our newsletter</h5>
                     <form id="newsletter-signup-form" method="POST" action="{% url 'newsletter' %}">
-                        {{ newsletter_signup_form }}
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-outline-light w-150 mt-4" aria-label="Subscribe to newsletter">Subscribe</button>
-                    </form>
+                        <fieldset>
+                            <legend class="visually-hidden">Newsletter signup</legend>
+                            {{ newsletter_signup_form }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-light w-150 mt-4">Subscribe</button>
+                        </fieldset>                    </form>
                     <div id="newsletter-message" class="mt-2"></div>
                 </div>
             </div>

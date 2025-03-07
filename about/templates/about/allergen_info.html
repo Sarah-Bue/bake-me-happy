@@ -3,25 +3,29 @@
 
 <!-- Extra CSS Block -->
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'about/css/about.css' %}" />
+    <link rel="stylesheet" href="{% static 'about/css/about.css' %}">
 {% endblock %}
 
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
-            <div class="col-12 col-md-6 offset-md-3">
-                <h1 class="display-6 text-center">{{ allergen_info.title }}</h1>
-                <hr>
-            </div>
-        </div>
 
-        <div class="row">
+        <!-- Header -->
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="allergen-info-title">{{ allergen_info.title }}</h1>
+                <hr aria-hidden="true">
+            </div>
+        </header>
+
+        <!-- Allergen Information Section -->   
+        <section class="row">
             <div class="col-12 col-md-10 offset-md-1 mb-5">
-                <div class="content-container p-3">
+                <div class="content-container p-3" aria-labelledby="allergen-info-title">
+                    <span id="allergen-info-title" class="visually-hidden">Allergen Information Details</span>
                     {{ allergen_info.content|safe }}
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}

@@ -1,20 +1,37 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Extra CSS Block -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'about/css/about.css' %}">
+{% endblock %}
+
+<!-- Extra JS Block -->
+{% block extra_js %}
+    {{ form.media }}
+{% endblock %}
 
 <!-- Content Block -->
 {% block content %}
-
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row mb-4">
+
+        <!-- Header -->
+        <header class="row mb-4">
             <div class="col text-center">
-                <h1 class="display-6">Add a New Baker</h1>
-                <hr class="mb-4">
+                <h1 class="display-6" id="add-baker-profile-title">Add a Baker Profile</h1>
+                <hr class="mb-4" aria-hidden="true">
             </div>
+        </header>
+
+        <!-- Back to Dashboard link -->
+        <div class="mb-4">
+            <a href="{% url 'store_management' %}" class="btn btn-outline-dark" aria-label="Return to dashboard">
+                <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Dashboard
+            </a>
         </div>
 
-        <!-- Add Baker Form -->
-        <div class="row justify-content-center">
+        <!-- Form, rendered by crispy forms -->
+        <section class="row justify-content-center" aria-labelledby="add-baker-profile-title">
             <div class="col-12 col-lg-8">
                 <div class="card border border-white-subtle bg-body-tertiary rounded-3 shadow">
                     <div class="card-body">
@@ -24,20 +41,19 @@
 
                             <!-- Action Buttons-->
                             <div class="text-end mt-4">
-                                <!-- Cancel Button -->
-                                <a class="btn btn-outline-dark" href="{% url 'manage_bakers' %}" aria-label="Cancel and return to baker profile management">
-                                    <span class="me-2"><i class="fas fa-times"></i></span>Cancel
+                                <!-- Cancel -->
+                                <a class="btn btn-outline-dark" href="{% url 'store_management' %}" aria-label="Cancel and return to store management">
+                                    <span class="me-2" aria-hidden="true"><i class="fas fa-times"></i></span>Cancel
                                 </a>
-                                <!-- Add Baker Button -->
-                                <button class="btn btn-dark" type="submit">
-                                    <span class="me-2"><i class="fas fa-plus"></i></span>Add Baker
+                                <!-- Save -->
+                                <button class="btn btn-dark" type="submit" aria-label="Confirm and save changes">
+                                    <span class="me-2" aria-hidden="true"><i class="fa-solid fa-pen-to-square"></i></span>Save Changes
                                 </button>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>            
-        </div>
+            </div>
+        </section>
     </div>
-    
 {% endblock %}

@@ -9,52 +9,55 @@
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
+
+        <!-- Header -->
+        <header class="row">
             <div class="col-12 col-md-6 offset-md-3">
-                <h1 class="display-6 text-center">About Us</h1>
-                <hr>
+                <h1 class="display-6 text-center" id="about-title">About Us</h1>
+                <hr aria-hidden="true">
             </div>
-        </div>
+        </header>
 
         <!-- About Section -->
-        <div class="row">
+        <section class="row" aria-labelledby="about-section-title">
             <div class="col-12 position-relative">
-                <h2 class="text-center mb-4">{{ about.title }}</h2>
+                <h2 id="about-section-title" class="text-center mb-4">{{ about.title }}</h2>
                 <div class="about-content mb-5 text-center">
                     {{ about.content|safe }}
                 </div>
-        </div>
+            </div>
+        </section>
 
         <!-- Baker Profiles section -->
         {% if bakers %}
-            <div class="row">
-                <hr class="w-50 mx-auto mb-5">
-                <div class="col-12">
-                    <h2 class="text-center mb-4">Meet Our Bakers</h2>
-                </div>
+        <section class="row" aria-labelledby="bakers-section-title">
+            <hr class="w-50 mx-auto mb-5" aria-hidden="true">
+            <div class="col-12">
+                <h2 id="bakers-section-title" class="text-center mb-4">Meet Our Bakers</h2>
             </div>
-            
+        
             <!-- Baker Cards -->
             <div class="row">
                 {% for baker in bakers %}
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="baker-profile">
-                        <div class="baker-image-container">
-                            {% if baker.photo %}
-                                <img src="{{ baker.photo.url }}" class="baker-image" alt="{{ baker.name }}">
-                            {% else %}
-                                <img src="{{ MEDIA_URL }}noimage.png" class="baker-image" alt="{{ baker.name }} - no image available">
-                            {% endif %}
-                        </div>
-                        <div class="text-center mt-4">
-                            <h3 class="baker-name">{{ baker.name }}</h3>
-                            <p class="baker-title">{{ baker.title }}</p>
-                            <div class="baker-bio">{{ baker.bio|safe }}</div>
-                        </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <article class="baker-profile">
+                            <div class="baker-image-container">
+                                {% if baker.photo %}
+                                    <img src="{{ baker.photo.url }}" class="baker-image" alt="{{ baker.name }}">
+                                {% else %}
+                                    <img src="{{ MEDIA_URL }}noimage.png" class="baker-image" alt="No profile photo available for {{ baker.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="text-center mt-4">
+                                <h3 class="baker-name" id="baker-{{ baker.id }}">{{ baker.name }}</h3>
+                                <p class="baker-title">{{ baker.title }}</p>
+                                <div class="baker-bio">{{ baker.bio|safe }}</div>
+                            </div>
+                        </article>
                     </div>
-                </div>
                 {% endfor %}
             </div>
+        </section>
         {% endif %}
     </div>
 {% endblock %}
