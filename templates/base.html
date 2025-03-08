@@ -196,6 +196,14 @@
         {% endblock %}
     </main>
 
+    <!-- Back to Top Button -->
+    <!-- The Back to Top button has been adapted from Code Institute's "Boutique Ado" project -->
+    <div class="btt-button position-fixed bottom-0 end-0 m-3">
+        <button class="btn btn-dark rounded-circle p-3 shadow-sm border-white" id="btn-back-to-top" type="button" aria-label="Back to top">
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        </button>
+    </div>
+
     <!-- Footer-->
     <footer class="text-center text-lg-start text-white border border-white mt-xl-5 pt-4 bg-dark" role="contentinfo">
         <div class="container p-4">
@@ -294,6 +302,16 @@
                     return new bootstrap.Toast(toastEl)
                 });
                 toastList.forEach(toast => toast.show());
+            });
+        </script>
+
+         <!-- Back to Top Button JS -->
+         <script type="text/javascript">
+            document.getElementById('btn-back-to-top').addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         </script>
     {% endblock %}
