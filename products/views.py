@@ -132,6 +132,7 @@ def product_detail(request, product_id):
         'product': product,
         'is_favorite': is_favorite,
         'reviews': reviews,
+        'allergens': product.allergens,
     }
 
     return render(

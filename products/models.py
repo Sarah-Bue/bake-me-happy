@@ -59,6 +59,8 @@ class Product(models.Model):
     german_name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    serving_size = models.CharField(max_length=50, default="Serving Size")
+    allergens = models.JSONField(default=list)
 
     # Optional fields
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)

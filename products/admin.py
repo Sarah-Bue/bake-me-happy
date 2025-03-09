@@ -16,6 +16,8 @@ class ProductAdmin(SummernoteModelAdmin):
         'occasion',
         'sku',
         'price',
+        'serving_size',
+        'allergens',
         'rating',
         'image',
     )

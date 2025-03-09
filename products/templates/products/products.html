@@ -62,15 +62,17 @@
                         <div class="col mb-5">
                             <div class="card h-100" role="article" aria-label="Product: {{ product.name }}">
                                 <!-- Product Image or Placeholder -->
-                                {% if product.image %}
-                                    <a href="{% url 'product_detail' product.id %}" aria-label="View details for {{ product.name }}">
-                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="Product image of {{ product.name }}" />
-                                    </a>
-                                {% else %}
-                                    <a href="{% url 'product_detail' product.id %}" aria-label="View details for {{ product.name }}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder.png" alt="Placeholder image for {{ product.name }}" />
-                                    </a>
-                                {% endif %}
+                                <div class="product-image-container">
+                                    {% if product.image %}
+                                        <a href="{% url 'product_detail' product.id %}" aria-label="View details for {{ product.name }}">
+                                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="Product image of {{ product.name }}" />
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'product_detail' product.id %}" aria-label="View details for {{ product.name }}">
+                                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder.png" alt="Placeholder image for {{ product.name }}" />
+                                        </a>
+                                    {% endif %}
+                                </div>  
 
                                 <!-- Product Details -->
                                 <div class="card-body p-4">
