@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import About, Baker, PrivacyPolicy, AllergenInfo, FAQ
+
 from django_summernote.admin import SummernoteModelAdmin
 
 

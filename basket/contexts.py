@@ -1,8 +1,9 @@
-
-from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+
 from products.models import Product
+
+from decimal import Decimal
 
 # The context has been adapted from Code Institute's "Boutique Ado" project
 

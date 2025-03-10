@@ -1,22 +1,23 @@
-
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q, F
 from django.db.models.functions import Lower
-from .models import Product, Category, Occasion
-from favorites.models import Favorite
-from .forms import ProductForm
 from django.contrib.auth.decorators import login_required
+
+from .models import Product, Category, Occasion
+from .forms import ProductForm
+
+from favorites.models import Favorite
 
 
 def all_products(request):
     """
     A view to show all products, including sorting and search queries.
     """
-    
+
     # Get all products
     products = Product.objects.all()
-    
+
     # Initialize variables
     query = None
     categories = None
@@ -29,7 +30,7 @@ def all_products(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            
+
             # Handle different sort cases
             if sortkey == 'name':
                 # Case-insensitive name sorting
@@ -42,21 +43,20 @@ def all_products(request):
                 # Sort by occasion
                 sortkey = 'occasion__name'
             elif sortkey == 'rating':
-                # Sort by rating
-                # sortkey = '-rating' if direction == 'desc' else 'rating'
-                # products = products.order_by(F('rating').desc(nulls_last=True))
 
                 if direction == 'desc':
-                    products = products.order_by(F('rating').desc(nulls_last=True))
+                    products = products.order_by(F('rating')
+                                                 .desc(nulls_last=True))
                 else:
-                    products = products.order_by(F('rating').asc(nulls_last=True))
-            
+                    products = products.order_by(F('rating')
+                                                 .asc(nulls_last=True))
+
             # Apply sort direction
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            
+
             # Apply sorting
             # Note: Exclude  rating sorting as handled above
             if sortkey != 'rating':
@@ -78,9 +78,10 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "Pleae enter search criteria and try again.")
+                messages.error(request,
+                               "Pleae enter search criteria and try again.")
                 return redirect(reverse('products'))
-            
+
             # Search across name, German name, and description
             queries = (
                 Q(name__icontains=query) |
@@ -95,7 +96,8 @@ def all_products(request):
     # Get favorite product IDs for authenticated user
     favorite_products = []
     if request.user.is_authenticated:
-        favorite_products = Favorite.objects.filter(user=request.user).values_list('product_id', flat=True)
+        favorite_products = Favorite.objects.filter(user=request.user)
+        .values_list('product_id', flat=True)
 
     # Prepare template context
     context = {
@@ -126,7 +128,8 @@ def product_detail(request, product_id):
     # Check if product is in user's favorites
     is_favorite = False
     if request.user.is_authenticated:
-        is_favorite = Favorite.objects.filter(user=request.user, product=product).exists()
+        is_favorite = Favorite.objects.filter(
+                                user=request.user, product=product).exists()
 
     context = {
         'product': product,
@@ -152,7 +155,7 @@ def add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     # Handle form submission
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -161,10 +164,12 @@ def add_product(request):
             messages.success(request, 'Successfully added product.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add product.'
+                           'Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     # Render add product page
     template = 'products/add_product.html'
     context = {
@@ -197,7 +202,9 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to update product.'
+                           'Please ensure the form is valid.')
     else:
         # Populate form with product data & display info message
         form = ProductForm(instance=product)
@@ -224,7 +231,7 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted.')
@@ -242,7 +249,6 @@ def product_management(request):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-  
     # Render product management page
     template = 'products/product_management.html'
 

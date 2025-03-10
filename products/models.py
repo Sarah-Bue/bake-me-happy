@@ -28,7 +28,7 @@ class Category(models.Model):
 class Occasion(models.Model):
     """
     Model representing product occasions.
-    
+
     Stores occasions with both a technical name
     and an optional customer-friendly display name.
     """
@@ -40,7 +40,7 @@ class Occasion(models.Model):
     # String method to return name
     def __str__(self):
         return self.name
-    
+
     # String method to return friendly name
     def get_friendly_name(self):
         return self.friendly_name
@@ -49,11 +49,11 @@ class Occasion(models.Model):
 class Product(models.Model):
     """
     Model representing products.
-    
-    Stores comprehensive product information including names in both English and German,
+
+    Stores comprehensive product information including German & English names,
     pricing, categorization, and optional details like SKU and images.
     """
-        
+
     # Mandatory fields
     name = models.CharField(max_length=100)
     german_name = models.CharField(max_length=100)
@@ -63,10 +63,28 @@ class Product(models.Model):
     allergens = models.JSONField(default=list)
 
     # Optional fields
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    occasion = models.ForeignKey('Occasion', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        'Category',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
+
+    occasion = models.ForeignKey(
+        'Occasion',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
+
     sku = models.CharField(max_length=100, null=True, blank=True)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=True,
+        blank=True
+    )
+
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 

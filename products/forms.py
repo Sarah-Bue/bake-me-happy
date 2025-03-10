@@ -20,7 +20,7 @@ class ProductForm(forms.ModelForm):
         max_length=50,
         help_text="Enter serving size in grams (required)."
     )
-    
+
     class Meta:
         model = Product
         fields = '__all__'
@@ -29,14 +29,22 @@ class ProductForm(forms.ModelForm):
             'image': CustomClearableFileInput(),
         }
 
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
         occasions = Occasion.objects.all()
 
-        self.fields['category'].choices = [(c.id, c.get_friendly_name()) for c in categories]
-        self.fields['occasion'].choices = [(o.id, o.get_friendly_name()) for o in occasions]
+        # Create category choices list
+        category_choices = [
+            (c.id, c.get_friendly_name()) for c in categories
+        ]
+        self.fields['category'].choices = category_choices
+
+        # Create occasion choices list
+        occasion_choices = [
+            (o.id, o.get_friendly_name()) for o in occasions
+        ]
+        self.fields['occasion'].choices = occasion_choices
 
         # Convert allergens list to comma-separated string for display in form
         if self.instance.pk and self.instance.allergens:
