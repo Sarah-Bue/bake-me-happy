@@ -58,7 +58,7 @@ def delete_profile(request):
 @login_required
 def order_history(request, order_number):
     """
-    A view to return the order history page, displaying the order details.
+    A view to return the order history page of a specific order, displaying the order details.
     """
 
     order = get_object_or_404(Order, order_number=order_number)
@@ -70,6 +70,23 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def orders(request):
+    """
+    A view to return the orders page, displaying all orders associated with the user.
+    """
+
+    profile = get_object_or_404(UserProfile, user=request.user)
+    orders = profile.orders.all()
+
+    template = 'profiles/orders.html'
+    context = {
+        'orders': orders,
     }
 
     return render(request, template, context)

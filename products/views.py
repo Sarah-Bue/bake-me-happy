@@ -96,8 +96,7 @@ def all_products(request):
     # Get favorite product IDs for authenticated user
     favorite_products = []
     if request.user.is_authenticated:
-        favorite_products = Favorite.objects.filter(user=request.user)
-        .values_list('product_id', flat=True)
+        favorite_products = Favorite.objects.filter(user=request.user).values_list('product_id', flat=True)
 
     # Prepare template context
     context = {

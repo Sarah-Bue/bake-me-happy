@@ -1,77 +1,120 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
-{% endblock %}
-
+<!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
-            <h1 class="text-center display-6">My Favorites</h1>
 
-            <!-- Link to Profile -->
-            <div class="col-12 text-end">
-                <a href="{% url 'profile' %}" class="btn btn-outline-dark" aria-label="View profile">
-                    <i class="fa-solid fa-chevron-right me-2" aria-hidden="true"></i>View Profile
-                </a>
+        <!-- Header -->
+        <header class="row mb-4">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="favorites-title">My Favorites</h1>
+                <hr aria-hidden="true">
             </div>
 
-            <hr class="my-4">
+            <!-- Profile Navigation -->
+            {% with active='favorites' %}
+                {% include 'profiles/includes/profile_navigation.html' %}
+            {% endwith %}
+        </header>
 
-            {% if favorites %}
-                <div class="row">
-
-                    {% for favorite in favorites %}
-                    <!-- Product Cards, generated using for loop -->
-                        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                            <div class="card h-100">
-                                {% if favorite.product.image %}
-                                    <img class="card-img-top img-fluid" src="{{ favorite.product.image.url }}" alt="{{ favorite.product.name }}">
-                                {% else %}
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder.png" alt="{{ favorite.product.name }}">
-                                {% endif %}
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ favorite.product.name }}</h5>
-                                    <p class="card-text">€{{ favorite.product.price }}</p>
-
-                                    <!-- Action Buttons -->
-                                    <div class="d-flex justify-content-between">
-                                        <!-- Add to Basket Button -->
-                                        <form action="{% url 'add_to_basket' favorite.product.id %}" method="POST">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="quantity" value="1">
-                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                            <button type="submit" class="btn btn-outline-dark mt-auto me-2" aria-label="Add {{ product.name }} to shopping basket">
-                                                <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
-                                                <span class="visually-hidden">Add to Basket</span>
-                                            </button>
-                                        </form>
-                                        
-                                        <!-- Remove from Favorites Button -->
-                                        <a href="{% url 'toggle_favorites' favorite.product.id %}" class="btn btn-outline-danger favorite-btn" data-product-id="{{ product.id }}" aria-label="Remove {{ item.product.name }} from favorites">                                            
-                                            <i class="fas fa-trash-alt" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-
-            {% else %}
-            <!-- No Favorites -->
-                <div class="row">
-                    <div class="col text-center" role="alert" aria-live="polite">
-                        <p class="lead mb-4">You have not added any Favorites.</p>
-                        <!-- Link to Products Page -->
-                        <a href="{% url 'products' %}" class="btn btn-outline-dark">
-                            <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Explore Now
-                        </a>
+        <!-- Favorites Section -->
+        <section class="row" aria-labelledby="favorites-title">
+            <div class="col-12">
+                <div class="card shadow-sm border">
+                    <div class="card-header bg-light">
+                        <h2 class="h5 mb-0">Saved Items</h2>
                     </div>
-                </div>                
-            {% endif %}
-        </div>
+                    <div class="card-body">
+                        {% if favorites %}
+                            <div class="row g-4">
+                                {% for favorite in favorites %}
+                                <!-- Product Cards, generated using for loop -->
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
+                                        <div class="card h-100 shadow-sm">
+                                            <a href="{% url 'product_detail' favorite.product.id %}">
+                                                {% if favorite.product.image %}
+                                                    <img class="card-img-top img-fluid" src="{{ favorite.product.image.url }}" alt="{{ favorite.product.name }}">
+                                                {% else %}
+                                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}placeholder.png" alt="{{ favorite.product.name }}">
+                                                {% endif %}
+                                            </a>
+                                            <div class="card-body d-flex flex-column">
+                                                <h5 class="card-title">{{ favorite.product.name }}</h5>
+                                                <p class="card-text mb-4">€{{ favorite.product.price }}</p>
+
+                                                <!-- Action Buttons -->
+                                                <div class="d-flex justify-content-between mt-auto">
+                                                    <!-- Add to Basket Button -->
+                                                    <form action="{% url 'add_to_basket' favorite.product.id %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="quantity" value="1">
+                                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                                        <button type="submit" class="btn btn-outline-dark" aria-label="Add {{ favorite.product.name }} to shopping basket">
+                                                            <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+                                                            <span class="visually-hidden">Add to Basket</span>
+                                                        </button>
+                                                    </form>
+                                                    
+                                                    <!-- Remove from Favorites Button -->
+                                                    <a href="{% url 'toggle_favorites' favorite.product.id %}" class="btn btn-outline-danger favorite-btn" data-product-id="{{ favorite.product.id }}" aria-label="Remove {{ favorite.product.name }} from favorites">                                            
+                                                        <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                        {% else %}
+                        <!-- No Favorites -->
+                            <div class="row">
+                                <div class="col text-center py-5" role="alert" aria-live="polite">
+                                    <p class="lead mb-4">You have not added any Favorites.</p>
+                                    <!-- Link to Products Page -->
+                                    <a href="{% url 'products' %}" class="btn btn-outline-dark">
+                                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Explore Now.
+                                    </a>
+                                </div>
+                            </div>                
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 {% endblock %}
 
+<!-- Postload JS -->
+{% block postloadjs %}
+    {{ block.super }}
+
+    <!-- Update active Profile Page JS -->
+    <script>
+        // Update the profile page to highlight active section in the navbar
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get current URL path
+            const path = window.location.pathname;
+            
+            // Find all navbar links
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            // Loop through links and set active class
+            navLinks.forEach(link => {
+                // Get href attribute
+                const href = link.getAttribute('href');
+                
+                // Reset active state
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+                
+                // Set active state for current page
+                if (path === href) {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        });
+    </script>
+{% endblock %}
