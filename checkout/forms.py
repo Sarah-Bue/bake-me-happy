@@ -1,4 +1,3 @@
-
 from django import forms
 from .models import Order
 
@@ -7,18 +6,19 @@ class OrderForm(forms.ModelForm):
     """
     Form for processing customer orders.
     """
-    
+
     class Meta:
         model = Order
-        fields = ('full_name', 'email', 'phone_number',
-                 'street_address1', 'street_address2',
-                 'town_or_city', 'postcode', 'county',
-                 'country',)
-
+        fields = (
+            'full_name', 'email', 'phone_number',
+            'street_address1', 'street_address2',
+            'town_or_city', 'postcode', 'county',
+            'country',
+        )
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes to form fields
+        Add placeholders and classes to form fields.
         """
 
         super().__init__(*args, **kwargs)
@@ -26,7 +26,7 @@ class OrderForm(forms.ModelForm):
             'full_name': 'Full Name',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
-            'postcode': 'Postal Code',
+            'postcode': 'Eir Code',
             'town_or_city': 'Town or City',
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
@@ -35,7 +35,12 @@ class OrderForm(forms.ModelForm):
 
         # Set autofocus on the full_name field
         self.fields['full_name'].widget.attrs['autofocus'] = True
-        
+
+        # Set country to Ireland and make it non-editable
+        self.fields['country'].initial = 'IE'
+        self.fields['country'].disabled = True
+        self.fields['country'].widget.attrs['readonly'] = True
+
         # Add placeholders and styling to all form fields
         for field in self.fields:
             # Country field handled separately, does not need placeholder

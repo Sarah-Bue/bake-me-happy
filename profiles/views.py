@@ -1,17 +1,25 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
+
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
-from django.contrib.auth.decorators import login_required
+
 
 @login_required
 def profile(request):
     """
-    A view to return the profile page, prepopulated user information, and order history. 
+    A view to return the profile page,
+    prepopulated user information, and order history.
     """
 
     profile = get_object_or_404(UserProfile, user=request.user)
+
+    # Make a copy of POST data to ensure 'country' is included
+    post_data = request.POST.copy()
+    # Ensure country is always set to Ireland
+    post_data['default_country'] = 'IE'
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -19,7 +27,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully.')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(request,
+                           'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
 
@@ -47,9 +56,10 @@ def delete_profile(request):
         logout(request)
         # Delete the user which will cascade to profile
         user.delete()
-        messages.success(request, 'Your profile has been deleted successfully.')
+        messages.success(request,
+                         'Your profile has been deleted successfully.')
         return redirect('home')
-    
+
     # If GET request, show confirmation template
     template = 'profiles/delete_confirmation.html'
     return render(request, template)
@@ -58,7 +68,8 @@ def delete_profile(request):
 @login_required
 def order_history(request, order_number):
     """
-    A view to return the order history page of a specific order, displaying the order details.
+    A view to return the order history page of a specific order,
+    displaying the order details.
     """
 
     order = get_object_or_404(Order, order_number=order_number)
@@ -78,7 +89,8 @@ def order_history(request, order_number):
 @login_required
 def orders(request):
     """
-    A view to return the orders page, displaying all orders associated with the user.
+    A view to return the orders page,
+    displaying all orders associated with the user.
     """
 
     profile = get_object_or_404(UserProfile, user=request.user)

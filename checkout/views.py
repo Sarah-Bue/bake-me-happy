@@ -1,19 +1,21 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
-from django.views.decorators.http import require_POST
-from django.contrib import messages
 from django.conf import settings
+from django.contrib import messages
 from django.core.mail import send_mail
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse
+)
 from django.template.loader import render_to_string
+from django.views.decorators.http import require_POST
 
 from .forms import OrderForm
-from .models import Order,OrderLineItem
+from .models import Order, OrderLineItem
+from basket.contexts import basket_contents
 from products.models import Product
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
-from basket.contexts import basket_contents
 
-import stripe
 import json
+import stripe
 
 
 @require_POST
@@ -27,18 +29,22 @@ def cache_checkout_data(request):
         # Set Stripe API key
         stripe.api_key = settings.STRIPE_SECRET_KEY
         # Modify payment intent to include basket and save_info data
+        username = (request.user.username
+                    if request.user.is_authenticated else 'AnonymousUser')
         stripe.PaymentIntent.modify(pid, metadata={
             'basket': json.dumps(request.session.get('basket', {})),
             'save_info': request.POST.get('save_info'),
-            'username': request.user.username if request.user.is_authenticated else 'AnonymousUser',
+            'username': username,
         })
         return HttpResponse(status=200)
-    
+
     # Error Handling
     except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be \
-            processed right now. Please try again later.')
+        messages.error(request,
+                       "Sorry, your payment cannot be processed right now. "
+                       "Please try again later.")
         return HttpResponse(content=e, status=400)
+
 
 def checkout(request):
     """
@@ -48,28 +54,37 @@ def checkout(request):
     # Initialize Stripe Keys
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    
+
     # Handle POST request
     if request.method == 'POST':
-        # Get basket from session
         basket = request.session.get('basket', {})
+
+        # Set default country before collecting form data
+        form_data = request.POST.copy()
+        form_data['country'] = 'IE'
 
         # Collect form data
         form_data = {
-            'full_name': request.POST['full_name'],
-            'email': request.POST['email'],
-            'phone_number': request.POST['phone_number'],
-            'country': request.POST['country'],
-            'postcode': request.POST['postcode'],
-            'town_or_city': request.POST['town_or_city'],
-            'street_address1': request.POST['street_address1'],
-            'street_address2': request.POST['street_address2'],
-            'county': request.POST['county'],
+            'full_name': form_data['full_name'],
+            'email': form_data['email'],
+            'phone_number': form_data['phone_number'],
+            'country': form_data['country'],
+            'postcode': form_data['postcode'],
+            'town_or_city': form_data['town_or_city'],
+            'street_address1': form_data['street_address1'],
+            'street_address2': form_data['street_address2'],
+            'county': form_data['county'],
         }
 
         # Create and validate order form
         order_form = OrderForm(form_data)
         if order_form.is_valid():
+            # Double-check country is Ireland (security measure)
+            if form_data['country'] != 'IE':
+                messages.error(request,
+                               "Sorry, we currently only ship to Ireland.")
+                return redirect(reverse('checkout'))
+
             # Save order
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
@@ -100,16 +115,19 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_basket'))
 
-            # Save user info to session    
+            # Save user info to session
             request.session['save_info'] = 'save-info' in request.POST
 
             # Redirect to checkout success
-            return redirect(reverse('checkout_success', args=[order.order_number]))
-        
+            return redirect(
+                reverse('checkout_success', args=[order.order_number])
+            )
+
         # Form validation error handling
         else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            messages.error(request,
+                           "There was an error with your form. "
+                           "Please double check your information.")
 
     # Handle GET request
     else:
@@ -119,7 +137,7 @@ def checkout(request):
         if not basket:
             messages.error(request, "Your basket is empty.")
             return redirect(reverse('products'))
-        
+
         # Calculate basket total for Stripe
         current_basket = basket_contents(request)
         total = current_basket['grand_total']
@@ -155,7 +173,7 @@ def checkout(request):
 
         # Check if stripe_public_key is available
         if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing.')
+            messages.warning(request, "Stripe public key is missing.")
 
         # Prepare template & context
         template = 'checkout/checkout.html'
@@ -167,7 +185,7 @@ def checkout(request):
 
         # Render the checkout template
         return render(request, template, context)
-    
+
 
 def checkout_success(request, order_number):
     """
@@ -203,12 +221,11 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-
     # Success Message
-    messages.success(request, f'We have received your order. \
-                     A confirmation email will be sent to {order.email}.'
-                    )
-    
+    messages.success(request,
+                     f'We have received your order. '
+                     'A confirmation email will be sent to {order.email}.')
+
     # Semd email confirmation
     cust_email = order.email
     subject = render_to_string(
@@ -217,7 +234,9 @@ def checkout_success(request, order_number):
     )
     body = render_to_string(
         'checkout/confirmation_emails/confirmation_email_body.txt',
-        {'order': order, 'email': cust_email, 'contact_email': settings.DEFAULT_FROM_EMAIL}
+        {'order': order,
+         'email': cust_email,
+         'contact_email': settings.DEFAULT_FROM_EMAIL}
     )
     send_mail(
         subject,
