@@ -80,12 +80,11 @@
                 <!-- The Basket has been adapted from Code Institute's "Boutique Ado" project -->
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1">
                     <li class="nav-item">
-                        <a class="{% if grand_total %} text-dark fw-bold {% else %}text-dark{% endif %} nav-link" role="button" href="{% url 'view_basket' %}" aria-label="Shopping basket with {% if grand_total %}items totaling € {{ grand_total|floatformat:2 }}{% else %}no items{% endif %}">
-                        <div class="d-flex align-items-center">
+                        <a class="{% if total %} text-dark fw-bold {% else %}text-dark{% endif %} nav-link" role="button" href="{% url 'view_basket' %}" aria-label="Shopping basket with {% if total %}items totaling € {{ total|floatformat:2 }}{% else %}no items{% endif %}">                        <div class="d-flex align-items-center">
                             <i class="fa-solid fa-basket-shopping me-2" aria-hidden="true"></i>
                             <span class="my-0" aria-hidden="true">
-                            {% if grand_total %}
-                                € {{ grand_total|floatformat:2 }}
+                            {% if total %}
+                                € {{ total|floatformat:2 }}
                             {% else %}
                                 € 0.00
                             {% endif %}

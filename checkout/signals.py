@@ -4,12 +4,14 @@ from django.dispatch import receiver
 
 from .models import OrderLineItem
 
-# The signal handlers have been adapted from the Code Institute "Boutique Ado" project
+# The signal handlers have been adapted
+# from the Code Institute "Boutique Ado" project.
+
 
 @receiver(post_save, sender=OrderLineItem)
 def update_on_line_item_save(sender, instance, created, **kwargs):
     """
-    Signal handler to update order total when a line item is created or updated.
+    Signal handler to update order total when a line item is created / updated.
     """
 
     instance.order.update_total()
@@ -20,5 +22,5 @@ def update_on_line_item_delete(sender, instance, **kwargs):
     """
     Signal handler to update order total when a line item is deleted.
     """
-    
+
     instance.order.update_total()

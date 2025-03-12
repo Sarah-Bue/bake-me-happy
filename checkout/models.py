@@ -5,11 +5,14 @@ from django.db.models import Sum
 from django.conf import settings
 
 from django_countries.fields import CountryField
+from decimal import Decimal
 
 from products.models import Product
 from profiles.models import UserProfile
 
-# The Order and OrderLineItem models have been adapted from Code Institute's Boutique Ado project.
+# The Order and OrderLineItem models have been adapted
+# from Code Institute's Boutique Ado project.
+
 
 class Order(models.Model):
     """
@@ -19,17 +22,21 @@ class Order(models.Model):
     """
 
     # User Profile
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True,  related_name='orders')
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='orders'
+    )
 
     # Order Details
     order_number = models.CharField(max_length=32, null=False, editable=False)
     date = models.DateTimeField(auto_now_add=True)
-    
+
     # Customer Information
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    
+
     # Delivery Information
     country = CountryField(blank_label='Country *', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
@@ -37,15 +44,35 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
-    
+
     # Order Totals
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    delivery_cost = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=False,
+        default=0
+    )
+    order_total = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        null=False,
+        default=0
+    )
+    grand_total = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        null=False,
+        default=0
+    )
 
     # Stripe Payment
     original_basket = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(
+        max_length=254,
+        null=False,
+        blank=False,
+        default=''
+    )
 
     def _generate_order_number(self):
         """
@@ -59,7 +86,7 @@ class Order(models.Model):
     def update_total(self):
         """
         Update grand total each time a line item is added.
-        
+
         Calculates the order total from line items and applies
         delivery costs based on the FREE_DELIVERY_THRESHOLD.
         """
@@ -67,7 +94,7 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            self.delivery_cost = Decimal(settings.STANDAARD_DELIVERY)
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
@@ -108,7 +135,7 @@ class OrderLineItem(models.Model):
         blank=False,
         on_delete=models.CASCADE
     )
-    
+
     # Line Item Details
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(

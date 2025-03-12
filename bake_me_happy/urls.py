@@ -29,7 +29,7 @@ urlpatterns = [
 
     # Favorites
     path('favorites/', include('favorites.urls')),
-    
+
     # Summernote
     path('summernote/', include('django_summernote.urls')),
 
@@ -44,8 +44,8 @@ urlpatterns = [
 
     # About
     path('about/', include('about.urls')),
-  
-# Enable serving of media files during development
+
+    # Enable serving of media files during development
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'bake_me_happy.views.handler404'
