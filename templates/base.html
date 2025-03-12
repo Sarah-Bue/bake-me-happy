@@ -70,38 +70,20 @@
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <!-- Individual Links -->
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-
-                    <!-- Product View Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="shopDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Shop dropwdon menu.">
-                            Shop Now
-                        </a>
-                        <ul class="dropdown-menu" 
-                            aria-labelledby="shopDropdown"
-                            role="menu">
-                            <li><a class="dropdown-item" href="{% url 'products' %}" role="menuitem" aria-current="page">All Products</a></li>
-                            <li><hr class="dropdown-divider" aria-hidden="true"/></li>
-                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc" role="menuitem">View by Price</a></li>
-                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc" role="menuitem">View by Name</a></li>
-                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc" role="menuitem">View by Category</a></li>
-                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=occasion&direction=asc" role="menuitem">View by Occasion</a></li>
-                            <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc" role="menuitem">View by Rating</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" role="menuitem" aria-label="About our bakery">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}" role="menuitem" aria-label="Frequently asked questions">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}" role="menuitem" aria-label="Contact us">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'products' %}" role="menuitem" aria-label="Shop Now">Shop Now</a></li>
                 </ul>
 
                 <!-- Basket -->
                 <!-- The Basket has been adapted from Code Institute's "Boutique Ado" project -->
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1">
                     <li class="nav-item">
-                        <a class="{% if grand_total %} text-dark fw-bold {% else %}text-dark{% endif %} nav-link" href="{% url 'view_basket' %}" aria-label="Shopping basket with {% if grand_total %}items totaling € {{ grand_total|floatformat:2 }}{% else %}no items{% endif %}">
+                        <a class="{% if grand_total %} text-dark fw-bold {% else %}text-dark{% endif %} nav-link" role="button" href="{% url 'view_basket' %}" aria-label="Shopping basket with {% if grand_total %}items totaling € {{ grand_total|floatformat:2 }}{% else %}no items{% endif %}">
                         <div class="d-flex align-items-center">
                             <i class="fa-solid fa-basket-shopping me-2" aria-hidden="true"></i>
-                            <span class="my-0">
+                            <span class="my-0" aria-hidden="true">
                             {% if grand_total %}
                                 € {{ grand_total|floatformat:2 }}
                             {% else %}
@@ -114,26 +96,27 @@
                 </ul>
 
                 <!-- Account Dropddown -->
-                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1" role="menubar" aria-label="Account navigation">
+                    <li class="nav-item dropdown" role="none">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false" role="menuitem" aria-haspopup="true"aria-label="My Account dropdown menu">
+                            My Account
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <li><a class="dropdown-item" href="{% url 'store_management' %}">Store Management</a></li>
-                                    <li><hr class="dropdown-divider" /></li>
+                                    <li role="none"><a class="dropdown-item" href="{% url 'store_management' %}" role="menuitem" aria-label="Store management">Store Management</a></li>
+                                    <li role="none"><hr class="dropdown-divider" aria-hidden="true"/></li>
                                 {% endif %}
-                                <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url 'favorites' %}">My Favorites</a></li>
-                                <li><a class="dropdown-item" href="{% url 'account_logout' %}" aria-label="Log out of your account">Logout</a></li>
+                                <li role="none"><a class="dropdown-item" href="{% url 'profile' %}" role="menuitem" aria-label="View your profile">My Profile</a></li>
+                                <li role="none"><a class="dropdown-item" href="{% url 'favorites' %}" role="menuitem" aria-label="View your favorite products">My Favorites</a></li>
+                                <li role="none"><a class="dropdown-item" href="{% url 'account_logout' %}" role="menuitem" aria-label="Sign out of your account">Sign Out</a></li>
                             {% else %}
-                                    <li><a class="dropdown-item" href="{% url 'account_signup' %}" aria-label="Register for a new account">Register</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'account_login' %}" aria-label="Log in to your account">Login</a></li>
-                            {% endif %}            
+                            <li role="none"><a class="dropdown-item" href="{% url 'account_signup' %}" role="menuitem" aria-label="Register for a new account">Register</a></li>
+                            <li role="none"><a class="dropdown-item" href="{% url 'account_login' %}" role="menuitem" aria-label="Sign in to your account">Sign In</a></li>
+                        {% endif %}            
                         </ul>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
@@ -152,19 +135,55 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary" role="navigation" aria-label="Product categories navigation">
         <div class="container px-4 px-lg-5">
             <!-- Navbar Links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'products' %}">All Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'products' %}?category=breads_rolls">Breads & Rolls</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'products' %}?category=cakes_tarts">Cakes & Tarts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'products' %}?category=cookies_pastries">Cookies & Pastries</a></li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" role="menubar" aria-label="Product categories">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" role="menubar" aria-label="Product categories">
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="{% url 'products' %}" role="menuitem" aria-label="Browse all products">
+                            All Products
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="{% url 'products' %}?category=breads_rolls" role="menuitem" aria-label="Browse breads and rolls">
+                            Breads & Rolls
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="{% url 'products' %}?category=cakes_tarts" role="menuitem" aria-label="Browse cakes and tarts">
+                            Cakes & Tarts
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="{% url 'products' %}?category=cookies_pastries" role="menuitem" aria-label="Browse cookies and pastries">
+                            Cookies & Pastries
+                        </a>
+                    </li>
                 </ul>
 
                 <!-- Search Bar-->
-                <form class="d-flex" role="search" method="GET" action="{% url 'products' %}">
-                    <label for="product-search" class="visually-hidden">Search products</label>
-                    <input id="product-search" class="form-control me-2" name="q" type="search" placeholder="Search products">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                <form class="d-flex" role="search" method="GET" action="{% url 'products' %}" aria-labelledby="search-form-label">
+                    <span id="search-form-label" class="visually-hidden">Search for products in our bakery</span>
+                    <div class="input-group">
+                        <label for="product-search" class="visually-hidden">Search products</label>
+                        <input 
+                            id="product-search" 
+                            class="form-control rounded me-2" 
+                            name="q" 
+                            type="search" 
+                            placeholder="Search products" 
+                            aria-describedby="search-button"
+                            autocomplete="off"
+                            aria-required="true">
+                        <button 
+                            id="search-button" 
+                            class="btn btn-outline-dark rounded" 
+                            type="submit" 
+                            aria-label="Submit search">
+                            <span class="d-flex align-items-center">
+                                <i class="fas fa-search me-1" aria-hidden="true"></i>
+                                <span>Search</span>
+                            </span>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
