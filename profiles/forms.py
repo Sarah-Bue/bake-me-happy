@@ -19,7 +19,7 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
 
-        # Make country read-only
+        # Make country read-only        
         self.fields['default_country'].widget.attrs['readonly'] = True
         self.fields['default_country'].widget.attrs['disabled'] = True
 
@@ -32,7 +32,7 @@ class UserProfileForm(forms.ModelForm):
             'default_town_or_city': 'Town or City',
             'default_postcode': 'Eir Code',
             'default_county': 'Please select a County',
-            'default_country': 'Country'
+            'default_country': 'Ireland'
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True

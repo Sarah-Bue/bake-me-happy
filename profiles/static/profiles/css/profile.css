@@ -21,14 +21,14 @@
     color: #6c757d;
 }
 
-/* Country Field */
+/* County Field */
 
-#id_default_country,
-#id_default_country option:not(:first-child) {
+#id_default_county,
+#id_default_county option:not(:first-child) {
     color: #000;
 }
 
-#id_default_country option:first-child {
+#id_default_county option:first-child {
     color: #6c757d;
 }
 

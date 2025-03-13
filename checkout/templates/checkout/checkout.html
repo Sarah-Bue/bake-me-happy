@@ -109,8 +109,8 @@
                         <!-- Account Actions -->
                         {% else %}
                             <p class="small mt-2">
-                                <a href="#" class="text-decoration-none">Create an account</a> or 
-                                <a href="#" class="text-decoration-none">login</a> to save your information.
+                                <a href="{% url 'account_signup' %}" class="text-decoration-none" aria-label="Create a new account">Create an account</a> or 
+                                <a href="{% url 'account_login' %}" class="text-decoration-none" aria-label="Sign in to your account">login</a> to save your information.
                             </p>
                         {% endif %}
                     </fieldset>
@@ -161,8 +161,13 @@
 <!-- Postload JS -->
 {% block postloadjs %}
     {{ block.super }}
+    <!-- Stripe Elements -->
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
+
+    <!-- Stripe Elements JS -->
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+
+    <!-- Country Field JS -->
+    <script type="text/javascript" src="{% static 'js/countyfield.js' %}"></script>
 {% endblock %}
-<!-- Script for Stripe Elements -->
