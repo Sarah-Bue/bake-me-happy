@@ -180,7 +180,7 @@
 <!-- Postload JS -->
 {% block postloadjs %}
     {{ block.super }}
-    <!-- Country Field JS -->
+    <!-- County Field JS -->
     <script type="text/javascript" src="{% static 'js/countyfield.js' %}"></script>
 
     <!-- Profile Edit Toggle JS -->
@@ -207,34 +207,6 @@
                     profileEdit.style.display = 'none';
                 });
             }
-        });
-    </script>
-
-    <!-- Update active Profile Page JS -->
-    <script>
-        // Update the profile page to highlight active section in the navbar
-        document.addEventListener("DOMContentLoaded", function() {
-            // Get current URL path
-            const path = window.location.pathname;
-            
-            // Find all navbar links
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            
-            // Loop through links and set active class
-            navLinks.forEach(link => {
-                // Get href attribute
-                const href = link.getAttribute('href');
-                
-                // Reset active state
-                link.classList.remove('active');
-                link.removeAttribute('aria-current');
-                
-                // Set active state for current page
-                if (path === href) {
-                    link.classList.add('active');
-                    link.setAttribute('aria-current', 'page');
-                }
-            });
         });
     </script>
 {% endblock %}
