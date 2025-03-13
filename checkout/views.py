@@ -154,7 +154,7 @@ def checkout(request):
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
-                order_form = OrderForm(initial={
+                initial_data = {
                     'full_name': profile.default_full_name,
                     'email': profile.default_email,
                     'phone_number': profile.default_phone_number,
@@ -163,9 +163,13 @@ def checkout(request):
                     'town_or_city': profile.default_town_or_city,
                     'postcode': profile.default_postcode,
                     'county': profile.default_county,
-                    'country': profile.default_country,
-                })
+                    'country': 'IE',  # Default Ireland
+                }
+                order_form = OrderForm(initial=initial_data)
             except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+            except AttributeError:
+                # Handle case where profile might be missing attributes
                 order_form = OrderForm()
         else:
             # Initialize the order form

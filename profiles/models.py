@@ -19,13 +19,56 @@ class UserProfile(models.Model):
     default_email = models.EmailField(max_length=254, null=True, blank=True)
 
     # Optional default delivery information
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
-    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
-    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
-    default_county = models.CharField(max_length=80, null=True, blank=True)
-    default_country = CountryField(blank_label='Country', null=True, blank=True)
+    default_phone_number = models.CharField(
+        max_length=20, null=True, blank=True
+    )
+    default_street_address1 = models.CharField(
+        max_length=80, null=True, blank=True
+    )
+    default_street_address2 = models.CharField(
+        max_length=80, null=True, blank=True
+    )
+    default_postcode = models.CharField(
+        max_length=20, null=True, blank=True
+    )
+    default_town_or_city = models.CharField(
+        max_length=40, null=True, blank=True
+    )
+    default_county = models.CharField(
+        max_length=80, null=True, blank=True
+    )
+    COUNTY_CHOICES = [
+        ('', 'Please select a County'),
+        ('Carlow', 'Carlow'),
+        ('Cavan', 'Cavan'),
+        ('Clare', 'Clare'),
+        ('Cork', 'Cork'),
+        ('Donegal', 'Donegal'),
+        ('Dublin', 'Dublin'),
+        ('Galway', 'Galway'),
+        ('Kerry', 'Kerry'),
+        ('Kildare', 'Kildare'),
+        ('Kilkenny', 'Kilkenny'),
+        ('Laois', 'Laois'),
+        ('Leitrim', 'Leitrim'),
+        ('Limerick', 'Limerick'),
+        ('Longford', 'Longford'),
+        ('Louth', 'Louth'),
+        ('Mayo', 'Mayo'),
+        ('Meath', 'Meath'),
+        ('Monaghan', 'Monaghan'),
+        ('Offaly', 'Offaly'),
+        ('Roscommon', 'Roscommon'),
+        ('Sligo', 'Sligo'),
+        ('Tipperary', 'Tipperary'),
+        ('Waterford', 'Waterford'),
+        ('Westmeath', 'Westmeath'),
+        ('Wexford', 'Wexford'),
+        ('Wicklow', 'Wicklow'),
+    ]
+    default_county = models.CharField(
+        max_length=80, null=True, blank=True, choices=COUNTY_CHOICES
+    )
 
     # String method to return username
     def __str__(self):
