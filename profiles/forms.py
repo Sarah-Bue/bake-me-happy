@@ -10,7 +10,7 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         # Exclude user field, show all other fields
-        exclude = ('user', 'country')
+        exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -18,6 +18,11 @@ class UserProfileForm(forms.ModelForm):
         labels, and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
+
+        # Make country read-only
+        self.fields['default_country'].widget.attrs['readonly'] = True
+        self.fields['default_country'].widget.attrs['disabled'] = True
+
         placeholders = {
             'default_full_name': 'Full Name',
             'default_email': 'Email Address',
@@ -27,6 +32,7 @@ class UserProfileForm(forms.ModelForm):
             'default_town_or_city': 'Town or City',
             'default_postcode': 'Eir Code',
             'default_county': 'Please select a County',
+            'default_country': 'Country'
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True

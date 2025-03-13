@@ -34,9 +34,7 @@ class UserProfile(models.Model):
     default_town_or_city = models.CharField(
         max_length=40, null=True, blank=True
     )
-    default_county = models.CharField(
-        max_length=80, null=True, blank=True
-    )
+    
     COUNTY_CHOICES = [
         ('', 'Please select a County'),
         ('Carlow', 'Carlow'),
@@ -68,6 +66,10 @@ class UserProfile(models.Model):
     ]
     default_county = models.CharField(
         max_length=80, null=True, blank=True, choices=COUNTY_CHOICES
+    )
+
+    default_country = CountryField( 
+        blank_label='Country', null=True, blank=True, default='IE'
     )
 
     # String method to return username
