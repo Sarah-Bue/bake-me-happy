@@ -8,8 +8,11 @@
 
 <!-- Content Block -->
 {% block content %}
-    <div class="container-fluid py-5">
 
+    <!-- Product Navigation -->
+    {% include 'products/includes/product_navigation.html' %}
+
+    <div class="container-fluid py-5">
         <!-- Header (visually hidden) -->
         <header class="row">
             <div class="col-12">

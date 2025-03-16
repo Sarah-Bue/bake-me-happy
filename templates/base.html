@@ -132,64 +132,6 @@
         </div>
     </header>
 
-    <!-- Product Navigation -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" role="navigation" aria-label="Product categories navigation">
-        <div class="container px-4 px-lg-5">
-            <!-- Navbar Links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" role="menubar" aria-label="Product categories">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0" role="menubar" aria-label="Product categories">
-                    <li class="nav-item" role="none">
-                        <a class="nav-link" href="{% url 'products' %}" role="menuitem" aria-label="Browse all products">
-                            All Products
-                        </a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a class="nav-link" href="{% url 'products' %}?category=breads_rolls" role="menuitem" aria-label="Browse breads and rolls">
-                            Breads & Rolls
-                        </a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a class="nav-link" href="{% url 'products' %}?category=cakes_tarts" role="menuitem" aria-label="Browse cakes and tarts">
-                            Cakes & Tarts
-                        </a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a class="nav-link" href="{% url 'products' %}?category=cookies_pastries" role="menuitem" aria-label="Browse cookies and pastries">
-                            Cookies & Pastries
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Search Bar-->
-                <form class="d-flex" role="search" method="GET" action="{% url 'products' %}" aria-labelledby="search-form-label">
-                    <span id="search-form-label" class="visually-hidden">Search for products in our bakery</span>
-                    <div class="input-group">
-                        <label for="product-search" class="visually-hidden">Search products</label>
-                        <input 
-                            id="product-search" 
-                            class="form-control rounded me-2" 
-                            name="q" 
-                            type="search" 
-                            placeholder="Search products" 
-                            aria-describedby="search-button"
-                            autocomplete="off"
-                            aria-required="true">
-                        <button 
-                            id="search-button" 
-                            class="btn btn-outline-dark rounded" 
-                            type="submit" 
-                            aria-label="Submit search">
-                            <span class="d-flex align-items-center">
-                                <i class="fas fa-search me-1" aria-hidden="true"></i>
-                                <span>Search</span>
-                            </span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nav>
-
     <!-- Messages -->
     {% if messages %}
         <div class="message-container">
@@ -210,7 +152,7 @@
         </div>
     {% endif %}
 
-    <!-- Content Block -->
+    <!-- Main Content -->
     <main id="main-content" role="main">
         {% block content %}
         {% endblock %}
@@ -226,7 +168,7 @@
 
     <!-- Footer-->
     <footer class="text-center text-lg-start text-white border border-white mt-xl-5 pt-4 bg-dark" role="contentinfo">
-        <div class="container p-4">
+        <div class="container pt-4">
             <!-- Useful Links-->
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">

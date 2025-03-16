@@ -19,7 +19,7 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
 
-        # Make country read-only        
+        # Make country read-only
         self.fields['default_country'].widget.attrs['readonly'] = True
         self.fields['default_country'].widget.attrs['disabled'] = True
 

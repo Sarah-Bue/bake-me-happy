@@ -7,19 +7,19 @@
 
 <!-- Content Block -->
 {% block content %}
-    <div class="container px-4 px-lg-5 py-5">
 
+    <!-- Profile Navigation -->
+    {% with active='orders' %}
+        {% include 'profiles/includes/profile_navigation.html' %}
+    {% endwith %}
+
+    <div class="container px-4 px-lg-5 py-5">
         <!-- Header -->
         <header class="row">
             <div class="col-12 col-md-6 offset-md-3">
                 <h1 class="display-6 text-center" id="orders-title">My Orders</h1>
                 <hr aria-hidden="true">
             </div>
-
-            <!-- Profile Navigation -->
-            {% with active='profile' %}
-                {% include 'profiles/includes/profile_navigation.html' %}
-            {% endwith %}
         </header>
 
         <!-- Order History Section-->

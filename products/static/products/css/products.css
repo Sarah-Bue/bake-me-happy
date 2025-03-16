@@ -40,6 +40,7 @@ select.form-control option:first-child {
     color: #6c757d;
 }
 
+
 /* Text area fields */
 textarea.form-control {
     height: auto;
