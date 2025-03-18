@@ -1,14 +1,14 @@
-
 from django import forms
-from .models import Review
 from django_summernote.widgets import SummernoteWidget
+
+from .models import Review
 
 
 class ReviewForm(forms.ModelForm):
     """
     Form for creating and editing reviews.
     """
-    
+
     class Meta:
         model = Review
         fields = ['title', 'rating', 'review_comment']

@@ -36,7 +36,6 @@ def add_review(request, product_id):
         messages.error(request,
                        'You have already submitted a review for this product.')
         return redirect(reverse('product_detail', args=[product.id]))
-    
 
     if request.method == 'POST':
         # Handle form submission
@@ -51,11 +50,14 @@ def add_review(request, product_id):
             update_product_rating(product)
 
             # Success message
-            messages.success(request, 'Your product review has been submitted.')
+            messages.success(request,
+                             'Your product review has been submitted.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             # Error handling for invalid form
-            messages.error(request, 'Failed to submit the review. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to submit the review.'
+                           'Please ensure the form is valid.')
     else:
         form = ReviewForm()
 
@@ -68,7 +70,7 @@ def add_review(request, product_id):
 
     # Render the template
     return render(request, template, context)
-    
+
 
 @login_required
 def edit_review(request, review_id):
@@ -99,10 +101,13 @@ def edit_review(request, review_id):
             redirect(redirect_url)
         else:
             # Error handling for invalid form
-            messages.error(request, 'Failed to update review. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to update review.'
+                           'Please ensure the form is valid.')
     else:
         form = ReviewForm(instance=review)
-        messages.info(request, f'You are editing your review for {review.product.name}')
+        messages.info(request,
+                      f'You are editing your review for {review.product.name}')
 
     template = 'reviews/edit_review.html'
     context = {
@@ -127,12 +132,11 @@ def delete_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
 
     # Verify the review belongs to the user
-    if request.user!= review.author:
+    if request.user != review.author:
         messages.error(request, 'Sorry, you can only delete your own reviews.')
         redirect(redirect_url)
-    
+
     # Delete review and update product rating
-    product = review.product
     review.delete()
     update_product_rating(review.product)
 
@@ -150,10 +154,14 @@ def update_product_rating(product):
     # No reviews, set rating to None
     if not reviews.exists():
         product.rating = None
-    
+
     # Calculate average rating from reviews that have ratings
     else:
-        reviews_with_ratings = [review.rating for review in reviews if review.rating is not None]
+        reviews_with_ratings = [
+            review.rating
+            for review in reviews
+            if review.rating is not None
+        ]
         if reviews_with_ratings:
             avg_rating = sum(reviews_with_ratings) / len(reviews_with_ratings)
             product.rating = round(avg_rating, 1)

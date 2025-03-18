@@ -3,18 +3,19 @@
 
 <!-- Content Block -->
 {% block content %}
-
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h1 class="display-6">Add a Product Review</h1>
-                <hr class="mb-4">
-                <h5 class="text-muted">{{ product.name }}</h5>
-            </div>
-        </div>
 
-        <!-- Add Product Review Form -->
-        <div class="row justify-content-center">
+        <!-- Header -->
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="add-product-review-title">Add a Product Review</h1>
+                <h2 class="text-muted text-center small">{{ product.name }}</h2>
+                <hr class="mb-4" aria-hidden="true">
+            </div>
+        </header>
+
+        <!-- Add Product Review Section -->
+        <section class="row justify-content-center" aria-labelledby="add-product-review-section-title">
             <div class="col-12 col-lg-8">
                 <div class="card border border-white-subtle bg-body-tertiary rounded-3 shadow">
                     <div class="card-body">
@@ -28,8 +29,9 @@
                                 <a class="btn btn-outline-dark" href="{% url 'reviews' %}" aria-label="Cancel and return to review list">
                                     <span class="me-2"><i class="fas fa-times"></i></span>Cancel
                                 </a>
+                                
                                 <!-- Add Product Review Button -->
-                                <button class="btn btn-dark" type="submit" aria-label="Submit review">
+                                <button class="btn btn-dark" type="submit" aria-label="Submit your review review">
                                     <span class="me-2"><i class="fas fa-plus"></i></span>Add Review
                                 </button>
                             </div>
@@ -37,7 +39,6 @@
                     </div>
                 </div>
             </div>            
-        </div>
-    </div>
-    
+        </section>
+    </div> 
 {% endblock %}

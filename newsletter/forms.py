@@ -1,4 +1,3 @@
-
 from django import forms
 from crispy_forms.helper import FormHelper
 from .models import Subscriber
@@ -8,7 +7,7 @@ class NewsletterForm(forms.ModelForm):
     """
     Form for newsletter subscription.
     """
-    
+
     class Meta:
         model = Subscriber
         fields = ['email']
@@ -18,10 +17,10 @@ class NewsletterForm(forms.ModelForm):
         Initialize form with custom styling and attributes.
         """
         super().__init__(*args, **kwargs)
-        
+
         # Initialize crispy forms helper
         self.helper = FormHelper(self)
-        
+
         # Configure email field
         self.fields['email'].label = False
         self.fields['email'].widget.attrs.update({

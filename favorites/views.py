@@ -1,4 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import (
+    render,
+    redirect,
+    get_object_or_404,
+)
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -36,11 +40,13 @@ def toggle_favorites(request, product_id):
     # If the product is already in favorites, remove it
     if favorite.exists():
         favorite.delete()
-        messages.success(request, f'{product.name} has been removed from your Favorites.')
-    
+        messages.success(request,
+                         f'{product.name} was removed from your Favorites.')
+
     # If the product is not in favorites, add it
     else:
         Favorite.objects.create(user=request.user, product=product)
-        messages.success(request, f'{product.name} has been added to your Favorites.')
+        messages.success(request,
+                         f'{product.name} was added to your Favorites.')
 
     return redirect(request.META.get('HTTP_REFERER', 'favorites'))

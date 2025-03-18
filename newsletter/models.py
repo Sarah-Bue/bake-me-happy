@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Subscriber(models.Model):
     """
     A model to store email addresses of newsletter subscribers.

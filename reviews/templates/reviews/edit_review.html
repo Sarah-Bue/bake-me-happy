@@ -3,18 +3,19 @@
 
 <!-- Content Block -->
 {% block content %}
-
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h1 class="display-6">Edit a Product Review</h1>
-                <hr class="mb-4">
-                <h5 class="text-muted">{{ product.name }}</h5>
-            </div>
-        </div>
 
-        <!-- Edit Product Review Form -->
-        <div class="row justify-content-center">
+        <!-- Header -->
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="edit-product-review-title">Edit a Product Review</h1>
+                <h2 class="text-muted text-center small">{{ product.name }}</h2>
+                <hr class="mb-4" aria-hidden="true">
+            </div>
+        </header>
+
+        <!-- Edit Product Review Section -->
+        <section class="row justify-content-center" aria-labelledby="edit-product-review-section-title">
             <div class="col-12 col-lg-8">
                 <div class="card border border-white-subtle bg-body-tertiary rounded-3 shadow">
                     <div class="card-body">
@@ -28,6 +29,7 @@
                                 <a class="btn btn-outline-dark" href="{% url 'reviews' %}" aria-label="Cancel and return to review list">
                                     <span class="me-2"><i class="fas fa-times"></i></span>Cancel
                                 </a>
+
                                 <!-- Update Product Review Button -->
                                 <button class="btn btn-dark" type="submit" aria-label="Submit updated review">
                                     <span class="me-2"><i class="fa-solid fa-pen-to-square"></i></span>Update Review
@@ -37,7 +39,6 @@
                     </div>
                 </div>
             </div>            
-        </div>
+        </section>
     </div>
-    
 {% endblock %}
