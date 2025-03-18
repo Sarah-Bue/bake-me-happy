@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
 from products.models import Product
 from .models import Review
 from .forms import ReviewForm
@@ -98,7 +99,10 @@ def edit_review(request, review_id):
 
             # Successs message
             messages.success(request, 'Successfully updated your review.')
-            redirect(redirect_url)
+            return redirect(
+                reverse('product_detail', args=[review.product.id])
+            )
+
         else:
             # Error handling for invalid form
             messages.error(request,

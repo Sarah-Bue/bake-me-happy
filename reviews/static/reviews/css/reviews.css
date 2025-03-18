@@ -1,0 +1,36 @@
+/* Star Rating Styling */
+.star-rating-container {
+    display: flex;
+    flex-direction: row-reverse; /* Reverse the direction */
+    justify-content: flex-end; /* Align to the left side */
+    margin-bottom: 15px;
+}
+
+.star-option {
+    margin-right: 10px;
+}
+
+/* Hide default radio button */
+.star-option input[type="radio"] {
+    display: none;
+}
+
+/* Style for stars */
+.star-label {
+    cursor: pointer;
+    color: #ddd;
+    font-size: 24px;
+}
+
+/* Style for selected stars */
+.star-option:has(input[type="radio"]:checked) .star-label,
+.star-option:has(input[type="radio"]:checked) ~ .star-option .star-label {
+    color: #ffc107;
+}
+
+/* Hover effect for stars */
+.star-option:hover ~ .star-option .star-label,
+.star-option:hover .star-label {
+    color: #ffc107;
+}
+

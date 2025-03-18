@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Extra CSS Block -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'reviews/css/reviews.css' %}">
+{% endblock %}
+
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
@@ -21,7 +26,35 @@
                     <div class="card-body">
                         <form method="POST" action="{% url 'add_review' product.id %}" class="form" enctype="multipart/form-data">
                             {% csrf_token %}
-                            {{ form | crispy }}
+
+                            <!-- Review Title Field -->
+                            <div class="form-group mb-3">
+                                <label for="{{ form.title.id_for_label }}" id="review-title-label">Title</label>
+                                {{ form.title }}
+                            </div>
+
+                            <!-- Review Rating Field -->
+                            <div class="form-group mb-3">
+                                <label id="rating-group-label">Rating</label>
+                                <div class="star-rating-container" role="group" aria-labelledby="rating-group-label">
+                                    {% for radio in form.rating reversed %}
+                                        <div class="star-option">
+                                            {{ radio.tag }}
+                                            <label for="{{ radio.id_for_label }}" class="star-label" 
+                                                    aria-label="{{ radio.choice_label }} star{% if radio.choice_label != '1' %}s{% endif %}"
+                                                    title="{{ radio.choice_label }} star{% if radio.choice_label != '1' %}s{% endif %}">
+                                                <i class="fas fa-star" aria-hidden="true"></i>
+                                            </label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <!-- Review Comment Field -->
+                            <div class="form-group mb-3">
+                                <label for="{{ form.review_comment.id_for_label }}" id="review-comment-label">Comment</label>
+                                {{ form.review_comment }}
+                            </div>
 
                             <!-- Action Buttons-->
                             <div class="text-end mt-4">
@@ -41,4 +74,11 @@
             </div>            
         </section>
     </div> 
+{% endblock %}
+
+<!-- Post-Load JS Block -->
+{% block postload_js %}
+    {{ block.super }}
+    <!-- Star Rating JS -->
+    <script src="{% static 'reviews/js/star_rating.js' %}"></script>
 {% endblock %}

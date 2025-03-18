@@ -9,17 +9,19 @@ class ReviewForm(forms.ModelForm):
     Form for creating and editing reviews.
     """
 
+    # Create radio buttons for ratings 1-5
+    rating = forms.ChoiceField(
+        choices=[(i, str(i)) for i in range(1, 6)],
+        widget=forms.RadioSelect(attrs={'class': 'star-rating'}),
+        required=False
+    )
+
     class Meta:
         model = Review
         fields = ['title', 'rating', 'review_comment']
         widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
             'review_comment': SummernoteWidget(),
-            'rating': forms.NumberInput(attrs={
-                'min': '1',
-                'max': '5',
-                'class': 'form-control',
-                'aria-label': 'Rating from 1 to 5 stars'
-            })
         }
 
     def __init__(self, *args, **kwargs):
