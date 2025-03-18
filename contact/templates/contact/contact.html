@@ -1,16 +1,22 @@
-
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
 
 <!-- Content Block -->
 {% block content %}
-
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
+
+        <!-- Header -->
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="contact-title">Contact Us</h1>
+                <hr class="mb-4" aria-hidden="true">
+            </div>
+        </header>
+
+        <!-- Contact Section -->
+        <section class="row" aria-labelledby="contact-section-title">
             <div class="col-12 col-md-6 mb-4">
-                <h1 class="display-6">Contact Us</h1>
-                <hr class="my-4">
                 <p class="lead mb-3">We'd love to hear from you!<br>Fill out the form or reach out at the information below and we'll get back to you as soon as possible.<br></p>
                 
                 <!-- Contact Information -->
@@ -25,13 +31,13 @@
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-envelope me-2" aria-hidden="true"></i>
-                            <span><a href="mailto:bakemehappy.email@gmail.com" class="text-reset text-decoration-none" aria-label="Email us at bakemehappy.email@gmail.com">
+                            <span><a href="mailto:bakemehappy.email@gmail.com" class="text-reset text-decoration-none" aria-label="Email us at bakemehappy.email@gmail.com - opens your default email client with our email address pre-filled">
                                 bakemehappy.email@gmail.com
                             </a></span>
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-phone me-2" aria-hidden="true"></i>
-                            <span><a href="tel:+35383123456" class="text-reset text-decoration-none" aria-label="Call us at plus 353 83 123 45 67">
+                            <span><a href="tel:+35383123456" class="text-reset text-decoration-none" aria-label="Call us at plus 353 83 123 45 67 - opens your default phone app with our phone number pre-filled">
                                 + (353) 83 123 45 67
                             </a></span>
                         </li>
@@ -44,17 +50,24 @@
                 <div class="card border border-white-subtle bg-body-tertiary rounded-3 shadow">
                     <div class="card-body p-4">
                         <h5 class="card-title mb-3">Get in touch</h5>
-                        <form method="POST" action="{% url 'contact' %}" class="form">
+                        <form method="POST" action="{% url 'contact' %}" class="form" aria-label="Contact form">
                             {% csrf_token %}
                             {{ form|crispy }}
                             <div class="text-end mt-4">
-                                <button type="submit" class="btn btn-dark">Send Message</button>
+                                <button type="submit" class="btn btn-dark" aria-label="Submit and send your message" >Send Message</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-    
+{% endblock %}
+
+<!-- Postload JS -->
+ <!-- Postload JS -->
+{% block postloadjs %}
+{{ block.super }}
+    <!-- County Field JS -->
+    <script src="{% static 'js/dropdown.js' %}"></script>
 {% endblock %}

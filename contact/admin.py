@@ -12,5 +12,6 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('date_sent',)
     readonly_fields = ('date_sent',)
 
+
 # Register the Contact model with the admin site
 admin.site.register(Contact, ContactAdmin)

@@ -112,3 +112,18 @@
     justify-content: space-between;
     margin-top: 1rem;
 }
+
+/* Form Field Styling */
+select,
+select option {
+    color: #000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #6c757d !important;
+}
+
+.profile-form-input::placeholder {
+    color: #6c757d;
+}

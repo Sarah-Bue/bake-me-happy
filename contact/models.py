@@ -6,10 +6,23 @@ class Contact(models.Model):
     Model to store contact form messages.
     """
 
+    # Choices for subject field
+    SUBJECT_CHOICES = [
+        ('', 'Please select a Subject *'),
+        ('general', 'General Inquiry'),
+        ('order', 'Order Information'),
+        ('feedback', 'Feedback'),
+        ('custom', 'Order Customization Request'),
+        ('Catering', 'Catering Inquiry'),
+        ('other', 'Other'),
+    ]
+
     # Fields
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    subject = models.CharField(max_length=200)
+    subject = models.CharField(
+        max_length=100, choices=SUBJECT_CHOICES, default=''
+    )
     message = models.TextField()
     # Automatic time stamp
     date_sent = models.DateTimeField(auto_now_add=True)
