@@ -12,13 +12,20 @@ urlpatterns = [
     path('manage-orders/', views.manage_orders, name='manage_orders'),
 
     # Manage Subscribers
-    path('manage-subscribers/', views.manage_subscribers, name='manage_subscribers'),
+    path(
+        'manage-subscribers/',
+        views.manage_subscribers,
+        name='manage_subscribers'
+    ),
 
     # Manage Reviews
     path('manage-reviews/', views.manage_reviews, name='manage_reviews'),
 
     # Manage Contacts
     path('manage-contacts/', views.manage_contacts, name='manage_contacts'),
+
+    # View Contacts
+    path('contact/<int:contact_id>/', views.view_contact, name='view_contact'),
 
     # Manage Bakers
     path('manage-bakers/', views.manage_bakers, name='manage_bakers'),

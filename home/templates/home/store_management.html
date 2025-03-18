@@ -9,15 +9,20 @@
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
+
+        <!-- Header -->
+        <header class="row">
             <div class="col-12 col-md-6 offset-md-3">
-                <h1 class="display-6 text-center">Store Management</h1>
-                <hr>
+                <h1 class="display-6 text-center" id="store-management-title">Store Management</h1>
+                <hr aria-hidden="true">
             </div>
+        </header>
+
+        <!-- Store Management Section-->
+        <section class="row" aria-labelledby="store-management-section-title">
 
             <!-- Dashboard Summary -->
-            <div class="row mb-5">
-
+            <div class="row mb-5" aria-labelledby="dashboard-summary-title">
                 <!-- Product Count -->
                 <div class="col-md-3 mb-4">
                     <div class="card text-center h-100 border-dark">
@@ -80,7 +85,7 @@
             </div>
 
             <!-- Dashboard Actions -->
-            <div class="row">
+            <div class="row" aria-labelledby="dashboard-actions-title">
                 <!-- Products Management -->
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 border-dark">
@@ -90,8 +95,8 @@
                         <div class="card-body">
                             <p>Manage product inventory, categories, and occasions.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="{% url 'add_product' %}" class="store-management-link">Add New Product</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_products' %}" class="store-management-link">Manage Products</a></li>
+                                <li class="list-group-item"><a href="{% url 'add_product' %}" class="store-management-link" aira-label="Add a new product">Add New Product</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_products' %}" class="store-management-link" aria-label="Manage products">Manage Products</a></li>
                             </ul>
                         </div>
                     </div>
@@ -106,7 +111,7 @@
                         <div class="card-body">
                             <p>Manage product reviews and ratings.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="{% url 'manage_reviews' %}" class="store-management-link">Manage Reviews</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_reviews' %}" class="store-management-link" aria-label="Manage reviews">Manage Reviews</a></li>
                             </ul>
                         </div>
                     </div>
@@ -121,9 +126,9 @@
                         <div class="card-body">
                             <p>Manage newsletter subscribers, customer contacts, and orders.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="{% url 'manage_subscribers' %}" class="store-management-link">Manage Subscribers</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_orders' %}" class="store-management-link">Manage Orders</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_contacts' %}" class="store-management-link">Manage Contacts</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_subscribers' %}" class="store-management-link" aria-label="Manage subscribers">Manage Subscribers</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_orders' %}" class="store-management-link" aria-label="Manage orders">Manage Orders</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_contacts' %}" class="store-management-link" aria-label="Manage contacts">Manage Contacts</a></li>
                             </ul>
                         </div>
                     </div>
@@ -138,17 +143,16 @@
                         <div class="card-body">
                             <p>Update website content including About content. allergen information, and privacy policy.</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="{% url 'edit_about' %}" class="store-management-link">Manage About Content</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_bakers' %}" class="store-management-link">Manage Baker Profiles</a></li>
-                                <li class="list-group-item"><a href="{% url 'manage_faq' %}" class="store-management-link">Manage FAQ Contents</a></li>
-                                <li class="list-group-item"><a href="{% url 'edit_privacy_policy' %}" class="store-management-link">Manage Privacy Policy</a></li>
-                                <li class="list-group-item"><a href="{% url 'edit_allergen_info' %}" class="store-management-link">Manage Allergen Information</a></li>
+                                <li class="list-group-item"><a href="{% url 'edit_about' %}" class="store-management-link" aria-label="Manage about content">Manage About Content</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_bakers' %}" class="store-management-link" aria-label="Manage baker profiles">Manage Baker Profiles</a></li>
+                                <li class="list-group-item"><a href="{% url 'manage_faq' %}" class="store-management-link" aria-label="Manage faq content">Manage FAQ Contents</a></li>
+                                <li class="list-group-item"><a href="{% url 'edit_privacy_policy' %}" class="store-management-link" aria-label="Manage privacy policy">Manage Privacy Policy</a></li>
+                                <li class="list-group-item"><a href="{% url 'edit_allergen_info' %}" class="store-management-link" aria-label="Manage allergen information">Manage Allergen Information</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-
 {% endblock %}

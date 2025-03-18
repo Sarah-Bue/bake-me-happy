@@ -4,44 +4,55 @@
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
+
+        <!-- Header -->
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="manage-subscribers-title">Manage Subscribers</h1>
+                <hr aria-hidden="true">
+            </div>
+        </header>
+
+        <!-- Manage Subscribers Section -->
+        <section class="row" aria-labelledby="manage-subscribers-section-title">
             <div class="col-12">
-                <h1 class="display-6 text-center">Manage Subscribers</h1>
-                <hr>
                 
-                <!-- Back to Dashboard link -->
-                <div class="mb-4">
-                    <a href="{% url 'store_management' %}" class="btn btn-outline-dark">
-                        <i class="fas fa-chevron-left"></i> Back to Dashboard
-                    </a>
-                </div>
+                <!-- Back to Dashboard Button -->
+                {% include 'about/includes/back_to_dashboard_button.html' %}
 
                 <!-- Subscribers Table -->
-                {% if subscribers %}
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="bg-dark text-white">
-                                <tr>
-                                    <th>Emai Address</th>
-                                    <th>Subscription Date</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {% for subscriber in subscribers %}
-                                    <tr>
-                                        <td>{{ subscriber.email }}</td>
-                                        <td>{{ subscriber.date_subscribed }}</td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="h5 mb-0">Subscribers</h2>
                     </div>
-                {% else %}
-                    <p class="lead mb-5 text-center">No subscribers found.</p>
-                {% endif %}
+                    <div class="card-body">
+                        {% if subscribers %}
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead class="bg-dark text-white">
+                                        <tr>
+                                            <th>Emai Address</th>
+                                            <th>Subscription Date</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for subscriber in subscribers %}
+                                            <tr>
+                                                <td>{{ subscriber.email }}</td>
+                                                <td>{{ subscriber.date_subscribed }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <p class="lead mb-5 text-center">No subscribers found.</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}
 

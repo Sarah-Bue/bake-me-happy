@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- Content Block -->
+{% block content %}
+<div class="container px-4 px-lg-5 py-5">
+
+    <!-- Header -->
+    <header class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <h1 class="display-6 text-center" id="contact-details-title">Contact Details</h1>
+            <hr aria-hidden="true">
+        </div>
+    </header>
+
+    <!-- Contact Details Section -->
+    <section class="row" aria-labelledby="contact-details-section-title">
+        <div class="col-12 col-md-8 offset-md-2">
+
+            <!-- Back to Contacts Button -->
+            <div class="mb-4">
+                <a href="{% url 'manage_contacts' %}" class="btn btn-outline-dark" aria-label="Return to contact overview">
+                    <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Contacts
+                </a>
+            </div>
+
+            <!-- Contact Details Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">{{ contact.subject }}</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Name:</div>
+                        <div class="col-md-9">{{ contact.name }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Email:</div>
+                        <div class="col-md-9">{{ contact.email }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Date Sent:</div>
+                        <div class="col-md-9">{{ contact.date_sent }}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Message:</div>
+                        <div class="col-md-9">{{ contact.message }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

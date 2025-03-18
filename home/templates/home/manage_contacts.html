@@ -4,50 +4,69 @@
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
+
+        <!-- Header -->
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="manage-contacts-title">Manage Contacts</h1>
+                <hr aria-hidden="true">
+            </div>
+        </header>
+
+        <!-- Manage Contacts Section -->
+        <section class="row" aria-labelledby="manage-contacts-section-title">
             <div class="col-12">
-                <h1 class="display-6 text-center">Manage Contacts</h1>
-                <hr>
                 
-                <!-- Back to Dashboard link -->
-                <div class="mb-4">
-                    <a href="{% url 'store_management' %}" class="btn btn-outline-dark">
-                        <i class="fas fa-chevron-left"></i> Back to Dashboard
-                    </a>
-                </div>
+                <!-- Back to Dashboard Button -->
+                {% include 'about/includes/back_to_dashboard_button.html' %}
 
                 <!-- Contacts Table -->
-                {% if contacts %}
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="text-black">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Subject</th>
-                                    <th>Message</th>
-                                    <th>Date Sent</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {% for contact in contacts %}
-                                <tr>
-                                    <td>{{ contact.name }}</td>
-                                    <td>{{ contact.email }}</td>
-                                    <td>{{ contact.subject }}</td>
-                                    <td>{{ contact.message|truncatewords:10 }}</td>
-                                    <td>{{ contact.date_sent }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="h5 mb-0">Contacts</h2>
                     </div>
-                {% else %}
-                    <p class="lead mb-5 text-center">No contacts found.</p>
-                {% endif %}
+                    <div class="card-body">
+                        {% if contacts %}
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead class="text-black">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Subject</th>
+                                            <th>Message</th>
+                                            <th>Date Sent</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for contact in contacts %}
+                                        <tr>
+                                            <td>{{ contact.name }}</td>
+                                            <td>{{ contact.email }}</td>
+                                            <td>{{ contact.subject }}</td>
+                                            <td>{{ contact.message|truncatewords:10 }}</td>
+                                            <td>{{ contact.date_sent|date:"d-m-Y" }}</td>
+
+                                            <!-- Action Buttons -->
+                                            <td>
+                                                <a href="{% url 'view_contact' contact.id %}" class="btn btn-outline-dark">
+                                                    <i class="fas fa-eye me-2"></i>View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <p class="lead mb-5 text-center">No contacts found.</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}
 

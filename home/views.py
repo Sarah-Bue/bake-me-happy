@@ -1,12 +1,14 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from checkout.models import Order
-from products.models import Product
-from newsletter.models import Subscriber
-from reviews.models import Review
-from contact.models import Contact
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
+
 from about.models import Baker, FAQ
+from checkout.models import Order
+from contact.models import Contact
+from newsletter.models import Subscriber
+from products.models import Product
+from reviews.models import Review
+
 
 def index(request):
     """
@@ -25,9 +27,10 @@ def store_management(request):
 
     # Check if user is superuser
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can access this page.')
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
         return redirect('home')
-  
+
     # Count various objects in the system
     product_count = Product.objects.count()
     subscriber_count = Subscriber.objects.count()
@@ -56,9 +59,9 @@ def manage_orders(request):
 
     # Check if user is superuser
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can access this page.')
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
         return redirect('home')
-
 
     orders = Order.objects.all().order_by('-date')
 
@@ -74,20 +77,21 @@ def manage_subscribers(request):
     """
     A view to manage newsletter subscribers.
     """
-    
+
     # Check if user is superuser
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can access this page.')
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
         return redirect('home')
-    
+
     # Get all subscribers ordered by subscription date (newest first)
     from newsletter.models import Subscriber
     subscribers = Subscriber.objects.all().order_by('-date_subscribed')
-    
+
     context = {
         'subscribers': subscribers,
     }
-    
+
     return render(request, 'home/manage_subscribers.html', context)
 
 
@@ -96,19 +100,20 @@ def manage_reviews(request):
     """
     A view to manage product reviews.
     """
-    
+
     # Check if user is superuser
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can access this page.')
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
         return redirect('home')
-    
+
     # Get all reviews ordered by date (newest first)
     reviews = Review.objects.all().order_by('-date_added')
-    
+
     context = {
         'reviews': reviews,
     }
-    
+
     return render(request, 'home/manage_reviews.html', context)
 
 
@@ -120,7 +125,8 @@ def manage_contacts(request):
 
     # Check if user is superuser
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can access this page.')
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
         return redirect('home')
 
     # Get all contacts ordered by date (newest first)
@@ -141,7 +147,8 @@ def manage_bakers(request):
 
     # Check if user is superuser
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can access this page.')
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
         return redirect('home')
 
     # Get all bakers ordered by their display order
@@ -161,7 +168,8 @@ def manage_faq(request):
     """
     # Check if user is superuser
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can access this page.')
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
         return redirect('home')
 
     # Get all FAQ ordered by their display order
@@ -179,14 +187,14 @@ def manage_products(request):
     """
     A view to manage all products.
     """
-    
+
     # Check if user is superuser
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can access this page.')
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
         return redirect('home')
 
     # Get all products ordered by name
-    from products.models import Product
     products = Product.objects.all().order_by('name')
 
     context = {
@@ -194,3 +202,24 @@ def manage_products(request):
     }
 
     return render(request, 'home/manage_products.html', context)
+
+
+@login_required
+def view_contact(request, contact_id):
+    """
+    A view to display full contact details.
+    """
+    # Check if user is superuser
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Sorry, only store owners can access this page.')
+        return redirect('home')
+
+    # Get contact object
+    contact = get_object_or_404(Contact, pk=contact_id)
+
+    context = {
+        'contact': contact,
+    }
+
+    return render(request, 'home/view_contact.html', context)

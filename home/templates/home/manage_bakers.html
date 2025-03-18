@@ -4,73 +4,91 @@
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
-        <div class="row">
+
+        <!-- Header -->
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="manage-bakers-title">Manage Bakers</h1>
+                <hr aria-hidden="true">
+            </div>
+        </header>
+
+        <!-- Manage Bakers Section -->
+        <section class="row" aria-labelledby="manage-bakers-section-title">
             <div class="col-12">
-                <h1 class="display-6 text-center">Manage Bakers</h1>
-                <hr>
                 
                 <!-- Action Buttons -->
-                <div class="row mb-4 align-items-center">
-                    <!-- Back to Dashboard link -->
+                <div class="row mb-4 align-items-center justify-content-between">
+                    <!-- Back to Dashboard Button -->
                     <div class="col-6">
-                        <a href="{% url 'store_management' %}" class="btn btn-outline-dark">
-                            <i class="fas fa-chevron-left me-2"></i> Back to Dashboard
-                        </a>
+                        {% include 'about/includes/back_to_dashboard_button.html' %}
                     </div>
+
                     <!-- Add Baker Button -->
                     <div class="col-6 text-end">
-                        <a href="{% url 'add_baker' %}" class="btn btn-dark">
-                            <i class="fas fa-plus me-2"></i> Add New Baker
+                        <a href="{% url 'add_baker' %}" class="btn btn-dark" aria-label="Add a new baker profile">
+                            <i class="fas fa-plus me-2" aria-hidden="true"></i>Add New Baker
                         </a>
                     </div>
                 </div>
 
                 <!-- Bakers Table -->
-                {% if bakers %}
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="text-black">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Title</th>
-                                    <th>Has Image</th>
-                                    <th>Order</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {% for baker in bakers %}
-                                <tr>
-                                    <td>{{ baker.name }}</td>
-                                    <td>{{ baker.title }}</td>
-                                    <td>
-                                        {% if baker.image %}
-                                            <i class="fas fa-check text-success"></i>
-                                        {% else %}
-                                            <i class="fas fa-times text-danger"></i>
-                                        {% endif %}
-                                    </td>
-                                    <td>{{ baker.order }}</td>
-                                    <!-- Action Buttons -->
-                                    <td>
-                                        <a href="{% url 'edit_baker' baker.id %}" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit me-2"></i> Edit
-                                        </a>
-                                        <a href="{% url 'delete_baker' baker.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this baker profile? This action cannot be undone.');">
-                                            <i class="fas fa-trash-alt me-2"></i> Delete
-                                        </a>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="h5 mb-0">Bakers</h2>
                     </div>
-                {% else %}
-                    <p class="lead mb-5 text-center">No bakers found.</p>
-                {% endif %}
+                    <div class="card-body">
+                        {% if bakers %}
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead class="text-black">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Title</th>
+                                            <th>Has Image</th>
+                                            <th>Order</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for baker in bakers %}
+                                        <tr>
+                                            <td>{{ baker.name }}</td>
+                                            <td>{{ baker.title }}</td>
+                                            <td>
+                                                {% if baker.image %}
+                                                    <i class="fas fa-check text-success" aria-label="Has an image"></i>
+                                                {% else %}
+                                                    <i class="fas fa-times text-danger" aria-label="Has no image"></i>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ baker.order }}</td>
+
+                                            <!-- Action Buttons -->
+                                            <td>
+                                                <!-- Edit Button -->
+                                                <a href="{% url 'edit_baker' baker.id %}" class="btn btn-outline-dark" aria-label="Edit baker profile">
+                                                    <i class="fas fa-edit me-2" aria-hidden="true"></i>Edit
+                                                </a>
+
+                                                <!-- Delete Button -->
+                                                <a href="{% url 'delete_baker' baker.id %}" class="btn btn-dark" aria-label="Delete baker profile" onclick="return confirm('Are you sure you want to delete this baker profile? This action cannot be undone.');">
+                                                    <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <p class="lead mb-5 text-center">No bakers found.</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}
 
