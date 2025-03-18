@@ -1,0 +1,37 @@
+[
+    {
+        "model": "about.baker",
+        "pk": 3,
+        "fields": {
+            "name": "Lena",
+            "title": "Head Baker & Keeper of Family Recipes",
+            "bio": "Lena grew up in a small village near the Black Forest, where baking bread was a weekly family ritual. After moving to Ireland, she missed the comforting smells of fresh pretzels, sourdough, and her grandmother’s famous Bienenstich cake. Determined to bring those flavors back to life, Lena now spends her days elbow-deep in flour, recreating those memories — and sharing them with you.",
+            "image": "baker-lena.png",
+            "order": 1
+        }
+    },
+
+    {
+        "model": "about.baker",
+        "pk": 2,
+        "fields": {
+            "name": "Max",
+            "title": "Pastry Perfectionist & Cake Artist",
+            "bio": "Max inherited a serious sweet tooth and a love for precision from his pastry-chef father. Whether it’s layering delicate cream cakes or perfecting the shine on a batch of traditional German butter cookies, Max is all about the details. His goal? Every cake not only tastes incredible but looks like a little piece of edible art.",
+            "image": "baker-max.png",
+            "order": 2
+        }
+    },
+
+    {
+        "model": "about.baker",
+        "pk": 3,
+        "fields": {
+            "name": "Sophie",
+            "title": "Roll Queen & Sourdough Whisperer",
+            "bio": "Sophie’s heart belongs to bread. From soft dinner rolls to hearty rye loaves, she loves experimenting with different flours, fermentation times, and techniques. She believes every great meal starts with a great piece of bread — and she’s made it her mission to deliver just that.",
+            "image": "baker-sophie.png",
+            "order": 1
+        }
+    }
+]

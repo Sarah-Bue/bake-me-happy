@@ -42,8 +42,8 @@
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                         <article class="baker-profile">
                             <div class="baker-image-container">
-                                {% if baker.photo %}
-                                    <img src="{{ baker.photo.url }}" class="baker-image" alt="{{ baker.name }}">
+                                {% if baker.image %}
+                                    <img src="{{ baker.image.url }}" class="baker-image" alt="{{ baker.name }}">
                                 {% else %}
                                     <img src="{{ MEDIA_URL }}noimage.png" class="baker-image" alt="No profile photo available for {{ baker.name }}">
                                 {% endif %}
