@@ -113,6 +113,17 @@
     margin-top: 1rem;
 }
 
+/* Remove hover effect from cards */
+.no-hover {
+    transition: none !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.no-hover:hover {
+    transform: none !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
 /* Form Field Styling */
 select,
 select option {

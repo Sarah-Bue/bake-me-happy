@@ -17,7 +17,7 @@
         <header class="row">
             <div class="col-12 col-md-6 offset-md-3">
                 <h1 class="display-6 text-center" id="products-title">Products</h1>
-                <hr aria-hidden="true">
+                <hr class="mb-2" aria-hidden="true">
             </div>
         </header>
 
@@ -26,10 +26,9 @@
         <section class="py-5" role="region" aria-label="Product listings">
             <div class="container px-4 px-lg-5">
                 
-                <!-- Sorting and Product Count -->
+                <!-- Product Count & Sorting -->
                 <!-- This section has been adapted from Code Institute's "Boutique Ado" project -->
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <!-- Product Count -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
                     <div class="flex-grow-1">
                         {% for c in current_categories %}
                             <p class="text-muted mb-0">
@@ -41,6 +40,24 @@
                         {% endfor %}
                     </div>
 
+                    <!-- Sorting functionality -->
+                    <div class="ms-auto d-flex align-items-center">
+                        <label for="sort-selector" class="me-2 mb-0 d-none d-sm-block">Sort by:</label>
+                        <div class="sort-select-wrapper" style="width: 200px;">
+                            <select id="sort-selector" aria-label="Sort products by" class="form-select form-select-sm border border-{% if current_sorting != 'None_None' %}primary{% else %}dark{% endif %}">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                                <option value="occasion_asc" {% if current_sorting == 'occasion_asc' %}selected{% endif %}>Occasion (A-Z)</option>
+                                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- If Products are available -->
                 {% if products %}
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -48,14 +65,14 @@
                         {% for product in products %}
                             <div class="col mb-5">
                                 <div class="card h-100" role="article" aria-label="Product: {{ product.name }}">
-                                    <!-- Product Image or Placeholder -->
+                                    <!-- Product Image if available -->
                                     <div class="card-img-container">
                                         {% if product.image %}
                                             <a href="{% url 'product_detail' product.id %}" aria-label="View details for {{ product.name }}">
                                                 <img class="card-img-top" src="{{ product.image.url }}" alt="Product image of {{ product.name }}" />
                                             </a>
                                         {% else %}
-                                            <a href="{% url 'product_detail' product.id %}" aria-label="View details for {{ product.name }}">
+                                            <a href="{% url 'product_detail' product.id %}" aria-label="No image available for {{ product.name }}">
                                                 <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" />
                                             </a>
                                         {% endif %}

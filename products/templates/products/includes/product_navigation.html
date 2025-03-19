@@ -25,25 +25,6 @@
                 </li>
             </ul>
 
-            <!-- Sorting functionality - only visible on products page -->
-            {% if request.resolver_match.url_name == 'products' %}
-                <div class="ms-auto d-flex align-items-center">
-                    <label for="sort-selector" class="me-2 mb-0 d-none d-sm-block">Sort by:</label>
-                    <div class="sort-select-wrapper" style="width: 200px;">
-                        <select id="sort-selector" aria-label="Sort products by" class="form-select form-select-sm border border-{% if current_sorting != 'None_None' %}primary{% else %}dark{% endif %}">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                            <option value="occasion_asc" {% if current_sorting == 'occasion_asc' %}selected{% endif %}>Occasion (A-Z)</option>
-                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                        </select>
-                    </div>
-                </div>
-            {% endif %}
-
             <!-- Search Bar-->
             <form class="d-flex ms-4" role="search" method="GET" action="{% url 'products' %}" aria-labelledby="search-form-label">
                 <span id="search-form-label" class="visually-hidden">Search for products in our bakery</span>

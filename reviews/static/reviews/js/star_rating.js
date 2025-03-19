@@ -1,3 +1,8 @@
+/**
+ * The star rating has been adapted from CSS-Tricks' "Star Rating Widget" tutorial https://css-tricks.com/star-ratings/
+ * 
+ * This script is responsible for handling the star rating functionality, providing a visual representation of the user's rating.
+*/
 document.addEventListener('DOMContentLoaded', function() {
     const starContainer = document.querySelector('.star-rating-container');
     const starOptions = document.querySelectorAll('.star-option input[type="radio"]');
