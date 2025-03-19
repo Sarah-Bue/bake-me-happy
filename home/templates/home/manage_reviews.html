@@ -48,7 +48,7 @@
                                         {% for review in reviews %}
                                             <tr>
                                                 <td>{{ review.date_added|date:"M d, Y" }}</td>
-                                                <td>{{ review.product.name|truncatechars:30 }}</td>
+                                                <td>{{ review.product.name|truncatechars:20 }}</td>
                                                 <td>{{ review.author.username }}</td>
                                                 <td>
                                                     {% if review.rating %}
@@ -58,7 +58,7 @@
                                                     {% endif %}
                                                 </td>
                                                 <td>{{ review.title|default:"No title"|truncatechars:20 }}</td>
-                                                <td>{{ review.review_comment|striptags|truncatechars:50|default:"No comment" }}</td>
+                                                <td>{{ review.review_comment|striptags|truncatechars:30|default:"No comment" }}</td>
 
                                                 <!-- Action Buttons -->
                                                 <td>

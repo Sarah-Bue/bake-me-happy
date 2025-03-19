@@ -1,0 +1,300 @@
+[   
+    {
+      "model": "reviews.review",
+      "pk": 5,
+      "fields": {
+        "product": 2,
+        "author": 1,
+        "title": "Great for Sandwiches",
+        "rating": 5,
+        "review_comment": "These cheese rolls make the best sandwiches!",
+        "date_added": "2025-03-13T11:00:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 7,
+      "fields": {
+        "product": 1,
+        "author": 3,
+        "title": "Soft and Fluffy",
+        "rating": 5,
+        "review_comment": "Perfect for any meal, these white rolls are a hit.",
+        "date_added": "2025-03-05T11:30:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 8,
+      "fields": {
+        "product": 7,
+        "author": 2,
+        "title": "Seedy Goodness",
+        "rating": 4,
+        "review_comment": "Loved the crunch and flavor of the mixed seed rolls.",
+        "date_added": "2025-03-02T11:45:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 9,
+      "fields": {
+        "product": 2,
+        "author": 2,
+        "title": "A Cheesy Delight",
+        "rating": 5,
+        "review_comment": "The cheese is so melty and delicious in these rolls.",
+        "date_added": "2025-03-07T12:00:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 10,
+      "fields": {
+        "product": 8,
+        "author": 2,
+        "title": "Nutty and Wholesome",
+        "rating": 4,
+        "review_comment": "The pumpkin seed bread is great for a healthy snack.",
+        "date_added": "2025-03-08T12:15:00Z"
+      }
+    },
+    {
+      "model": "reviews.review",
+      "pk": 11,
+      "fields": {
+        "product": 3,
+        "author": 3,
+        "title": "Perfectly Sweet",
+        "rating": 5,
+        "review_comment": "These raisin rolls are just the right amount of sweetness.",
+        "date_added": "2025-03-20T12:30:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 12,
+      "fields": {
+        "product": 9,
+        "author": 1,
+        "title": "Classic Pretzel Taste",
+        "rating": 4,
+        "review_comment": "These pretzels are authentic and delicious.",
+        "date_added": "2025-03-13T12:45:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 13,
+      "fields": {
+        "product": 6,
+        "author": 3,
+        "title": "Hearty and Flavorful",
+        "rating": 5,
+        "review_comment": "The farmhouse bread is perfect with soup.",
+        "date_added": "2025-03-10T13:00:00Z"
+      }
+    },
+
+    {
+      "model": "reviews.review",
+      "pk": 16,
+      "fields": {
+        "product": 18,
+        "author": 1,
+        "title": "Rich and Indulgent",
+        "rating": 5,
+        "review_comment": "The Black Forest cake is a true treat.",
+        "date_added": "2025-03-13T13:45:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 17,
+      "fields": {
+        "product": 16,
+        "author": 2,
+        "title": "Classic Cake Done Right",
+        "rating": 4,
+        "review_comment": "A well-made marble cake, great for any occasion.",
+        "date_added": "2025-03-14T14:00:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 18,
+      "fields": {
+        "product": 19,
+        "author": 2,
+        "title": "Sweet and Creamy",
+        "rating": 4,
+        "review_comment": "The Snow White cake is a delightful combination of flavors.",
+        "date_added": "2025-03-15T14:15:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 19,
+      "fields": {
+        "product": 20,
+        "author": 3,
+        "title": "Honey Almond Goodness",
+        "rating": 5,
+        "review_comment": "The Bee Sting cake is so unique and delicious.",
+        "date_added": "2025-03-16T14:30:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 20,
+      "fields": {
+        "product": 21,
+        "author": 2,
+        "title": "Fresh and Fruity",
+        "rating": 5,
+        "review_comment": "The strawberry cream cake is perfect for summer.",
+        "date_added": "2025-03-17T14:45:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 21,
+      "fields": {
+        "product": 17,
+        "author": 3,
+        "title": "Always a Favorite",
+        "rating": 4,
+        "review_comment": "This crumb cake never disappoints.",
+        "date_added": "2025-03-10T15:00:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 22,
+      "fields": {
+        "product": 22,
+        "author": 2,
+        "title": "Autumn Treat",
+        "rating": 4,
+        "review_comment": "The plum cake is wonderful with a cup of tea.",
+        "date_added": "2025-03-09T15:15:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 23,
+      "fields": {
+        "product": 25,
+        "author": 3,
+        "title": "Cute and Tasty",
+        "rating": 5,
+        "review_comment": "The Easter Lamb cake was a hit with the kids.",
+        "date_added": "2025-03-01T15:30:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 24,
+      "fields": {
+        "product": 26,
+        "author": 3,
+        "title": "Moist and Spiced",
+        "rating": 4,
+        "review_comment": "The carrot cake is perfectly spiced and moist.",
+        "date_added": "2025-03-11T15:45:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 25,
+      "fields": {
+        "product": 30,
+        "author": 3,
+        "title": "Jam-Filled Delight",
+        "rating": 4,
+        "review_comment": "The Berliner is a classic for a reason, so good!",
+        "date_added": "2025-03-12T16:00:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 26,
+      "fields": {
+        "product": 31,
+        "author": 2,
+        "title": "Creamy and Flaky",
+        "rating": 5,
+        "review_comment": "The custard pocket is the perfect sweet treat.",
+        "date_added": "2025-03-03T16:15:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 27,
+      "fields": {
+        "product": 32,
+        "author": 3,
+        "title": "Buttery and Crumbly",
+        "rating": 4,
+        "review_comment": "These shortbread cookies are so addictive.",
+        "date_added": "2025-03-14T16:30:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 28,
+      "fields": {
+        "product": 33,
+        "author": 2,
+        "title": "Nutty and Chocolatey",
+        "rating": 5,
+        "review_comment": "The nut chocolate wedges are a fantastic combination.",
+        "date_added": "2025-03-15T16:45:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 29,
+      "fields": {
+        "product": 30,
+        "author": 1,
+        "title": "Sweet and Fluffy",
+        "rating": 5,
+        "review_comment": "Another delicious Berliner, can't get enough!",
+        "date_added": "2025-03-16T17:00:00Z"
+      }
+    },
+  
+    {
+      "model": "reviews.review",
+      "pk": 30,
+      "fields": {
+        "product": 34,
+        "author": 2,
+        "title": "Festive and Fun",
+        "rating": 4,
+        "review_comment": "The Weckmann was a delightful treat for St. Martin's Day.",
+        "date_added": "2025-03-22T17:15:00Z"
+      }
+    }
+  ]
+  

@@ -38,7 +38,7 @@
                             <tbody>
                                 {% for item in basket_items %}
                                     <tr>
-                                        <!-- Product Image or Placeholder -->
+                                        <!-- Product Image if available -->
                                         <td class="p-3 w-25">
                                             {% if item.product.image %}
                                                 <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
@@ -124,7 +124,7 @@
                             <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
                         </a>
                         <!-- Clear Basket -->
-                        <a href="{% url 'clear_basket' %}" class="btn btn-outline-danger" id="clear-basket-btn" aria-label="Clear basket">
+                        <a href="{% url 'clear_basket' %}" class="btn btn-outline-dark" id="clear-basket-btn" aria-label="Clear basket">
                             <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Clear Basket
                         </a>
                         <!-- Secure Checkout -->
