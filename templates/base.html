@@ -57,7 +57,7 @@
 
   <body>
 
-    <!-- Skip to content link for screen readers-->
+    <!-- Skip to content link for screen readers -->
     <a href="#main-content" class="visually-hidden visually-hidden-focusable bg-dark text-white p-3 position-absolute">Skip to main content</a>
     
     <!-- Main Navigation -->
@@ -123,14 +123,16 @@
     </nav>
 
     <!-- Banner -->
-    <header class="bg-dark py-5 border border-white">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Shop in style</h1>
-                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+    {% block banner %}
+        <header class="bg-dark py-5 border border-white">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Shop in style</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+    {% endblock %}
 
     <!-- Messages -->
     {% if messages %}

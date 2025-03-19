@@ -1,23 +1,139 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Don't show Banner -->
+{% block banner %}{% endblock %}
+
 <!-- Content Block -->
 {% block content %}
-    <div class="container px-4 px-lg-5 py-5">
+<div class="container px-4 px-lg-5 py-5">
 
-        <!-- Header -->
-        <header class="row">
-            <div class="col-12 col-md-6 offset-md-3">
-                <h1 class="display-6 text-center" id="home-title">Welcome to the Home Page</h1>
-                <hr aria-hidden="true">
-            </div>
-        </header>
+    <!-- Hero Section -->
+    <section class="row bg-light gx-4 gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-7 mb-4 mt-4">
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="{{ MEDIA_URL }}hero.png" alt="Assortment of freshly baked goods">
+        </div>
+        <div class="col-lg-5">
+            <h1 class="display-5 fw-bold" id="home-title">Bake Me Happy</h1>
+            <p class="lead">Delicious homemade treats delivered to your doorstep. Bringing joy through the art of baking.</p>
+            <a class="btn btn-dark btn-lg" href="{% url 'products' %}" aria-label="Browse our products">Shop Now</a>
+        </div>
+    </section>
 
-        <!-- Main Content Section -->
-        <section class="row" aria-labelledby="home-section-title">
-            <div class="col-12">
-                <p class="lead mb-3 text-center">This is the home page.</p>
+    <!-- Featured Categories -->
+    <h2 class="text-center mb-4" id="featured-categories">Our Specialties</h2>
+    <div class="row gx-4 gx-lg-5">
+
+        <!-- Breads & Rolls -->
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <img class="card-img-top" src="{{ MEDIA_URL }}cheese_bread_rolls.png" alt="Cheese bread rolls">
+                <div class="card-body">
+                    <h3 class="card-title h4">Breads & Rolls</h3>
+                    <p class="card-text">Start every day fresh with the perfect fit of bread or roll for you and your loved ones. Made according to traditional German recipes and with fresh ingredients.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'products' %}?category=breads_rolls" class="btn btn-dark" aria-label="Browse breads and rolls">View Breads & Rolls</a>
+                </div>
             </div>
-        </section>
+        </div>
+        
+        <!-- Cakes & Tarts -->
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <img class="card-img-top" src="{{ MEDIA_URL }}snow_white_cake.png" alt="Snow white cake">
+                <div class="card-body">
+                    <h3 class="card-title h4">Cakes & Tarts</h3>
+                    <p class="card-text">Our custom made cakes are guaranteed to bring a smile to your face. We offer a wide variety of beautiful cakes for your celebrations and special moments.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'products' %}?category=cakes_tarts" class="btn btn-dark" aria-label="Browse cakes and tarts">View Cakes & Tarts</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cookies & Pastries -->
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <img class="card-img-top" src="{{ MEDIA_URL }}custard_pocket.png" alt="Custard pocket">
+                <div class="card-body">
+                    <h3 class="card-title h4">Cookies & Pastries</h3>
+                    <p class="card-text">Indulge in our flaky, buttery pastries that bring a touch of elegance to any occasion. Whether you are looking for a sweet treat or a seasonal eye catcher, our freshly baked pastries are for you.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'products' %}?category=cookies_pastries" class="btn btn-dark" aria-label="Browse cookies and pastries">View Cookies & Pastries</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Testimonials -->
+    <!-- Currently Placeholders -->
+    <section class="py-5 bg-dark rounded" aria-labelledby="testimonials-title">
+        <div class="container text-white px-4 px-lg-5">
+            <h2 class="text-center mb-4" id="testimonials-title">What Our Customers Say</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-item mx-auto text-center mb-5 mb-lg-0">
+                            <p class="font-weight-light mb-0">"The birthday cake was absolutely perfect! Everyone loved both the design and the taste. Will definitely order again!"</p>
+                            <h5 class="mt-2">Lisa M.</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-item mx-auto text-center mb-5 mb-lg-0">
+                            <p class="font-weight-light mb-0">"I ordered bread rolls for a family gathering and they were a huge hit! Fresh, delicious, and delivered right on time."</p>
+                            <h5 class="mt-2">Michael R.</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-item mx-auto text-center mb-5 mb-lg-0">
+                            <p class="font-weight-light mb-0">"Their pastries are simply divine! The sweet raison rolls remind me of the ones my grandmother used to make. Authentic and delicious!"</p>
+                            <h5 class="mt-2">Emma L.</h5>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <div class="carousel-indicators position-relative mt-3">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 mt-5 bg-light rounded" aria-labelledby="cta-title">
+        <div class="container px-4 px-lg-5">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <div>
+                    <h2 class="fw-bold mb-2" id="cta-title">Ready to place an order?</h2>
+                    <p class="mb-0">Browse our selection and find the perfect treat for any occasion.</p>
+                </div>
+                <a class="btn btn-dark btn-lg mt-3 mt-md-0" href="{% url 'products' %}" aria-label="Shop all products">Shop All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Contact -->
+    <section class="py-5 mt-5 bg-light rounded" aria-labelledby="contact-title">
+        <div class="container px-4 px-lg-5">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <div>
+                    <h2 class="fw-bold mb-2" id="contact-title">We'd love to hear from you!</h2>
+                    <p class="mb-0">Have questions or want to request a custom order? We're only a few clicks away...</p>
+                </div>
+                <a class="btn btn-dark btn-lg mt-3 mt-md-0" href="{% url 'contact' %}" aria-label="Contact us">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+</div>
 {% endblock %}
