@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Don't show Banner -->
+{% block banner %}{% endblock %}
+
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
@@ -14,7 +17,7 @@
         </header>
 
         <!-- Manage FAQ Section -->
-        <section class="row"  aria-labelledby="manage-faq-section-title">>
+        <section class="row"  aria-labelledby="manage-faq-section-title">
             <div class="col-12">
 
                 <!-- Action Buttons -->
@@ -27,7 +30,7 @@
                     <!-- Add FAQ Button -->
                     <div class="col-6 text-end">
                         <a href="{% url 'add_faq' %}" class="btn btn-dark">
-                            <i class="fas fa-plus me-2"></i> Add New FAQ
+                            <i class="fas fa-plus me-2"></i>Add New FAQ
                         </a>
                     </div>
                 </div>

@@ -67,6 +67,7 @@ def edit_about(request):
                            'Please ensure the form is valid.')
     else:
         form = AboutForm(instance=about)
+        messages.info(request, 'You are editing the About section.')
 
     template = 'about/edit_about.html'
     context = {
@@ -216,7 +217,7 @@ def edit_privacy_policy(request):
     else:
         # Prepopulate form & display info message
         form = PrivacyPolicyForm(instance=policy)
-        messages.info(request, f'You are editing the privacy policy.')
+        messages.info(request, 'You are editing the privacy policy.')
 
     template = 'about/edit_privacy_policy.html'
     context = {
@@ -280,7 +281,7 @@ def edit_allergen_info(request):
     else:
         # Prepopulate form & display info message
         form = AllergenInfoForm(instance=allergen_info)
-        messages.info(request, f'You are editing the allergen information.')
+        messages.info(request, 'You are editing the allergen information.')
 
     template = 'about/edit_allergen_info.html'
     context = {
@@ -360,6 +361,7 @@ def edit_faq(request, faq_id):
                            'Please ensure the form is valid.')
     else:
         form = FAQForm(instance=faq)
+        messages.info(request, 'You are editing a FAQ.')
 
     template = 'about/edit_faq.html'
     context = {

@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
-<!-- Extraa CSS -->
+<!-- Extra CSS -->
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 {% endblock %}
+
+<!-- Don't show Banner -->
+{% block banner %}{% endblock %}
 
 <!-- Content Block -->
 {% block content %}

@@ -6,15 +6,18 @@
     <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
+<!-- Don't show Banner -->
+{% block banner %}{% endblock %}
+
 <!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
 
         <!-- Header -->
-        <header class="row mb-4">
-            <div class="col text-center">
-                <h1 class="display-6" id="edit-product-title">Edit a Product</h1>
-                <hr class="mb-4" aria-hidden="true">
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center" id="edit-product-title">Edit a Product</h1>
+                <hr aria-hidden="true">
             </div>
         </header>
 

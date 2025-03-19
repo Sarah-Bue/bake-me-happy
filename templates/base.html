@@ -101,7 +101,7 @@
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1" role="menubar" aria-label="Account navigation">
                     <li class="nav-item dropdown" role="none">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false" role="menuitem" aria-haspopup="true"aria-label="My Account dropdown menu">
-                            My Account
+                            <i class="fa-solid fa-circle-user me-2"></i>My Account
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% if request.user.is_authenticated %}
@@ -124,11 +124,11 @@
 
     <!-- Banner -->
     {% block banner %}
-        <header class="bg-dark py-5 border border-white">
+        <header class="py-5 border border-white banner-container" role="banner" aria-label="Welcome banner">
             <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+                <div class="text-center text-white banner-content">
+                    <h1 class="display-4 fw-bolder">Freshly Baked Happiness</h1>
+                    <p class="lead fw-normal mb-0">Artisan breads and pastries delivered to your door</p>
                 </div>
             </div>
         </header>
