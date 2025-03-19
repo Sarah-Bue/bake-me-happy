@@ -32,7 +32,7 @@
         <!-- Form, rendered by crispy forms -->
         <section class="row justify-content-center" aria-labelledby="edit-baker-profile-title">
             <div class="col-12 col-lg-8">
-                <div class="card border border-white-subtle bg-body-tertiary rounded-3 shadow">
+                <div class="card no-hover border border-white-subtle bg-body-tertiary rounded-3 shadow">
                     <div class="card-body">
                         <form method="POST" action="{% url 'edit_baker' baker.id %}" class="form" enctype="multipart/form-data">
                             {% csrf_token %}

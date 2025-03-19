@@ -22,7 +22,7 @@
         <!-- Add Product Review Section -->
         <section class="row justify-content-center" aria-labelledby="add-product-review-section-title">
             <div class="col-12 col-lg-8">
-                <div class="card border border-white-subtle bg-body-tertiary rounded-3 shadow">
+                <div class="card no-hover border border-white-subtle bg-body-tertiary rounded-3 shadow">
                     <div class="card-body">
                         <form method="POST" action="{% url 'add_review' product.id %}" class="form" enctype="multipart/form-data">
                             {% csrf_token %}

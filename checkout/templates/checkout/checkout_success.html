@@ -1,22 +1,38 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Content Block -->
 {% block content %}
     <div class="container px-4 px-lg-5 py-5">
         <!-- Header -->
-        <div class="row">
-            <div class="col text-center">
-                <h1>Thank You for Your Order!</h1>
-                <hr class="mb-4" role="presentation">
-                <p>Your order information is below. A confirmation email will be sent to <span class="screen-reader-text">your email address:</span> {{ order.email }}.</p>
+        <header class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h1 class="display-6 text-center">Thank You for Your Order!</h1>
+                <hr aria-hidden="true">
+                <p class="text-center">Your order information is below. A confirmation email will be sent to <span class="screen-reader-text">your email address:</span> {{ order.email }}.</p>
             </div>
-        </div>
+        </header>
+
+        <!-- Back to Store Button -->
+        <section class="row" aria-label="Navigation">
+            <div class="col-12 text-start mb-4">
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn btn-outline-dark" role="button" aria-label="Return to profile page">
+                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Profile
+                    </a>
+                {% else %}
+                    <a href="{% url 'products' %}" class="btn btn-outline-dark" role="button" aria-label="Return to store page">
+                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Store
+                    </a>
+                {% endif %}
+            </div>
+        </section>
 
         <!-- Order Overview -->
-        <div class="row">
+        <section class="row" aria-label="Order overview">
             <div class="col-12 col-lg-7">
                 <!-- Order Information -->
-                <div class="card mb-4" role="region" aria-labelledby="order-info-heading">
+                <section class="card no-hover mb-4" role="region" aria-labelledby="order-info-heading">
                     <div class="card-header">
                         <h2 id="order-info-heading" class="h5 mb-0">Order Info</h2>
                     </div>
@@ -38,10 +54,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- Order Details -->
-                <div class="card mb-4" role="region" aria-labelledby="order-details-heading">
+                <section class="card no-hover mb-4" role="region" aria-labelledby="order-details-heading">
                     <div class="card-header">
                         <h2 id="order-details-heading" class="h5 mb-0">Order Details</h2>
                     </div>
@@ -57,10 +73,10 @@
                         </div>
                         {% endfor %}
                     </div>
-                </div>
+                </section>
 
                 <!-- Delivery Information -->
-                <div class="card mb-4" role="region" aria-labelledby="delivery-heading">
+                <section class="card no-hover mb-4" role="region" aria-labelledby="delivery-heading">
                     <div class="card-header">
                         <h2 id="delivery-heading" class="h5 mb-0">Delivering To</h2>
                     </div>
@@ -82,12 +98,12 @@
                             <p class="mb-0">{{ order.phone_number }}</p>
                         </address>
                     </div>
-                </div>
+                </section>
             </div>
 
             <!-- Charges -->
-            <div class="col-12 col-lg-5">
-                <div class="card" role="region" aria-labelledby="order-summary-heading">
+            <section class="col-12 col-lg-5">
+                <div class="card no-hover" role="region" aria-labelledby="order-summary-heading">
                     <div class="card-header">
                         <h2 id="order-summary-heading" class="h5 mb-0">Order Summary</h2>
                     </div>
@@ -118,22 +134,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Back to Store Button -->
-        <div class="row">
-            <div class="col-12 text-end mt-4">
-                {% if from_profile %}
-                    <a href="{% url 'profile' %}" class="btn btn-dark" role="button">
-                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Profile
-                    </a>
-                {% else %}
-                    <a href="{% url 'products' %}" class="btn btn-dark" role="button">
-                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Back to Store
-                    </a>
-                {% endif %}
-            </div>
-        </div>
+            </section>
+        </section>
     </div>
 {% endblock %}

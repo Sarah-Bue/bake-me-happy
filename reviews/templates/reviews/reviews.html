@@ -58,15 +58,16 @@
                                             </td>
                                             <td>{{ review.title|default:"No title"|truncatechars:20 }}</td>
                                             <td>{{ review.review_comment|striptags|truncatechars:50|default:"No comment" }}</td>
+                                            <!-- Action Buttons -->
                                             <td>
                                                 <div class="d-flex">
                                                     <!-- Edit Review Button -->
-                                                    <a href="{% url 'edit_review' review.id %}" class="btn btn-sm text-dark me-2" aria-label="Edit review for {{ review.product.name }}">
+                                                    <a href="{% url 'edit_review' review.id %}" class="btn btn-outline-dark me-2" aria-label="Edit review for {{ review.product.name }}">
                                                         <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
                                                     </a>
                                                     
                                                     <!-- Delete Review Button -->
-                                                    <a href="{% url 'delete_review' review.id %}" class="btn btn-sm text-danger" 
+                                                    <a href="{% url 'delete_review' review.id %}" class="btn btn-dark" 
                                                     aria-label="Delete review for {{ review.product.name }}" 
                                                     onclick="return confirm('Are you sure you want to delete this review? This action cannot be undone.');">
                                                         <i class="fas fa-trash-alt" aria-hidden="true"></i>

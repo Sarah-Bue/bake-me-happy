@@ -21,79 +21,92 @@
             </div>
         </header>
 
-        <!-- Store Management Section-->
-        <section class="row" aria-labelledby="store-management-section-title">
+        <!-- Store Management Sectio -->
+        <section class="row mt-2" aria-labelledby="store-management-section-title">
 
-            <!-- Dashboard Summary -->
+           <!-- Dashboard Summary -->
             <div class="row mb-5" aria-labelledby="dashboard-summary-title">
                 <!-- Product Count -->
                 <div class="col-md-3 mb-4">
-                    <div class="card text-center h-100 border-dark">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ product_count }}</h3>
-                            <p class="card-text">Products</p>
+                    <a href="{% url 'manage_products' %}" class="text-decoration-none" aria-label="Manage Products - {{ product_count }} products">
+                        <div class="card text-center h-100 border-dark">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ product_count }}</h3>
+                                <p class="card-text">Products</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Subscriber Count -->
                 <div class="col-md-3 mb-4">
-                    <div class="card text-center h-100 border-dark">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ subscriber_count }}</h3>
-                            <p class="card-text">Subscribers</p>
+                    <a href="{% url 'manage_subscribers' %}" class="text-decoration-none" aria-label="Manage Subscribers - {{ subscriber_count }} subscribers">
+                        <div class="card text-center h-100 border-dark">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ subscriber_count }}</h3>
+                                <p class="card-text">Subscribers</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Review Count -->
                 <div class="col-md-3 mb-4">
-                    <div class="card text-center h-100 border-dark">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ review_count }}</h3>
-                            <p class="card-text">Reviews</p>
+                    <a href="{% url 'manage_reviews' %}" class="text-decoration-none" aria-label="Manage Reviews - {{ review_count }} reviews">
+                        <div class="card text-center h-100 border-dark">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ review_count }}</h3>
+                                <p class="card-text">Reviews</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Order Count -->
                 <div class="col-md-3 mb-4">
-                    <div class="card text-center h-100 border-dark">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ orders_count }}</h3>
-                            <p class="card-text">Orders</p>
+                    <a href="{% url 'manage_orders' %}" class="text-decoration-none" aria-label="Manage Orders - {{ orders_count }} orders">
+                        <div class="card text-center h-100 border-dark">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ orders_count }}</h3>
+                                <p class="card-text">Orders</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Contact Count -->
                 <div class="col-md-3 mb-4">
-                    <div class="card text-center h-100 border-dark">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ contact_count }}</h3>
-                            <p class="card-text">Contacts</p>
+                    <a href="{% url 'manage_contacts' %}" class="text-decoration-none" aria-label="Manage Contacts - {{ contact_count }} contacts">
+                        <div class="card text-center h-100 border-dark">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ contact_count }}</h3>
+                                <p class="card-text">Contacts</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            
+
                 <!-- Baker Count -->
                 <div class="col-md-3 mb-4">
-                    <div class="card text-center h-100 border-dark">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ baker_count }}</h3>
-                            <p class="card-text">Bakers</p>
+                    <a href="{% url 'manage_bakers' %}" class="text-decoration-none" aria-label="Manage Bakers - {{ baker_count }} bakers">
+                        <div class="card text-center h-100 border-dark">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ baker_count }}</h3>
+                                <p class="card-text">Bakers</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
+
 
             <!-- Dashboard Actions -->
             <div class="row" aria-labelledby="dashboard-actions-title">
                 <!-- Products Management -->
                 <div class="col-md-6 mb-4">
-                    <div class="card h-100 border-dark">
+                    <div class="card no-hover h-100 border-dark">
                         <div class="card-header bg-dark text-white">
-                            <h4 class="my-0">Products</h4>
+                            <h3 class="h5 mb-0">Products</h3>
                         </div>
                         <div class="card-body">
                             <p>Manage product inventory, categories, and occasions.</p>
@@ -107,9 +120,9 @@
 
                 <!-- Reviews Management -->
                 <div class="col-md-6 mb-4">
-                    <div class="card h-100 border-dark">
+                    <div class="card no-hover h-100 border-dark">
                         <div class="card-header bg-dark text-white">
-                            <h4 class="my-0">Ratings & Reviews</h4>
+                            <h4 class="h5 mb-0">Ratings & Reviews</h4>
                         </div>
                         <div class="card-body">
                             <p>Manage product reviews and ratings.</p>
@@ -122,9 +135,9 @@
                 
                 <!-- Customer Management -->
                 <div class="col-md-6 mb-4">
-                    <div class="card h-100 border-dark">
+                    <div class="card no-hover h-100 border-dark">
                         <div class="card-header bg-dark text-white">
-                            <h4 class="my-0">Customers</h4>
+                            <h4 class="h5 mb-0">Customers</h4>
                         </div>
                         <div class="card-body">
                             <p>Manage newsletter subscribers, customer contacts, and orders.</p>
@@ -139,9 +152,9 @@
 
                 <!-- Content Management -->
                 <div class="col-md-6 mb-4">
-                    <div class="card h-100 border-dark">
+                    <div class="card no-hover h-100 border-dark">
                         <div class="card-header bg-dark text-white">
-                            <h4 class="my-0">Content</h4>
+                            <h4 class="h5 mb-0">Content</h4>
                         </div>
                         <div class="card-body">
                             <p>Update website content including About content. allergen information, and privacy policy.</p>

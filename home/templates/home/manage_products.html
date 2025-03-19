@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- Products Table -->
-                <div class="card">
+                <div class="card no-hover">
                     <div class="card-header">
                         <h2 class="h5 mb-0">Products</h2>
                     </div>
@@ -50,7 +50,7 @@
                                             <th>German Name</th>
                                             <th>Has Image</th>
                                             <th>Price</th>
-                                            <th>Action</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
 
@@ -60,24 +60,24 @@
                                             <td>{{ product.name }}</td>
                                             <td>{{ product.german_name }}</td>
                                             <td>             
-                                                {% if produc.image %}
+                                                {% if product.image %}
                                                     <i class="fas fa-check text-success"></i>
                                                 {% else %}
                                                     <i class="fas fa-times text-danger"></i>
                                                 {% endif %}
                                             </td>
-                                            <td>{{ product.price }}</td>
+                                            <td>€ {{ product.price }}</td>
 
                                             <!-- Action Buttons -->
                                             <td>
                                                 <!-- Edit Button -->
                                                 <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-dark" aria-label="Edit Product">
-                                                    <i class="fas fa-edit me-2" aria-hidden="true"></i>Edit
+                                                    <i class="fas fa-edit" aria-hidden="true"></i>
                                                 </a>
 
                                                 <!-- Delete Button -->
                                                 <a href="{% url 'delete_product' product.id %}" class="btn btn-dark" aria-label="Delete product" onclick="return confirm('Are you sure you want to delete this product? This action cannot be undone.');">
-                                                    <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Delete
+                                                    <i class="fas fa-trash-alt" aria-hidden="true"></i>
                                                 </a>
                                             </td>
                                         </tr>

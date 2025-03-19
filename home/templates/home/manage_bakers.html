@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- Bakers Table -->
-                <div class="card">
+                <div class="card no-hover">
                     <div class="card-header">
                         <h2 class="h5 mb-0">Bakers</h2>
                     </div>
@@ -72,12 +72,12 @@
                                             <td>
                                                 <!-- Edit Button -->
                                                 <a href="{% url 'edit_baker' baker.id %}" class="btn btn-outline-dark" aria-label="Edit baker profile">
-                                                    <i class="fas fa-edit me-2" aria-hidden="true"></i>Edit
+                                                    <i class="fas fa-edit" aria-hidden="true"></i>
                                                 </a>
 
                                                 <!-- Delete Button -->
                                                 <a href="{% url 'delete_baker' baker.id %}" class="btn btn-dark" aria-label="Delete baker profile" onclick="return confirm('Are you sure you want to delete this baker profile? This action cannot be undone.');">
-                                                    <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Delete
+                                                    <i class="fas fa-trash-alt" aria-hidden="true"></i>
                                                 </a>
                                             </td>
                                         </tr>
