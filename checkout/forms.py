@@ -45,6 +45,7 @@ class OrderForm(forms.ModelForm):
         # Add placeholders and styling to all form fields
         for field in self.fields:
             # Country field handled separately, does not need placeholder
+            # Delivery method is radio button, does not need placeholder
             if field not in ['country', 'delivery_method']:
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'

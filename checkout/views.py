@@ -293,7 +293,6 @@ def update_delivery_method(request):
     """
 
     delivery_method = request.POST.get('delivery_method')
-    print(f"Updating delivery method to: {delivery_method}")
 
     # Store delivery method in session
     request.session['delivery_method'] = delivery_method
@@ -320,12 +319,6 @@ def update_delivery_method(request):
         delivery_cost = Decimal('0.00')
 
     grand_total = total + delivery_cost
-
-    print(
-        f'Calculated: total={total}, '
-        f'delivery_cost={delivery_cost}, '
-        f'grand_total={grand_total}'
-    )
 
     return JsonResponse({
         'delivery_cost': f'{delivery_cost:.2f}',

@@ -190,15 +190,12 @@
     <!-- Delivery Method Toggle JS -->
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Checkout page loaded');
-            
             // Get all delivery address fields
             const deliveryFields = document.querySelectorAll('#id_street_address1, #id_street_address2, #id_town_or_city, #id_county, #id_postcode, #id_country');
             
             // Function to toggle visibility of delivery fields
             function toggleDeliveryFields() {
                 const isDelivery = document.querySelector('input[name="delivery_method"]:checked').value === 'delivery';
-                console.log('Toggle delivery fields, isDelivery:', isDelivery);
                 
                 // Toggle each field
                 deliveryFields.forEach(field => {
@@ -212,40 +209,15 @@
                     }
                 });
                 
-                // Update the correct legend text - the one for delivery details
-            // This should be the legend that appears right before the address fields
-            const legends = document.querySelectorAll('fieldset legend');
-            
-            // Log all legends to help debug
-            legends.forEach((legend, index) => {
-                console.log(`Legend ${index}:`, legend.textContent);
-            });
-            
-            // Find the legend for the delivery details section
-            // This is the legend that appears right before the phone number field
-            const deliveryLegend = document.querySelector('legend[aria-label="Delivery details section"]');
-            if (deliveryLegend) {
-                deliveryLegend.textContent = isDelivery ? 'Delivery Details' : 'Billing Details';
-                console.log('Updated legend to:', deliveryLegend.textContent);
-            } else {
-                console.error('Could not find delivery details legend');
-                
-                // Fallback: try to find the legend by its position
-                if (legends.length >= 3) {
-                    // The third legend should be the delivery details one
-                    // (after delivery method and personal information)
-                    const thirdLegend = legends[2];
-                    if (thirdLegend) {
-                        thirdLegend.textContent = isDelivery ? 'Delivery Details' : 'Billing Details';
-                        console.log('Updated third legend to:', thirdLegend.textContent);
-                    }
+                // Update legend text
+                const deliveryLegend = document.querySelector('legend[aria-label="Delivery details section"]');
+                if (deliveryLegend) {
+                    deliveryLegend.textContent = isDelivery ? 'Delivery Details' : 'Billing Details';
                 }
-            }}
-        
+            }
             
             function updateOrderTotal() {
                 const deliveryMethod = document.querySelector('input[name="delivery_method"]:checked').value;
-                console.log('Updating order total for delivery method:', deliveryMethod);
                 
                 // Send AJAX request to update delivery method
                 fetch('{% url "update_delivery_method" %}', {
@@ -263,20 +235,13 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log('Received data:', data);
-                    
-                    // Log all table rows to help debug
-                    document.querySelectorAll('tbody tr').forEach((row, index) => {
-                        console.log(`Row ${index}:`, row.innerHTML);
-                    });
-                    
-                    // Update delivery cost - try different selectors
+                    // Update delivery cost
                     const deliveryCells = document.querySelectorAll('td.text-end');
                     let deliveryCostElement = null;
                     
                     // Find the cell that contains "Delivery:"
                     for (let i = 0; i < deliveryCells.length; i++) {
-                        if (deliveryCells[i].previousElementSibling && 
+                        if (deliveryCells[i].previousElementSibling &&
                             deliveryCells[i].previousElementSibling.textContent.includes('Delivery:')) {
                             deliveryCostElement = deliveryCells[i];
                             break;
@@ -285,18 +250,15 @@
                     
                     if (deliveryCostElement) {
                         deliveryCostElement.textContent = `€${data.delivery_cost}`;
-                        console.log('Updated delivery cost to:', data.delivery_cost);
-                    } else {
-                        console.error('Could not find delivery cost element');
                     }
                     
-                    // Update grand total - try different selectors
+                    // Update grand total
                     const grandTotalCells = document.querySelectorAll('td.text-end strong');
                     let grandTotalElement = null;
                     
                     // Find the cell that contains the grand total
                     for (let i = 0; i < grandTotalCells.length; i++) {
-                        if (grandTotalCells[i].parentElement.previousElementSibling && 
+                        if (grandTotalCells[i].parentElement.previousElementSibling &&
                             grandTotalCells[i].parentElement.previousElementSibling.textContent.includes('Grand Total:')) {
                             grandTotalElement = grandTotalCells[i];
                             break;
@@ -305,21 +267,18 @@
                     
                     if (grandTotalElement) {
                         grandTotalElement.textContent = `€${data.grand_total}`;
-                        console.log('Updated grand total to:', data.grand_total);
-                    } else {
-                        console.error('Could not find grand total element');
                     }
                     
                     // Update payment warning text
                     const paymentWarning = document.querySelector('.text-danger strong');
                     if (paymentWarning) {
                         paymentWarning.textContent = `€${data.grand_total}`;
-                        console.log('Updated payment warning to:', data.grand_total);
-                    } else {
-                        console.error('Could not find payment warning element');
                     }
                 })
-                .catch(error => console.error('Error updating delivery method:', error));
+                .catch(error => {
+                    // Error handling for production issues
+                    console.error('Error updating delivery method:', error);
+                });
             }
             
             // Add event listeners to radio buttons
@@ -335,5 +294,6 @@
             toggleDeliveryFields();
             updateOrderTotal();
         });
-    </script>
+        </script>
+        
 {% endblock %}
