@@ -1,18 +1,16 @@
 from django.conf import settings
-from django.shortcuts import get_object_or_404
+from decimal import Decimal
 
 from products.models import Product
 
-from decimal import Decimal
 
 # The context has been adapted from Code Institute's "Boutique Ado" project
 
 
 def basket_contents(request):
     """
-    Context processor for the shopping basket.
-    Calculates item totals, delivery costs, and provides basket information
-    across all templates.
+    Context processor for basket contents.
+    Makes basket contents available across all templates.
     """
 
     basket_items = []
@@ -20,24 +18,39 @@ def basket_contents(request):
     product_count = 0
     basket = request.session.get('basket', {})
 
-    # Calculate totals for each item in the basket
-    for item_id, quantity in basket.items():
-        product = get_object_or_404(Product, pk=item_id)
-        total += quantity * product.price
-        product_count += quantity
-        basket_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-        })
+    # Get delivery method from session, default to 'delivery'
+    delivery_method = request.session.get('delivery_method', 'delivery')
 
-    # Calculate delivery costs and free delivery delta
+    for item_id, quantity in basket.items():
+        # Get product
+        try:
+            product = Product.objects.get(id=item_id)
+            total += quantity * product.price
+            product_count += quantity
+            basket_items.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+            })
+        except Product.DoesNotExist:
+            # Handle case where product doesn't exist
+            pass
+
+    # Calculate free delivery delta regardless of delivery method
     if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = Decimal(settings.STANDARD_DELIVERY)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
-        delivery = 0
         free_delivery_delta = 0
+
+    # Only apply delivery cost if delivery method is 'delivery'
+    if delivery_method == 'delivery':
+        if total < settings.FREE_DELIVERY_THRESHOLD:
+            delivery = Decimal(settings.STANDARD_DELIVERY)
+        else:
+            delivery = 0
+    else:
+        # No delivery cost for pickup
+        delivery = 0
 
     grand_total = delivery + total
 

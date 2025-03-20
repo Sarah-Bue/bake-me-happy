@@ -6,6 +6,8 @@ from django.shortcuts import (
 )
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
+from django.http import JsonResponse
+from decimal import Decimal
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -23,6 +25,7 @@ def cache_checkout_data(request):
     """
     Cache checkout data for Stripe.
     """
+
     try:
         # Get payment intent ID from client secret
         pid = request.POST.get('client_secret').split('_secret')[0]
@@ -51,13 +54,23 @@ def checkout(request):
     Handle the checkout process for customer orders.
     Validates basket contents and displays order form.
     """
+
     # Initialize Stripe Keys
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
+    # Initialize delivery_method with a default value
+    delivery_method = 'delivery'
+
     # Handle POST request
     if request.method == 'POST':
         basket = request.session.get('basket', {})
+
+        # Get delivery method from POST data
+        delivery_method = request.POST.get('delivery_method', 'delivery')
+
+        # Store delivery method in session for basket_contents to use
+        request.session['delivery_method'] = delivery_method
 
         # Set default country before collecting form data
         form_data = request.POST.copy()
@@ -74,6 +87,7 @@ def checkout(request):
             'street_address1': form_data['street_address1'],
             'street_address2': form_data['street_address2'],
             'county': form_data['county'],
+            'delivery_method': delivery_method,
         }
 
         # Create and validate order form
@@ -133,10 +147,40 @@ def checkout(request):
     else:
         basket = request.session.get('basket', {})
 
+        # Reset delivery method to 'delivery' on checkout page load
+        request.session['delivery_method'] = 'delivery'
+
         # Redirect if basket is empty
         if not basket:
             messages.error(request, "Your basket is empty.")
             return redirect(reverse('products'))
+
+        # Set or get delivery method from session
+        delivery_method = request.session.get('delivery_method', 'delivery')
+        request.session['delivery_method'] = delivery_method
+
+        # Initialize form with delivery method
+        initial_data = {'delivery_method': delivery_method}
+
+        # If user is authenticated, add profile data to initial_data
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                initial_data.update({
+                    'full_name': profile.default_full_name,
+                    'email': profile.default_email,
+                    'phone_number': profile.default_phone_number,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'town_or_city': profile.default_town_or_city,
+                    'postcode': profile.default_postcode,
+                    'county': profile.default_county,
+                    'country': 'IE',  # Default Ireland
+                })
+            except UserProfile.DoesNotExist:
+                pass
+
+        order_form = OrderForm(initial=initial_data)
 
         # Calculate basket total for Stripe
         current_basket = basket_contents(request)
@@ -149,31 +193,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
-        # If user is authenticated, prefill order form
-        if request.user.is_authenticated:
-            try:
-                profile = UserProfile.objects.get(user=request.user)
-                initial_data = {
-                    'full_name': profile.default_full_name,
-                    'email': profile.default_email,
-                    'phone_number': profile.default_phone_number,
-                    'street_address1': profile.default_street_address1,
-                    'street_address2': profile.default_street_address2,
-                    'town_or_city': profile.default_town_or_city,
-                    'postcode': profile.default_postcode,
-                    'county': profile.default_county,
-                    'country': 'IE',  # Default Ireland
-                }
-                order_form = OrderForm(initial=initial_data)
-            except UserProfile.DoesNotExist:
-                order_form = OrderForm()
-            except AttributeError:
-                # Handle case where profile might be missing attributes
-                order_form = OrderForm()
-        else:
-            # Initialize the order form
-            order_form = OrderForm()
 
         # Check if stripe_public_key is available
         if not stripe_public_key:
@@ -227,8 +246,8 @@ def checkout_success(request, order_number):
 
     # Success Message
     messages.success(request,
-                     f'We have received your order. '
-                     'A confirmation email will be sent to {order.email}.')
+                     'We have received your order. '
+                     f'A confirmation email will be sent to {order.email}.')
 
     # Semd email confirmation
     cust_email = order.email
@@ -249,13 +268,66 @@ def checkout_success(request, order_number):
         [cust_email]
     )
 
-    # Clear basket
+    # Clear basket from session
     if 'basket' in request.session:
         del request.session['basket']
+
+    # Clear delivery_method from session
+    if 'delivery_method' in request.session:
+        del request.session['delivery_method']
+
     # Redirect to success page
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
     }
+
     # Render the checkout success template
     return render(request, template, context)
+
+
+@require_POST
+def update_delivery_method(request):
+    """
+    Update delivery method and recalculate costs.
+    """
+
+    delivery_method = request.POST.get('delivery_method')
+    print(f"Updating delivery method to: {delivery_method}")
+
+    # Store delivery method in session
+    request.session['delivery_method'] = delivery_method
+
+    # Get current basket from session
+    basket = request.session.get('basket', {})
+
+    # Calculate order total from basket
+    total = Decimal('0.00')
+    for item_id, quantity in basket.items():
+        try:
+            product = get_object_or_404(Product, pk=item_id)
+            total += quantity * product.price
+        except Product.DoesNotExist:
+            pass
+
+    # Calculate delivery cost based on method
+    if delivery_method == 'delivery':
+        if total < settings.FREE_DELIVERY_THRESHOLD:
+            delivery_cost = Decimal(settings.STANDARD_DELIVERY)
+        else:
+            delivery_cost = Decimal('0.00')
+    else:  # pickup
+        delivery_cost = Decimal('0.00')
+
+    grand_total = total + delivery_cost
+
+    print(
+        f'Calculated: total={total}, '
+        f'delivery_cost={delivery_cost}, '
+        f'grand_total={grand_total}'
+    )
+
+    return JsonResponse({
+        'delivery_cost': f'{delivery_cost:.2f}',
+        'grand_total': f'{grand_total:.2f}',
+    })

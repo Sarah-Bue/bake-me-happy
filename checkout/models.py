@@ -72,7 +72,23 @@ class Order(models.Model):
         ('Wexford', 'Wexford'),
         ('Wicklow', 'Wicklow'),
     ]
-    county = models.CharField(max_length=80, null=True, blank=True, choices=COUNTY_CHOICES)
+    county = models.CharField(
+        max_length=80, null=True, blank=True, choices=COUNTY_CHOICES
+    )
+
+    # Delivery Methods
+    DELIVERY_CHOICES = [
+        ('delivery', 'Delivery'),
+        ('pickup', 'Pickup'),
+    ]
+
+    delivery_method = models.CharField(
+        max_length=10,
+        choices=DELIVERY_CHOICES,
+        default='delivery',
+        null=False,
+        blank=False,
+    )
 
     # Order Totals
     delivery_cost = models.DecimalField(
@@ -122,9 +138,15 @@ class Order(models.Model):
 
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = Decimal(settings.STANDAARD_DELIVERY)
+
+        # Only apply delivery cost if delivery method is 'delivery'
+        if self.delivery_method == 'delivery':
+            if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
+                self.delivery_cost = Decimal(settings.STANDARD_DELIVERY)
+            else:
+                self.delivery_cost = 0
         else:
+            # No delivery cost for pickup
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
         self.save()

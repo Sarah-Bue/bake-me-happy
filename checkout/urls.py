@@ -23,4 +23,11 @@ urlpatterns = [
         views.cache_checkout_data,
         name='cache_checkout_data'
     ),
+
+    # Update Delivery Method
+    path(
+        'update_delivery_method/',
+        views.update_delivery_method,
+        name='update_delivery_method'
+    ),
 ]

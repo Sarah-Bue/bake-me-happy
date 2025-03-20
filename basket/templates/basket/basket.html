@@ -33,7 +33,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Subtotal</th>
-                                    <th scope="col"><span class="visually-hidden">Actions</span></th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
 
@@ -88,12 +88,12 @@
                                         <td class="py-3">
                                             <div class="d-flex gap-2">
                                                 <!-- Update Quantity -->
-                                                <button type="submit" form="update-form-{{ item.item_id }}" class="btn btn-sm btn-outline-dark" 
+                                                <button type="submit" form="update-form-{{ item.item_id }}" class="btn btn-outline-dark" 
                                                         aria-label="Update quantity of {{ item.product.name }}">
                                                     <i class="fas fa-sync-alt" aria-hidden="true"></i>
                                                 </button>
                                                 <!-- Remove Item -->
-                                                <button class="btn btn-sm btn-outline-danger remove-item" 
+                                                <button class="btn btn-dark remove-item" 
                                                         data-item-id="{{ item.item_id }}"
                                                         aria-label="Remove {{ item.product.name }} from basket">
                                                     <i class="fas fa-trash-alt" aria-hidden="true"></i>

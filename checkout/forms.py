@@ -13,7 +13,7 @@ class OrderForm(forms.ModelForm):
             'full_name', 'email', 'phone_number',
             'street_address1', 'street_address2',
             'town_or_city', 'postcode', 'county',
-            'country',
+            'country', 'delivery_method'
         )
 
     def __init__(self, *args, **kwargs):
@@ -31,6 +31,7 @@ class OrderForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county': 'County',
+
         }
 
         # Set autofocus on the full_name field
@@ -44,7 +45,7 @@ class OrderForm(forms.ModelForm):
         # Add placeholders and styling to all form fields
         for field in self.fields:
             # Country field handled separately, does not need placeholder
-            if field != 'country':
+            if field not in ['country', 'delivery_method']:
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
@@ -53,3 +54,10 @@ class OrderForm(forms.ModelForm):
             # Add stripe-style-input class to all fields
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+
+        # Add radio button styling for delivery method if it exists
+        if 'delivery_method' in self.fields:
+            self.fields['delivery_method'].widget = forms.RadioSelect(
+                choices=Order.DELIVERY_CHOICES
+            )
+            self.fields['delivery_method'].label = "Delivery Method"
