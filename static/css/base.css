@@ -1,4 +1,73 @@
-/* Base Styles */
+/* ---------- Base Styles ---------- */
+
+/* Background Colors */
+
+body {
+    background-color: #F9F5F1;
+}
+
+.bg-dark {
+    background-color: #4f3527 !important;
+}
+
+.bg-peachy {
+    background-color: #F1D4C6;
+    border: 1px solid #e6c0ac;
+}
+
+/* Fonts */
+
+body {
+    background-color: #F9F5F1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, .card-title, .navbar-brand {
+    font-family: 'Playfair Display', serif;
+}
+
+.btn, .price {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-dark {
+    border-color: #4f3527 !important;
+    background-color: #4f3527 !important;
+}
+
+.btn-dark:hover {
+    background-color: #fff !important;
+    color: #4f3527 !important;
+    border-color: #4f3527 !important;
+}
+
+.btn-outline-dark {
+    color: #4f3527 !important;
+    border-color: #4f3527 !important;
+}
+
+.btn-outline-dark:hover {
+    color: #fff !important;
+    background-color: #4f3527 !important;
+    border-color: #4f3527 !important;
+}
+
+.btn-outline-light:hover {
+    color: #4f3527 !important;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: white !important;
+}
+
 
 .visually-hidden:not(:focus):not(:active) {
     clip: rect(0 0 0 0);
@@ -27,7 +96,17 @@
     z-index: 999;
 }
 
-/* Toasts Styling*/
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: white !important;
+}
+
+.navbar .nav-link.active {
+    color: #FFC107 !important;
+}
+
+
+/* ---------- Toasts ---------- */
 
 .message-container {
     position: fixed;
@@ -72,17 +151,28 @@
     border-radius: 0;
 }
 
-/* Product Card Styling */
+/* ---------- Card Styles ---------- */
 
 .card {
     border-radius: 5px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f8f9fa;
 }
 
+/* Hover and no hover effects */
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.no-hover {
+    transition: none !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.no-hover:hover {
+    transform: none !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .card-img-top {
@@ -107,24 +197,19 @@
     color: #000;
 }
 
+.card-header {
+    background-color: #4f3527 !important;
+    color: white;
+}
+
 .action-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
 }
 
-/* Remove hover effect from cards */
-.no-hover {
-    transition: none !important;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-}
+/* ---------- Form Field Styles ---------- */
 
-.no-hover:hover {
-    transform: none !important;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-}
-
-/* Form Field Styling */
 select,
 select option {
     color: #000;
@@ -140,7 +225,7 @@ select option[value=""] {
 }
 
 
-/* Banner styling */
+/* ---------- Banner Styles ---------- */
 
 .banner-container {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/media/flour.png');

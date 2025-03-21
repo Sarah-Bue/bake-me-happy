@@ -27,6 +27,8 @@
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
             <!-- Favicon -->
             <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon" >
+            <!-- Google Fonts -->
+            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         {% endblock %}
 
          <!-- Optional Extra CSS Block -->
@@ -62,7 +64,7 @@
     
     <!-- Main Navigation -->
     <!-- The main navigation has been adapted from Startbootstrap - Shop Homepage -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" role="navigation" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg bg-dark border border-white" role="navigation" aria-label="Main navigation">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand d-flex align-items-center" aria-label="Home" href="{% url 'home' %}">
                 <img src="{{ MEDIA_URL }}logo.png" alt="Bake Me Happy logo" height="40" class="me-2">
@@ -98,10 +100,10 @@
                 </ul>
 
                 <!-- Account Dropddown -->
-                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1" role="menubar" aria-label="Account navigation">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4" role="menubar" aria-label="Account navigation">
                     <li class="nav-item dropdown" role="none">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false" role="menuitem" aria-haspopup="true"aria-label="My Account dropdown menu">
-                            <i class="fa-solid fa-circle-user me-2"></i>My Account
+                            <i class="fa-regular fa-circle-user me-2"></i>My Account
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% if request.user.is_authenticated %}
@@ -169,7 +171,7 @@
     </div>
 
     <!-- Footer-->
-    <footer class="text-center text-lg-start text-white border border-white mt-xl-5 pt-4 bg-dark" role="contentinfo">
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4 bg-dark text-white" role="contentinfo">
         <div class="container pt-4">
             <!-- Useful Links-->
             <div class="row">

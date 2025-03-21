@@ -98,11 +98,13 @@
                                         {{ form|crispy }}
 
                                         <!-- Customer notification regarding delivery -->
-                                        <p class="small text-info mt-2 mb-2">
-                                            <i class="fas fa-exclamation-circle me-1"></i>
-                                            Please Note: We currently only ship to Ireland.
-                                        </p>
-
+                                        <div id="shipping-notification" class="mb-1 mt-1 small">
+                                            <div class="alert alert-dark">
+                                                <i class="fas fa-info-circle me-2"></i>
+                                                <span>Please Note: We currently only ship to Ireland.</span>
+                                            </div>
+                                        </div>
+                
                                         <!-- Action Buttons -->
                                         <div class="col-12 text-end">
                                             <!-- Cancel -->

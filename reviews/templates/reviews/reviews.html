@@ -25,75 +25,77 @@
         <!-- Reviews Section -->
         <section class="row" aria-labelledby="reviews-section-title">
             <div class="col-12">
-                <div class="card">
+                <div class="card no-hover">
                     <div class="card-header">
                         <h2 class="h5 mb-0">My Reviews</h2>
                     </div>
-                    {% if reviews %}
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead class="bg-dark text-white">
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Product</th>
-                                        <th>Rating</th>
-                                        <th>Title</th>
-                                        <th>Comment Preview</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    {% for review in reviews %}
+                    <div class="card-body">
+                        {% if reviews %}
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
                                         <tr>
-                                            <td>{{ review.date_added|date:"M d, Y" }}</td>
-                                            <td>
-                                                <a href="{% url 'product_detail' review.product.id %}" class="text-decoration-none text-dark">
-                                                    {{ review.product.name|truncatechars:30 }}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                {% if review.rating %}
-                                                    <span><i class="fas fa-star text-warning me-1"></i>{{ review.rating }}/5</span>
-                                                {% else %}
-                                                    <span class="text-muted">No rating</span>
-                                                {% endif %}
-                                            </td>
-                                            <td>{{ review.title|default:"No title"|truncatechars:20 }}</td>
-                                            <td>{{ review.review_comment|striptags|truncatechars:50|default:"No comment" }}</td>
-                                            <!-- Action Buttons -->
-                                            <td>
-                                                <div class="d-flex">
-                                                    <!-- Edit Review Button -->
-                                                    <a href="{% url 'edit_review' review.id %}" class="btn btn-outline-dark me-2" aria-label="Edit review for {{ review.product.name }}">
-                                                        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
-                                                    </a>
-                                                    
-                                                    <!-- Delete Review Button -->
-                                                    <a href="{% url 'delete_review' review.id %}" class="btn btn-dark" 
-                                                    aria-label="Delete review for {{ review.product.name }}" 
-                                                    onclick="return confirm('Are you sure you want to delete this review? This action cannot be undone.');">
-                                                        <i class="fas fa-trash-alt" aria-hidden="true"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
+                                            <th>Date</th>
+                                            <th>Product</th>
+                                            <th>Rating</th>
+                                            <th>Title</th>
+                                            <th>Comment Preview</th>
+                                            <th>Actions</th>
                                         </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    {% else %}
-                        <!-- No Reviews -->
-                        <div class="p-4">
-                            <div class="text-center" role="alert" aria-live="polite">
-                                <p class="lead mb-4">You haven't reviewed any products yet.</p>
-                                <!-- Link to Products Page -->
-                                <a href="{% url 'products' %}" class="btn btn-outline-dark">
-                                    <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Explore Products
-                                </a>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for review in reviews %}
+                                            <tr>
+                                                <td>{{ review.date_added|date:"M d, Y" }}</td>
+                                                <td>
+                                                    <a href="{% url 'product_detail' review.product.id %}" class="text-decoration-none text-dark">
+                                                        {{ review.product.name|truncatechars:30 }}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    {% if review.rating %}
+                                                        <span><i class="fas fa-star text-warning me-1"></i>{{ review.rating }}/5</span>
+                                                    {% else %}
+                                                        <span class="text-muted">No rating</span>
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ review.title|default:"No title"|truncatechars:20 }}</td>
+                                                <td>{{ review.review_comment|striptags|truncatechars:50|default:"No comment" }}</td>
+                                                <!-- Action Buttons -->
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <!-- Edit Review Button -->
+                                                        <a href="{% url 'edit_review' review.id %}" class="btn btn-outline-dark me-2" aria-label="Edit review for {{ review.product.name }}">
+                                                            <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+                                                        </a>
+                                                        
+                                                        <!-- Delete Review Button -->
+                                                        <a href="{% url 'delete_review' review.id %}" class="btn btn-dark" 
+                                                        aria-label="Delete review for {{ review.product.name }}" 
+                                                        onclick="return confirm('Are you sure you want to delete this review? This action cannot be undone.');">
+                                                            <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                    {% endif %}
+                        {% else %}
+                            <!-- No Reviews -->
+                            <div class="p-4">
+                                <div class="text-center" role="alert" aria-live="polite">
+                                    <p class="lead mb-4">You haven't reviewed any products yet.</p>
+                                    <!-- Link to Products Page -->
+                                    <a href="{% url 'products' %}" class="btn btn-outline-dark">
+                                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Explore Products
+                                    </a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div> 
                 </div>
             </div>
         </section>
