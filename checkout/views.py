@@ -103,11 +103,13 @@ def checkout(request):
             # Save order
             order = order_form.save(commit=False)
 
+            # Explicitly set payment method
+            order.payment_method = form_data['payment_method']
+
             # If payment method is card, process with Stripe
             if order.payment_method == 'card':
                 pid = request.POST.get('client_secret').split('_secret')[0]
                 order.stripe_pid = pid
-                # Process Stripe payment as before
             else:
                 # For cash payments, just save the order
                 order.stripe_pid = 'cash_payment'

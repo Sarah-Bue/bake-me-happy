@@ -27,7 +27,6 @@
                 <h2 class="h5 mb-3">Order Summary ({{ product_count }})</h2>
                 <div class="table-responsive">
                     <table class="table">
-                        <!-- Table Headings -->
                         <thead class="table-light">
                             <tr>
                                 <th scope="col" class="border-0">Item</th>
@@ -35,7 +34,6 @@
                             </tr>
                         </thead>
 
-                        <!-- Table Body, created using a for loop -->
                         <tbody>
                             {% for item in basket_items %}
                                 <tr>
@@ -56,7 +54,6 @@
                                 </tr>
                             {% endfor %}
 
-                            <!-- Table Footer -->
                             <tr>
                                 <td class="text-end">Order Total:</td>
                                 <td class="text-end">€{{ total|floatformat:2 }}</td>
@@ -115,10 +112,13 @@
                         {{ order_form.country | as_crispy_field }}
 
                         <!-- Customer notification regarding delivery -->
-                        <p class="small text-info mt-2 mb-0">
-                            <i class="fas fa-exclamation-circle me-1"></i>
-                            Please Note: We currently only ship to Ireland.
-                        </p>
+                        <div id="shipping-notification" class="mb-1 mt-1 small">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <span>Please Note: We currently only ship to Ireland.</span>
+                            </div>
+                        </div>
+
                         
                         <!-- Logged in users only -->
                         <!-- Checkbox for saving delivery information to profile -->
@@ -161,19 +161,21 @@
                         </button>
                     </div>
 
-                    <!-- Cash Payment Info -->
-                    <div id="cash-payment-info" class="mb-4 d-none">
+                    <!-- Cash Payment Info (if applicable) -->
+                    <div id="cash-payment-info" class="mb-4 mt-4 small d-none">
                         <div class="alert alert-info">
                             <i class="fas fa-info-circle me-2"></i>
                             <span>You've selected to pay with cash. You'll pay when you pick up your order.</span>
                         </div>
                     </div>
 
-                    <!-- Card Payment Info -->
-                    <p class="small text-danger mt-2 mb-0">
-                        <i class="fas fa-exclamation-circle me-1"></i>
-                        Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong>
-                    </p>
+                    <!-- Card Payment Info (if applicable) -->
+                    <div id="card-payment-info" class="mb-4 mt-4 small d-none">
+                        <div class="alert alert-danger">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <span>Your card will be charged <strong>€ {{ grand_total|floatformat:2 }}</strong>.</span>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -212,11 +214,13 @@
             const paymentMethodRadios = document.querySelectorAll('input[name="payment_method"]');
             const cardPaymentSection = document.getElementById('card-payment-section');
             const cashPaymentInfo = document.getElementById('cash-payment-info');
+            const cardPaymentInfo = document.getElementById('card-payment-info');
             const submitButton = document.getElementById('submit-button');
             
             // Function to toggle visibility of delivery fields
             function toggleDeliveryFields() {
                 const isDelivery = document.querySelector('input[name="delivery_method"]:checked').value === 'delivery';
+                const shippingNotification = document.getElementById('shipping-notification');
                 
                 // Toggle each field
                 deliveryFields.forEach(field => {
@@ -229,6 +233,11 @@
                         }
                     }
                 });
+                
+                // Toggle shipping notification
+                if (shippingNotification) {
+                    shippingNotification.style.display = isDelivery ? 'block' : 'none';
+                }
                 
                 // Update legend text
                 const deliveryLegend = document.querySelector('legend[aria-label="Delivery details section"]');
@@ -258,6 +267,8 @@
                     // Show card payment section, hide cash info
                     cardPaymentSection.classList.remove('d-none');
                     cashPaymentInfo.classList.add('d-none');
+                    // Show card payment info
+                    cardPaymentInfo.classList.remove('d-none');
                 } else {
                     // Check which payment method is selected for pickup
                     updatePaymentSections();
@@ -275,12 +286,16 @@
                     // Hide card payment section, show cash info
                     cardPaymentSection.classList.add('d-none');
                     cashPaymentInfo.classList.remove('d-none');
+                    // Hide card payment info text
+                    cardPaymentInfo.classList.add('d-none');
                     // Update button text
                     submitButton.innerHTML = '<i class="fas fa-check me-2"></i>Complete Order';
                 } else {
                     // Show card payment section, hide cash info
                     cardPaymentSection.classList.remove('d-none');
                     cashPaymentInfo.classList.add('d-none');
+                    // Show card payment info text
+                    cardPaymentInfo.classList.remove('d-none');
                     // Reset button text
                     submitButton.innerHTML = '<i class="fas fa-lock me-2"></i>Complete Order';
                 }

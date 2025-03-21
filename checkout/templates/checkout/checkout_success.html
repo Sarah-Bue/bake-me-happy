@@ -16,7 +16,7 @@
             </div>
         </header>
 
-        <!-- Back to Store Button -->
+        <!-- Back to Store / Profile Button -->
         <section class="row" aria-label="Navigation">
             <div class="col-12 text-start mb-4">
                 {% if from_profile %}
@@ -40,6 +40,7 @@
                         <h2 id="order-info-heading" class="h5 mb-0">Order Info</h2>
                     </div>
                     <div class="card-body">
+                        <!-- Order Number -->
                         <div class="row">
                             <div class="col-12 col-md-4">
                                 <p class="mb-0 fw-bold" id="order-number-label">Order Number</p>
@@ -48,12 +49,34 @@
                                 <p class="mb-0" aria-labelledby="order-number-label">{{ order.order_number }}</p>
                             </div>
                         </div>
+                        
+                        <!-- Order Date -->
                         <div class="row">
                             <div class="col-12 col-md-4">
                                 <p class="mb-0 fw-bold" id="order-date-label">Order Date</p>
                             </div>
                             <div class="col-12 col-md-8 text-md-end">
                                 <p class="mb-0" aria-labelledby="order-date-label">{{ order.date }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Method -->
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 fw-bold" id="delivery-method-label">Delivery Method</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0" aria-labelledby="delivery-method-label">{{ order.delivery_method|title }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 fw-bold" id="payment-method-label">Payment Method</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0" aria-labelledby="payment-method-label">{{ order.payment_method|title }}</p>
                             </div>
                         </div>
                     </div>
@@ -81,7 +104,13 @@
                 <!-- Delivery Information -->
                 <section class="card no-hover mb-4" role="region" aria-labelledby="delivery-heading">
                     <div class="card-header">
-                        <h2 id="delivery-heading" class="h5 mb-0">Delivering To</h2>
+                        <h2 id="delivery-heading" class="h5 mb-0">
+                            {% if order.delivery_method == 'PICKUP' or order.delivery_method == 'pickup' %}
+                            Billing Information
+                        {% else %}
+                            Delivering To
+                        {% endif %}
+                        </h2>
                     </div>
                     <div class="card-body">
                         <address aria-label="Delivery address">
@@ -111,28 +140,35 @@
                         <h2 id="order-summary-heading" class="h5 mb-0">Order Summary</h2>
                     </div>
                     <div class="card-body">
+                        <!-- Order Total -->
                         <div class="row">
                             <div class="col-12 col-md-8">
                                 <p class="mb-0" id="order-total-label">Order Total</p>
                             </div>
                             <div class="col-12 col-md-4 text-md-end">
-                                <p class="mb-0" aria-labelledby="order-total-label">€{{ order.order_total }}</p>
+                                <p class="mb-0" aria-labelledby="order-total-label">€ {{ order.order_total }}</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 col-md-8">
-                                <p class="mb-0" id="delivery-cost-label">Delivery</p>
+
+                        <!-- Delivery Cost (if applicable) -->
+                        {% if order.delivery_method != 'PICKUP' and order.delivery_method != 'pickup' %}
+                            <div class="row">
+                                <div class="col-12 col-md-8">
+                                    <p class="mb-0" id="delivery-cost-label">Delivery</p>
+                                </div>
+                                <div class="col-12 col-md-4 text-md-end">
+                                    <p class="mb-0" aria-labelledby="delivery-cost-label">€{{ order.delivery_cost }}</p>
+                                </div>
                             </div>
-                            <div class="col-12 col-md-4 text-md-end">
-                                <p class="mb-0" aria-labelledby="delivery-cost-label">€{{ order.delivery_cost }}</p>
-                            </div>
-                        </div>
+                        {% endif %}
+
+                        <!-- Grand Total -->
                         <div class="row">
                             <div class="col-12 col-md-8">
                                 <p class="mb-0 fw-bold" id="grand-total-label">Grand Total</p>
                             </div>
                             <div class="col-12 col-md-4 text-md-end">
-                                <p class="mb-0 fw-bold" aria-labelledby="grand-total-label">€{{ order.grand_total }}</p>
+                                <p class="mb-0 fw-bold" aria-labelledby="grand-total-label">€ {{ order.grand_total }}</p>
                             </div>
                         </div>
                     </div>
