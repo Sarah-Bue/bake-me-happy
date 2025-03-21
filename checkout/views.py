@@ -2,8 +2,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import (
-    render, redirect, reverse, get_object_or_404, HttpResponse
-)
+    render, redirect, reverse, get_object_or_404)
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
@@ -25,7 +24,6 @@ def cache_checkout_data(request):
     """
     Cache checkout data for Stripe.
     """
-
     try:
         # Get payment intent ID from client secret
         pid = request.POST.get('client_secret').split('_secret')[0]
@@ -39,14 +37,16 @@ def cache_checkout_data(request):
             'save_info': request.POST.get('save_info'),
             'username': username,
         })
-        return HttpResponse(status=200)
+
+        # Return a proper JSON response
+        return JsonResponse({'success': True})
 
     # Error Handling
     except Exception as e:
         messages.error(request,
                        "Sorry, your payment cannot be processed right now. "
                        "Please try again later.")
-        return HttpResponse(content=e, status=400)
+        return JsonResponse({'error': str(e)}, status=400)
 
 
 def checkout(request):
@@ -88,6 +88,7 @@ def checkout(request):
             'street_address2': form_data['street_address2'],
             'county': form_data['county'],
             'delivery_method': delivery_method,
+            'payment_method': request.POST.get('payment_method', 'card'),
         }
 
         # Create and validate order form
@@ -101,8 +102,16 @@ def checkout(request):
 
             # Save order
             order = order_form.save(commit=False)
-            pid = request.POST.get('client_secret').split('_secret')[0]
-            order.stripe_pid = pid
+
+            # If payment method is card, process with Stripe
+            if order.payment_method == 'card':
+                pid = request.POST.get('client_secret').split('_secret')[0]
+                order.stripe_pid = pid
+                # Process Stripe payment as before
+            else:
+                # For cash payments, just save the order
+                order.stripe_pid = 'cash_payment'
+
             order.original_basket = json.dumps(basket)
             order.save()
 
@@ -291,7 +300,6 @@ def update_delivery_method(request):
     """
     Update delivery method and recalculate costs.
     """
-
     delivery_method = request.POST.get('delivery_method')
 
     # Store delivery method in session
@@ -320,7 +328,9 @@ def update_delivery_method(request):
 
     grand_total = total + delivery_cost
 
-    return JsonResponse({
+    response_data = {
         'delivery_cost': f'{delivery_cost:.2f}',
         'grand_total': f'{grand_total:.2f}',
-    })
+    }
+
+    return JsonResponse(response_data)

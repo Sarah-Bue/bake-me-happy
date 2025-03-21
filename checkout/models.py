@@ -90,6 +90,18 @@ class Order(models.Model):
         blank=False,
     )
 
+    # Payment Methods
+    PAYMENT_METHODS = (
+        ('card', 'Credit/Debit Card'),
+        ('cash', 'Cash on Pickup'),
+    )
+
+    payment_method = models.CharField(
+        max_length=10,
+        choices=PAYMENT_METHODS,
+        default='card'
+    )
+
     # Order Totals
     delivery_cost = models.DecimalField(
         max_digits=6,

@@ -15,6 +15,8 @@ class OrderForm(forms.ModelForm):
             'town_or_city', 'postcode', 'county',
             'country', 'delivery_method'
         )
+        # Exclude payment_method to prevent it from being rendered twice
+        exclude = ('payment_method',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -31,7 +33,6 @@ class OrderForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county': 'County',
-
         }
 
         # Set autofocus on the full_name field
@@ -42,18 +43,29 @@ class OrderForm(forms.ModelForm):
         self.fields['country'].disabled = True
         self.fields['country'].widget.attrs['readonly'] = True
 
+        # Manually add payment_method field with radio buttons
+        self.fields['payment_method'] = forms.ChoiceField(
+            choices=(
+                ('card', 'Credit/Debit Card'), ('cash', 'Cash on Pickup')),
+            widget=forms.RadioSelect(),  # Remove any custom classes here
+            required=True,
+            initial='card'
+        )
+
         # Add placeholders and styling to all form fields
         for field in self.fields:
             # Country field handled separately, does not need placeholder
             # Delivery method is radio button, does not need placeholder
-            if field not in ['country', 'delivery_method']:
+            # Payment method is radio button, does not need placeholder
+            if field not in ['country', 'delivery_method', 'payment_method']:
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            # Add stripe-style-input class to all fields
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            # Add stripe-style-input class to all fields except radio buttons
+            if field not in ['delivery_method', 'payment_method']:
+                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
 
         # Add radio button styling for delivery method if it exists
