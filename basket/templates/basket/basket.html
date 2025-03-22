@@ -65,7 +65,7 @@
                                             <form class="form update-form" id="update-form-{{ item.item_id }}" method="POST" action="{% url 'update_basket' item.item_id %}" aria-label="Update quantity form">
                                                 {% csrf_token %}
                                                 <div class="form-group">
-                                                    <select class="form-select form-select-sm" id="qty_select_{{item.item_id}}" name="quantity" data-item_id="{{item.item_id}}">
+                                                    <select class="form-select" name="quantity" id="id_qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}" data-current_qty="{{ item.quantity }}">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -73,12 +73,14 @@
                                                         <option value="5">5</option>
                                                     </select>
                                                 </div>
-                                                <!-- Error message for quantity input -->
+
+                                                <!-- Feedback message for quantity input -->
                                                 <div class="invalid-feedback" id="qty_message_{{ item.item_id }}" style="display: none;">
                                                     Please contact us for orders over 5 items.
                                                 </div>
                                             </form>
                                         </td>
+                                        
                                         <!-- Subtotal -->
                                         <td class="py-3">
                                             <p class="my-0" aria-label="Subtotal: {{ item.product.price | calc_subtotal:item.quantity }} euros">€ {{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -156,10 +158,14 @@
 {% block postloadjs %}
     {{ block.super }}
     <!-- Quantity Input JS -->
-    {% include 'includes/quantity_dropdown_script.html' %}
+    <script src="{% static 'js/quantity_dropdown.js' %}"></script>
 
+    <!-- Remove Item JS -->
     <script>
-        // Remove item and reload on click
+        /**
+         * Basket Item Removal Functionality
+         * This script remove item and from the basket and reloads on click.
+        */
         $('.remove-item').click(function(e) {
             var itemId = $(this).data('item-id');
             var url = `/basket/remove/${itemId}/`;

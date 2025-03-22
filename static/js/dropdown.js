@@ -1,6 +1,10 @@
 // This code has been adapted from Code Institute's "Boutique Ado" project
 
-// County field styling for both profile and checkout forms
+/**
+ * Form Field Styling
+ * 
+ * Function to provide dynamic styling for county and country form fields in profile and checkout forms.
+ */
 function styleCountyField(fieldId) {
     let countySelected = $(fieldId).val();
     if(!countySelected) {

@@ -1,3 +1,10 @@
+/**
+ * Checkout Delivery and Payment Toggle Functionality
+ * 
+ * This script manages the dynamic behavior of the checkout form, handling:
+ * 1. Pickup vs Delivery toggle and associated fields
+ * 2. Card vs Cash payment toggle and associated fields
+  */
 document.addEventListener('DOMContentLoaded', function() {
     // Get Django template values
     const updateUrl = document.getElementById('id_update_url').textContent.slice(1, -1);
@@ -13,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardPaymentInfo = document.getElementById('card-payment-info');
     const submitButton = document.getElementById('submit-button');
     
-    // Function to toggle visibility of delivery fields
+    /**
+     * Function to toggle delivery method and associated fields.
+     */
     function toggleDeliveryFields() {
         const isDelivery = document.querySelector('input[name="delivery_method"]:checked').value === 'delivery';
         const shippingNotification = document.getElementById('shipping-notification');
@@ -45,7 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
         togglePaymentMethods();
     }
     
-    // Function to toggle payment method options based on delivery method
+    /**
+     * Function to toggle payment method and associated fields.
+     */
     function togglePaymentMethods() {
         const isPickup = document.querySelector('input[name="delivery_method"]:checked').value === 'pickup';
         const paymentMethodGroup = document.getElementById('payment-method-group');
@@ -74,7 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
         updateOrderTotal();
     }
     
-    // Function to update payment sections based on selected payment method
+    /**
+     * Function to toggle form sections based on payment method.
+     */
     function updatePaymentSections() {
         const selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
         
@@ -97,6 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+     /**
+     * Function to update delivery cost and order total based on delivery method.
+     */
     function updateOrderTotal() {
         const deliveryMethod = document.querySelector('input[name="delivery_method"]:checked').value;
         

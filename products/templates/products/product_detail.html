@@ -103,7 +103,7 @@
                                         <div class="mb-3">
                                             <label for="id_qty_{{ product.id }}" class="form-label fw-bold">Quantity:</label>
                                             <div class="input-group has-validation" style="max-width: 150px;" role="group" aria-label="Product quantity adjustment">
-                                                <select class="form-select qty_input" id="id_qty_{{ product.id }}" name="quantity" data-item_id="{{ product.id }}" aria-describedby="qty_message_{{ product.id }}" required>
+                                                <select class="form-select" name="quantity" id="id_qty_{{ product.id }}" data-item_id="{{ product.id }}" data-current_qty="{{ quantity|default:1 }}" required>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -112,7 +112,7 @@
                                                 </select>
                                             </div>
 
-                                            <!-- Error message for quantity input -->
+                                            <!-- Feedback message for quantity input -->
                                             <div class="invalid-feedback" id="qty_message_{{ product.id }}" style="display: none;">
                                                 Please contact us for orders over 5 items.
                                             </div>
@@ -220,5 +220,5 @@
 {% block postloadjs %}
     {{ block.super }}
     <!-- Quantity Input JS -->
-    {% include 'includes/quantity_dropdown_script.html' %}
+    <script src="{% static 'js/quantity_dropdown.js' %}"></script>
 {% endblock %}
