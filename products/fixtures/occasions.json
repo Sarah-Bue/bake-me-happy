@@ -3,7 +3,7 @@
       "model":"products.occasion",
       "pk":1,
       "fields":{
-         "name":"everyday",
+         "name":"day_to_day",
          "friendly_name":"Day to Day"
       }
    },
