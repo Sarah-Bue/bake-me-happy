@@ -89,7 +89,7 @@
                         </div>
 
                         <!-- Edit Account (hidden by default) -->
-                        <div id="account-edit" class="mt-3" style="display: none;">
+                        <div id="profile-edit" class="mt-3" style="display: none;">
                             <div class="card no-hover border border-white-subtle bg-body-tertiary rounded-3 shadow">
                                 <div class="card-body">
             
@@ -172,30 +172,6 @@
     <!-- County Field JS -->
     <script type="text/javascript" src="{% static 'js/dropdown.js' %}"></script>
 
-    <!-- Profile Edit Toggle JS -->
-    <script>
-        // Toggle between viewing and editing profile
-        document.addEventListener("DOMContentLoaded", function() {
-            const editProfileBtn = document.getElementById('edit-profile-btn');
-            const cancelEditBtn = document.getElementById('cancel-edit-btn');
-            const profileView = document.getElementById('profile-view');
-            const profileEdit = document.getElementById('profile-edit');
-            
-            // Show edit form and hide view
-            if (editProfileBtn) {
-                editProfileBtn.addEventListener('click', function() {
-                    profileView.style.display = 'none';
-                    profileEdit.style.display = 'block';
-                });
-            }
-            
-            // Hide edit form and show view
-            if (cancelEditBtn) {
-                cancelEditBtn.addEventListener('click', function() {
-                    profileView.style.display = 'block';
-                    profileEdit.style.display = 'none';
-                });
-            }
-        });
-    </script>
+    <!-- Profile View / Edit Toggle JS -->
+    <script type="text/javascript" src="{% static 'profiles/js/profile_toggle.js' %}"></script>
 {% endblock %}
