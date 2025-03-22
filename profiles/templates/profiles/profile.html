@@ -6,7 +6,7 @@
 {% endblock %}
 
 <!-- Page Title -->
-{% block extra_title %} | My Account{% endblock %}
+{% block extra_title %} | My Profile{% endblock %}
 
 <!-- Content Block -->
 {% block content %}
@@ -20,18 +20,18 @@
         <!-- Header -->
         <header class="row">
             <div class="col-12 col-md-6 offset-md-3">
-                <h1 class="display-6 text-center" id="account-title">My Account</h1>
+                <h1 class="display-6 text-center" id="profile-title">My Profile</h1>
                 <hr class="mb-4" aria-hidden="true">
             </div>
         </header>
 
         <!-- Profile Section -->
-        <section class="row" aria-labelledby="account-section-title">
+        <section class="row" aria-labelledby="profile-section-title">
             <div class="col-12 position-relative">
                 <div class="row">
-                    <!-- Account Information -->
+                    <!-- Profile Information -->
                     <div class="col-12 col-md-6">
-                        <h2 class="lead mb-3 fw-bold">Account Information</h2>
+                        <h2 class="lead mb-3 fw-bold">Profile Information</h2>
 
                         <!-- Personal Details (read-only by default) -->
                         <div class="card no-hover border-white-subtle bg-body-tertiary rounded-3 shadow" id="profile-view">
@@ -77,18 +77,18 @@
                                     <div class="col-8 col-md-7">{{ form.default_country.value|default:"IE" }}</div>
                                 </div>
 
-                                <!-- Edit Account Button -->
+                                <!-- Edit Profile Button -->
                                 <div class="row">
                                     <div class="col-12 text-end">
-                                        <button id="edit-profile-btn" class="btn btn-dark" aria-label="Edit account information">
-                                            <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i>Edit Account Information
+                                        <button id="edit-profile-btn" class="btn btn-dark" aria-label="Edit profile information">
+                                            <i class="fa-solid fa-pen-to-square me-2" aria-hidden="true"></i>Edit Profile Information
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Edit Account (hidden by default) -->
+                        <!-- Edit Profile (hidden by default) -->
                         <div id="profile-edit" class="mt-3" style="display: none;">
                             <div class="card no-hover border border-white-subtle bg-body-tertiary rounded-3 shadow">
                                 <div class="card-body">
@@ -123,9 +123,9 @@
                         </div>
                     </div>
 
-                    <!-- Account Actions -->
+                    <!-- Profile Actions -->
                     <div class="col-12 col-md-6">
-                        <h2 class="lead mb-3 fw-bold">Account Actions</h2>
+                        <h2 class="lead mb-3 fw-bold">Profile Actions</h2>
                         
                         <!-- Password Change Card -->
                         <div class="card no-hover mb-4 border-white-subtle bg-body-tertiary rounded-3 shadow">
@@ -133,27 +133,27 @@
                                 <h3 class="h5 mb-0">Password Management</h3>
                             </div>
                             <div class="card-body">
-                                <p>You can change your account password here.</p>
+                                <p>You can change your password here.</p>
                                 <div class="text-end">
                                     <a href="{% url 'account_change_password' %}" class="btn btn-dark" aria-label="Change password">
-                                        <i class="fa-solid fa-key me-2" aria-hidden="true"></i> Change Password
+                                        <i class="fa-solid fa-key me-2" aria-hidden="true"></i>Change Password
                                     </a>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Delete Account Card -->
+                        <!-- Delete Profile Card -->
                         <div class="card no-hover border-white-subtle bg-body-tertiary rounded-3 shadow">
                             <div class="card-header bg-dark text-white">
-                                <h3 class="h5 mb-0"><i class="fa-solid fa-exclamation-triangle me-2" aria-hidden="true"></i>Delete Account</h3>
+                                <h3 class="h5 mb-0"><i class="fa-solid fa-exclamation-triangle me-2" aria-hidden="true"></i>Delete Profile</h3>
                             </div>
                             <div class="card-body">
-                                <p class="fw-bold">Warning: Deleting your account is permanent and cannot be undone. All your data will be lost.</p>
-                                <form action="{% url 'delete_profile' %}" method="POST" aria-label="Delete account form" onsubmit="return confirm('Are you sure you want to delete your profile? This action cannot be undone.');">
+                                <p class="fw-bold">Warning: Deleting your profile is permanent and cannot be undone. All your data will be lost.</p>
+                                <form action="{% url 'delete_profile' %}" method="POST" aria-label="Delete profile form" onsubmit="return confirm('Are you sure you want to delete your profile? This action cannot be undone.');">
                                     {% csrf_token %}
                                     <div class="text-end">
-                                        <button type="submit" class="btn btn-dark" aria-label="Delete account permanently">
-                                            <i class="fa-solid fa-trash-can me-2" aria-hidden="true"></i> Delete Account
+                                        <button type="submit" class="btn btn-dark" aria-label="Delete profile permanently">
+                                            <i class="fa-solid fa-trash-can me-2" aria-hidden="true"></i>Delete Profile
                                         </button>
                                     </div>
                                 </form>

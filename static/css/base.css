@@ -34,7 +34,7 @@ h1, h2, h3, .card-title, .navbar-brand {
 /* ---------- Buttons ---------- */
 
 .btn-dark {
-    border-color: #4f3527 !important;
+    border-color: #F9F5F1 !important;
     background-color: #4f3527 !important;
 }
 
@@ -58,6 +58,9 @@ h1, h2, h3, .card-title, .navbar-brand {
 .btn-outline-light:hover {
     color: #4f3527 !important;
 }
+
+
+/* ---------- Navbar ---------- */
 
 .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.85) !important;

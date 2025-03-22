@@ -99,11 +99,11 @@
                     </li>
                 </ul>
 
-                <!-- Account Dropddown -->
-                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4" role="menubar" aria-label="Account navigation">
+                <!-- Profile Dropddown -->
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4" role="menubar" aria-label="Profile navigation">
                     <li class="nav-item dropdown" role="none">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false" role="menuitem" aria-haspopup="true"aria-label="My Account dropdown menu">
-                            <i class="fa-regular fa-circle-user me-2"></i>My Account
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false" role="menuitem" aria-haspopup="true"aria-label="My Profile dropdown menu">
+                            <i class="fa-regular fa-circle-user me-2"></i>My Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% if request.user.is_authenticated %}
@@ -111,7 +111,7 @@
                                     <li role="none"><a class="dropdown-item" href="{% url 'store_management' %}" role="menuitem" aria-label="Store management">Store Management</a></li>
                                     <li role="none"><hr class="dropdown-divider" aria-hidden="true"/></li>
                                 {% endif %}
-                                <li role="none"><a class="dropdown-item" href="{% url 'profile' %}" role="menuitem" aria-label="View your account">View Account</a></li>
+                                <li role="none"><a class="dropdown-item" href="{% url 'profile' %}" role="menuitem" aria-label="View your profile">View Profile</a></li>
                                 <li role="none"><a class="dropdown-item" href="{% url 'account_logout' %}" role="menuitem" aria-label="Sign out of your account">Sign Out</a></li>
                             {% else %}
                             <li role="none"><a class="dropdown-item" href="{% url 'account_signup' %}" role="menuitem" aria-label="Register for a new account">Register</a></li>
@@ -165,7 +165,7 @@
     <!-- Back to Top Button -->
     <!-- The Back to Top button has been adapted from Code Institute's "Boutique Ado" project -->
     <div class="btt-button position-fixed bottom-0 end-0 m-3">
-        <button class="btn btn-dark rounded-circle p-3 shadow-sm border-white" id="btn-back-to-top" type="button" aria-label="Back to top">
+        <button class="btn btn-dark rounded-circle p-3 shadow-sm" id="btn-back-to-top" type="button" aria-label="Back to top">
             <i class="fas fa-arrow-up" aria-hidden="true"></i>
         </button>
     </div>
@@ -265,6 +265,10 @@
     {% block postloadjs %}
         <!-- Toast JS -->
         <script type="text/javascript">
+            /**
+             * Toast Notification Functionality
+             * This script initializes Bootstrap toast notifications, used for displaying system messages, alerts, and notifications to users.
+             */
             document.addEventListener('DOMContentLoaded', function() {
                 var toastElList = [].slice.call(document.querySelectorAll('.toast'))
                 var toastList = toastElList.map(function(toastEl) {
@@ -276,6 +280,10 @@
 
          <!-- Back to Top Button JS -->
          <script type="text/javascript">
+            /**
+             * Back to Top Button Functionality
+             * This script adds smooth scrolling functionality to the "Back to Top" button.
+             */
             document.getElementById('btn-back-to-top').addEventListener('click', function() {
                 window.scrollTo({
                     top: 0,

@@ -62,3 +62,11 @@
     box-shadow: 0 0 0 0.25rem rgba(241, 212, 198, 0.25);
 }
 
+/* ---------- Privcy Policy Styles ---------- */
+
+/* Remove underlines from navbar links */
+.navbar a, 
+.navbar-nav .nav-link,
+.navbar .navbar-nav .nav-link {
+    text-decoration: none !important;
+}
