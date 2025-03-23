@@ -30,7 +30,19 @@
             <!-- Contact Details Card -->
             <div class="card no-hover">
                 <div class="card-header">
-                    <h2 class="h5 mb-0">{{ contact.subject }}</h2>
+                    <h2 class="h5 mb-0">
+                        {% if contact.subject == "order" %}
+                            Order Information
+                        {% elif contact.subject == "general" %}
+                            General Inquiry
+                        {% elif contact.subject == "product" %}
+                            Product Question
+                        {% elif contact.subject == "feedback" %}
+                            Customer Feedback
+                        {% else %}
+                            {{ contact.subject|title }}
+                        {% endif %}            
+                    </h2>
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">

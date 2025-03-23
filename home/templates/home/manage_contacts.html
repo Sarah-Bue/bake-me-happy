@@ -37,11 +37,11 @@
                                 <table class="table table-striped">
                                     <thead class="text-black">
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Subject</th>
-                                            <th>Message</th>
                                             <th>Date Sent</th>
+                                            <th>Name</th>
+                                            <th class="d-none d-md-table-cell">Email</th>
+                                            <th>Subject</th>
+                                            <th class="d-none d-md-table-cell">Message</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -49,11 +49,23 @@
                                     <tbody>
                                         {% for contact in contacts %}
                                         <tr>
-                                            <td>{{ contact.name }}</td>
-                                            <td>{{ contact.email }}</td>
-                                            <td>{{ contact.subject }}</td>
-                                            <td>{{ contact.message|truncatewords:10 }}</td>
                                             <td>{{ contact.date_sent|date:"d-m-Y" }}</td>
+                                            <td>{{ contact.name }}</td>
+                                            <td class="d-none d-md-table-cell">{{ contact.email }}</td>
+                                            <td>
+                                                {% if contact.subject == "order" %}
+                                                    Order Information
+                                                {% elif contact.subject == "general" %}
+                                                    General Inquiry
+                                                {% elif contact.subject == "product" %}
+                                                    Product Question
+                                                {% elif contact.subject == "feedback" %}
+                                                    Customer Feedback
+                                                {% else %}
+                                                    {{ contact.subject|title }}
+                                                {% endif %}
+                                            </td>
+                                            <td class="d-none d-md-table-cell">{{ contact.message|truncatewords:10 }}</td>
 
                                             <!-- Action Buttons -->
                                             <td>

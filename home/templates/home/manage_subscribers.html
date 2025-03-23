@@ -37,16 +37,16 @@
                                 <table class="table table-striped">
                                     <thead class="bg-dark text-white">
                                         <tr>
+                                            <th class="d-none d-md-table-cell">Subscription Date</th>
                                             <th>Emai Address</th>
-                                            <th>Subscription Date</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         {% for subscriber in subscribers %}
                                             <tr>
+                                                <td class="d-none d-md-table-cell">{{ subscriber.date_subscribed|date:"d-m-Y" }}</td>
                                                 <td>{{ subscriber.email }}</td>
-                                                <td>{{ subscriber.date_subscribed }}</td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>

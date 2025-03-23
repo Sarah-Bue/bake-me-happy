@@ -49,7 +49,7 @@ def all_products(request):
                                                  .desc(nulls_last=True))
                 else:
                     products = products.order_by(F('rating')
-                                                 .asc(nulls_last=True))
+                                                 .asc(nulls_first=True))
 
             # Apply sort direction
             if 'direction' in request.GET:

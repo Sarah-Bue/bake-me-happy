@@ -31,7 +31,7 @@
                     </div>
 
                     <!-- Add Baker Button -->
-                    <div class="col-6 text-end">
+                    <div class="col-6 text-end mb-4">
                         <a href="{% url 'add_baker' %}" class="btn btn-dark" aria-label="Add a new baker profile">
                             <i class="fas fa-plus me-2" aria-hidden="true"></i>Add New Baker
                         </a>
@@ -51,39 +51,41 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Title</th>
-                                            <th>Has Image</th>
-                                            <th>Order</th>
+                                            <th class="d-none d-md-table-cell">Has Image</th>
+                                            <th class="d-none d-md-table-cell">Order</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         {% for baker in bakers %}
-                                        <tr>
-                                            <td>{{ baker.name }}</td>
-                                            <td>{{ baker.title }}</td>
-                                            <td>
-                                                {% if baker.image %}
-                                                    <i class="fas fa-check text-success" aria-label="Has an image"></i>
-                                                {% else %}
-                                                    <i class="fas fa-times text-danger" aria-label="Has no image"></i>
-                                                {% endif %}
-                                            </td>
-                                            <td>{{ baker.order }}</td>
+                                            <tr>
+                                                <td>{{ baker.name }}</td>
+                                                <td>{{ baker.title }}</td>
+                                                <td class="d-none d-md-table-cell">
+                                                    {% if baker.image %}
+                                                        <i class="fas fa-check text-success" aria-label="Has an image"></i>
+                                                    {% else %}
+                                                        <i class="fas fa-times text-danger" aria-label="Has no image"></i>
+                                                    {% endif %}
+                                                </td>
+                                                <td class="d-none d-md-table-cell">{{ baker.order }}</td>
 
-                                            <!-- Action Buttons -->
-                                            <td>
-                                                <!-- Edit Button -->
-                                                <a href="{% url 'edit_baker' baker.id %}" class="btn btn-outline-dark" aria-label="Edit baker profile">
-                                                    <i class="fas fa-edit" aria-hidden="true"></i>
-                                                </a>
-
-                                                <!-- Delete Button -->
-                                                <a href="{% url 'delete_baker' baker.id %}" class="btn btn-dark" aria-label="Delete baker profile" onclick="return confirm('Are you sure you want to delete this baker profile? This action cannot be undone.');">
-                                                    <i class="fas fa-trash-alt" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                <!-- Action Buttons -->
+                                                <td>
+                                                    <div class="d-flex gap-1" role="group" aria-label="Baker actions">
+                                                        <!-- Edit Button -->
+                                                        <a href="{% url 'edit_baker' baker.id %}" class="btn btn-sm btn-outline-dark" aria-label="Edit baker profile">
+                                                            <i class="fas fa-edit" aria-hidden="true"></i>
+                                                        </a>
+                                                        
+                                                        <!-- Delete Button -->
+                                                        <a href="{% url 'delete_baker' baker.id %}" class="btn btn-sm btn-dark" aria-label="Delete baker profile" onclick="return confirm('Are you sure you want to delete this baker profile? This action cannot be undone.');">
+                                                            <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         {% endfor %}
                                     </tbody>
                                 </table>

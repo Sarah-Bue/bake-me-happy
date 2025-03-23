@@ -1,0 +1,147 @@
+<!-- The desktop view of the main navigation has been adapted from Startbootstrap - Shop Homepage -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border border-white" role="navigation" aria-label="Main navigation">
+    <div class="container px-4 px-lg-5">
+        <!-- Logo/Brand -->
+        <a class="navbar-brand d-flex align-items-center" aria-label="Home" href="{% url 'home' %}">
+            <img src="{{ MEDIA_URL }}logo.png" alt="Bake Me Happy logo" height="40" class="me-2">
+            <span>Bake Me Happy</span>
+        </a>
+        
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu" aria-controls="mobileMenu"
+                aria-expanded="false" aria-label="Toggle navigation menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Desktop Navbar -->
+        <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarSupportedContent">
+            <!-- Navigation Links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}" role="menuitem" aria-label="About our bakery">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="{% url 'faq' %}" role="menuitem" aria-label="Frequently asked questions">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}" role="menuitem" aria-label="Contact us">Contact</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="{% url 'products' %}" role="menuitem" aria-label="Shop Now">Shop Now</a></li>
+            </ul>
+            
+            <!-- Basket -->
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1">
+                <li class="nav-item">
+                    <a class="nav-link {% if total %}text-warning fw-bold{% else %}text-white{% endif %}" role="button" href="{% url 'view_basket' %}" aria-label="Shopping basket with {% if total %}items totaling € {{ total|floatformat:2 }}{% else %}no items{% endif %}">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-basket-shopping me-2" aria-hidden="true"></i>
+                            <span class="my-0" aria-hidden="true">
+                                {% if total %}
+                                    € {{ total|floatformat:2 }}
+                                {% else %}
+                                    € 0.00
+                                {% endif %}
+                            </span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Profile Dropdown -->
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4" role="menubar" aria-label="Profile navigation">
+                <li class="nav-item dropdown" role="none">
+                    <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false" role="menuitem" aria-haspopup="true" aria-label="My Profile dropdown menu">
+                        <i class="fa-regular fa-circle-user me-2"></i>My Profile
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <li role="none"><a class="dropdown-item" href="{% url 'store_management' %}" role="menuitem" aria-label="Store management">Store Management</a></li>
+                                <li role="none"><hr class="dropdown-divider" aria-hidden="true"/></li>
+                            {% endif %}
+                            <li role="none"><a class="dropdown-item" href="{% url 'profile' %}" role="menuitem" aria-label="View your profile">View Profile</a></li>
+                            <li role="none"><a class="dropdown-item" href="{% url 'account_logout' %}" role="menuitem" aria-label="Sign out of your account">Sign Out</a></li>
+                        {% else %}
+                            <li role="none"><a class="dropdown-item" href="{% url 'account_signup' %}" role="menuitem" aria-label="Register for a new account">Register</a></li>
+                            <li role="none"><a class="dropdown-item" href="{% url 'account_login' %}" role="menuitem" aria-label="Sign in to your account">Sign In</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Mobile Off-Canvas Menu -->
+        <!-- The mobile off-canvas navigation has been adapted from Bootstrap 5's Off-Canvas component -->
+        <div class="offcanvas offcanvas-start bg-dark text-white d-lg-none" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+            <div class="offcanvas-header border-bottom border-secondary">
+                <h5 class="offcanvas-title" id="mobileMenuLabel">Bake Me Happy</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <!-- User Menu -->
+                <div class="user-section mb-4 pb-3 border-bottom border-secondary">
+                    {% if request.user.is_authenticated %}
+                        <p class="mb-2 fw-bold">Hello, {{ request.user.username }}</p>
+                        <div class="nav flex-column">
+                            {% if request.user.is_superuser %}
+                                <a class="nav-link text-white py-2 ps-3 border-start border-3 border-light mb-1 hover-bg-dark" href="{% url 'store_management' %}" role="menuitem" aria-label="Store management">
+                                    <i class="fas fa-store me-2"></i>Store Management
+                                </a>
+                            {% endif %}
+                            <a class="nav-link text-white py-2 ps-3 border-start border-3 border-light mb-1 hover-bg-dark" href="{% url 'profile' %}" role="menuitem" aria-label="View your profile">
+                                <i class="fas fa-user me-2"></i>View Profile
+                            </a>
+                            <a class="nav-link text-white py-2 ps-3 border-start border-3 border-light hover-bg-dark" href="{% url 'account_logout' %}" role="menuitem" aria-label="Sign out of your account">
+                                <i class="fas fa-sign-out-alt me-2"></i>Sign Out
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="d-flex gap-2">
+                            <a href="{% url 'account_login' %}" class="btn btn-outline-light flex-grow-1" role="menuitem" aria-label="Sign in to your account">
+                                <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                            </a>
+                            <a href="{% url 'account_signup' %}" class="btn btn-light text-dark flex-grow-1" role="menuitem" aria-label="Register for a new account">
+                                <i class="fas fa-user-plus me-2"></i>Register
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Basket Summary -->
+                <div class="basket-summary mb-4 pb-3 border-bottom border-secondary">
+                    <a href="{% url 'view_basket' %}" class="d-flex justify-content-between align-items-center text-decoration-none p-3 bg-secondary bg-opacity-25 text-white rounded">
+                        <span class="fw-bold"><i class="fa-solid fa-basket-shopping me-2"></i>View Basket</span>
+                        <span class="badge bg-warning text-dark">{% if total %}€ {{ total|floatformat:2 }}{% else %}€ 0.00{% endif %}</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="nav-section">
+                    <h6 class="mb-3 text-uppercase fw-bold text-white-50">Navigation</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-2 ps-3 border-start border-3 border-light mb-1 hover-bg-dark" href="{% url 'home' %}" aria-label="Home page">
+                                <i class="fas fa-home me-2"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-2 ps-3 border-start border-3 border-light mb-1 hover-bg-dark" href="{% url 'about' %}" role="menuitem" aria-label="About our bakery">
+                                <i class="fas fa-info-circle me-2"></i>About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-2 ps-3 border-start border-3 border-light mb-1 hover-bg-dark" href="{% url 'faq' %}" role="menuitem" aria-label="Frequently asked questions">
+                                <i class="fas fa-question-circle me-2"></i>FAQ
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-2 ps-3 border-start border-3 border-light mb-1 hover-bg-dark" href="{% url 'contact' %}" role="menuitem" aria-label="Contact us">
+                                <i class="fas fa-envelope me-2"></i>Contact
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-2 ps-3 border-start border-3 border-light hover-bg-dark" href="{% url 'products' %}" role="menuitem" aria-label="Shop Now">
+                                <i class="fas fa-shopping-bag me-2"></i>Shop Now
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

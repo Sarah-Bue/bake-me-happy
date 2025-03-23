@@ -41,7 +41,7 @@
                                             <th>Date</th>
                                             <th>Customer</th>
                                             <th>Total</th>
-                                            <th>Order Status</th>
+                                            <th class="d-none d-md-table-cell">Order Status</th>
                                         </tr>
                                     </thead>
 
@@ -52,7 +52,7 @@
                                                 <td>{{ order.date|date:"d M Y" }}</td>
                                                 <td>{{ order.full_name }}</td>
                                                 <td>€ {{ order.grand_total }}</td>
-                                                <td>Order received</td>
+                                                <td class="d-none d-md-table-cell">Order received</td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>

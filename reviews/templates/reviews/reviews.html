@@ -35,11 +35,11 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Date</th>
+                                            <th class="d-none d-md-table-cell">Date</th>
                                             <th>Product</th>
                                             <th>Rating</th>
-                                            <th>Title</th>
-                                            <th>Comment Preview</th>
+                                            <th class="d-none d-md-table-cell">Title</th>
+                                            <th class="d-none d-md-table-cell">Comment Preview</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -47,7 +47,7 @@
                                     <tbody>
                                         {% for review in reviews %}
                                             <tr>
-                                                <td>{{ review.date_added|date:"M d, Y" }}</td>
+                                                <td class="d-none d-md-table-cell">{{ review.date_added|date:"M d, Y" }}</td>
                                                 <td>
                                                     <a href="{% url 'product_detail' review.product.id %}" class="text-decoration-none text-dark">
                                                         {{ review.product.name|truncatechars:30 }}
@@ -60,8 +60,8 @@
                                                         <span class="text-muted">No rating</span>
                                                     {% endif %}
                                                 </td>
-                                                <td>{{ review.title|default:"No title"|truncatechars:20 }}</td>
-                                                <td>{{ review.review_comment|striptags|truncatechars:50|default:"No comment" }}</td>
+                                                <td class="d-none d-md-table-cell">{{ review.title|default:"No title"|truncatechars:20 }}</td>
+                                                <td class="d-none d-md-table-cell">{{ review.review_comment|striptags|truncatechars:50|default:"No comment" }}</td>
                                                 <!-- Action Buttons -->
                                                 <td>
                                                     <div class="d-flex">

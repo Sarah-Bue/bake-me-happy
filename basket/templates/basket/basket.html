@@ -22,10 +22,77 @@
         <section class="row" aria-labelledby="basket-section-title">
             <div class="col-12 position-relative">
                 {% if basket_items %}
-                    <!-- The basket view has been adapted from Code Institute's "Boutique Ado" project -->
-                    <div class="table-responsive">
+                    <!-- Mobile Basket View -->
+                    <div class="d-md-none">
+                        {% for item in basket_items %}
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-4">
+                                        {% if item.product.image %}
+                                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                        {% else %}
+                                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}placeholder.png" alt="No image available">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ item.product.name }}</h5>
+                                            <p class="card-text">€ {{ item.product.price }}</p>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <label for="mobile_id_qty_{{ item.item_id }}" class="me-2">Qty:</label>
+                                                <form class="form update-form d-inline" id="mobile-update-form-{{ item.item_id }}" method="POST" action="{% url 'update_basket' item.item_id %}">
+                                                    {% csrf_token %}
+                                                    <select class="form-select form-select-sm" name="quantity" id="mobile_id_qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}" data-current_qty="{{ item.quantity }}" style="width: auto">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </form>
+                                                <button type="submit" form="mobile-update-form-{{ item.item_id }}" class="btn btn-sm btn-outline-dark ms-2">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-dark ms-2 remove-item" data-item-id="{{ item.item_id }}">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </div>
+                                            <p class="card-text"><small>Subtotal: € {{ item.product.price | calc_subtotal:item.quantity }}</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Mobile Basket Totals -->
+                    <div class="card mt-4 mb-4 d-md-none">
+                        <div class="card-body">
+                            <h5 class="card-title">Order Summary</h5>
+                            <div class="d-flex justify-content-between">
+                                <span>Basket Total:</span>
+                                <span>€ {{ total|floatformat:2 }}</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Delivery:</span>
+                                <span>€ {{ delivery|floatformat:2 }}</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between fw-bold">
+                                <span>Grand Total:</span>
+                                <span>€ {{ grand_total|floatformat:2 }}</span>
+                            </div>
+                            {% if free_delivery_delta > 0 %}
+                                <div class="alert alert-danger mt-2 p-2 text-center">
+                                    Add <strong>€ {{ free_delivery_delta }}</strong> more to get free delivery!
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- The Desktop basket view has been adapted from Code Institute's "Boutique Ado" project -->
+                    <div class="table-responsive d-none d-md-block">
                         <table class="table" role="table" aria-label="Shopping basket contents">
-                            <!-- Table Headings -->
                             <thead>
                                 <tr>
                                     <th scope="col">Product</th>
@@ -37,7 +104,6 @@
                                 </tr>
                             </thead>
 
-                            <!-- Table Body -->
                             <tbody>
                                 {% for item in basket_items %}
                                     <tr>
@@ -105,8 +171,8 @@
                                     </tr>
                                 {% endfor %}
 
-                                <!-- Basket Summary -->
-                                <tr>
+                                <!-- Basket Summary for Desktop -->
+                                <tr class="d-none d-md-table-row">
                                     <td colspan="6" class="pt-5 text-end">
                                         <h6 class="mb-2">Basket Total: <span aria-label="Basket total: {{ total|floatformat:2 }} euros">€ {{ total|floatformat:2 }}</span></h6>
                                         <h6 class="mb-2">Delivery: <span aria-label="Delivery cost: {{ delivery|floatformat:2 }} euros">€ {{ delivery|floatformat:2 }}</span></h6>
@@ -123,13 +189,13 @@
                     </div>
 
                     <!-- Checkout Buttons -->
-                    <div class="d-flex justify-content-end gap-2 mt-3">
+                    <div class="d-flex flex-column flex-md-row justify-content-md-end gap-2 mt-3">
                         <!-- Keep Shopping-->
-                        <a href="{% url 'products' %}" class="btn btn-outline-dark" aria-label="Continue shopping">
+                        <a href="{% url 'products' %}" class="btn btn-outline-dark mb-2 mb-md-0" aria-label="Continue shopping">
                             <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
                         </a>
                         <!-- Clear Basket -->
-                        <a href="{% url 'clear_basket' %}" class="btn btn-outline-dark" id="clear-basket-btn" aria-label="Clear basket">
+                        <a href="{% url 'clear_basket' %}" class="btn btn-outline-dark mb-2 mb-md-0" id="clear-basket-btn" aria-label="Clear basket">
                             <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Clear Basket
                         </a>
                         <!-- Secure Checkout -->
@@ -164,7 +230,7 @@
     <script>
         /**
          * Basket Item Removal Functionality
-         * This script remove item and from the basket and reloads on click.
+         * This script removes items from the basket and reloads on click.
         */
         $('.remove-item').click(function(e) {
             var itemId = $(this).data('item-id');

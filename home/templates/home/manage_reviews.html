@@ -37,12 +37,12 @@
                                 <table class="table table-striped">
                                     <thead class="bg-dark text-white">
                                         <tr>
-                                            <th>Date</th>
+                                            <th class="d-none d-md-table-cell">Date</th>
                                             <th>Product</th>
                                             <th>Customer</th>
-                                            <th>Rating</th>
-                                            <th>Title</th>
-                                            <th>Comment Preview</th>
+                                            <th class="d-none d-md-table-cell">Rating</th>
+                                            <th class="d-none d-md-table-cell">Title</th>
+                                            <th class="d-none d-md-table-cell">Comment Preview</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -50,30 +50,32 @@
                                     <tbody>
                                         {% for review in reviews %}
                                             <tr>
-                                                <td>{{ review.date_added|date:"M d, Y" }}</td>
+                                                <td class="d-none d-md-table-cell">{{ review.date_added|date:"M d, Y" }}</td>
                                                 <td>{{ review.product.name|truncatechars:20 }}</td>
-                                                <td>{{ review.author.username }}</td>
-                                                <td>
+                                                <td>{{ review.author.username|truncatechars:10 }}</td>
+                                                <td class="d-none d-md-table-cell">
                                                     {% if review.rating %}
                                                         <span><i class="fas fa-star text-warning me-2"></i>{{ review.rating }}/5</span>
                                                     {% else %}
                                                         <span class="text-muted">No rating</span>
                                                     {% endif %}
                                                 </td>
-                                                <td>{{ review.title|default:"No title"|truncatechars:20 }}</td>
-                                                <td>{{ review.review_comment|striptags|truncatechars:30|default:"No comment" }}</td>
+                                                <td class="d-none d-md-table-cell">{{ review.title|default:"No title"|truncatechars:20 }}</td>
+                                                <td class="d-none d-md-table-cell">{{ review.review_comment|striptags|truncatechars:30|default:"No comment" }}</td>
 
                                                 <!-- Action Buttons -->
                                                 <td>
-                                                    <!-- View Review Button -->
-                                                    <a class="btn btn-outline-dark" href="{% url 'product_detail' review.product.id %}#review-{{ review.id }}" aria-label="View Review">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-
-                                                    <!-- Delete Review Button -->
-                                                    <a href="{% url 'delete_review' review.id %}" class="btn btn-dark" aria-label="Delete Review" onclick="return confirm('Are you sure you want to delete this review?');">
-                                                        <i class="fas fa-trash-alt" aria-hidden="true"></i>
-                                                    </a>
+                                                    <div class="d-flex gap-1" role="group" aria-label="Review actions">
+                                                        <!-- View Review Button -->
+                                                        <a class="btn btn-sm btn-outline-dark" href="{% url 'product_detail' review.product.id %}#review-{{ review.id }}" aria-label="View Review">
+                                                            <i class="fas fa-eye" aria-hidden="true"></i>
+                                                        </a>
+                                                        
+                                                        <!-- Delete Review Button -->
+                                                        <a href="{% url 'delete_review' review.id %}" class="btn btn-sm btn-dark" aria-label="Delete Review" onclick="return confirm('Are you sure you want to delete this review? This action cannot be undone.');">
+                                                            <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         {% endfor %}

@@ -1,25 +1,43 @@
-<nav class="navbar navbar-expand-lg bg-dark border border-white w-100" role="navigation" aria-label="Profile navigation">
+<!-- Desktop navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border border-white w-100 d-none d-lg-block" role="navigation" aria-label="Profile navigation">
     <div class="container px-4 px-lg-5">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#profileNavbarContent" aria-controls="profileNavbarContent" aria-expanded="false" aria-label="Toggle profile navigation menu">
-            <span class="navbar-toggler-icon" aria-hidden="true"></span>
-        </button>
-        
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse" id="profileNavbarContent">
+        <div class="navbar-collapse" id="profileNavbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{% url 'profile' %}" aria-current="page">Profile Information</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}" href="{% url 'profile' %}" {% if request.resolver_match.url_name == 'profile' %}aria-current="page"{% endif %}>Profile Information</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'orders' %}" aria-label="View order history">My Orders</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'orders' %}active{% endif %}" href="{% url 'orders' %}" aria-label="View order history" {% if request.resolver_match.url_name == 'orders' %}aria-current="page"{% endif %}>My Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'favorites' %}" aria-label="View your favorite products">My Favorites</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'favorites' %}active{% endif %}" href="{% url 'favorites' %}" aria-label="View your favorite products" {% if request.resolver_match.url_name == 'favorites' %}aria-current="page"{% endif %}>My Favorites</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'reviews' %}" aria-label="View your product reviews">My Reviews</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'reviews' %}active{% endif %}" href="{% url 'reviews' %}" aria-label="View your product reviews" {% if request.resolver_match.url_name == 'reviews' %}aria-current="page"{% endif %}>My Reviews</a>
                 </li>
             </ul>
         </div>
+    </div>
+</nav>
+
+<!-- Mobile icon navigation -->
+<nav class="bg-dark d-lg-none w-100 border border-white" aria-label="Mobile profile navigation">
+    <div class="d-flex justify-content-around text-center py-2">
+        <a href="{% url 'profile' %}" class="text-decoration-none {% if request.resolver_match.url_name == 'profile' %}text-warning{% else %}text-white{% endif %}" aria-label="Profile Information" {% if request.resolver_match.url_name == 'profile' %}aria-current="page"{% endif %}>
+            <i class="fas fa-user"></i><br>
+            <small>Profile</small>
+        </a>
+        <a href="{% url 'orders' %}" class="text-decoration-none {% if request.resolver_match.url_name == 'orders' %}text-warning{% else %}text-white{% endif %}" aria-label="View order history" {% if request.resolver_match.url_name == 'orders' %}aria-current="page"{% endif %}>
+            <i class="fas fa-shopping-bag"></i><br>
+            <small>Orders</small>
+        </a>
+        <a href="{% url 'favorites' %}" class="text-decoration-none {% if request.resolver_match.url_name == 'favorites' %}text-warning{% else %}text-white{% endif %}" aria-label="View your favorite products" {% if request.resolver_match.url_name == 'favorites' %}aria-current="page"{% endif %}>
+            <i class="fas fa-heart"></i><br>
+            <small>Favorites</small>
+        </a>
+        <a href="{% url 'reviews' %}" class="text-decoration-none {% if request.resolver_match.url_name == 'reviews' %}text-warning{% else %}text-white{% endif %}" aria-label="View your product reviews" {% if request.resolver_match.url_name == 'reviews' %}aria-current="page"{% endif %}>
+            <i class="fas fa-star"></i><br>
+            <small>Reviews</small>
+        </a>
     </div>
 </nav>

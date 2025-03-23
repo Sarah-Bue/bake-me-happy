@@ -31,10 +31,15 @@ h1, h2, h3, .card-title, .navbar-brand {
     font-weight: 600;
 }
 
+
 /* ---------- Buttons ---------- */
 
+.btn {
+    cursor: pointer; 
+}
+
 .btn-dark {
-    border-color: #F9F5F1 !important;
+    border-color: #4f3527 !important;
     background-color: #4f3527 !important;
 }
 
@@ -107,7 +112,6 @@ h1, h2, h3, .card-title, .navbar-brand {
 .navbar .nav-link.active {
     color: #FFC107 !important;
 }
-
 
 /* ---------- Toasts ---------- */
 

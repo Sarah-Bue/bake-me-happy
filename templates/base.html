@@ -41,8 +41,6 @@
             <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
             <!-- Bootstrap JS including Popper -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-            <!-- Custom JS -->
-            <!-- <script src="{% static 'js/base.js' %}"></script> -->
             <!-- Font Awesome -->
             <script src="https://kit.fontawesome.com/a77617d661.js" crossorigin="anonymous"></script>
             <!-- Stripe -->
@@ -63,66 +61,7 @@
     <a href="#main-content" class="visually-hidden visually-hidden-focusable bg-dark text-white p-3 position-absolute">Skip to main content</a>
     
     <!-- Main Navigation -->
-    <!-- The main navigation has been adapted from Startbootstrap - Shop Homepage -->
-    <nav class="navbar navbar-expand-lg bg-dark border border-white" role="navigation" aria-label="Main navigation">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand d-flex align-items-center" aria-label="Home" href="{% url 'home' %}">
-                <img src="{{ MEDIA_URL }}logo.png" alt="Bake Me Happy logo" height="40" class="me-2">
-                <span>Bake Me Happy</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation menu"><span class="navbar-toggler-icon" aria-hidden="true"></span></button>
-            
-            <!-- Navbar Links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" role="menuitem" aria-label="About our bakery">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}" role="menuitem" aria-label="Frequently asked questions">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}" role="menuitem" aria-label="Contact us">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'products' %}" role="menuitem" aria-label="Shop Now">Shop Now</a></li>
-                </ul>
-
-                <!-- Basket -->
-                <!-- The Basket has been adapted from Code Institute's "Boutique Ado" project -->
-                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-1">
-                    <li class="nav-item">
-                        <a class="{% if total %} text-dark fw-bold {% else %}text-dark{% endif %} nav-link" role="button" href="{% url 'view_basket' %}" aria-label="Shopping basket with {% if total %}items totaling € {{ total|floatformat:2 }}{% else %}no items{% endif %}">                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-basket-shopping me-2" aria-hidden="true"></i>
-                            <span class="my-0" aria-hidden="true">
-                            {% if total %}
-                                € {{ total|floatformat:2 }}
-                            {% else %}
-                                € 0.00
-                            {% endif %}
-                            </span>
-                        </div>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Profile Dropddown -->
-                <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4" role="menubar" aria-label="Profile navigation">
-                    <li class="nav-item dropdown" role="none">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false" role="menuitem" aria-haspopup="true"aria-label="My Profile dropdown menu">
-                            <i class="fa-regular fa-circle-user me-2"></i>My Profile
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <li role="none"><a class="dropdown-item" href="{% url 'store_management' %}" role="menuitem" aria-label="Store management">Store Management</a></li>
-                                    <li role="none"><hr class="dropdown-divider" aria-hidden="true"/></li>
-                                {% endif %}
-                                <li role="none"><a class="dropdown-item" href="{% url 'profile' %}" role="menuitem" aria-label="View your profile">View Profile</a></li>
-                                <li role="none"><a class="dropdown-item" href="{% url 'account_logout' %}" role="menuitem" aria-label="Sign out of your account">Sign Out</a></li>
-                            {% else %}
-                            <li role="none"><a class="dropdown-item" href="{% url 'account_signup' %}" role="menuitem" aria-label="Register for a new account">Register</a></li>
-                            <li role="none"><a class="dropdown-item" href="{% url 'account_login' %}" role="menuitem" aria-label="Sign in to your account">Sign In</a></li>
-                        {% endif %}            
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% include 'includes/main_navigation.html' %}
 
     <!-- Banner -->
     {% block banner %}
@@ -164,8 +103,8 @@
 
     <!-- Back to Top Button -->
     <!-- The Back to Top button has been adapted from Code Institute's "Boutique Ado" project -->
-    <div class="btt-button position-fixed bottom-0 end-0 m-3">
-        <button class="btn btn-dark rounded-circle p-3 shadow-sm" id="btn-back-to-top" type="button" aria-label="Back to top">
+    <div class="btt-button position-fixed bottom-0 end-0 m-3 border border-white rounded-circle">
+        <button class="btn btn-dark rounded-circle p-3 shadow-sm border" id="btn-back-to-top" type="button" aria-label="Back to top">
             <i class="fas fa-arrow-up" aria-hidden="true"></i>
         </button>
     </div>
@@ -224,7 +163,7 @@
                 <!-- Social Media -->
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5 class="text-uppercase mb-4">Follow Us</h5>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-4">
                         <a href="https://facebook.com" class="text-white me-4" target="_blank" rel="noopener" aria-label="Visit us on Facebook (opens in a new tab)">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -246,18 +185,25 @@
                             {{ newsletter_signup_form }}
                             {% csrf_token %}
                             <button type="submit" class="btn btn-outline-light w-150 mt-4">Subscribe</button>
-                        </fieldset>                    </form>
+                        </fieldset>
+                    </form>
                     <div id="newsletter-message" class="mt-2"></div>
                 </div>
             </div>
 
            <!-- Logo, Copyright and Educational Notice -->
            <div class="text-center p-3 border-top border-white">
-                <div class="d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-center align-items-center flex-column flex-md-row">
                     <img src="{{ MEDIA_URL }}logo.png" alt="Bake Me Happy logo" height="40" class="me-2">
-                    <span>&copy; Sarah Buettner 2025 | For educational purposes only.</span>
+                    <div class="mt-2 mt-md-0">
+                        <span>&copy; Sarah Buettner 2025</span>
+                        <span class="d-block d-md-inline">
+                            <span class="d-none d-md-inline"> | </span>
+                            For educational purposes only.
+                        </span>
+                    </div>
                 </div>
-            </div> 
+            </div>
         </div>
   </footer>
       
