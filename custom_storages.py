@@ -6,7 +6,7 @@ class StaticStorage(S3Boto3Storage):
     """
     Static Storage Class.
     """
-    
+
     location = settings.STATICFILES_LOCATION
 
 
