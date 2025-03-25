@@ -65,7 +65,7 @@
 
     <!-- Banner -->
     {% block banner %}
-        <header class="py-5 border border-white banner-container" role="banner" aria-label="Welcome banner">
+        <header class="py-5 border border-white banner-container" aria-label="Welcome banner">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white banner-content">
                     <h1 class="display-4 fw-bolder">Freshly Baked Happiness</h1>
@@ -96,7 +96,7 @@
     {% endif %}
 
     <!-- Main Content -->
-    <main id="main-content" role="main">
+    <main id="main-content">
         {% block content %}
         {% endblock %}
     </main>
@@ -110,7 +110,7 @@
     </div>
 
     <!-- Footer-->
-    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4 bg-dark text-white" role="contentinfo">
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4 bg-dark text-white">
         <div class="container pt-4">
             <!-- Useful Links-->
             <div class="row">
@@ -209,23 +209,26 @@
       
     <!-- Postload JS -->
     {% block postloadjs %}
-        <!-- Toast JS -->
-        <script type="text/javascript">
+        <!-- Toasts JS -->
+        <script>
+            /* JSHint directive */
+            /* jshint esversion: 6, browser: true, jquery: true */
+
             /**
              * Toast Notification Functionality
              * This script initializes Bootstrap toast notifications, used for displaying system messages, alerts, and notifications to users.
              */
-            document.addEventListener('DOMContentLoaded', function() {
-                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+             document.addEventListener('DOMContentLoaded', function() {
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'));
                 var toastList = toastElList.map(function(toastEl) {
-                    return new bootstrap.Toast(toastEl)
+                    return new bootstrap.Toast(toastEl);
                 });
                 toastList.forEach(toast => toast.show());
             });
         </script>
 
          <!-- Back to Top Button JS -->
-         <script type="text/javascript">
+         <script>
             /**
              * Back to Top Button Functionality
              * This script adds smooth scrolling functionality to the "Back to Top" button.

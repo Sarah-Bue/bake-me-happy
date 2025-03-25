@@ -1,3 +1,9 @@
+/* JSHint directive */
+/* jshint esversion: 6, browser: true, jquery: true */
+
+/**
+ * This script handles the toggle functionality for the mobile product search bar. * 
+ */
 document.addEventListener('DOMContentLoaded', function() {
     const searchToggle = document.getElementById('mobile-search-toggle');
     const searchContainer = document.getElementById('mobile-search-container');

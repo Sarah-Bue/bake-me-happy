@@ -1,3 +1,6 @@
+/* JSHint directive */
+/* jshint esversion: 6, browser: true, jquery: true */
+
 /**
  * Navigation Active State Handler
  * Script to automatically highlight the current page in navigation links across the website.

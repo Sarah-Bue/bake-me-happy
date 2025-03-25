@@ -1,3 +1,6 @@
+/* JSHint directive */
+/* jshint esversion: 6, browser: true, jquery: true */
+
 /**
  * Quantity Dropdown Handler
  * This function manages the behavior of product quantity dropdowns, specifically:

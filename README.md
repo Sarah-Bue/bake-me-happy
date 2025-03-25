@@ -484,6 +484,7 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 - The FAQ page is accessible by all users, regardless of whether they are logged in.
 
 ### Code Validation
+
 #### HTML Validation
 
 [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code of each templated page. HTML validation was performed via source code text input.
@@ -532,13 +533,13 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|about.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| TBA |
-|base.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| TBA |
-|checkout.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| TBA |
-|home.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| TBA |
-|products.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| TBA |
-|profiles.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| TBA |
-|reviews.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| TBA |
+|about.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| Pass |
+|base.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| Pass |
+|checkout.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| Pass |
+|home.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| Pass |
+|products.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| Pass |
+|profiles.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| Pass |
+|reviews.css | No Error Found. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/css-validation.png)</details>| Pass |
 
 #### JavaScript Validation
 
@@ -546,15 +547,18 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|mobile_product_search.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/mobile_product_search-validation.png)</details>| TBA |
-|product_sorting.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/product_sorting-validation.png)</details>| TBA |
-|delivery_toggle.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/delivery_toggle-validation.png)</details>| TBA |
-|stripe_elements.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/stripe_elements-validation.png)</details>| TBA |
-|dropdown.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/dropdown-validation.png)</details>| TBA |
-|navigation.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/navigation-validation.png)</details>| TBA |
-|quantity_dropdown.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/quantity_dropdown-validation.png)</details>| TBA |
-|profile_toggle.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profile_toggle-validation.png)</details>| TBA |
-|star_rating.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/star_rating-validation.png)</details>| TBA |
+|Back to Top Button JS | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/btt-button-validation.png)</details>| Pass |
+|delivery_toggle.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/delivery-toggle-validation.png)</details>| Pass |
+|dropdown.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/dropdown-validation.png)</details>| Pass |
+|mobile_product_search.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/mobile-product-search-validation.png)</details>| Pass |
+|navigation.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/navigation-validation.png)</details>| Pass |
+|product_sorting.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/product-sorting-validation.png)</details>| Pass |
+|profile_toggle.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profile-toggle-validation.png)</details>| Pass |
+|quantity_dropdown.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/quantity_dropdown-validation.png)</details>| Pass |
+|star_rating.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/star-rating-validation.png)</details>| Pass |
+|stripe_elements.js | One undefined variable | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/stripe-elements-validation.png)</details>| TBA |
+|Toasts JS | One undefined variable | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/toasts-validation.png)</details>| TBA |
+
 
 
 #### Python Validation
@@ -675,12 +679,12 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|categories.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/categories-validation.png)</details>| TBA |
-|occasions.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/occasions-validation.png)</details>| TBA |
-|products.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-validation.png)</details>| TBA |
-|faq.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/faq-validation.png)</details>| TBA |
-|bakers.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/bakers-validation.png)</details>| TBA |
-|reviews.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-validation.png)</details>| TBA |
+|categories.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/json-validation.png)</details>| Pass |
+|occasions.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/json-validation.png)</details>| Pass |
+|products.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/json-validation.png)</details>| Pass |
+|faq.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/json-validation.png)</details>| Pass |
+|bakers.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/json-validation.png)</details>| Pass |
+|reviews.json | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/json-validation.png)</details>| Pass |
 
 ### Manual Testing
 

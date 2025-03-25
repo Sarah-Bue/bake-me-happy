@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg bg-dark text-white border border-white d-none d-lg-block" role="navigation" aria-label="Product categories navigation">
+<nav class="navbar navbar-expand-lg bg-dark text-white border border-white d-none d-lg-block" aria-label="Product categories navigation">
     <div class="container px-4 px-lg-5">
         <!-- Navbar Links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent" role="menubar" aria-label="Product categories">
@@ -58,20 +58,20 @@
 
 <!-- Mobile icon navigation -->
 <nav class="bg-dark d-lg-none w-100 border border-white" aria-label="Mobile product categories navigation">
-    <div class="d-flex justify-content-around text-center py-2">
-        <a href="{% url 'products' %}" class="text-decoration-none {% if request.resolver_match.url_name == 'products' and not request.GET.category %}text-warning{% else %}text-white{% endif %}" aria-label="Browse all products">
+    <div class="d-flex justify-content-around text-center py-2" role="menubar">
+        <a href="{% url 'products' %}" class="text-decoration-none {% if request.resolver_match.url_name == 'products' and not request.GET.category %}text-warning{% else %}text-white{% endif %}" aria-label="Browse all products" role="menuitem">
             <i class="fas fa-store"></i><br>
             <small>All</small>
         </a>
-        <a href="{% url 'products' %}?category=breads_rolls" class="text-decoration-none {% if request.GET.category == 'breads_rolls' %}text-warning{% else %}text-white{% endif %}" aria-label="Browse breads and rolls">
+        <a href="{% url 'products' %}?category=breads_rolls" class="text-decoration-none {% if request.GET.category == 'breads_rolls' %}text-warning{% else %}text-white{% endif %}" aria-label="Browse breads and rolls" role="menuitem">
             <i class="fas fa-bread-slice"></i><br>
             <small>Breads</small>
         </a>
-        <a href="{% url 'products' %}?category=cakes_tarts" class="text-decoration-none {% if request.GET.category == 'cakes_tarts' %}text-warning{% else %}text-white{% endif %}" aria-label="Browse cakes and tarts">
+        <a href="{% url 'products' %}?category=cakes_tarts" class="text-decoration-none {% if request.GET.category == 'cakes_tarts' %}text-warning{% else %}text-white{% endif %}" aria-label="Browse cakes and tarts" role="menuitem">
             <i class="fas fa-birthday-cake"></i><br>
             <small>Cakes</small>
         </a>
-        <a href="{% url 'products' %}?category=cookies_pastries" class="text-decoration-none {% if request.GET.category == 'cookies_pastries' %}text-warning{% else %}text-white{% endif %}" aria-label="Browse cookies and pastries">
+        <a href="{% url 'products' %}?category=cookies_pastries" class="text-decoration-none {% if request.GET.category == 'cookies_pastries' %}text-warning{% else %}text-white{% endif %}" aria-label="Browse cookies and pastries" role="menuitem">
             <i class="fas fa-cookie"></i><br>
             <small>Cookies</small>
         </a>

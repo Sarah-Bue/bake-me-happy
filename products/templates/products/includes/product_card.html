@@ -3,12 +3,12 @@
         <!-- Product Image if available -->
         <div class="card-img-container">
             {% if product.image %}
-                <a href="{% url 'product_detail' product.id %}" aria-label="View details for {{ product.name }}">
-                    <img class="card-img-top" src="{{ product.image.url }}" alt="Product image of {{ product.name }}" />
+                <a href="{% url 'product_detail' product.id %}" aria-describedby="View details for {{ product.name }}">
+                    <img class="card-img-top" src="{{ product.image.url }}" alt="Product image of {{ product.name }}"/>
                 </a>
             {% else %}
-                <a href="{% url 'product_detail' product.id %}" aria-label="No image available for {{ product.name }}">
-                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}" />
+                <a href="{% url 'product_detail' product.id %}" aria-describedby="No image available for {{ product.name }}">
+                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}"/>
                 </a>
             {% endif %}
         </div>  
@@ -19,11 +19,11 @@
                 <h5 class="fw-bolder">{{ product.name }}</h5>
                 <div class="d-flex justify-content-center small text-warning mb-2">
                     {% if product.rating %}
-                        <div class="rating" aria-label="Product rating: {{ product.rating|floatformat:1 }} out of 5 stars">
+                        <div class="rating" aria-describedby="Product rating: {{ product.rating|floatformat:1 }} out of 5 stars">
                             <small class="text-muted"><i class="fas fa-star me-1" aria-hidden="true"></i>{{ product.rating|floatformat:1 }} / 5</small>
                         </div>
                     {% else %}
-                        <div class="rating" aria-label="This product has not been rated yet">
+                        <div class="rating" aria-describedby="This product has not been rated yet">
                             <small class="text-muted">No Rating</small>
                         </div>                    
                     {% endif %}                                            </div>                                           
@@ -39,14 +39,14 @@
                     {% csrf_token %}
                     <input type="hidden" name="quantity" value="1">
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    <button type="submit" class="btn btn-outline-dark mt-auto me-2" aria-label="Add {{ product.name }} to shopping basket">
+                    <button type="submit" class="btn btn-outline-dark mt-auto me-2" aria-describedby="Add {{ product.name }} to shopping basket">
                         <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
                         <span class="visually-hidden">Add to Basket</span>
                     </button>
                 </form>
 
                 <!-- Toggle Favorites Button -->
-                <a href="{% url 'toggle_favorites' product.id %}" class="btn btn-outline-dark favorite-btn" data-product-id="{{ product.id }}" aria-label="{% if product in user.favorite_set.all %}Remove{% else %}Add{% endif %} {{ product.name }} {% if product in user.favorite_set.all %}from{% else %}to{% endif %} favorites">
+                <a href="{% url 'toggle_favorites' product.id %}" class="btn btn-outline-dark favorite-btn" data-product-id="{{ product.id }}" aria-describedby="{% if product in user.favorite_set.all %}Remove{% else %}Add{% endif %} {{ product.name }} {% if product in user.favorite_set.all %}from{% else %}to{% endif %} favorites">
                     <i class="{% if product.id in favorite_products %}fas{% else %}far{% endif %} fa-heart" aria-hidden="true"></i>                                      
                 </a>
             </div>

@@ -1,3 +1,6 @@
+/* JSHint directive */
+/* jshint esversion: 6, browser: true, jquery: true */
+
 /**
  * Checkout Delivery and Payment Toggle Functionality
  * 

@@ -6,7 +6,7 @@
         <!-- Add Review Button (if user is authenticated only) -->
         <div class="text-center mb-4">
             {% if user.is_authenticated %}
-                <a href="{% url 'add_review' product.id %}" class="btn btn-dark" aria-label="Write a review for {{ product.name }}">
+                <a href="{% url 'add_review' product.id %}" class="btn btn-dark" aria-describedby="Write a review for {{ product.name }}">
                     <i class="fas fa-plus me-2"></i>Write a Review
                 </a>
             {% endif %}
@@ -21,14 +21,14 @@
                         <h4 class="mb-2">{{ review.title }}</h4>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="text-muted small">
-                                <span aria-label="Review by {{ review.author.username }}">{{ review.author.username }}</span> | 
-                                <time datetime="{{ review.date_added|date:'Y-m-d' }}" aria-label="Posted on {{ review.date_added|date:'F d, Y' }}">{{ review.date_added|date:"M d, Y" }}</time>                                        </p>
+                                <span aria-describedby="Review by {{ review.author.username }}">{{ review.author.username }}</span> | 
+                                <time datetime="{{ review.date_added|date:'Y-m-d' }}" aria-describedby="Posted on {{ review.date_added|date:'F d, Y' }}">{{ review.date_added|date:"M d, Y" }}</time>                                        </p>
                         </div>
 
                         <!-- Review Rating -->
                         {% if review.rating %}
                             <div class="mb-2">
-                                <p class="card-text" aria-label="Rating: {{ review.rating|floatformat:1 }} out of 5 stars">
+                                <p class="card-text" aria-describedby="Rating: {{ review.rating|floatformat:1 }} out of 5 stars">
                                     <i class="fas fa-star me-2" aria-hidden="true"></i>{{ review.rating|floatformat:1 }} / 5
                                 </p>                                         
                             </div>

@@ -1,3 +1,6 @@
+/* JSHint directive */
+/* jshint esversion: 6, browser: true, jquery: true */
+
 // The sorting functionality JS has been adapted from Code Institute's "Boutique Ado" project 
 
 /**
@@ -26,4 +29,4 @@ $('#sort-selector').change(function() {
 
         window.location.replace(currentUrl);
     }
-})
+});

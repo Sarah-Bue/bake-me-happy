@@ -1,3 +1,6 @@
+/* JSHint directive */
+/* jshint esversion: 11, browser: true, jquery: true */
+
 /*
     Core logic/payment flow for this comes from here:
     https://stripe.com/docs/payments/accept-a-payment

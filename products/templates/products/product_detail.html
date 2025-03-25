@@ -20,7 +20,7 @@
         <!-- Header -->
         <header class="row">
             <div class="col-12 text-center mb-2">
-                <h1 class="display-6" id="product-detail-title">{{ product.name }}</h1>
+                <h1 class="display-6" id="product-detail-section-title">{{ product.name }}</h1>
                 <hr aria-hidden="true" class="w-50 mx-auto mb-4">
             </div>
         </header>
@@ -33,11 +33,11 @@
                 <div class="card mb-4 no-hover">
                     <div class="card-body p-4 d-flex justify-content-center align-items-center">
                         {% if product.image %}
-                            <a href="{{ product.image.url }}" target="_blank" aria-label="View full size image of {{ product.name }}">
+                            <a href="{{ product.image.url }}" target="_blank" aria-describedby="View full size image of {{ product.name }}">
                                 <img class="card-img-top product-full-image" src="{{ product.image.url }}" alt="Detailed product image of {{ product.name }}">
                             </a>
                         {% else %}
-                            <a href="{{ MEDIA_URL }}noimage.png" target="_blank" aria-label="No image available for {{ product.name }}">
+                            <a href="{{ MEDIA_URL }}noimage.png" target="_blank" aria-describedby="No image available for {{ product.name }}">
                                 <img class="card-img-top product-full-image" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}">
                             </a>
                         {% endif %}
@@ -124,12 +124,12 @@
                                 <div class="col-12">
                                     <div class="d-flex gap-2 flex-wrap">
                                         <!-- Back to Products Button -->
-                                        <a href="{% url 'products' %}" class="btn btn-outline-dark me-2" aria-label="Return to products page">                                        
+                                        <a href="{% url 'products' %}" class="btn btn-outline-dark me-2" aria-describedby="Return to products page">                                        
                                             <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Keep Shopping
                                         </a>
 
                                         <!-- Toggle Favorites Button -->
-                                        <a href="{% url 'toggle_favorites' product.id %}" class="btn btn-outline-dark favorite-btn" data-product-id="{{ product.id }}" aria-label="{% if is_favorite %}Remove {{ product.name }} from favorites{% else %}Add {{ product.name }} to favorites{% endif %}">
+                                        <a href="{% url 'toggle_favorites' product.id %}" class="btn btn-outline-dark favorite-btn" data-product-id="{{ product.id }}" aria-describedby="{% if is_favorite %}Remove {{ product.name }} from favorites{% else %}Add {{ product.name }} to favorites{% endif %}">
                                             <i class="{% if is_favorite %}fas{% else %}far{% endif %} fa-heart me-2" aria-hidden="true"></i>                                       
                                             <span>    
                                                 {% if is_favorite %}
@@ -141,7 +141,7 @@
                                         </a>
                                         
                                         <!-- Add to Basket Button (connected to form) -->
-                                        <button type="submit" form="basket-form-{{ product.id }}" class="btn btn-dark" aria-label="Add {{ product.name }} to your basket">
+                                        <button type="submit" form="basket-form-{{ product.id }}" class="btn btn-dark" aria-describedby="Add {{ product.name }} to your basket">
                                             <i class="fas fa-shopping-basket me-2" aria-hidden="true"></i>Add to Basket
                                         </button>
                                     </div>

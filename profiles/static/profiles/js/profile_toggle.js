@@ -1,3 +1,6 @@
+/* JSHint directive */
+/* jshint esversion: 6, browser: true, jquery: true */
+
 /**
  * Profile Toggle Functionality
  * Handles toggling between viewing and editing user profile details.
