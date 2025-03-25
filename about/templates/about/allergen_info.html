@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load clean_html %}
 
 <!-- Extra CSS Block -->
 {% block extra_css %}
@@ -25,8 +26,8 @@
         <div class="row">
             <div class="col-12 col-md-10 offset-md-1 mb-5">
                 <div class="content-container p-3">
-                    <span id="allergen-info-title" class="visually-hidden">Allergen Information Details</span>
-                    {{ allergen_info.content|safe }}
+                    <span id="allergen-info-details" class="visually-hidden">Allergen Information Details</span>
+                    {{ allergen_info.content|clean_html_content|safe }}
                 </div>
             </div>
         </div>

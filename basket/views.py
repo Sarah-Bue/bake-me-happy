@@ -99,7 +99,7 @@ def remove_from_basket(request, item_id):
         return redirect('view_basket')
 
     # Error Handling
-    except Exception as e:
+    except Exception:
         return redirect('view_basket')
 
 

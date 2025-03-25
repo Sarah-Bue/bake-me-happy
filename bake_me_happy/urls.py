@@ -48,4 +48,4 @@ urlpatterns = [
     # Enable serving of media files during development
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = 'bake_me_happy.views.handler404'
+handler404 = 'bake_me_happy.views.handler404' # noqa

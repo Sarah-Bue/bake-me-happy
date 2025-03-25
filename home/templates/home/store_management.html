@@ -25,12 +25,12 @@
         </header>
 
         <!-- Store Management Section -->
-        <section class="row mt-2" aria-labelledby="store-management-section-title">
+        <div class="row mt-2">
 
            <!-- Dashboard Summary - Collapsible on Mobile -->
            <div class="mb-4 d-md-none">
                 <button class="btn btn-dark w-100" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardSummary" aria-expanded="false" aria-controls="dashboardSummary">
-                    Dashboard Summary <i class="fas fa-chevron-down ms-2"></i>
+                    Dashboard Summary<i class="fas fa-chevron-down ms-2"></i>
                 </button>
             </div>
         
@@ -152,9 +152,9 @@
                         <div class="card-body">
                             <p>Manage newsletter subscribers, customer contacts, and orders.</p>
                             <ul class="list-unstyled">
-                                <li class="py-1 border-bottom"><a href="{% url 'manage_subscribers' %}" class="store-management-link" aria-label="Manage subscribers">Manage Subscribers</a></li>
-                                <li class="py-1 border-bottom"><a href="{% url 'manage_orders' %}" class="store-management-link" aria-label="Manage orders">Manage Orders</a></li>
-                                <li class="py-1"><a href="{% url 'manage_contacts' %}" class="store-management-link" aria-label="Manage contacts">Manage Contacts</a></li>
+                                <li class="py-1 border-bottom"><a href="{% url 'manage_subscribers' %}" class="store-management-link">Manage Subscribers</a></li>
+                                <li class="py-1 border-bottom"><a href="{% url 'manage_orders' %}" class="store-management-link">Manage Orders</a></li>
+                                <li class="py-1"><a href="{% url 'manage_contacts' %}" class="store-management-link" >Manage Contacts</a></li>
                             </ul>
                         </div>
                     </div>
@@ -169,16 +169,16 @@
                         <div class="card-body">
                             <p>Update website content including About content. allergen information, and privacy policy.</p>
                             <ul class="list-unstyled">
-                                <li class="py-1 border-bottom"><a href="{% url 'edit_about' %}" class="store-management-link" aria-label="Manage about content">Manage About Content</a></li>
-                                <li class="py-1 border-bottom"><a href="{% url 'manage_bakers' %}" class="store-management-link" aria-label="Manage baker profiles">Manage Baker Profiles</a></li>
-                                <li class="py-1 border-bottom"><a href="{% url 'manage_faq' %}" class="store-management-link" aria-label="Manage faq content">Manage FAQ Contents</a></li>
-                                <li class="py-1 border-bottom"><a href="{% url 'edit_privacy_policy' %}" class="store-management-link" aria-label="Manage privacy policy">Manage Privacy Policy</a></li>
-                                <li class="py-1"><a href="{% url 'edit_allergen_info' %}" class="store-management-link" aria-label="Manage allergen information">Manage Allergen Information</a></li>
+                                <li class="py-1 border-bottom"><a href="{% url 'edit_about' %}" class="store-management-link">Manage About Content</a></li>
+                                <li class="py-1 border-bottom"><a href="{% url 'manage_bakers' %}" class="store-management-link">Manage Baker Profiles</a></li>
+                                <li class="py-1 border-bottom"><a href="{% url 'manage_faq' %}" class="store-management-link">Manage FAQ Content</a></li>
+                                <li class="py-1 border-bottom"><a href="{% url 'edit_privacy_policy' %}" class="store-management-link">Manage Privacy Policy</a></li>
+                                <li class="py-1"><a href="{% url 'edit_allergen_info' %}" class="store-management-link">Manage Allergen Information</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 {% endblock %}

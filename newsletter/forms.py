@@ -24,6 +24,7 @@ class NewsletterForm(forms.ModelForm):
         # Configure email field
         self.fields['email'].label = False
         self.fields['email'].widget.attrs.update({
+            'id': 'id_newsletter_email',
             'class': 'form-control',
             'placeholder': 'Email address',
             'aria-label': 'Newsletter signup email input'

@@ -26,7 +26,7 @@
         </header>
 
         <!-- Profile Section -->
-        <section class="row" aria-labelledby="profile-section-title">
+        <div class="row">
             <div class="col-12 position-relative">
                 <div class="row">
                     <!-- Profile Information -->
@@ -162,7 +162,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 {% endblock %}
 
@@ -170,8 +170,8 @@
 {% block postloadjs %}
     {{ block.super }}
     <!-- County Field JS -->
-    <script type="text/javascript" src="{% static 'js/dropdown.js' %}"></script>
+    <script src="{% static 'js/dropdown.js' %}"></script>
 
     <!-- Profile View / Edit Toggle JS -->
-    <script type="text/javascript" src="{% static 'profiles/js/profile_toggle.js' %}"></script>
+    <script src="{% static 'profiles/js/profile_toggle.js' %}"></script>
 {% endblock %}

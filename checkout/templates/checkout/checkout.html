@@ -97,12 +97,12 @@
 
                     <!-- Payment Details -->
                     <fieldset class="mb-4">
-                        <legend class="h6" aria-label="Personal details section">Personal Information</legend>
+                        <legend class="h6">Personal Information</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <fieldset class="mb-4">
-                        <legend class="h6" aria-label="Delivery details section">Delivery Details</legend>
+                        <legend class="h6">Delivery Details</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -214,7 +214,7 @@
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 
     <!-- County Field JS -->
-    <script type="text/javascript" src="{% static 'js/dropdown.js' %}"></script>
+    <script src="{% static 'js/dropdown.js' %}"></script>
 
     <!-- Delivery Method Toggle JS -->
     <script src="{% static 'checkout/js/delivery_toggle.js' %}"></script>

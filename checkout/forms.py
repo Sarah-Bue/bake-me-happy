@@ -12,8 +12,8 @@ class OrderForm(forms.ModelForm):
         fields = (
             'full_name', 'email', 'phone_number',
             'street_address1', 'street_address2',
-            'town_or_city', 'postcode', 'county',
-            'country', 'delivery_method'
+            'town_or_city', 'postcode',
+            'country', 'delivery_method', 'county'
         )
         # Exclude payment_method to prevent it from being rendered twice
         exclude = ('payment_method',)
@@ -41,7 +41,13 @@ class OrderForm(forms.ModelForm):
         # Set country to Ireland and make it non-editable
         self.fields['country'].initial = 'IE'
         self.fields['country'].disabled = True
-        self.fields['country'].widget.attrs['readonly'] = True
+        # self.fields['country'].widget.attrs['readonly'] = True
+        if 'class' in self.fields['country'].widget.attrs:
+            self.fields['country'].widget.attrs['class'] += (
+                ' hidden-country-field')
+        else:
+            self.fields['country'].widget.attrs['class'] = (
+                'hidden-country-field')
 
         # Manually add payment_method field with radio buttons
         self.fields['payment_method'] = forms.ChoiceField(
@@ -54,10 +60,10 @@ class OrderForm(forms.ModelForm):
 
         # Add placeholders and styling to all form fields
         for field in self.fields:
-            # Country field handled separately, does not need placeholder
-            # Delivery method is radio button, does not need placeholder
-            # Payment method is radio button, does not need placeholder
-            if field not in ['country', 'delivery_method', 'payment_method']:
+            # Skip placeholder for fields that are handled separately
+            if field not in [
+                'country', 'delivery_method', 'payment_method', 'county'
+                    ]:
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
@@ -67,6 +73,11 @@ class OrderForm(forms.ModelForm):
             if field not in ['delivery_method', 'payment_method']:
                 self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+
+        # Add a default placeholder option for the county field
+        if 'county' in self.fields:
+            self.fields['county'].choices = [
+                ('', 'Select County')] + list(self.fields['county'].choices)
 
         # Add radio button styling for delivery method if it exists
         if 'delivery_method' in self.fields:

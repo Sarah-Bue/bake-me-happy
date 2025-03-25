@@ -569,109 +569,111 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|about/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-admin-validation.png)</details> | TBA |
-|about/apps.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-apps-validation.png)</details> | TBA |
-|about/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-forms-validation.png)</details> | TBA |
-|about/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-models-validation.png)</details> | TBA |
-|about/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-urls-validation.png)</details>| TBA |
-|about/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-views-validation.png)</details>| TBA |
+|about/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-admin-validation.png)</details> | Pass |
+|about/apps.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-apps-validation.png)</details> | Pass |
+|about/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-forms-validation.png)</details> | Pass |
+|about/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-models-validation.png)</details> | Pass |
+|about/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-urls-validation.png)</details>| Pass |
+|about/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/about-views-validation.png)</details>| Pass |
 
 ##### Bake Me Happy
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|bake_me_happy/settings.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/bake-me-happy-settings.png)</details> | TBA |
-|bake_me_happy/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/bake-me-happy-urls.png)</details> | TBA |
-|bake_me_happy/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/bake-me-happy-views.png)</details> | TBA |
+|bake_me_happy/settings.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/bake-me-happy-settings-validation.png)</details> | Pass |
+|bake_me_happy/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/bake-me-happy-urls-validation.png)</details> | Pass |
+|bake_me_happy/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/bake-me-happy-views-validation.png)</details> | Pass |
 
 ##### Basket
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|basket/apps.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-apps-validation.png)</details>| TBA |
-|basket/contexts.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-contexts-validation.png)</details>| TBA |
-|basket/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-urls-validation.png)</details>| TBA |
-|basket/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-views-validation.png)</details>| TBA |
+|basket/apps.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-apps-validation.png)</details>| Pass |
+|basket/contexts.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-contexts-validation.png)</details>| Pass |
+|basket/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-urls-validation.png)</details>| Pass |
+|basket/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-views-validation.png)</details>| Pass |
 
 ##### Checkout
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|checkout/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-admin-validation.png)</details>| TBA |
-|checkout/apps.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-apps-validation.png)</details>| TBA |
-|checkout/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-forms-validation.png)</details>| TBA |
-|checkout/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-models-validation.png)</details>| TBA |
-|checkout/signals.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-signals-validation.png)</details>| TBA |
-|checkout/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-urls-validation.png)</details>| TBA |
-|checkout/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-views-validation.png)</details>| TBA |
-|checkout/webook_handler.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-webook-handler-validation.png)</details>| TBA |
-|checkout/webhooks.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-webhooks-validation.png)</details>| TBA |
+|checkout/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-admin-validation.png)</details>| Pass |
+|checkout/apps.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-apps-validation.png)</details>| Pass |
+|checkout/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-forms-validation.png)</details>| Pass |
+|checkout/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-models-validation.png)</details>| Pass |
+|checkout/signals.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-signals-validation.png)</details>| Pass |
+|checkout/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-urls-validation.png)</details>| Pass |
+|checkout/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-views-validation.png)</details>| Pass |
+|checkout/webook_handler.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-webhook-hander-validation.png)</details>| Pass |
+|checkout/webhooks.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/checkout-webhooks-validation.png)</details>| Pass |
 
 ##### Contact
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|contact/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-admin-validation.png)</details>| TBA |
-|contact/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-forms-validation.png)</details>| TBA |
-|contact/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-models-validation.png)</details>| TBA |
-|contact/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-urls-validation.png)</details>| TBA |
-|contact/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-views-validation.png)</details>| TBA |
+|contact/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-admin-validation.png)</details>| Pass |
+|contact/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-forms-validation.png)</details>| Pass |
+|contact/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-models-validation.png)</details>| Pass |
+|contact/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-urls-validation.png)</details>| Pass |
+|contact/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/contact-views-validation.png)</details>| Pass |
 
 ##### Favorites
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|favorites/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/favorites-models-validation.png)</details>| TBA |
-|favorites/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/favorites-urls-validation.png)</details>| TBA |
-|favorites/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/favorites-views-validation.png)</details>| TBA |
+|favorites/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/favorites-models-validation.png)</details>| Pass |
+|favorites/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/favorites-urls-validation.png)</details>| Pass |
+|favorites/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/favorites-views-validation.png)</details>| Pass |
 
 ##### Home
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|home/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/home-urls-validation.png)</details>| TBA |
-|home/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/home-views-validation.png)</details>| TBA |
+|home/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/home-urls-validation.png)</details>| Pass |
+|home/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/home-views-validation.png)</details>| Pass |
 
 ##### Newsletter
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|newsletter/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-admin-validation.png)</details>| TBA |
-|newsletter/contexts.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-contexts-validation.png)</details>| TBA |
-|newsletter/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-forms-validation.png)</details>| TBA |
-|newsletter/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-models-validation.png)</details>| TBA |
-|newsletter/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-urls-validation.png)</details>| TBA |
-|newsletter/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-views-validation.png)</details>| TBA |
+|newsletter/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-admin-validation.png)</details>| Pass |
+|newsletter/contexts.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-contexts-validation.png)</details>| Pass |
+|newsletter/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-forms-validation.png)</details>| Pass |
+|newsletter/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-models-validation.png)</details>| Pass |
+|newsletter/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-urls-validation.png)</details>| Pass |
+|newsletter/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/newsletter-views-validation.png)</details>| Pass |
 
 ##### Products
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|products/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-admin-validation.png)</details>| TBA |
-|products/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-forms-validation.png)</details>| TBA |
-|products/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-models-validation.png)</details>| TBA |
-|products/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-urls-validation.png)</details>| TBA |
-|products/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-views-validation.png)</details>| TBA |
-|products/widgets.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-widgets-validation.png)</details>| TBA |
+|products/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-admin-validation.png)</details>| Pass |
+|products/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-forms-validation.png)</details>| Pass |
+|products/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-models-validation.png)</details>| Pass |
+|products/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-urls-validation.png)</details>| Pass |
+|products/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-views-validation.png)</details>| Pass |
+|products/widgets.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/products-widgets-validation.png)</details>| Pass |
 
 ##### Profiles
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|profiles/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-forms-validation.png)</details>| TBA |
-|profiles/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-models-validation.png)</details>| TBA |
-|profiles/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-urls-validation.png)</details>| TBA |
-|profiles/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-views-validation.png)</details>| TBA |
+|profiles/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-admin-validation.png)</details>| Pass |
+|profiles/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-forms-validation.png)</details>| Pass |
+|profiles/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-models-validation.png)</details>| Pass |
+|profiles/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-urls-validation.png)</details>| Pass |
+|profiles/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profiles-views-validation.png)</details>| Pass |
+
 
 ##### Reviews
 
 | Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|reviews/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-admin-validation.png)</details>| TBA |
-|reviews/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-forms-validation.png)</details>| TBA |
-|reviews/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-models-validation.png)</details>| TBA |
-|reviews/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-urls-validation.png)</details>| TBA |
-|reviews/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-views-validation.png)</details>| TBA |
+|reviews/admin.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-admin-validation.png)</details>| Pass |
+|reviews/forms.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-forms-validation.png)</details>| Pass |
+|reviews/models.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-models-validation.png)</details>| Pass |
+|reviews/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-urls-validation.png)</details>| Pass |
+|reviews/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/reviews-views-validation.png)</details>| Pass |
 
 #### JSON Validation
 

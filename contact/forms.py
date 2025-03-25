@@ -13,7 +13,10 @@ class ContactForm(forms.ModelForm):
         fields = ['name', 'email', 'subject', 'message']
         widgets = {
             'message': forms.Textarea(attrs={'rows': 5}),
-            'subject': forms.Select(),
+            # 'subject': forms.Select(),
+            'subject': forms.Select(attrs={
+                'class': 'form-control select form-select',
+            }),
         }
 
     def __init__(self, *args, **kwargs):
@@ -45,6 +48,11 @@ class ContactForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'form-control'
             self.fields[field].label = False
 
-        # Add profile-form-input class to subject dropdown
-        if field == 'subject':
-            self.fields[field].widget.attrs['class'] += ' profile-form-input'
+            # Add profile-form-input class to subject dropdown
+            if field == 'subject':
+                self.fields[field].widget.attrs['class'] += (
+                    'profile-form-input'
+                )
+
+        # Set a unique ID for the email field
+        self.fields['email'].widget.attrs['id'] = 'contact_email'

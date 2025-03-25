@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load clean_html %}
 
 <!-- Extra CSS Block -->
 {% block extra_css %}
@@ -26,7 +27,7 @@
             <div class="col-12 col-md-10 offset-md-1 mb-5">
                 <div class="content-container p-3" aria-labelledby="privacy-policy-title">
                     <span id="privacy-policy-details" class="visually-hidden">Privacy Policy Details</span>
-                    {{ policy.content|safe }}
+                    {{ policy.content|clean_html_content|safe }}
                 </div>
             </div>
         </div>

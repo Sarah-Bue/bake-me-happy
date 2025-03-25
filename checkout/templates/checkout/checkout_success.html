@@ -46,7 +46,7 @@
                                 <p class="mb-0 fw-bold small" id="order-number-label">Order Number</p>
                             </div>
                             <div class="col-6 text-end">
-                                <p class="mb-0 small text-break" aria-labelledby="order-number-label">{{ order.order_number }}</p>
+                                <p class="mb-0 small text-break">{{ order.order_number }}</p>
                             </div>
                         </div>
                         
@@ -56,7 +56,7 @@
                                 <p class="mb-0 fw-bold small" id="order-date-label">Order Date</p>
                             </div>
                             <div class="col-6 text-end">
-                                <p class="mb-0 small" aria-labelledby="order-date-label">{{ order.date }}</p>
+                                <p class="mb-0 small">{{ order.date }}</p>
                             </div>
                         </div>
 
@@ -66,7 +66,7 @@
                                 <p class="mb-0 fw-bold small" id="delivery-method-label">Delivery Method</p>
                             </div>
                             <div class="col-6 text-end">
-                                <p class="mb-0 small" aria-labelledby="delivery-method-label">{{ order.delivery_method|title }}</p>
+                                <p class="mb-0 small">{{ order.delivery_method|title }}</p>
                             </div>
                         </div>
 
@@ -76,7 +76,7 @@
                                 <p class="mb-0 fw-bold small" id="payment-method-label">Payment Method</p>
                             </div>
                             <div class="col-6 text-end">
-                                <p class="mb-0 small" aria-labelledby="payment-method-label">{{ order.payment_method|title }}</p>
+                                <p class="mb-0 small">{{ order.payment_method|title }}</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                 <p class="mb-0 small">{{ item.quantity }} x {{ item.product.name }} </p>
                             </div>
                             <div class="col-5 col-md-4 text-end">
-                                <p class="mb-0 small" aria-label="Price: {{ item.lineitem_total }} euros">€{{ item.lineitem_total }}</p>
+                                <p class="mb-0 small">€{{ item.lineitem_total }}</p>
                             </div>
                         </div>
                         {% endfor %}
@@ -113,7 +113,7 @@
                         </h2>
                     </div>
                     <div class="card-body py-3">
-                        <address aria-label="Delivery address" class="small mb-0">
+                        <address class="small mb-0">
                             <p class="mb-1">{{ order.full_name }}</p>
                             <p class="mb-1">{{ order.street_address1 }}</p>
                             {% if order.street_address2 %}
@@ -146,7 +146,7 @@
                                 <p class="mb-0 small" id="order-total-label">Order Total</p>
                             </div>
                             <div class="col-6 text-end">
-                                <p class="mb-0 small" aria-labelledby="order-total-label">€{{ order.order_total }}</p>
+                                <p class="mb-0 small">€{{ order.order_total }}</p>
                             </div>
                         </div>
 
@@ -157,7 +157,7 @@
                                     <p class="mb-0 small" id="delivery-cost-label">Delivery</p>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <p class="mb-0 small" aria-labelledby="delivery-cost-label">€{{ order.delivery_cost }}</p>
+                                    <p class="mb-0 small">€{{ order.delivery_cost }}</p>
                                 </div>
                             </div>
                         {% endif %}
@@ -168,7 +168,7 @@
                                 <p class="mb-0 fw-bold small" id="grand-total-label">Grand Total</p>
                             </div>
                             <div class="col-6 text-end">
-                                <p class="mb-0 fw-bold small" aria-labelledby="grand-total-label">€{{ order.grand_total }}</p>
+                                <p class="mb-0 fw-bold small">€{{ order.grand_total }}</p>
                             </div>
                         </div>
                     </div>
