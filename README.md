@@ -509,43 +509,49 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 
 [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code of each templated page. HTML validation was performed via source code text input.
 
-| Tested | Result | View Result | Pass |
+| Tested | Result | View Result | Pass/Fail |
 --- | --- | --- | ---
-|Home | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|About | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|FAQ | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Contact Us | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Allergen Information | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Privacy policy | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Products | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Product Details | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Basket | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Checkout | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/create-post-validation.png)</details>| TBA |
-|Checkout Success | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/edit-post-validation.png)</details>| TBA |
-|Profile | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|My Orders | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|My Favorties | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|My Reviews | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Sign Up | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Sign In | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Sign Up | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Sign Out | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Store Management | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage Products | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Add a Product | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Edit a Product | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage Reviews | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|View a Review | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage Subscribers | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage Orders | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage Contacts | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|View a Contact | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage About Content | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage Baker Profiles | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage FAQ Content | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage Privacy Policy Content | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|Manage Allergen Information Content | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
-|404 | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| TBA |
+|Home | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|About | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|FAQ | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Contact Us | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Allergen Information | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Privacy policy | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Products | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Product Details | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Basket | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Checkout | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Checkout Success | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Profile | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|My Orders | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|My Favorties | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|My Reviews | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Edit a Review | Validation errors relate to Summernote Widget. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/summernote-errors-html-validation.png)</details>| Pass |
+|Sign Up | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Sign In | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Sign Out | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Change Password | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Forgot Password | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Reset Password | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Set New Password | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Password Changed | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Store Management | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Manage Products | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Add a Product | Validation errors relate to Summernote Widget. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/summernote-errors-html-validation.png)</details>| Pass |
+|Edit a Product | Validation errors relate to Summernote Widget. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/summernote-errors-html-validation.png)</details>| Pass |
+|Manage Reviews | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|View a Review | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Manage Subscribers | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Manage Orders | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Manage Contacts | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|View a Contact | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Edit About Content | Validation errors relate to Summernote Widget. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/summernote-errors-html-validation.png)</details>| Pass |
+|Manage Baker Profiles | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
+|Edit a Baker Profile | Validation errors relate to Summernote Widget. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/summernote-errors-html-validation.png)</details>| Pass |
+|Edit FAQ Content | Validation errors relate to Summernote Widget. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/summernote-errors-html-validation.png)</details>| Pass |
+|Edit Privacy Policy Content | Validation errors relate to Summernote Widget. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/summernote-errors-html-validation.png)</details>| Pass |
+|Edit Allergen Information Content | Validation errors relate to Summernote Widget. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/summernote-errors-html-validation.png)</details>| Pass |
+|404 | No errors or warnings to show. | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/no-errors-html-validation.png)</details>| Pass |
 
 #### CSS Validation
 
