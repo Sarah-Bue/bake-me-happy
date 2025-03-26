@@ -29,7 +29,7 @@
 
            <!-- Dashboard Summary - Collapsible on Mobile -->
            <div class="mb-4 d-md-none">
-                <button class="btn btn-dark w-100" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardSummary" aria-expanded="false" aria-controls="dashboardSummary">
+                <button class="btn btn-dark w-100" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardSummary" aria-expanded="false" aria-controls="dashboardSummary" id="dashboard-summary-title">
                     Dashboard Summary<i class="fas fa-chevron-down ms-2"></i>
                 </button>
             </div>
@@ -38,7 +38,7 @@
                 <div class="row">
                 <!-- Product Count -->
                     <div class="col-md-3 mb-4">
-                        <a href="{% url 'manage_products' %}" class="text-decoration-none" aria-label="Manage Products - {{ product_count }} products">
+                        <a href="{% url 'manage_products' %}" class="text-decoration-none">
                             <div class="card text-center h-100 border-dark">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ product_count }}</h3>
@@ -50,7 +50,7 @@
 
                     <!-- Subscriber Count -->
                     <div class="col-md-3 mb-4">
-                        <a href="{% url 'manage_subscribers' %}" class="text-decoration-none" aria-label="Manage Subscribers - {{ subscriber_count }} subscribers">
+                        <a href="{% url 'manage_subscribers' %}" class="text-decoration-none">
                             <div class="card text-center h-100 border-dark">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ subscriber_count }}</h3>
@@ -62,7 +62,7 @@
 
                     <!-- Review Count -->
                     <div class="col-md-3 mb-4">
-                        <a href="{% url 'manage_reviews' %}" class="text-decoration-none" aria-label="Manage Reviews - {{ review_count }} reviews">
+                        <a href="{% url 'manage_reviews' %}" class="text-decoration-none">
                             <div class="card text-center h-100 border-dark">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ review_count }}</h3>
@@ -74,7 +74,7 @@
 
                     <!-- Order Count -->
                     <div class="col-md-3 mb-4">
-                        <a href="{% url 'manage_orders' %}" class="text-decoration-none" aria-label="Manage Orders - {{ orders_count }} orders">
+                        <a href="{% url 'manage_orders' %}" class="text-decoration-none">
                             <div class="card text-center h-100 border-dark">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ orders_count }}</h3>
@@ -86,7 +86,7 @@
 
                     <!-- Contact Count -->
                     <div class="col-md-3 mb-4">
-                        <a href="{% url 'manage_contacts' %}" class="text-decoration-none" aria-label="Manage Contacts - {{ contact_count }} contacts">
+                        <a href="{% url 'manage_contacts' %}" class="text-decoration-none">
                             <div class="card text-center h-100 border-dark">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ contact_count }}</h3>
@@ -98,7 +98,7 @@
 
                     <!-- Baker Count -->
                     <div class="col-md-3 mb-4">
-                        <a href="{% url 'manage_bakers' %}" class="text-decoration-none" aria-label="Manage Bakers - {{ baker_count }} bakers">
+                        <a href="{% url 'manage_bakers' %}" class="text-decoration-none">
                             <div class="card text-center h-100 border-dark">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ baker_count }}</h3>
@@ -112,6 +112,7 @@
 
             <!-- Dashboard Actions -->
             <div class="row justify-content-center" aria-labelledby="dashboard-actions-title">
+                <h2 id="dashboard-actions-title" class="visually-hidden">Dashboard Actions</h2>
                 <!-- Products Management -->
                 <div class="col-md-6 mb-4">
                     <div class="card no-hover h-100 border-dark">
@@ -121,8 +122,8 @@
                         <div class="card-body">
                             <p>Manage product inventory, categories, and occasions.</p>
                             <ul class="list-unstyled">
-                                <li class="py-1 border-bottom"><a href="{% url 'add_product' %}" class="store-management-link" aira-label="Add a new product">Add New Product</a></li>
-                                <li class="py-1"><a href="{% url 'manage_products' %}" class="store-management-link" aria-label="Manage products">Manage Products</a></li>
+                                <li class="py-1 border-bottom"><a href="{% url 'add_product' %}" class="store-management-link">Add New Product</a></li>
+                                <li class="py-1"><a href="{% url 'manage_products' %}" class="store-management-link">Manage Products</a></li>
                             </ul>
                         </div>
                     </div>
@@ -137,7 +138,7 @@
                         <div class="card-body">
                             <p>Manage product reviews and ratings.</p>
                             <ul class="list-unstyled">
-                                <li class="py-1"><a href="{% url 'manage_reviews' %}" class="store-management-link" aria-label="Manage reviews">Manage Reviews</a></li>
+                                <li class="py-1"><a href="{% url 'manage_reviews' %}" class="store-management-link">Manage Reviews</a></li>
                             </ul>
                         </div>
                     </div>

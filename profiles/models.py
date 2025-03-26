@@ -36,7 +36,6 @@ class UserProfile(models.Model):
     )
 
     COUNTY_CHOICES = [
-        ('', 'Please select a County'),
         ('Carlow', 'Carlow'),
         ('Cavan', 'Cavan'),
         ('Clare', 'Clare'),

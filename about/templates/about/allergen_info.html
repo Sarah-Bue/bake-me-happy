@@ -23,13 +23,13 @@
         </header>
 
         <!-- Allergen Information Section -->   
-        <div class="row">
+        <section class="row justify-content-center" aria-label="Allergen Information Section">
             <div class="col-12 col-md-10 offset-md-1 mb-5">
                 <div class="content-container p-3">
                     <span id="allergen-info-details" class="visually-hidden">Allergen Information Details</span>
                     {{ allergen_info.content|clean_html_content|safe }}
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}

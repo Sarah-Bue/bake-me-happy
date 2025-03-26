@@ -8,7 +8,6 @@ class Contact(models.Model):
 
     # Choices for subject field
     SUBJECT_CHOICES = [
-        ('', 'Please select a Subject *'),
         ('general', 'General Inquiry'),
         ('order', 'Order Information'),
         ('feedback', 'Feedback'),

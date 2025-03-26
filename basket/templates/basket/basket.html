@@ -18,7 +18,7 @@
         </header>
 
         <!-- Basket Contents Section -->
-        <div class="row">
+        <section class="row justify-content-center" aria-label="Shopping Basket Section">
             <div class="col-12 position-relative">
                 {% if basket_items %}
                     <!-- Mobile Basket View -->
@@ -91,8 +91,8 @@
 
                     <!-- The Desktop basket view has been adapted from Code Institute's "Boutique Ado" project -->
                     <div class="table-responsive d-none d-md-block">
-                        <table class="table" role="table">
-                            <caption id="basket-description">Shopping basket contents></caption>
+                        <table class="table">
+                            <caption id="basket-description"></caption>
                             <thead>
                                 <tr>
                                     <th scope="col">Product</th>
@@ -110,9 +110,13 @@
                                         <!-- Product Image if available -->
                                         <td class="p-3 w-25">
                                             {% if item.product.image %}
-                                                <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                                <a href="{% url 'product_detail' item.product.id %}" aria-label="View details for {{ product.name }}">
+                                                    <img class="card-img-top" src="{{ item.product.image.url }}" alt="Product image of {{ product.name }}">
+                                                </a>
                                             {% else %}
-                                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}placeholder.png" alt="No image available">
+                                                <a href="{% url 'product_detail' item.product.id %}" aria-label="No image available for {{ product.name }}">
+                                                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}">
+                                                </a>
                                             {% endif %}
                                         </td>
 
@@ -218,7 +222,7 @@
                     </div>
                 {% endif %}
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}
 

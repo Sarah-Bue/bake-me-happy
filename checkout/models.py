@@ -44,7 +44,6 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     COUNTY_CHOICES = [
-        ('', 'Please select a County'),
         ('Carlow', 'Carlow'),
         ('Cavan', 'Cavan'),
         ('Clare', 'Clare'),

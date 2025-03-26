@@ -41,7 +41,6 @@ class OrderForm(forms.ModelForm):
         # Set country to Ireland and make it non-editable
         self.fields['country'].initial = 'IE'
         self.fields['country'].disabled = True
-        # self.fields['country'].widget.attrs['readonly'] = True
         if 'class' in self.fields['country'].widget.attrs:
             self.fields['country'].widget.attrs['class'] += (
                 ' hidden-country-field')
@@ -53,7 +52,7 @@ class OrderForm(forms.ModelForm):
         self.fields['payment_method'] = forms.ChoiceField(
             choices=(
                 ('card', 'Credit/Debit Card'), ('cash', 'Cash on Pickup')),
-            widget=forms.RadioSelect(),  # Remove any custom classes here
+            widget=forms.RadioSelect(), 
             required=True,
             initial='card'
         )

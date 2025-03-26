@@ -20,7 +20,7 @@
         </header>
 
         <!-- Manage Bakers Section -->
-        <section class="row" aria-labelledby="manage-bakers-section-title">
+        <section class="row" aria-label="Manage Bakers Section">
             <div class="col-12">
                 
                 <!-- Action Buttons -->
@@ -64,9 +64,11 @@
                                                 <td>{{ baker.title }}</td>
                                                 <td class="d-none d-md-table-cell">
                                                     {% if baker.image %}
-                                                        <i class="fas fa-check text-success" aria-label="Has an image"></i>
+                                                        <i class="fas fa-check text-success" aria-hidden="true"></i>
+                                                        <span class="visually-hidden">Has an image</span>   
                                                     {% else %}
-                                                        <i class="fas fa-times text-danger" aria-label="Has no image"></i>
+                                                        <i class="fas fa-times text-danger" aria-hidden="true"></i>
+                                                        <span class="visually-hidden">Has no image</span>
                                                     {% endif %}
                                                 </td>
                                                 <td class="d-none d-md-table-cell">{{ baker.order }}</td>

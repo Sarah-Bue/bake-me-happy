@@ -1,5 +1,11 @@
 /* ---------- Base Styles ---------- */
 
+/* Customize Summernote */
+
+textarea.summernote {
+    display: none; /* Hide the original textarea */
+}
+
 /* Background Colors */
 
 body {

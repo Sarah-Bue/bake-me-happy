@@ -1,7 +1,7 @@
 <section class="row justify-content-center" aria-labelledby="reviews-section-title">
     <div class="col-12 col-lg-10">
         <hr class="w-50 mx-auto mb-4" aria-hidden="true">
-        <h2 class="h3 mb-4 text-center">Customer Reviews</h2>
+        <h2 class="h3 mb-4 text-center" id="reviews-section-title">Customer Reviews</h2>
 
         <!-- Add Review Button (if user is authenticated only) -->
         <div class="text-center mb-4">
@@ -21,14 +21,15 @@
                         <h4 class="mb-2">{{ review.title }}</h4>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="text-muted small">
-                                <span aria-describedby="Review by {{ review.author.username }}">{{ review.author.username }}</span> | 
-                                <time datetime="{{ review.date_added|date:'Y-m-d' }}" aria-describedby="Posted on {{ review.date_added|date:'F d, Y' }}">{{ review.date_added|date:"M d, Y" }}</time>                                        </p>
+                                {{ review.author.username }} | 
+                                <time datetime="{{ review.date_added|date:'Y-m-d' }}">{{ review.date_added|date:"M d, Y" }}</time>
+                            </p>
                         </div>
 
                         <!-- Review Rating -->
                         {% if review.rating %}
                             <div class="mb-2">
-                                <p class="card-text" aria-describedby="Rating: {{ review.rating|floatformat:1 }} out of 5 stars">
+                                <p class="card-text">
                                     <i class="fas fa-star me-2" aria-hidden="true"></i>{{ review.rating|floatformat:1 }} / 5
                                 </p>                                         
                             </div>

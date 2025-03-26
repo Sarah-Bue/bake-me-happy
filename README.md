@@ -66,6 +66,26 @@ Visit the deployed application [here](https://bake-me-happy-b9b73285e6cc.herokua
 
 ### CRUD Functionality
 
+*CRUD* functionality has been implemented throughout the project to create an entirely usable experience for the user. Some examples of this include:
+ 
+#### Admin (superuser only)
+- *C*: Add new products. 
+- *R*: View all products, subscribers, reviews, etc. 
+- *U*: Update existing product listings. 
+- *D*: Delete product listings and reviews. 
+ 
+#### Reviews (logged-in users only)
+- *C*: Create a new product review.
+- *R*: View all reviews posted by this used. 
+- *U*: Update reviews posted by this user.
+- *D*: Delete reviews posted by this user.
+ 
+#### Basket (all users)
+- *C*: Add a new item to the basket.
+- *R*: View basket contents.
+- *U*: Update quantities of items in the basket.
+- *D*: Delete basket contents or clear basket.
+
 ### Entity Relationship Diagram
 
 During planning, [drawSQL](https://drawsql.app) was used to visualize the relationships between the models in this application. 
@@ -556,10 +576,10 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 |profile_toggle.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/profile-toggle-validation.png)</details>| Pass |
 |quantity_dropdown.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/quantity_dropdown-validation.png)</details>| Pass |
 |star_rating.js | No errors | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/star-rating-validation.png)</details>| Pass |
-|stripe_elements.js | One undefined variable | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/stripe-elements-validation.png)</details>| TBA |
-|Toasts JS | One undefined variable | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/toasts-validation.png)</details>| TBA |
+|stripe_elements.js | One undefined variable (Stripe )* | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/stripe-elements-validation.png)</details>| Pass |
+|Toasts JS | One undefined variable (Bootstrap)* | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/toasts-validation.png)</details>| Pass |
 
-
+**Note:** These variables show up as undefined due to the modular nature of Django projects. They have no impact on the code and project functionality.
 
 #### Python Validation
 

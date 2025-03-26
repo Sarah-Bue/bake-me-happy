@@ -19,14 +19,15 @@
                 <h5 class="fw-bolder">{{ product.name }}</h5>
                 <div class="d-flex justify-content-center small text-warning mb-2">
                     {% if product.rating %}
-                        <div class="rating" aria-label="Product rating: {{ product.rating|floatformat:1 }} out of 5 stars">
+                        <div class="rating">
                             <small class="text-muted"><i class="fas fa-star me-1" aria-hidden="true"></i>{{ product.rating|floatformat:1 }} / 5</small>
                         </div>
                     {% else %}
-                        <div class="rating" aria-label="This product has not been rated yet">
+                        <div class="rating">
                             <small class="text-muted">No Rating</small>
                         </div>                    
-                    {% endif %}                                            </div>                                           
+                    {% endif %}
+                </div>                                           
                 <p class="lead mb-0 text-center">€ {{ product.price }}</p>
             </div>
         </div>

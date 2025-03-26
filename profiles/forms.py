@@ -19,10 +19,6 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
 
-        # Make country read-only
-        self.fields['default_country'].widget.attrs['readonly'] = True
-        self.fields['default_country'].widget.attrs['disabled'] = True
-
         placeholders = {
             'default_full_name': 'Full Name',
             'default_email': 'Email Address',
@@ -31,18 +27,41 @@ class UserProfileForm(forms.ModelForm):
             'default_street_address2': 'Street Address 2',
             'default_town_or_city': 'Town or City',
             'default_postcode': 'Eir Code',
-            'default_county': 'Please select a County',
-            'default_country': 'Ireland'
+            'default_county': 'County',
         }
 
-        self.fields['default_phone_number'].widget.attrs['autofocus'] = True
+        # Set autofocus on the default_full_name field
+        self.fields['default_full_name'].widget.attrs['autofocus'] = True
 
-        # Add placeholders and classes to form fields
+        # Set default_country to Ireland and make it non-editable
+        self.fields['default_country'].initial = 'IE'
+        self.fields['default_country'].disabled = True
+        if 'class' in self.fields['default_country'].widget.attrs:
+            self.fields['default_country'].widget.attrs['class'] += (
+                ' hidden-country-field'
+            )
+        else:
+            self.fields['default_country'].widget.attrs['class'] = (
+                'hidden-country-field'
+            )
+
+        # Add placeholders and styling to all form fields
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'profile-form-input'
+            # Skip placeholder for select fields
+            if field not in ['default_country', 'default_county']:
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+
+            # Add profile-form-input class to all fields
+            if field not in ['default_country', 'default_county']:
+                self.fields[field].widget.attrs['class'] = 'profile-form-input'
             self.fields[field].label = False
+
+        # Add a default placeholder option for the default_county field
+        if 'default_county' in self.fields:
+            self.fields['default_county'].choices = [
+                ('', 'Select County')
+            ] + list(self.fields['default_county'].choices)

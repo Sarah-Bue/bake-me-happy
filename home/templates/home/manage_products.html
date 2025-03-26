@@ -20,7 +20,7 @@
         </header>
 
         <!-- Manage Products Section -->
-        <section class="row" aria-labelledby="manage-products-section-title">
+        <section class="row" aria-label="Manage Products Section">
             <div class="col-12">
                 
                 <!-- Action Buttons -->
@@ -64,10 +64,12 @@
                                                 <td class="d-none d-md-table-cell">{{ product.german_name }}</td>
                                                 <td class="d-none d-md-table-cell">             
                                                     {% if product.image %}
-                                                        <i class="fas fa-check text-success"></i>
-                                                    {% else %}
-                                                        <i class="fas fa-times text-danger"></i>
-                                                    {% endif %}
+                                                    <i class="fas fa-check text-success" aria-hidden="true"></i>
+                                                    <span class="visually-hidden">Has an image</span>   
+                                                {% else %}
+                                                    <i class="fas fa-times text-danger" aria-hidden="true"></i>
+                                                    <span class="visually-hidden">Has no image</span>
+                                                {% endif %}
                                                 </td>
                                                 <td class="d-none d-md-table-cell">€ {{ product.price }}</td>
 

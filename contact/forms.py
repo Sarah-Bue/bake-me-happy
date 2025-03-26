@@ -28,7 +28,7 @@ class ContactForm(forms.ModelForm):
         placeholders = {
             'name': 'Your Name',
             'email': 'Your Email Address',
-            'subject': 'Please select a Subject',
+            'subject': 'Please select a Subject *',
             'message': 'Your Message',
         }
 
@@ -40,11 +40,22 @@ class ContactForm(forms.ModelForm):
 
         # Add placeholders and styling to all form fields
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
+            if field == 'subject':
+                # Add a default option to act as a placeholder
+                self.fields[field].choices = [
+                    ('', placeholders[field])
+                ] + list(self.fields[field].choices)
+
+                self.fields[field].widget.attrs['class'] += (
+                    ' profile-form-input'
+                )
             else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+
             self.fields[field].widget.attrs['class'] = 'form-control'
             self.fields[field].label = False
 
