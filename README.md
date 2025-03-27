@@ -10,6 +10,8 @@ Visit the deployed application [here](https://bake-me-happy-b9b73285e6cc.herokua
 ## Table of Contents
 1. [Project Planning](#project-planning)
     - [Agile Methodology](#agile-methodology)
+        - [Sprints](#sprints)
+        - [GitHub Projects](#github-projects)
     - [CRUD Functionality](#crud-functionality)
     - [Entity Relationship Diagram](#entity-relationship-diagram)
     - [Structure](#structure)
@@ -64,6 +66,108 @@ Visit the deployed application [here](https://bake-me-happy-b9b73285e6cc.herokua
 
 ### Agile Methodology
 
+Agile methodology played a crucial role in managing the development process. The project was divided into smaller sprints, each focusing on adding a specific feature or improving an existing function.
+
+#### Sprints
+
+1st Sprint:
+<br>
+The first sprint focused on setting up the basics of the application, including the base.html template which was used across all pages of the project.
+
+2nd Sprint:
+<br>
+The second sprint focused on setting up the product app and its functionality. Bootstrap templates were customized to create a basic shop interface, including the different product views, as well as sorting and filtering functionality.
+
+3rd Sprint:
+<br>
+The third sprint focused on setting up the basket app and its functionality. The basket provides a place for shoppers to view and update their planned purchases and easily access information about the costs associated with them.
+
+4th sprint:
+<br>
+The fourth sprint focused on setting up the checkout app and its functionality. The checkout page uses Stripe to handle payments. This sprint relied heavily on webhook testing to ensure a smooth user experience.
+
+5th Sprint:
+<br>
+The fifth sprint focussed on setting up the profile app and its functionality. Django allauth was implemented for user authentication, with customized tenplates to match the project's design.
+
+6th Sprint:
+<br>
+The sixth sprint focused on setting up the favorites app and its functionality. Logged in users can easily add products to their favorites list and view them in a dedicated section within their profile.
+
+7th Sprint:
+<br>
+The seventh sprint focused on setting up the basics of the store management app and its functionality. This sprint involved creating a dedicated section for store managers to manage products using a WYSIWYG editor.
+
+8th Sprint:
+<br>
+The seventh sprint focused on setting up the reviews app and its functionality. Logged in users can create and update product reviews, which are displayed at the bottom of the relevant product detail page. Reviews may include ratings, which will update the existing product rating dynamically.
+
+9th Sprint:
+<br>
+The ninth sprint focused on preparing the app for deployment with Heroku. A custom page was created to handle 404 errors. Email settings wer updated to allow Django to send out emails, as opposed to logging them to the terminal. The project was connected to AWS S3 to handle static and media files.
+
+10th Sprint:
+<br>
+The tenth sprint focused on setting up the newsletter app and its functionality. Subscribers receive a confirmation email and are added to the subscribers list in the database. A context processor makes the newsletter accessible in the footer of every page of the project.
+
+11th Sprint:
+<br>
+The eleventh sprint focused on setting up the contact app and its functionality. A contact page with several kinds of contact information as well as a contact form were created. Contacts via the form are added to the database.
+
+12th Sprint:
+<br>
+The twelfth sprint focused on setting up the about app and its functionality, allowing users to learn more about the business and its staff. Separate models were created for the business and staff information.
+
+13th Sprint:
+<br>
+The thirteenth sprint focused on improving on the store management app. A dashboard for admin users was created to easily manage products, contacts, subcribers, and the about content. The store management app brings a lot of the functionality from Django's <i>/admin</i> panel to the front end, allowing store owners to maintain their website without the need to access backend pages. More pages were created for the about app, which can be managed from the store management dashboard.
+
+14th Sprint:
+<br>
+The fourteenth sprint focused on implementing feedback from early user testing as well as initial code reviews. Improvements made included:
+- Refactoring code that is being used in multiple places to avoid repetition.
+- Updating page templates for improved screen reader compatibility and consistency.
+- Improving page navigation.
+- Updating the quantity selector to better suit the needs of the business.
+- Creating additional account functionality with customized allauth templates.
+
+15th Sprint:
+The fifteenth sprint focused on improving the checkout process. Pickup and cash payment options were added, and address fields were updated to be more relevant to the business.
+
+15th Sprint:
+<br>
+The final sprint focussed on polishing the project for submission. Code validation was performed alongside a final round of compatibility and feature testing.
+
+#### GitHub Projects
+ 
+GitHub Projects was an essential tool for tracking progress and managing tasks throughout the Agile development process. A Kanban-style board was used to track progress visually. Each issue was based on a user story and moved through the different phases of *To Do*, *In Progress*, and *Done*, following the corresponding sprints.
+Custom labels were created to distinguish the issues visually. Labels were used to assign a priority, a functionality, and an Epic. 
+<br><br>
+A total of 37 user stories were created and completed across 9 Epics.
+
+Priorities, based on MOSCOW model of prioritization 
+- *must-have*
+- *should-have*
+- *could-have* 
+- *will-not-have*,
+
+Functionalities, based on CRUD model 
+- C Create
+- R read
+- U update 
+- D delete
+
+Epics 
+- Account Management
+- Admin Access
+- Basket & Checkout
+- Browsing & Navigation
+- Business Information 
+- Favorites
+- Newsletter
+- Reviews
+- Searching & Sorting
+
 ### CRUD Functionality
 
 *CRUD* functionality has been implemented throughout the project to create an entirely usable experience for the user. Some examples of this include:
@@ -88,19 +192,20 @@ Visit the deployed application [here](https://bake-me-happy-b9b73285e6cc.herokua
 
 ### Entity Relationship Diagram
 
-During planning, [drawSQL](https://drawsql.app) was used to visualize the relationships between the models in this application. 
+[Django Extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html) was used to generate the ERD from Django models.<br>
+[Graphviz](https://graphviz.org/) was used to render the ERD from the model relationships.
 
 <details>
-    <summary> Entity Relationship Diagrams Image</summary>
-    <img src = "assets/readme-files/images/planning-erd.png">
+    <summary> Entity Relationship Diagram Image</summary>
+    <img src = "assets/readme-files/images/erd.png">
 </details>
 
 ### Structure
-[Lucidchart](https://www.lucidchart.com) was used to visualize structure of the website and relationships between pages.
+[Draw.io](https://www.draw.io) was used to visualize structure of the website and relationships between pages.
 
 <details>
     <summary> Website Structure Image</summary>
-    <img src = "assets/readme-files/images/planning-structure.png">
+    <img src = "assets/readme-files/images/sitemap.png">
 </details>
 
 [Back to top ⇧](#bake-me-happy)
@@ -121,16 +226,38 @@ During planning, [drawSQL](https://drawsql.app) was used to visualize the relati
 ## Design Choices
 
 ### Color Palette
+
+The color palette is based on the colors of the logo and the hero image. Colors have been picked to resemble bread and flour, to create a cohesive atmosphere and invite users to explore the baked goods on the website.
+The palette was generated using [Coolors](https://coolors.co/image-picker).
+
 <details>
     <summary> Color Palette Image</summary>
     <img src = "assets/readme-files/images/color-palette.png">
 </details>
 
+The main colors used in the project are:
+
+- 4f3527 (Cafè Noir): Used for the footer, navigation bars, action buttons, button outlines, and card headers.
+
+- F9F5F1 (Isabeliine): Used for the backrgound of the body.
+
+- F1D4C6 (Pale Dogwood): Used for call to action sections on the home page.
+
+- FFC107 (Amber): Used to highlight active links and stars in review forms.
+
 ### Typography
+Fonts were paired and imported using [Google Fonts](https://fonts.google.com). <br>
+*Playfair Display* was chosen as the font for  headings, card titles, and the navbar brand.
+
+Open Sans, with a fallback of sans-serif, was applied to the body, buttons, and prices.
 
 <details>
-    <summary> Typography Image</summary>
-    <img src = "assets/readme-files/images/typography.png">
+    <summary> Playfair Display</summary>
+    <img src = "assets/readme-files/images/playfair-display.png">
+    <br>
+    <br>
+    <summary> Open Sans</summary>
+    <img src = "assets/readme-files/images/open-sans.png">
 </details>
 
 ### Wireframes

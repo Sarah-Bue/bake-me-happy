@@ -40,12 +40,12 @@ def contact(request):
             )
 
             messages.success(request,
-                             'Thank you for your message!'
+                             'Thank you for your message! '
                              'We will respond as soon as possible.')
             return redirect('contact')
         else:
             messages.error(request,
-                           'There was an error with your form.'
+                           'There was an error with your form. '
                            'Please check and try again.')
     else:
         form = ContactForm()
