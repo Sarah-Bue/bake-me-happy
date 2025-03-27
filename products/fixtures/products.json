@@ -17,7 +17,7 @@
          "image":"white_bread_rolls.png",
          "category":1,
          "occasion":1,
-         "rating":4.5
+         "rating":5
       }
    },
    {
@@ -37,7 +37,8 @@
          "price":4.50,
          "image":"cheese_bread_rolls.png",
          "category":1,
-         "occasion":1
+         "occasion":1,
+         "rating":5
       }
    },
    {
@@ -57,7 +58,7 @@
          "image":"sweet_raisin_rolls.png",
          "category":1,
          "occasion":1,
-         "rating":4.2
+         "rating":5
       }
    },
    {
@@ -96,7 +97,7 @@
          "image":"farmhouse_bread.png",
          "category":1,
          "occasion":1,
-         "rating":4.0
+         "rating":5.0
       }
    },
    {
@@ -136,7 +137,8 @@
          "price":4.20,
          "image":"pumpkin_seed_bread.png",
          "category":1,
-         "occasion":2
+         "occasion":2,
+         "rating":4.0
       }
    },
    {
@@ -155,7 +157,7 @@
          "image":"pretzels.png",
          "category":1,
          "occasion":2,
-         "rating":4.2
+         "rating":4.0
       }
    },
    {
@@ -301,7 +303,8 @@
          "price":20.00,
          "image":"marble_cake.png",
          "category":2,
-         "occasion":1
+         "occasion":1,
+         "rating":4.0
       }
    },
    {
@@ -322,7 +325,7 @@
          "image":"crumb_cake.png",
          "category":2,
          "occasion":1,
-         "rating":4.4
+         "rating":4.0
       }
    },
    {
@@ -344,7 +347,7 @@
          "image":"black_forest_cherry_cake.png",
          "category":2,
          "occasion":1,
-         "rating":4.9
+         "rating":5
       }
    },
    {
@@ -366,7 +369,7 @@
          "image":"snow_white_cake.png",
          "category":2,
          "occasion":1,
-         "rating":3.7
+         "rating":4.0
       }
    },
    {
@@ -387,7 +390,8 @@
          "price":42.50,
          "image":"beesting_cake.png",
          "category":2,
-         "occasion":2
+         "occasion":2,
+         "rating":5.0
       }
    },
    {
@@ -408,7 +412,7 @@
          "image":"strawberry_cream_cake.png",
          "category":2,
          "occasion":2,
-         "rating":4.8
+         "rating":5.0
       }
    },
    {
@@ -428,7 +432,7 @@
          "image":"plum_cake.png",
          "category":2,
          "occasion":2,
-         "rating":4.1
+         "rating":4.0
       }
    },
    {
@@ -492,7 +496,7 @@
          "image":"easter_lamb_cake.png",
          "category":2,
          "occasion":4,
-         "rating":4.6
+         "rating":5.0
       }
    },
    {
@@ -514,7 +518,7 @@
          "image":"carrot_cake.png",
          "category":2,
          "occasion":4,
-         "rating":4.7
+         "rating":4.0
       }
    },
    {
@@ -599,7 +603,7 @@
          "image":"berliner_doughnut.png",
          "category":3,
          "occasion":1,
-         "rating":4.3
+         "rating":4.5
       }
    },
    {
@@ -620,7 +624,7 @@
          "image":"custard_pocket.png",
          "category":3,
          "occasion":1,
-         "rating":4.0
+         "rating":5.0
       }
    },
    {
@@ -663,7 +667,7 @@
          "image":"nut_chocolate_wedges.png",
          "category":3,
          "occasion":1,
-         "rating":4.5
+         "rating":5.0
       }
    },
    {
@@ -685,7 +689,7 @@
          "image":"weckmann.png",
          "category":3,
          "occasion":2,
-         "rating":4.9
+         "rating":4.0
       }
    },
    {
