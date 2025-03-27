@@ -70,60 +70,60 @@ Agile methodology played a crucial role in managing the development process. The
 
 #### Sprints
 
-1st Sprint:
-<br>
+**1st Sprint:**
+
 The first sprint focused on setting up the basics of the application, including the base.html template which was used across all pages of the project.
 
-2nd Sprint:
-<br>
+**2nd Sprint:**
+
 The second sprint focused on setting up the product app and its functionality. Bootstrap templates were customized to create a basic shop interface, including the different product views, as well as sorting and filtering functionality.
 
-3rd Sprint:
-<br>
+**3rd Sprint:**
+
 The third sprint focused on setting up the basket app and its functionality. The basket provides a place for shoppers to view and update their planned purchases and easily access information about the costs associated with them.
 
-4th sprint:
-<br>
+**4th sprint:**
+
 The fourth sprint focused on setting up the checkout app and its functionality. The checkout page uses Stripe to handle payments. This sprint relied heavily on webhook testing to ensure a smooth user experience.
 
-5th Sprint:
-<br>
+**5th Sprint:**
+
 The fifth sprint focussed on setting up the profile app and its functionality. Django allauth was implemented for user authentication, with customized tenplates to match the project's design.
 
-6th Sprint:
-<br>
+**6th Sprint:**
+
 The sixth sprint focused on setting up the favorites app and its functionality. Logged in users can easily add products to their favorites list and view them in a dedicated section within their profile.
 
-7th Sprint:
-<br>
+**7th Sprint:**
+
 The seventh sprint focused on setting up the basics of the store management app and its functionality. This sprint involved creating a dedicated section for store managers to manage products using a WYSIWYG editor.
 
-8th Sprint:
-<br>
+**8th Sprint:**
+
 The seventh sprint focused on setting up the reviews app and its functionality. Logged in users can create and update product reviews, which are displayed at the bottom of the relevant product detail page. Reviews may include ratings, which will update the existing product rating dynamically.
 
-9th Sprint:
-<br>
+**9th Sprint:**
+
 The ninth sprint focused on preparing the app for deployment with Heroku. A custom page was created to handle 404 errors. Email settings wer updated to allow Django to send out emails, as opposed to logging them to the terminal. The project was connected to AWS S3 to handle static and media files.
 
-10th Sprint:
-<br>
+**10th Sprint:**
+
 The tenth sprint focused on setting up the newsletter app and its functionality. Subscribers receive a confirmation email and are added to the subscribers list in the database. A context processor makes the newsletter accessible in the footer of every page of the project.
 
-11th Sprint:
-<br>
+**11th Sprint:**
+
 The eleventh sprint focused on setting up the contact app and its functionality. A contact page with several kinds of contact information as well as a contact form were created. Contacts via the form are added to the database.
 
-12th Sprint:
-<br>
+**12th Sprint:**
+
 The twelfth sprint focused on setting up the about app and its functionality, allowing users to learn more about the business and its staff. Separate models were created for the business and staff information.
 
-13th Sprint:
-<br>
-The thirteenth sprint focused on improving on the store management app. A dashboard for admin users was created to easily manage products, contacts, subcribers, and the about content. The store management app brings a lot of the functionality from Django's <i>/admin</i> panel to the front end, allowing store owners to maintain their website without the need to access backend pages. More pages were created for the about app, which can be managed from the store management dashboard.
+**13th Sprint:**
 
-14th Sprint:
-<br>
+The thirteenth sprint focused on improving on the store management app. A dashboard for admin users was created to easily manage products, contacts, subcribers, and the about content. The store management app brings a lot of the functionality from Django's */admin* panel to the front end, allowing store owners to maintain their website without the need to access backend pages. More pages were created for the about app, which can be managed from the store management dashboard.
+
+**14th Sprint:**
+
 The fourteenth sprint focused on implementing feedback from early user testing as well as initial code reviews. Improvements made included:
 - Refactoring code that is being used in multiple places to avoid repetition.
 - Updating page templates for improved screen reader compatibility and consistency.
@@ -131,33 +131,34 @@ The fourteenth sprint focused on implementing feedback from early user testing a
 - Updating the quantity selector to better suit the needs of the business.
 - Creating additional account functionality with customized allauth templates.
 
-15th Sprint:
+**15th Sprint:**
+
 The fifteenth sprint focused on improving the checkout process. Pickup and cash payment options were added, and address fields were updated to be more relevant to the business.
 
-15th Sprint:
-<br>
+**16th Sprint:**
+
 The final sprint focussed on polishing the project for submission. Code validation was performed alongside a final round of compatibility and feature testing.
 
 #### GitHub Projects
  
 GitHub Projects was an essential tool for tracking progress and managing tasks throughout the Agile development process. A Kanban-style board was used to track progress visually. Each issue was based on a user story and moved through the different phases of *To Do*, *In Progress*, and *Done*, following the corresponding sprints.
 Custom labels were created to distinguish the issues visually. Labels were used to assign a priority, a functionality, and an Epic. 
-<br><br>
+<br>
 A total of 37 user stories were created and completed across 9 Epics.
 
-Priorities, based on MOSCOW model of prioritization 
+**Priorities, based on MOSCOW model of prioritization**
 - *must-have*
 - *should-have*
 - *could-have* 
 - *will-not-have*,
 
-Functionalities, based on CRUD model 
+**Functionalities, based on CRUD model**
 - C Create
 - R read
 - U update 
 - D delete
 
-Epics 
+**Epics** 
 - Account Management
 - Admin Access
 - Basket & Checkout
@@ -172,19 +173,19 @@ Epics
 
 *CRUD* functionality has been implemented throughout the project to create an entirely usable experience for the user. Some examples of this include:
  
-#### Admin (superuser only)
+**Admin (superuser only)**
 - *C*: Add new products. 
 - *R*: View all products, subscribers, reviews, etc. 
 - *U*: Update existing product listings. 
 - *D*: Delete product listings and reviews. 
  
-#### Reviews (logged-in users only)
+**Reviews (logged-in users only)**
 - *C*: Create a new product review.
 - *R*: View all reviews posted by this used. 
 - *U*: Update reviews posted by this user.
 - *D*: Delete reviews posted by this user.
  
-#### Basket (all users)
+**Basket (all users)**
 - *C*: Add a new item to the basket.
 - *R*: View basket contents.
 - *U*: Update quantities of items in the basket.
@@ -212,14 +213,131 @@ Epics
 
 ## Marketing
 
-### Search Engine Optimisation
+### Search Engine Optimisation (SEO)
+
+SEO is a crucial aspect of any website, and Bake Me Happy is no exception. To ensure Bake Me Happy ranks well on search engines such as Google and attracts the right audience, Bake Me Happy utilizes advanced Search Engine Optimization (SEO) techniques.
+<br>
+The following SEO strategies were implemented:
+
+**Keyword Research:**
+
+Tools like [Wordtracker](https://www.wordtracker.com/) were used to identify high-ranking keywords related to German baking, such as:
+- "Authentic German bakery Ireland"
+- "German bread delivery Ireland"
+- "Traditional German cakes"
+- "Online bakery Ireland"
+ 
+These keywords will need to be reviewed and updated regularly, with tools like  [Google Analytics](https://developers.google.com/analytics).
+
+**Content Optimisation:**
+
+The website features high-quality, descriptive content that highlights the unique selling points of Bake Me Happy, such as its German heritage and fresh, handmade products.
+The "About" section is rich in keywords and tells a compelling story that resonates with customers.
+
+**Technical SEO:**
+
+The website is mobile-friendly and responsive, ensuring a seamless user experience across devices.
+Fast loading times are achieved through optimized images and efficient code.
+A sitemap is submitted to search engines to ensure all pages are indexed.
+
+**Local SEO:**
+
+Bake Me Happy targets customers in Ireland, so local keywords like "German bakery Ireland" and "Irish online bakery" are prioritized.
+As a real business, Bake Me Happy would be listed on Google My Business to improve visibility in local searches.
 
 ### Business Model
 
+[Miro](https://miro.com) was used to create a business model canvas to visualize and define Bake Me Happy's key elements.
+
 <details>
     <summary> Business Model Image</summary>
-    <img src = "assets/readme-files/images/business-model.png">
+    <img src = "assets/readme-files/images/business-model-canvas.png">
 </details>
+
+#### Company Description
+
+Bake Me Happy is a small, friend-run bakery based in Ireland, specializing in authentic German baked goods. Their mission is to provide high-quality, freshly baked goods made from traditional recipes. The business was founded by German expats who wanted to share the nostalgic flavors of their homeland with their new community. Bake Me Happy offers a wide range of products, including rye breads, brioche rolls, and classic German cakes, all made fresh to order using traditional recipes and high-quality ingredients.
+
+#### Marketing Strategy
+
+Bake Me Happy's marketing strategy focuses on building a strong online presence and fostering community engagement. The bakery aims to create a welcoming and inclusive environment for customers, emphasizing the importance of community and connection. 
+
+**Social Media Presence:**
+
+A dedicated [Facebook Business Page]() is used to engage with customers, share updates, and promote new products.
+
+<details>
+    <summary> Facebook Business Page Image</summary>
+    <img src = "assets/readme-files/images/fb-business-page.png">
+</details>
+<br>
+
+**Email Marketing:**
+
+Regular newsletters are sent to subscribers, featuring exclusive discounts, seasonal specials, and baking tips.
+
+**Local Partnerships:**
+
+For a real business, collaborations with local cafes and food markets help increase brand visibility.
+Partnerships with food bloggers and influencers drive traffic to the website.
+
+#### Customer Analysis
+
+Bake Me Happy's primary customers are German expats living in Ireland who crave a taste of home. Their products appeal to families and individuals who value fresh, made-to-order bakery items made from real ingredients.
+
+**Target Audience:**
+
+- Primary: German expats in Ireland who crave the nostalgic flavors of home.
+- Secondary: Irish locals interested in exploring authentic German baking.
+- Tertiary: Food enthusiasts and customers seeking high-quality, preservative-free baked goods.
+
+**Customer Needs:**
+- Authentic, high-quality baked goods.
+- Convenient online ordering and delivery.
+- A connection to German culture and traditions.
+
+#### Competitor Analysis
+
+While there are several bakeries in Ireland, Bake Me Happy stands out due to its focus on authentic German baking. The market will need to be monitored continously to stay ahead of trends and ensure Bake Me Happy's offerings remain competitive.
+
+**Direct Competitors:**
+- Other online bakeries in Ireland offering artisanal or specialty baked goods.
+- Local bakeries with delivery options.
+
+**Indirect Competitors:**
+- Supermarkets offering mass-produced baked goods.
+- International online bakeries shipping to Ireland.
+
+**Competitive Advantages:**
+- Authentic German recipes and techniques.
+- Fresh, handmade products with no preservatives.
+- A strong brand story rooted in tradition and nostalgia.
+
+#### SWOT Analysis
+
+**Strengths:**
+- Unique selling point: Authentic German baked goods.
+- High-quality, preservative-free products.
+- Strong emotional connection with German expats.
+- Convenient online ordering and delivery.
+
+**Weaknesses:**
+- Limited marketing budget for traditional advertising.
+- Limited physical presence (online-only).
+- Reliance on delivery services, which may affect customer experience.
+- Niche market appeal may limit customer base.
+
+**Opportunities:**
+- Expanding product range to include seasonal or festive items.
+- Partnering with local cafes and restaurants.
+- Offering the subscription service for regular deliveries.
+- Leveraging social media to reach a wider audience.
+
+**Threats:**
+- Competition from established local bakeries and supermarkets.
+- Fluctuation in ingredient and delivery costs.
+- Economic downturns affecting discretionary spending.
+- Changes in consumer preferences.
 
 [Back to top ⇧](#bake-me-happy)
 
@@ -284,6 +402,7 @@ Sign Out | ![Desktop Sign Out Image](assets/readme-files/wireframes/sign-out-des
 
 
 ### Fixtures
+
 
 [Back to top ⇧](#bake-me-happy)
 
@@ -391,6 +510,7 @@ As a **logged-in shopper**, I can **view my favorites list** so that **easily ac
 ### Existing Features
 ### Future Features
 
+
 [Back to top ⇧](#bake-me-happy)
 
 ## Technologies Used
@@ -415,6 +535,7 @@ As a **logged-in shopper**, I can **view my favorites list** so that **easily ac
 ### GitHub
 
 ### Heroku
+
 
 [Back to top ⇧](#bake-me-happy)
 
@@ -913,6 +1034,7 @@ The scores are ordered as *Performance* - *Accessibility* - *Best Practices* - *
 |Sign Out | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-out-lighthouse.png)</details>| TBA |
 |404 | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/404-lighthouse.png)</details>| TBA |
 
+
 [Back to top ⇧](#bake-me-happy)
 
 ## Finished Product
@@ -939,6 +1061,7 @@ Sign Out | ![Result](assets/readme-files/images/sign-out.png) | ![Result](assets
 404 Page | ![Result](assets/readme-files/images/404-page.png) | ![Result](assets/readme-files/images/404-page-mobile.png)
 
 
+
 [Back to top ⇧](#bake-me-happy)
 
 ## Credits
@@ -949,8 +1072,10 @@ Sign Out | ![Result](assets/readme-files/images/sign-out.png) | ![Result](assets
 
 ### Code
 
+
 [Back to top ⇧](#bake-me-happy)
 
 ## Acknowledgements
+
 
 [Back to top ⇧](#bake-me-happy)
