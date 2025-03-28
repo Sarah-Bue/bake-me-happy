@@ -356,6 +356,8 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 |basket/contexts.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-contexts-validation.png)</details>| Pass |
 |basket/urls.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-urls-validation.png)</details>| Pass |
 |basket/views.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-views-validation.png)</details>| Pass |
+|basket/basket-tools.py | All clear, no errors found | <details><summary>Validation Image</summary>![Result](assets/readme-files/code-validations/basket-basket-tools-validation.png)</details>| Pass |
+
 
 #### Checkout
 

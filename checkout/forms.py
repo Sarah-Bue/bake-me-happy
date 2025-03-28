@@ -52,7 +52,7 @@ class OrderForm(forms.ModelForm):
         self.fields['payment_method'] = forms.ChoiceField(
             choices=(
                 ('card', 'Credit/Debit Card'), ('cash', 'Cash on Pickup')),
-            widget=forms.RadioSelect(), 
+            widget=forms.RadioSelect(),
             required=True,
             initial='card'
         )

@@ -773,6 +773,7 @@ The following features could be implement in future versions of the site to impr
 - [Coolors](https://coolors.co) was used to create a color scheme for the website.
 - [Draw.io](https://www.draw.io) was used to visualize the structure of the website and relationships between pages.
 - [Favicon.io](https://favicon.io) was used to create the site favicon.
+- [Flake8](https://flake8.pycqa.org/en/latest/) was used to validate the Python code.
 - [Gemini](https://gemini.google.com/) was used to help generate the product and review fixtures.
 - [Getimg.ai](https://getimg.ai/) was used to generate the hero image.
 - [Git](https://git-scm.com) was used for version control by committing and pushing code to GitHub.
