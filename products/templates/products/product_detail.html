@@ -63,7 +63,7 @@
                         {% endif %}
 
                         <!-- Product Description -->
-                        <p class="mb-4">{{ product.description }}</p>
+                        <p class="mb-4">{{ product.description|safe }}</p>
 
                         <!-- Allergen Information -->
                         <div class="mb-4 p-3 border border-warning rounded bg-light">

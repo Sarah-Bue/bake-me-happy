@@ -36,6 +36,12 @@ ALLOWED_HOSTS = [
     'bake-me-happy-b9b73285e6cc.herokuapp.com'
     ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://127.0.0.1',
+    'https://localhost',
+    'https://bake-me-happy-b9b73285e6cc.herokuapp.com'
+    ]
+
 # Application definition
 
 INSTALLED_APPS = [

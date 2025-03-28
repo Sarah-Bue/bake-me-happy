@@ -490,8 +490,9 @@ Browser | Outcome | Pass/Fail
 
 | Feature | Bug | Fix |
 |---|---|---|
-| Feature | Bug | Fix |
-| Feature | Bug | Fix |
+| Adding a product review | Ratings added through the website rather than through fixtures override rather than update ratings declared in the fixtures | Not fixed |
+| Adding / Editing a product / Allergens| Allergens of products added / edited on the website are split by letter, e.g. "milk" turning into "m", "i", "l", "k" | Not fixed |
+| Adding a product | Products added through the website do not show up in alphabetical order on the manage products page, but rather at the end of the list | Fixed |
 
 [Back to top ⇧](#bake-me-happy-testing)
 
@@ -502,38 +503,26 @@ Browser | Outcome | Pass/Fail
 The scores are ordered as *Performance* - *Accessibility* - *Best Practices* - *SEO*.
 
 | Tested | Result | View Result | Pass/Fail |
---- | --- | --- | ---
-|Home | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/home-lighthouse.png)</details>| TBA |
-|About | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/about-lighthouse.png)</details>| TBA |
-|FAQ | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/faq-lighthouse.png)</details>| TBA |
-|Contact Us | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/contact-lighthouse.png)</details>| TBA |
-|Product List | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/products-lighthouse.png)</details>| TBA |
-|Product Details | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/product-details-lighthouse.png)</details>| TBA |
-|Basket | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/basket-lighthouse.png)</details>| TBA |
-|Checkout | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/checkout-lighthouse.png)</details>| TBA |
-|Checkout-Success | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/checkout-success-lighthouse.png)</details>| TBA |
-|Profile | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/profile-lighthouse.png)</details>| TBA |
-|My Orders | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-orders-lighthouse.png)</details>| TBA |
-|My Reviews | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-reviews-lighthouse.png)</details>| TBA |
-|My Favorites | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-favorites-lighthouse.png)</details>| TBA |
-|Store Management | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/store-management-lighthouse.png)</details>| TBA |
-|Manage Products | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-products-lighthouse.png)</details>| TBA |
-|Add a Product | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/add-product-lighthouse.png)</details>| TBA |
-|Edit a Product | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/edit-product-lighthouse.png)</details>| TBA |
-|Manage Reviews | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-reviews-lighthouse.png)</details>| TBA |
-|Manage subscribers | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-subscribers-lighthouse.png)</details>| TBA |
-|Manage orders | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-orders-lighthouse.png)</details>| TBA |
-|Manage contacts | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-contacts-lighthouse.png)</details>| TBA |
-|Edit About Content | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/edit-about-lighthouse.png)</details>| TBA |
-|Manage Baker Profiles | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-bakers-lighthouse.png)</details>| TBA |
-|Edit Baker Profiles | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/edit-baker-lighthouse.png)</details>| TBA |
-|Manage FAQ | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-faq-lighthouse.png)</details>| TBA |
-|Manage Allergen Information | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-allergen-information-lighthouse.png)</details>| TBA |
-|Manage Privacy Policy | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-privacy-policy-lighthouse.png)</details>| TBA |
-|Sign In | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-in-lighthouse.png)</details>| TBA |
-|Sign Up | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-up-lighthouse.png)</details>| TBA |
-|Sign Out | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-out-lighthouse.png)</details>| TBA |
-|404 | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/404-lighthouse.png)</details>| TBA |
+| --- | --- | --- | --- |
+| Home | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/home-lighthouse.png)</details> | TBA |
+| About | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/about-lighthouse.png)</details> | TBA |
+| FAQ | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/faq-lighthouse.png)</details> | TBA |
+| Contact Us | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/contact-lighthouse.png)</details> | TBA |
+| Allergen Information | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/allergen-info-lighthouse.png)</details> | TBA |
+| Profile | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/profile-lighthouse.png)</details> | TBA |
+| Favorites | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-favorites-lighthouse.png)</details> | TBA |
+| Orders | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-orders-lighthouse.png)</details> | TBA |
+| Reviews | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/my-reviews-lighthouse.png)</details> | TBA |
+| Product List | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/product-list-lighthouse.png)</details> | TBA |
+| Product Detail | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/product-details-lighthouse.png)</details> | TBA |
+| Store Management | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/store-management-lighthouse.png)</details> | TBA |
+| Manage Products | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/manage-products-lighthouse.png)</details> | TBA |
+| Add Product | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/add-product-lighthouse.png)</details> | TBA |
+| Edit About | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/edit-about-lighthouse.png)</details> | TBA |
+| Sign In | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-in-lighthouse.png)</details> | TBA |
+| Sign Up | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-up-lighthouse.png)</details> | TBA |
+| Sign Out | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/sign-out-lighthouse.png)</details> | TBA |
+| 404 Page | TBA | <details><summary>Lighthouse Image</summary>![Result](assets/readme-files/lighthouse-reports/404-lighthouse.png)</details> | TBA |
 
 [Back to top ⇧](#bake-me-happy-testing)
 
