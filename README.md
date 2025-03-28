@@ -359,7 +359,7 @@ The main colors used in the project are:
 
 - F1D4C6 (Pale Dogwood): Used for call to action sections on the home page.
 
-- FFC107 (Amber): Used to highlight active links and stars in review forms.
+- FFC107 (Amber): Used to highlight active links and stars in review forms as well as allergens on the product detail pages.
 
 ### Typography
 Fonts were paired and imported using [Google Fonts](https://fonts.google.com). <br>
@@ -554,13 +554,25 @@ As a **logged-in shopper**, I can **view my favorites list** so that **easily ac
 
 ### General
 
+A back to top button is available in the bottom right corner of every page to allow for easy navigation.
+
+<details>
+    <summary> Back to Top Button Image </summary>
+    <img src = "assets/readme-files/images/btt-button.png">
+</details>
+
 #### Responsiveness
 
+Most people access the internet through moile devices. With that in mind, this website was designed to maintain as much of its functionality on smaller screens. Changes between the mobile and desktop layout include:
 
+- Single product card presentation (one card per row as opposed to multiple small cards)
+- Fewer columns displayed in tables
+- Main navigation is turned into an offscreen canvas
+- Secondary navigations use icons to save space
 
 <details>
     <summary> Mobile Menu Image </summary>
-    <img src = "assets/readme-files/images/mobile-menu.png">
+    <img src = "assets/readme-files/images/mobile-profile-navbar.png">
 </details>
 
 <details>
@@ -574,7 +586,7 @@ The navigation bar is the same across all pages to provide users with a familiar
 The navigation bar contains a dynamically updated visual indicator of the shopping basket, which serves as a link to the baset.
 The navigation bar includes a collapsible profile menu with changing options depending on the status of the user - guest user vs. logged in user vs site admin.
 <br>
-Secondary navigation bars appear on product and profile pages to allow quick and easy access to related functions.
+Secondary navigation bars appear on product and profile pages to allow quick and easy access to related functions. The product navigation bar includes a search field for product searches.
 <br>
 The header includes the main background image, which displays a welcome message across the home page. The image is visible on all front-facing pages except the home page, to avoid visual clutter. However, it is not rendered on admin-related pages like store management to allow for better focus.
 
@@ -589,12 +601,7 @@ The header includes the main background image, which displays a welcome message 
 </details>
 
 <details>
-    <summary> Product Navbar Image </summary>
-    <img src = "assets/readme-files/images/product-navbar.png">
-</details>
-
-<details>
-    <summary> Profile Image </summary>
+    <summary> Profile Navigation Bar Image </summary>
     <img src = "assets/readme-files/images/profile-navbar.png">
 </details>
 
@@ -610,6 +617,25 @@ Due to the density of informaiton in the footer, it appears quite large on mobil
     <img src = "assets/readme-files/images/footer.png">
 </details>
 
+#### Toasts
+
+User feedback is provided via toasts that appear in the top right corner of the screen. These toasts are color coded to be easily distinguishable.
+
+<details>
+    <summary> Danger Toast Image </summary>
+    <img src = "assets/readme-files/images/toast-danger.png">
+</details>
+
+<details>
+    <summary> Success Toast Image </summary>
+    <img src = "assets/readme-files/images/toast-success.png">
+</details>
+
+<details>
+    <summary> Info Toast Image </summary>
+    <img src = "assets/readme-files/images/toast-info.png">
+</details>
+
 ### Pages
 
 #### Home
@@ -618,8 +644,13 @@ The home page contains multiple buttons to take the user to the store, including
 The home page contains a clearly visible call to action, to invite users to start shopping or contact the business with questions, as well as a carousel displaying customer testimonials to showcase the positive relationship between the business and its customers.
 
 <details>
-    <summary> Home Image </summary>
-    <img src = "assets/readme-files/images/home.png">
+    <summary> Carousel Image </summary>
+    <img src = "assets/readme-files/images/carousel.png">
+</details>
+
+<details>
+    <summary> Call to Action Image </summary>
+    <img src = "assets/readme-files/images/cta.png">
 </details>
 
 #### Contact Us
@@ -627,64 +658,97 @@ The home page contains a clearly visible call to action, to invite users to star
 The contact us page contains multiple ways to contact the business, including a contact form. The contact form lets users select a subject from a predefined list to help sort and group incoming messages.
 
 <details>
-    <summary> Contact Us Image </summary>
+    <summary> Contact Us Form Image </summary>
     <img src = "assets/readme-files/images/contact-form.png">
-</details>
-
-#### About Us
-
-<details>
-    <summary> Footer Image </summary>
-    <img src = "assets/readme-files/images/footer.png">
 </details>
 
 #### FAQ
 
+The FAQ page lists the most frequently asked questions in individual accordions, with the questions always visible and the answers hidden until the accordion is clicked. Only one answer can be revealed at a time. This allows users to quickly scan through the list of questions and focus on the answer they were looking for.
+
 <details>
-    <summary> Footer Image </summary>
-    <img src = "assets/readme-files/images/footer.png">
+    <summary> Accordion Image </summary>
+    <img src = "assets/readme-files/images/accordion.png">
 </details>
 
 #### Product List
 
+Each product is presented in a card. On larger screens, these cards have hover effect to provide visual feedback to the user. When the card image is clicked, the user is taken to the product detail page. 
+Products can be added to the shopping basket with a quantitsy of 1 by clicking the basket icon. The heart icon adds products to the user's favorites list, if they are logged in. The heart icon appears empty by default but will toggle to a filled in heart for items that are on the favorites list.
+
 <details>
-    <summary> Footer Image </summary>
-    <img src = "assets/readme-files/images/footer.png">
+    <summary> Product Card Image </summary>
+    <img src = "assets/readme-files/images/product-card.png">
 </details>
 
 #### Product Details
 
+The product detail page contains allr elevant information about a product. Clicking the image will open it in a new tab. Products can be added to the cart up to the maximum quantity available. Products can also be toggled on/off the favorites list.
+Allergens are displayed prominently to alert users with allergies. 
+Logged in users have the optopn to leave a product review, while guest users can only view existing reviews.
+
 <details>
-    <summary> Footer Image </summary>
-    <img src = "assets/readme-files/images/footer.png">
+    <summary> Product Info Image </summary>
+    <img src = "assets/readme-files/images/product-info.png">
 </details>
 
 #### Basket
 
+In the basket, users can see the products they have added to their basket, as well as the total cost of the items. Item quantitites can be adjusted up to the maximum quantity available. A messageUsers can remove individual items and clear their entire basket. Clicking on a product image will redirect users to the product detail page. From the basket, users can move to the checkout page.
+Depending on the total of the basket, a delivery fee may be added. The delivery charge is clearly visible on the basket page. Users receive feedback about how much more they'd have to spend in order to receive free shiping.
+
 <details>
-    <summary> Footer Image </summary>
-    <img src = "assets/readme-files/images/footer.png">
+    <summary> Basket Detail Image </summary>
+    <img src = "assets/readme-files/images/basket-detail.png">
 </details>
 
 #### Checkout
 
+The checkout page contains a form for users to enter their shipping information. For logged in users, these fields will be prepopulated with the information from their profile. Logged in users can tick a box to save the entered information to their profile, while guest users see a prompt to log in or create an account to save their information.
+Users can choose between two delivery options via radio buttons - delivery, which is the default option, or pickup. The only option to pay fot delivery is by card via Stripe, using the field at the bottom of the screen. If ppickup is selected, no delivery charge is added to the total. Additionally, when users select to pickup their order, a seecond set of radio buttons becomes visible, allowing users to choose between card payment via Stripe or cash payment on pickup. If cash payment is selected, the checkout process via Stripe is bypassed and the order confirmtion is displayed.
+The country field on the checkout page is set to Ireland and cannot be changed.
+
 <details>
-    <summary> Footer Image </summary>
-    <img src = "assets/readme-files/images/footer.png">
+    <summary> Checkout Pickup Image </summary>
+    <img src = "assets/readme-files/images/checkout-pickup-cash.png">
+</details>
+
+<details>
+    <summary> Checkout Delivery Image </summary>
+    <img src = "assets/readme-files/images/checkout-delivery-card.png">
 </details>
 
 #### Profile
 
+In the profile page, users can view and update their personal information. By default, their information are read-only, and the editable form becomes visible by clicking the relevant button. The country field on the profile page is set to Ireland and cannot be changed, same as on the checkout page. Users can reset their password and delete their profile form this page as well.
+A secondary navigation bar appears on the profile app to allow users to navigate between their relevant section and view their orders, favorite list, and product reviews. On mobile, the navigation bar uses icons to save space.
+- The favorite list is presented as smaller product cards. Favorite products can be deleted from the list and added to the basket by clicking the corresponding buttons.
+- Orders are displayed in a table. Clicking on the eye icon will open the oder confirmation in a new tab.
+- Reviews are displayed in a table and can be viewed on the product page, edited, and deleted by clicking the correspondng button.
+
 <details>
-    <summary> Footer Image </summary>
-    <img src = "assets/readme-files/images/footer.png">
+    <summary> Update Profile Image </summary>
+    <img src = "assets/readme-files/images/profile-edit.png">
+</details>
+
+<details>
+    <summary> Profile Table Image </summary>
+    <img src = "assets/readme-files/images/profile-table.png">
 </details>
 
 #### Store Management
 
+The store management page allows admin users to easily maintain the website's content and monitor customer interactions. A dashboard at the top provides an easy overview of the sites main stats, such as amount of products, subscribers, reviews, etc. Each of these cards is clickable and will bring site admins to a more detailed view of that section. The dashboard is collapsed on mobile screens to save space.
+These sections can also be reached by clicking the links in the category cards. Where applicable, store admins can view a table for eah of these sections containing more details as well as action buttons. This is very similar to the way information is presented in the user profile tables. If no tables are neccessary, site admins are brought straight to the relevant editor, where they can use a WYSISYG editor to make changes to the content.
+
 <details>
-    <summary> Footer Image </summary>
-    <img src = "assets/readme-files/images/footer.png">
+    <summary> Dashboard Image </summary>
+    <img src = "assets/readme-files/images/dashboard.png">
+</details>
+
+<details>
+    <summary> Store Management Table Image </summary>
+    <img src = "assets/readme-files/images/store-management-table.png">
 </details>
 
 ### Future Features
@@ -698,6 +762,7 @@ The following features could be implement in future versions of the site to impr
 - A newsletter signup pop up
 - Promo codes at checkout
 - Search options for admin views
+- Search / sort by allergens and ingredients
 
 [Back to top ⇧](#bake-me-happy)
 
