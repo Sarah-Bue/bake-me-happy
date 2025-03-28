@@ -77,7 +77,16 @@
                                 </table>
                             </div>
                         {% else %}
-                            <p>You haven't placed any orders yet.</p>
+                        <!-- No Orders -->
+                            <div class="row">
+                                <div class="col text-center py-5" role="alert" aria-live="polite">
+                                    <p class="lead mb-4">You haven't placed any orders yet.</p>
+                                    <!-- Link to Products Page -->
+                                    <a href="{% url 'products' %}" class="btn btn-outline-dark">
+                                        <i class="fas fa-chevron-left me-2" aria-hidden="true"></i>Shop Now
+                                    </a>
+                                </div>
+                            </div>  
                         {% endif %}
                     </div>
                 </div>

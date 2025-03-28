@@ -1,1 +1,11 @@
-{% include "account/email/email_confirmation_message.txt" %}
+Hello from Bake Me Happy!
+
+You're receiving this email because user {{ user.username }} has given your email address to register an account on Bake Me Happy.
+
+To confirm this is correct, click the link below:
+{{ activate_url }}
+
+If you did not request this, please ignore this email.
+
+Thank you for using Bake Me Happy!
+Bake Me Happy Team

@@ -773,6 +773,8 @@ The following features could be implement in future versions of the site to impr
 - [Coolors](https://coolors.co) was used to create a color scheme for the website.
 - [Draw.io](https://www.draw.io) was used to visualize the structure of the website and relationships between pages.
 - [Favicon.io](https://favicon.io) was used to create the site favicon.
+- [Gemini](https://gemini.google.com/) was used to help generate the product and review fixtures.
+- [Getimg.ai](https://getimg.ai/) was used to generate the hero image.
 - [Git](https://git-scm.com) was used for version control by committing and pushing code to GitHub.
 - [GitHub](https://github.com) was used to store the project's code.
 - [Grammalry](https://app.grammarly.com) was used to spell-check the contents of the Readme.
@@ -806,8 +808,8 @@ The following features could be implement in future versions of the site to impr
 - [Gunicorn](https://gunicorn.org/) was used as a Python WSGI HTTP Server for UNIX to support the deployment of the Django application.
 - [jQuery 3.6.0](https://jquery.com/) was used as a JavaScript library to simplify JavaScript code.
 - [Pillow](https://pypi.org/project/Pillow/) was used to add image processing capabilities.
+- [Pixabay](https://pixabay.com/) was used to source images.
 - [Summernote](https://summernote.org/) was used as a WYSIWYG editor.
-
 
 [Back to top ⇧](#bake-me-happy)
 
@@ -1019,24 +1021,27 @@ The testing documentation can be found [here ⇨](TESTING.md).
 
 Page | Desktop Version | Mobile Version
 --- | --- | ---
-Home | ![Result](assets/readme-files/images/home-page.png) | ![Result](assets/readme-files/images/home-page-mobile.png)
-About | ![Result](assets/readme-files/images/about-page.png) | ![Result](assets/readme-files/images/about-page-mobile.png)
-FAQ | ![Result](assets/readme-files/images/faq.png) | ![Result](assets/readme-files/images/faq-mobile.png)
-Contact Us | ![Result](assets/readme-files/images/contact.png) | ![Result](assets/readme-files/images/contact-mobile.png)
-Allergen Information | ![Result](assets/readme-files/images/allergen-info.png) | ![Result](assets/readme-files/images/allergen-info-mobile.png)
-Profile | ![Result](assets/readme-files/images/profile.png) | ![Result](assets/readme-files/images/profile-mobile.png)
-Favorites | ![Result](assets/readme-files/images/favorites.png) | ![Result](assets/readme-files/images/favorites-mobile.png)
-Orders | ![Result](assets/readme-files/images/orders.png) | ![Result](assets/readme-files/images/orders-mobile.png)
-Reviews | ![Result](assets/readme-files/images/reviews.png) | ![Result](assets/readme-files/images/reviews-mobile.png)
-Product List | ![Result](assets/readme-files/images/products.png) | ![Result](assets/readme-files/images/products-mobile.png)
-Product Detail | ![Result](assets/readme-files/images/product-details.png) | ![Result](assets/readme-files/images/product-details-mobile.png)
-Store Management | ![Result](assets/readme-files/images/store-management.png) | ![Result](assets/readme-files/images/store-management-mobile.png)
-Manage Products | ![Result](assets/readme-files/images/manage-products.png) | ![Result](assets/readme-files/images/manage-products-mobile.png)
-Manage Contacts | ![Result](assets/readme-files/images/manage-contacts.png) | ![Result](assets/readme-files/images/manage-contacts-mobile.png)
-Sign In | ![Result](assets/readme-files/images/sign-in.png) | ![Result](assets/readme-files/images/sign-in-mobile.png)
-Sign Up | ![Result](assets/readme-files/images/sign-up.png) | ![Result](assets/readme-files/images/sign-up-mobile.png)
-Sign Out | ![Result](assets/readme-files/images/sign-out.png) | ![Result](assets/readme-files/images/sign-out-mobile.png)
-404 Page | ![Result](assets/readme-files/images/404-page.png) | ![Result](assets/readme-files/images/404-page-mobile.png)
+Home | ![Result](assets/readme-files/images/home-desktop.png) | ![Result](assets/readme-files/images/home-mobile.png)
+About | ![Result](assets/readme-files/images/about-desktop.png) | ![Result](assets/readme-files/images/about-mobile.png)
+FAQ | ![Result](assets/readme-files/images/faq-desktop.png) | ![Result](assets/readme-files/images/faq-mobile.png)
+Contact Us | ![Result](assets/readme-files/images/contact-desktop.png) | ![Result](assets/readme-files/images/contact-mobile.png)
+Allergen Information | ![Result](assets/readme-files/images/allergen-info-desktop.png) | ![Result](assets/readme-files/images/allergen-info-mobile.png)
+Profile | ![Result](assets/readme-files/images/profile-desktop.png) | ![Result](assets/readme-files/images/profile-mobile.png)
+Favorites | ![Result](assets/readme-files/images/my-favorites-desktop.png) | ![Result](assets/readme-files/images/my-favorites-mobile.png)
+Orders | ![Result](assets/readme-files/images/my-orders-desktop.png) | ![Result](assets/readme-files/images/my-orders-mobile.png)
+Reviews | ![Result](assets/readme-files/images/my-reviews-desktop.png) | ![Result](assets/readme-files/images/my-reviews-mobile.png)
+Product List | ![Result](assets/readme-files/images/product-list-desktop.png) | ![Result](assets/readme-files/images/product-list-mobile.png)
+Product Detail | ![Result](assets/readme-files/images/product-details-desktop.png) | ![Result](assets/readme-files/images/product-details-mobile.png)
+Store Management | ![Result](assets/readme-files/images/store-management-desktop.png) | ![Result](assets/readme-files/images/store-management-mobile.png)
+Manage Products | ![Result](assets/readme-files/images/manage-products-desktop.png) | ![Result](assets/readme-files/images/manage-products-mobile.png)
+Add Product | ![Result](assets/readme-files/images/add-product-desktop.png) | ![Result](assets/readme-files/images/add-product-mobile.png)
+Edit About | ![Result](assets/readme-files/images/edit-about-desktop.png) | ![Result](assets/readme-files/images/edit-about-mobile.png)
+Sign In | ![Result](assets/readme-files/images/sign-in-desktop.png) | ![Result](assets/readme-files/images/sign-in-mobile.png)
+Sign Up | ![Result](assets/readme-files/images/sign-up-desktop.png) | ![Result](assets/readme-files/images/sign-up-mobile.png)
+Sign Out | ![Result](assets/readme-files/images/sign-out-desktop.png) | ![Result](assets/readme-files/images/sign-out-mobile.png)
+404 Page | ![Result](assets/readme-files/images/404-desktop.png) | ![Result](assets/readme-files/images/404-mobile.png)
+
+**Note:** In the mobile screenshots, the banner image is displaying as a black background. However, when viewing the pages on a mobile device, the banner image is displaying correctly.
 
 [Back to top ⇧](#bake-me-happy)
 
@@ -1044,14 +1049,52 @@ Sign Out | ![Result](assets/readme-files/images/sign-out.png) | ![Result](assets
 
 ### Content
 
+All content was written by the developer.
+
+The following resources were consulted frequently:
+
+- [Django Documentation](https://docs.djangoproject.com/)
+- [Stripe Documentation](https://docs.stripe.com/)
+- [Amazon S3 Documentation](https://docs.aws.amazon.com/s3/)
+- [Django-allauth Documentation](https://django-allauth.readthedocs.io/en/latest/)
+- [Bootstrap Documentation](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [JavaScript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Developedbyed's *Learn Javascript* [Youtube Playlist](https://www.youtube.com/playlist?list=PLDyQo7g0_nsXlSfuoBpG5Fgz0Qe3IvWnA)
+- Codemy's *Let's build an e-commerce website* [Youtube Playlist](https://www.youtube.com/watch?v=u6R4vBa7ZK4&list=PLCC34OHNcOtpRfBYk-8y0GMO4i1p1zn50)
+
+
 ### Media
 
+- The hero image and logo were generated by Alex Büttner using [Getimg.ai](https://getimg.ai/).
+- The product images were sourced from [Pixabay](https://pixabay.com/) and [Pinterest](https://www.pinterest.com/).
+- The product descriptions and reviews were generated with the help of [Gemini](https://gemini.google.com/). 
+
 ### Code
+
+- The code for *basket/contexts.py* has been adapted from Code Institute's "Boutique Ado" project.
+- The desktop view of the basket has been adapted from Code Institute's "Boutique Ado" project.
+- The product sorting functionality has been adapted from Code Institute's "Boutique Ado" project.
+- The code for *custom_clearable_file_input.html* has been adapted from Code Institute's "Boutique Ado" project.
+- The code for the county and subject dropdowns has been adapted from Code Institute's "Boutique Ado" project.
+- The Back to Top button has been adapted from Code Institute's "Boutique Ado" project
+
+- The product detail page has been adapted from Start Bootstrap's ["Shop Item" template](https://startbootstrap.com/template/shop-item).
+- The product list page has been adapted from Start Bootstrap's ["Shop Homepage" template](https://startbootstrap.com/template/shop-homepage).
+- The desktop view of the main navigation has been adapted from Start Bootstrap's ["Shop Homepage" template](https://startbootstrap.com/template/shop-homepage).
+
+- The star rating has been adapted from CSS Tricks'["Star Rating Widget"](https://css-tricks.com/star-ratings/) tutorial and [Bootstrap Star Rating](https://github.com/kartik-v/bootstrap-star-rating).
+- The mobile off-canvas navigation has been adapted from Bootstrap 5's [Off-Canvas](https://getbootstrap.com/docs/5.0/components/offcanvas/) component.
+- The code for *products/widgets.py* has been adapted from https://github.com/django/django.
+- The footer has been adapted from MDB's [Footer with newsletter section](https://mdbootstrap.com/docs/standard/navigation/footer/examples-and-customization/).
 
 
 [Back to top ⇧](#bake-me-happy)
 
 ## Acknowledgements
 
+- A heartfelt thank you to Code Institute, its incredible tutors, and the supportive Slack community for their invaluable guidance and encouragement throughout this journey.  
+- To Marcel, my mentor, thank you for your insightful feedback and helping me stay on track.  
+- A special shoutout to Nono for your endless patience and for being my go-to person for all things JavaScript.  
+- And finally, to my husband, thank you for your constant encouragement, understanding, and support every step of the way — I couldn’t have done this without you.
 
 [Back to top ⇧](#bake-me-happy)
