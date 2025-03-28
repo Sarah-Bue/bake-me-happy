@@ -458,6 +458,127 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 
 ## Manual Testing
 
+### General
+
+| Element | Expected Outcome | Pass/Fail | Notes |
+|---|---|---|---|
+| Responsive Design | Website is responsive on various screen sizes| Pass | Tested on multiple devices |
+| Accessibility | Website is accessible using a screen reader | Pass | Semantic HTML and alt text implemented |
+| Toast Messages | Toast messages provide feedback on user actions | Pass | |
+| Deletion confirmation | Before deleting an item, a confirmation dialog is displayed | Pass | Dellete product / review, account |
+
+### Contact Form
+
+| Element | Expected Outcome | Pass/Fail | Notes |
+|---|---|---|---|
+| Contact Form | Submitting the form adds the contact to the admin's store management panel | Pass | |
+| Contact Form | Users can chose from predefined subjects | Pass | |
+
+### Header & Navigation
+
+| Element | Expected Outcome | Pass/Fail | Notes |
+|---|---|---|---|
+| Logo| Click on logo redirects user to homepage | Pass | |
+| Main Navigation Bar | Click on the page name redirects the user to the corresponding page | Pass | |
+| Main Navigation Bar | Active page is highlighted | Pass | |
+| Main Navigation Bar | Profile dropdown options depend on user status | Pass | Log in / Log out toggle, only logged-in users see profile option, only site admins see store managemend option |
+| Secondary Navigation Bar | On product pages, a secondary product navigation bar is displayed | Pass | |
+| Secondary Navigation Bar | On profile pages, a secondary profile navigation bar is displayed | Pass | |
+| Header Image | The header image is not rendered on admin pages | Pass | |
+
+### Footer
+
+| Element | Expected Outcome | Pass /Fail | Notes| 
+|---|---|---|---|
+| Newsletter Signup| Users can subscribe to the newsletter | Pass | |
+| Newsletter Signup| Users receive a confirmation email after subscribing | Pass | |
+| External Footer Links | Links open in a new tab | Pass | |
+| Internal Footer Links | Links navigate to the respective pages | Pass | |
+
+### Search & Sort Functionality
+
+| Element | Expected Outcome | Pass /Fail | Notes| 
+|---|---|---|---|
+| Search Bar| Users can search for products using keywords | Pass | Search queries product title and description |
+| Search Bar| Users can search for products using German keywords | Pass | Titles have German translations that can be searched |
+| Search Bar| Search results are displayed correctly| Pass | |
+| Search Bar | Returns product(s) matching the search query | Pass | |
+| Search Bar | Displays a message if no results are found | Pass | |
+| Sorting Options | Allows sorting products by different criteria | Pass | |
+
+### Product Listings & Details
+
+| Element | Expected Outcome | Pass /Fail | Notes| 
+|---|---|---|---|
+| Product List | Products are displayed in a responsive grid format | Pass | |
+| Product List | Products are displayed as cards with name, price, rating, and action buttons | Pass | |
+| Product Card | Clicking on a product card redirects to the product detail page | Pass | |
+| Product Details | Product details are displayed correctly | Pass | |
+| Add to Basket button | Add to Basket button adds the product to the basket | Pass | |
+| Add to Favorites button | Add to Favorites button toggles the product in the favorites list | Pass | |
+| Quantity Dropdown | Allows users to select the quantity of the product | Pass | |
+| Quantity Feedback | Provides feedback if the maximum quantity is reached | Pass | Users are asked to contact the store for more than 5 items of any product |
+| Reviews Section | Displays all reviews for a product | Pass | |
+| Reviews Section | Allows logged-in users to add, edit, or delete reviews | Pass | |
+
+### Basket
+
+| Element | Expected Outcome | Pass /Fail | Notes| 
+|---|---|---|---|
+| Basket | All items added to the basket are displayed | Pass | |
+| Basket | Displays delivery fee and total cost dynamically | Pass | Free delivery for orders over € 50 |
+| Quantity Dropdown | Users can update the quantity of items in the basket | Pass | The same maximum quantity applies as in the product details page |
+| Remove from Basket button | Users can remove items from the basket | Pass | |
+| Clear Basket button | Users can clear the entire basket | Pass | |
+
+### Checkout
+
+| Element | Expected Outcome | Pass /Fail | Notes| 
+|---|---|---|---|
+| Checkout Form | Users can enter shipping information | Pass | |
+| Checkout Form | Users can select payment method | Pass | |
+| Checkout Form | Users can select delivery method | Pass | |
+| Checkout Form | Users receive an order confirmation email | Pass | |
+| Checkout Form | Displays pre-filled user information for logged-in users | Pass | |
+| Checkout Form | Offers a county dropdown with all counties in Ireland | Pass | |
+| Checkout Form | The country field is set to Ireland by default and non-editable | Pass | |
+| Save my Details checkbox | Allows logged-in users to save payment information for future orders | Pass | |
+| Checkout Form | Allows guest checkout without requiring account creation | Pass | |
+| Sign in / Sign up option | Provides guest users with a link to create or sign in to an account | Pass | |
+| Stripe Element | Securely processes payments via Stripe | Pass | |
+| Stripe Element | Bypassed when selecting cash payment | Pass | |
+| Delivery Fee | Updates delivery fee dynamically | Pass | |
+| Order Summary | Displays items and total cost of the order | Pass | |
+
+### User Registration & Login
+
+| Element | Expected Outcome | Pass/Fail | Notes |
+|---|---|---|---|
+| User Registration | Users can create a new account using a valid email and password | Pass | |
+| Email Verification | Users receive a verification email | Pass | |
+| Change Password | Users can change their password | Pass | |
+| Delete Profile | Users can delete their profile | Pass | |
+| User Login | Users can log in with their credentials | Pass | |
+| User Profile | Users can view and update their profile information | Pass | |
+| User Profile | The country field is set to Ireland by default and non-editable | Pass | |
+| Order History | Users can view their order history | Pass | |
+| My Favorites | Users can view and manage their favorite products | Pass | |
+| My Favorites | Users can add products to the basket directly from the favorites list | Pass | |
+| Favorites List | Displays all favorited products as cards | Pass | |
+| My Favorites | Clicking on a product card navigates to the product details page | Pass | |
+| My Reviews | Users can view and manage their reviews | Pass | |
+
+### Admin Dashboard
+
+| Element | Expected Outcome | Pass/Fail | Notes |
+|---|---|---|---|
+| Admin Dashboard | Admins can view site statistics | Pass | |
+| Admin Dashboard | Admins can add, edit, and delete products | Pass | |
+| Admin Dashboard | Admins can manage user view and delete user reviews | Pass | |
+| Admin Dashboard | Admins can view and manage orders | Pass | |
+| Admin Dashboard | Admins can view and manage subscribers | Pass | |
+| Admin Dashboard | Admins can view and manage page contents | Pass | |
+
 [Back to top ⇧](#bake-me-happy-testing)
 
 ## Device and Browser Testing
@@ -495,6 +616,7 @@ Browser | Outcome | Pass/Fail
 | Adding a product review | Ratings added through the website rather than through fixtures override rather than update ratings declared in the fixtures | Not fixed |
 | Adding / Editing a product / Allergens| Allergens of products added / edited on the website are split by letter, e.g. "milk" turning into "m", "i", "l", "k" | Not fixed |
 | Adding a product | Products added through the website do not show up in alphabetical order on the manage products page, but rather at the end of the list | Fixed |
+| Summernote Editor | The editor does not resize correctly on mobile devices | Not fixed |
 
 [Back to top ⇧](#bake-me-happy-testing)
 
