@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class Allergen(models.Model):
+    """
+    Model representing allergens.
+    """
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Category(models.Model):
     """
     Model representing product categories.
@@ -60,9 +70,13 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     serving_size = models.CharField(max_length=50, default="Serving Size")
-    allergens = models.JSONField(default=list)
 
     # Optional fields
+    allergens = models.ManyToManyField(
+        'Allergen',
+        blank=True,
+    )
+
     category = models.ForeignKey(
         'Category',
         null=True,

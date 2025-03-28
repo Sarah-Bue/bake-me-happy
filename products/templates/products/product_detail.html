@@ -68,11 +68,15 @@
                         <!-- Allergen Information -->
                         <div class="mb-4 p-3 border border-warning rounded bg-light">
                             <strong>Allergens:</strong>
-                            <ul class="list-inline mb-0">
-                                {% for allergen in product.allergens %}
-                                    <li class="list-inline-item badge bg-warning text-dark">{{ allergen }}</li>
-                                {% endfor %}
-                            </ul>
+                            {% if product.allergens.exists %}
+                                <ul class="list-inline mb-0">
+                                    {% for allergen in product.allergens.all %}
+                                        <li class="list-inline-item badge bg-warning text-dark">{{ allergen.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>No allergens specified for this product.</p>
+                            {% endif %}
                         </div>
 
                         <!-- Category and Occasion (if available) -->

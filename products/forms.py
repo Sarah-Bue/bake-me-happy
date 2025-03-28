@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category, Occasion
+from .models import Product, Category, Occasion, Allergen
 from django_summernote.widgets import SummernoteWidget
 from .widgets import CustomClearableFileInput
 
@@ -9,10 +9,11 @@ class ProductForm(forms.ModelForm):
     A form for adding and editing products.
     """
 
-    allergens = forms.CharField(
-        required=True,
-        widget=forms.Textarea(attrs={'rows': 3}),
-        help_text="Enter allergens separated by commas (required)."
+    allergens = forms.ModelMultipleChoiceField(
+        help_text="Select all applicable allergens.",
+        queryset=Allergen.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
     )
 
     serving_size = forms.CharField(

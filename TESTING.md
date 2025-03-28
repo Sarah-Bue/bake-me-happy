@@ -616,7 +616,7 @@ Browser | Outcome | Pass/Fail
 | Adding a product review | Ratings added through the website rather than through fixtures override rather than update ratings declared in the fixtures | Not fixed |
 | Adding / Editing a product / Allergens| Allergens of products added / edited on the website are split by letter, e.g. "milk" turning into "m", "i", "l", "k" | Not fixed |
 | Adding a product | Products added through the website do not show up in alphabetical order on the manage products page, but rather at the end of the list | Fixed |
-| Summernote Editor | The editor does not resize correctly on mobile devices | Not fixed |
+| Summernote Editor | The editor does not resize correctly on mobile devices | Fixed |
 
 [Back to top ⇧](#bake-me-happy-testing)
 

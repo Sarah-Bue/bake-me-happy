@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, Occasion
+from .models import Product, Category, Occasion, Allergen
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -17,10 +17,17 @@ class ProductAdmin(SummernoteModelAdmin):
         'sku',
         'price',
         'serving_size',
-        'allergens',
         'rating',
         'image',
     )
+
+    def get_allergens(self, obj):
+        """
+        Custom method to display allergens in the admin panel.
+        """
+        return ", ".join([allergen.name for allergen in obj.allergens.all()])
+
+    get_allergens.short_description = 'Allergens'
 
     # Summernote configuration for the 'description' field
     summernote_fields = ('description',)
@@ -64,3 +71,4 @@ class OccasionAdmin(admin.ModelAdmin):
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Occasion, OccasionAdmin)
+admin.site.register(Allergen)
