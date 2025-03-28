@@ -29,8 +29,6 @@ Visit the deployed application [here](https://bake-me-happy-b9b73285e6cc.herokua
 5. [Features](#features)
     - [General](#general)
     - [Pages](#pages)
-    - [Content Management](#content-management)
-    - [User Authentication](#user-authentication)
     - [Future Features](#future-features)
 6. [Technologies Used](#technologies-used)
     - [Languages](#languages)
@@ -380,7 +378,40 @@ Open Sans, with a fallback of sans-serif, was applied to the body, buttons, and 
 
 ### Wireframes
 
-[Balsamiq](https://balsamiq.com/) was used to create wireframes for each page to display their appearance on both mobile and larger devices.
+[Balsamiq](https://balsamiq.com/) was used to create wireframes to display the pages' appearance on both mobile and larger devices. Since a lot of pages were going to be very similar in layout and functionality, not every page is represented in the table below. The templates have been adapted for the following pages: 
+
+**Allergen Information**:
+- Privacy Policy
+
+**Store Management Views:**
+- Manage Bakers
+- Manage Orders
+- Manage Subscribers
+- Manage Products
+- Manage Reviews
+- Manage Contacts
+
+**User Management Views:**
+- My Orders
+- My Favorites
+- My Reviews
+
+**Add / Edit View:**
+- Add / Edit a Product
+- Add / Edit a Review
+- Add / Edit a Baker
+- Edit About Content
+- Edit Allergen Information
+- Edit Privacy Policy
+
+**Allauth Forms:**
+- Sign In
+- Sign Out
+- Sign Up
+
+**Allauth Texts:**
+- Verifification / Reset Email sent
+
  
 Page | Desktop Version | Mobile Version
 --- | --- | ---
@@ -388,26 +419,39 @@ Home | ![Desktop Home Image](assets/readme-files/wireframes/home-desktop-wf.png)
 About | ![Desktop About Image](assets/readme-files/wireframes/about-desktop-wf.png)  | ![Mobile About Image](assets/readme-files/wireframes/about-mobile-wf.png)
 Contact Us | ![Desktop Contact Image](assets/readme-files/wireframes/contact-desktop-wf.png) | ![Mobile Contact Image](assets/readme-files/wireframes/contact-mobile-wf.png)
 FAQ | ![Desktop FAQ Image](assets/readme-files/wireframes/faq-desktop-wf.png) | ![Mobile FAQ Image](assets/readme-files/wireframes/faq-mobile-wf.png)
-Allergen Info & Privacy Policy | ![Desktop Allergen Info & Privacy Policy Image](assets/readme-files/wireframes/allergen-desktop-wf.png) | ![Mobile Allergen Info & Privacy Policy Image](assets/readme-files/wireframes/allergen-mobile-wf.png)
+Allergen Information | ![Desktop Allergen Information Image](assets/readme-files/wireframes/allergen-desktop-wf.png) | ![Mobile Allergen Information Image](assets/readme-files/wireframes/allergen-mobile-wf.png)
 Profile | ![Desktop Profile Image](assets/readme-files/wireframes/profile-desktop-wf.png) | ![Mobile Profile Image](assets/readme-files/wireframes/profile-mobile-wf.png)
-List Overviews | ![Desktop List Overview Image](assets/readme-files/wireframes/overviews-desktop-wf.png) | ![Mobile List Overview Image](assets/readme-files/wireframes/overviews-mobile-wf.png)
-Store Management | ![Desktop Store Management Image](assets/readme-files/wireframes/manage-desktop-wf.png) | ![Mobile Store Management Image](assets/readme-files/wireframes/manage-mobile-wf.png)
+Profile Views | ![Desktop List Overview Image](assets/readme-files/wireframes/profile-views-desktop-wf.png) | ![Mobile List Overview Image](assets/readme-files/wireframes/profile-views-mobile-wf.png)
+Store Management | ![Desktop Store Management Image](assets/readme-files/wireframes/store-management-desktop-wf.png) | ![Mobile Store Management Image](assets/readme-files/wireframes/store-management-mobile-wf.png)
+Store Management Views | ![Desktop Store Management Views Image](assets/readme-files/wireframes/store-management-views-desktop-wf.png) | ![Mobile Store Management Views Image](assets/readme-files/wireframes/store-management-views-mobile-wf.png)
 Product List | ![Desktop Product List Image](assets/readme-files/wireframes/product-list-desktop-wf.png) | ![Mobile Product List Image](assets/readme-files/wireframes/product-list-mobile-wf.png)
 Product Detail View | ![Desktop Product Details Image](assets/readme-files/wireframes/product-details-desktop-wf.png) | ![Mobile Product Details Image](assets/readme-files/wireframes/product-details-mobile-wf.png)
-Edit / Create View | ![Desktop Edit / Create View Image](assets/readme-files/wireframes/edit-create-desktop-wf.png) | ![Mobile Edit / Create View Image](assets/readme-files/wireframes/edit-create-mobile-wf.png)
-Sign In | ![Desktop Sign In Image](assets/readme-files/wireframes/sign-in-desktop-wf.png) | ![Mobile Sign In Image](assets/readme-files/wireframes/sign-in-mobile-wf.png)
-Sign Up | ![Desktop Sign Up Image](assets/readme-files/wireframes/sign-up-desktop-wf.png) | ![Mobile Sign Up Image](assets/readme-files/wireframes/sign-up-mobile-wf.png)
-Sign Out | ![Desktop Sign Out Image](assets/readme-files/wireframes/sign-out-desktop-wf.png) | ![Mobile Sign Out Image](assets/readme-files/wireframes/sign-out-mobile-wf.png)
+Add / Edit View | ![Desktop Edit / Create View Image](assets/readme-files/wireframes/add-edit-desktop-wf.png) | ![Mobile Edit / Create View Image](assets/readme-files/wireframes/add-edit-mobile-wf.png)
+Allauth Forms | ![Desktop Sign In Image](assets/readme-files/wireframes/allauth-forms-desktop-wf.png) | ![Mobile Sign In Image](assets/readme-files/wireframes/allauth-forms-mobile-wf.png)
+Allauth Texts | ![Desktop Sign In Image](assets/readme-files/wireframes/allauth-text-desktop-wf.png) | ![Mobile Sign In Image](assets/readme-files/wireframes/allauth-text-mobile-wf.png)
 404 Page | ![Desktop 404 Page Image](assets/readme-files/wireframes/404-desktop-wf.png) | ![Mobile 404 Page Image](assets/readme-files/wireframes/404-mobile-wf.png)
-
 
 ### Fixtures
 
+In order to create a realistic, immersive feeling for users, fixtures were created to upload products and product reviews.
+
+- For the products app, three .json files were created - *occasions.json* to manage 6 occasions, *categories.json* to manage 3 categories, and *products.json* to manage 35 products.
+- For the reviews app, one .json file - *reviews.json* -  was created to manage 23 product reviews.
 
 [Back to top ⇧](#bake-me-happy)
 
 ## User Experience (UX)
+
 ### Project Goals
+
+- The project incorporates a responsive design across different devices.
+- The project provides an intuitive structure and navigation.
+- The project has a pleasant, coherent design that invites users to explore the product range.
+- The project allows users to register and access their profiles.
+- The project allows users to have a pleasant shopping experience including a secure payment option.
+- The project incorporates full *CRUD* functionality so the user can interact with the content.
+- The project allows users to contact the site owners for questions and concerns.
+- The project allows site admins to manage the pages content and contacts in one place.
 
 ### User Stories
 
@@ -507,9 +551,153 @@ As a **logged-in shopper**, I can **view my favorites list** so that **easily ac
 [Back to top ⇧](#bake-me-happy)
 
 ## Features
-### Existing Features
+
+### General
+
+#### Responsiveness
+
+
+
+<details>
+    <summary> Mobile Menu Image </summary>
+    <img src = "assets/readme-files/images/mobile-menu.png">
+</details>
+
+<details>
+    <summary> Mobile Menu Image </summary>
+    <img src = "assets/readme-files/images/mobile-menu.png">
+</details>
+
+#### Header & Navigation
+
+The navigation bar is the same across all pages to provide users with a familiar layout and allow them to focus on the content of each page. It contains the logo in the top left, doubling as a home page link. It also includes links to the main pages across the top, which will take on a different color when active. Its dark color provides a visual framing for the website.
+The navigation bar contains a dynamically updated visual indicator of the shopping basket, which serves as a link to the baset.
+The navigation bar includes a collapsible profile menu with changing options depending on the status of the user - guest user vs. logged in user vs site admin.
+<br>
+Secondary navigation bars appear on product and profile pages to allow quick and easy access to related functions.
+<br>
+The header includes the main background image, which displays a welcome message across the home page. The image is visible on all front-facing pages except the home page, to avoid visual clutter. However, it is not rendered on admin-related pages like store management to allow for better focus.
+
+<details>
+    <summary> Header Image </summary>
+    <img src = "assets/readme-files/images/header.png">
+</details>
+
+<details>
+    <summary> No Header Image </summary>
+    <img src = "assets/readme-files/images/no-header.png">
+</details>
+
+<details>
+    <summary> Product Navbar Image </summary>
+    <img src = "assets/readme-files/images/product-navbar.png">
+</details>
+
+<details>
+    <summary> Profile Image </summary>
+    <img src = "assets/readme-files/images/profile-navbar.png">
+</details>
+
+#### Footer
+
+The footer is the same across all pages to provide users with a familiar layout and allow them to focus on the content of each page. It has the same color as the navigation bars to provide the bottom frame of the content.
+The footer contains business related links, including links to the proivacy policy and allergen informaiton pages which are only accessible from there. The footer also contains the business' contact information, including social media links. Lastly, the footer contains a simple newsletter signup fiels, allowing users to subscrbe by simply entering their email address.
+<br>
+Due to the density of informaiton in the footer, it appears quite large on mobile devices.
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
+### Pages
+
+#### Home
+
+The home page contains multiple buttons to take the user to the store, including buttons to go straight to a filtered products, if users are only interested in a certain category.
+The home page contains a clearly visible call to action, to invite users to start shopping or contact the business with questions, as well as a carousel displaying customer testimonials to showcase the positive relationship between the business and its customers.
+
+<details>
+    <summary> Home Image </summary>
+    <img src = "assets/readme-files/images/home.png">
+</details>
+
+#### Contact Us
+
+The contact us page contains multiple ways to contact the business, including a contact form. The contact form lets users select a subject from a predefined list to help sort and group incoming messages.
+
+<details>
+    <summary> Contact Us Image </summary>
+    <img src = "assets/readme-files/images/contact-form.png">
+</details>
+
+#### About Us
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
+#### FAQ
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
+#### Product List
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
+#### Product Details
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
+#### Basket
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
+#### Checkout
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
+#### Profile
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
+#### Store Management
+
+<details>
+    <summary> Footer Image </summary>
+    <img src = "assets/readme-files/images/footer.png">
+</details>
+
 ### Future Features
 
+The following features could be implement in future versions of the site to improve both the user experience and site functionality:
+
+- Social media sign in
+- Additional payment options
+- Dynamic order status updates for admins and users
+- Recurring orders and subscriptions
+- A newsletter signup pop up
+- Promo codes at checkout
+- Search options for admin views
 
 [Back to top ⇧](#bake-me-happy)
 
