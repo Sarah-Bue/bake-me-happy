@@ -1,0 +1,80 @@
+/* Profile Form */
+
+.profile-form-input {
+    box-sizing: border-box;
+    height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: white;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.profile-form-input:focus,
+.profile-form-input:active {
+    border-color: #212529;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.15);
+}
+
+.profile-form-input::placeholder {
+    color: #6c757d;
+}
+
+/* County Field */
+
+#id_default_county,
+#id_default_county option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_county option:first-child {
+    color: #6c757d;
+}
+
+.profile-form-input:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.15);
+}
+
+/* Order History */
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
+
+/* Profile page styles */
+.profile-form-input {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#profile-view strong {
+    font-weight: bold;
+    color: #333;
+}
+
+#profile-view p {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* Country select specific formatting */
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #6c757d !important;
+}

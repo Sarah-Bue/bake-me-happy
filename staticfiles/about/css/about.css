@@ -1,0 +1,72 @@
+/* ---------- Baker Profile Styles ---------- */
+
+.baker-profile {
+    padding: 1.5rem;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.baker-profile:hover {
+    transform: translateY(-5px);
+}
+
+.baker-image-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #f8f9fa;
+}
+
+.baker-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.baker-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+}
+
+.baker-title {
+    color: #6c757d;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.baker-bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ---------- FAQ Styles ---------- */
+
+/* Custom accordion styling */
+
+.accordion-button {
+    background-color: #f8f9fa !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #4f3527 !important;
+    color: #f8f9fa;
+}
+
+/* Ensure the focus state maintains the custom color */
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(241, 212, 198, 0.25);
+}
+
+/* ---------- Privcy Policy Styles ---------- */
+
+/* Remove underlines from navbar links */
+.navbar a, 
+.navbar-nav .nav-link,
+.navbar .navbar-nav .nav-link {
+    text-decoration: none !important;
+}
