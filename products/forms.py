@@ -28,6 +28,14 @@ class ProductForm(forms.ModelForm):
         widgets = {
             'description': SummernoteWidget(),
             'image': CustomClearableFileInput(),
+            'rating': forms.NumberInput(attrs={
+                'min': 1,
+                'max': 5,
+                'step': 0.1,
+            }),
+        }
+        help_texts = {
+            'rating': 'Enter a rating between 1 and 5.',
         }
 
     def __init__(self, *args, **kwargs):
