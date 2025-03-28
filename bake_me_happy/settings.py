@@ -81,6 +81,20 @@ INSTALLED_APPS = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+# Summernote Configuration
+SUMMERNOTE_CONFIG = {
+    'iframe': False,  # Disable iframe to make the editor responsive
+    'width': '100%',
+    'height': '300',
+    'toolbar': [
+        ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen', 'codeview', 'help']],
+    ],
+}
+
 # Middleware framework for request/response processing
 
 MIDDLEWARE = [
