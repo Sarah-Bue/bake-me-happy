@@ -751,6 +751,7 @@ The following features could be implement in future versions of the site to impr
 - Promo codes at checkout
 - Search options for admin views
 - Search / sort by allergens and ingredients
+- Move the store management section to a separate app
 
 [Back to top ⇧](#bake-me-happy)
 
@@ -789,7 +790,7 @@ The following features could be implement in future versions of the site to impr
 - [PEP8 Online Check](https://pep8ci.herokuapp.com) was used to validate the Python code.
 - [SQLite](https://www.sqlite.com/index.html) was used as a single-file database during development.
 - [Stripe](https://stripe.com/en-gb-nl) was used to process all online payment transactions.
-- [Tiny PNG](https://tinypng.com) was used to reduce the file size of images.
+- [Image Resizer](https://imageresizer.com/) was used to reduce the file size of images.
 - [Visual Studio Code](https://code.visualstudio.com) was used to write and edit the code.
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS code.
 - [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code.
@@ -1062,6 +1063,8 @@ The following resources were consulted frequently:
 - [JavaScript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - Developedbyed's *Learn Javascript* [Youtube Playlist](https://www.youtube.com/playlist?list=PLDyQo7g0_nsXlSfuoBpG5Fgz0Qe3IvWnA)
 - Codemy's *Let's build an e-commerce website* [Youtube Playlist](https://www.youtube.com/watch?v=u6R4vBa7ZK4&list=PLCC34OHNcOtpRfBYk-8y0GMO4i1p1zn50)
+- [Stackoverflow](https://stackoverflow.com/questions)
+- [W3Schools](https://www.w3schools.com/)
 
 
 ### Media

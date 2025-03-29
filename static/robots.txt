@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://bake-me-happy-b9b73285e6cc.herokuapp.com/sitemap.xmls

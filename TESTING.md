@@ -484,6 +484,7 @@ As a **shopper**, I can **view detailed answers to frequently asked questions** 
 | Main Navigation Bar | Profile dropdown options depend on user status | Pass | Log in / Log out toggle, only logged-in users see profile option, only site admins see store managemend option |
 | Secondary Navigation Bar | On product pages, a secondary product navigation bar is displayed | Pass | |
 | Secondary Navigation Bar | On profile pages, a secondary profile navigation bar is displayed | Pass | |
+| Secondary Navigation Bar | Active page is highlighted | Pass | When viewing product pages on a desktop, the active / filtered link in the navbar does not change color, however, it does on mobile |
 | Header Image | The header image is not rendered on admin pages | Pass | |
 
 ### Footer
