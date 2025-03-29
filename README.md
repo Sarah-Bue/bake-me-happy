@@ -1065,6 +1065,7 @@ The following resources were consulted frequently:
 - Codemy's *Let's build an e-commerce website* [Youtube Playlist](https://www.youtube.com/watch?v=u6R4vBa7ZK4&list=PLCC34OHNcOtpRfBYk-8y0GMO4i1p1zn50)
 - [Stackoverflow](https://stackoverflow.com/questions)
 - [W3Schools](https://www.w3schools.com/)
+- [WCAG 2.1](https://www.w3.org/WAI/standards-guidelines/wcag/)
 
 
 ### Media

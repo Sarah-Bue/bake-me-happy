@@ -5,22 +5,22 @@
         <div class="collapse navbar-collapse" id="productNavbarSupportedContent" role="menubar" aria-label="Product categories">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" role="menubar" aria-label="Product categories">
                 <li class="nav-item" role="none">
-                    <a class="nav-link text-decoration-none {% if request.resolver_match.url_name == 'products' and not request.GET.category %}text-warning{% else %}text-white{% endif %}" href="{% url 'products' %}" role="menuitem" aria-label="Browse all products">
+                    <a class="nav-link text-decoration-none {% if not request.GET.category %}text-warning{% else %}text-white{% endif %}" href="{% url 'products' %}" role="menuitem" aria-label="Browse all products">
                         All Products
                     </a>
                 </li>
                 <li class="nav-item" role="none">
-                    <a class="nav-link text-decoration-none {% if request.resolver_match.url_name == 'breads_rolls' and not request.GET.category %}text-warning{% else %}text-white{% endif %}" href="{% url 'products' %}?category=breads_rolls" role="menuitem" aria-label="Browse breads and rolls">
+                    <a class="nav-link text-decoration-none {% if request.GET.category == 'breads_rolls' %}text-warning{% else %}text-white{% endif %}" href="{% url 'products' %}?category=breads_rolls" role="menuitem" aria-label="Browse breads and rolls">
                         Breads & Rolls
                     </a>
                 </li>
                 <li class="nav-item" role="none">
-                    <a class="nav-link text-decoration-none {% if request.resolver_match.url_name == 'cakes_tarts' and not request.GET.category %}text-warning{% else %}text-white{% endif %}" href="{% url 'products' %}?category=cakes_tarts" role="menuitem" aria-label="Browse cakes and tarts">
+                    <a class="nav-link text-decoration-none {% if request.GET.category == 'cakes_tarts' %}text-warning{% else %}text-white{% endif %}" href="{% url 'products' %}?category=cakes_tarts" role="menuitem" aria-label="Browse cakes and tarts">
                         Cakes & Tarts
                     </a>
                 </li>
                 <li class="nav-item" role="none">
-                    <a class="nav-link text-decoration-none {% if request.resolver_match.url_name == 'cookies_pastries' and not request.GET.category %}text-warning{% else %}text-white{% endif %}" href="{% url 'products' %}?category=cookies_pastries" role="menuitem" aria-label="Browse cookies and pastries">
+                    <a class="nav-link text-decoration-none {% if request.GET.category == 'cookies_pastries' %}text-warning{% else %}text-white{% endif %}" href="{% url 'products' %}?category=cookies_pastries" role="menuitem" aria-label="Browse cookies and pastries">
                         Cookies & Pastries
                     </a>
                 </li>
