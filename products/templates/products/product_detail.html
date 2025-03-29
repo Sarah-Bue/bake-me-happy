@@ -34,11 +34,11 @@
                     <div class="card-body p-4 d-flex justify-content-center align-items-center">
                         {% if product.image %}
                             <a href="{{ product.image.url }}" target="_blank" aria-label="View full size image of {{ product.name }}">
-                                <img class="card-img-top product-full-image" src="{{ product.image.url }}" alt="Detailed product image of {{ product.name }}">
+                                <img loading="lazy" class="card-img-top product-full-image lazy-img" src="{{ product.image.url }}" alt="Detailed product image of {{ product.name }}">
                             </a>
                         {% else %}
                             <a href="{{ MEDIA_URL }}noimage.png" target="_blank" aria-label="No image available for {{ product.name }}">
-                                <img class="card-img-top product-full-image" src="{{ MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}">
+                                <img loading="lazy" class="card-img-top product-full-image lazy-img" src="{{ product.image.url }}" alt="Detailed product image of {{ product.name }}">MEDIA_URL }}noimage.png" alt="No image available for {{ product.name }}">
                             </a>
                         {% endif %}
                     </div>

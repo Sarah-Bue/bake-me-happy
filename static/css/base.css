@@ -31,6 +31,14 @@ h1, h2, h3, .card-title, .navbar-brand {
     font-weight: 600;
 }
 
+/* Image Loading */
+
+.lazy-img {
+    background-color: #F9F5F1;
+    display: block;
+    width: 100%;
+    height: auto;
+}
 
 /* ---------- Buttons ---------- */
 

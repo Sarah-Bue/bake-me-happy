@@ -30,7 +30,7 @@
                 </div>
             </div>     
             <div class="col-12 col-md-6 position-relative baker-profile order-1 order-md-2">
-                <img src="{{ MEDIA_URL }}logo.png" alt="Bake Me Happy Logo" class="img-fluid about-logo d-none d-md-block">
+                <img src="{{ MEDIA_URL }}logo.png" alt="Bake Me Happy Logo" loading="lazy" class="lazy-img img-fluid about-logo d-none d-md-block">
             </div>   
         </section>
 
@@ -49,9 +49,9 @@
                         <article class="baker-profile">
                             <div class="baker-image-container">
                                 {% if baker.image %}
-                                    <img src="{{ baker.image.url }}" class="baker-image" alt="{{ baker.name }}">
+                                    <img src="{{ baker.image.url }}" loading="lazy" class="lazy-img baker-image" alt="{{ baker.name }}">
                                 {% else %}
-                                    <img src="{{ MEDIA_URL }}noimage.png" class="baker-image" alt="No profile photo available for {{ baker.name }}">
+                                    <img src="{{ MEDIA_URL }}noimage.png" loading="lazy" class="lazy-img baker-image" alt="No profile photo available for {{ baker.name }}">
                                 {% endif %}
                             </div>
                             <div class="text-center mt-4">
